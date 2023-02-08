@@ -1,0 +1,14 @@
+{
+    admin 0.0.0.0:8020
+}
+
+{$SERVER_NAME} {
+  tls {$TLS_EMAIL}
+  reverse_proxy artist-strapi-internal:1337
+  encode gzip
+
+  # Replace cache-control from strapi (2592000=30days)
+  header /uploads/* Cache-Control "public, max-age=2592000" {
+    defer
+  }
+}
