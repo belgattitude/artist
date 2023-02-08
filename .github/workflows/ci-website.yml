@@ -18,7 +18,6 @@ jobs:
 
     defaults:
       run:
-        shell: bash
         working-directory: apps/website
 
     steps:
