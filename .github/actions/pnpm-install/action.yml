@@ -49,7 +49,7 @@ runs:
 
     - name: Install dependencies
       shell: bash
-      run: pnpm install --frozen-lockfile --strict-peer-dependencies --prefer-offline
+      run: pnpm i --frozen-lockfile --prefer-offline
       env:
         # Other environment variables
         HUSKY: '0' # By default do not run HUSKY install
