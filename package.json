@@ -12,6 +12,7 @@
     "url": "https://github.com/belgattitude"
   },
   "scripts": {
+    "install:strapi": "cd apps/strapi && yarn install",
     "g:clean": "pnpm clean:global-cache && pnpm -r clean",
     "g:build": "pnpm -r build",
     "g:build-changed": "pnpm -r -F '...[origin/main]' build",
@@ -23,7 +24,7 @@
     "g:lint-staged-files": "lint-staged --allow-empty",
     "g:fix-all-files": "pnpm -r fix-all-files",
     "g:check-dist": "pnpm -r --parallel check-dist",
-    "clean:global-cache": "rimraf --no-glob ./.cache",
+    "clean:global-cache": "rimraf ./.cache",
     "apps:build": "pnpm -F './apps/**' run build",
     "apps:clean": "pnpm -F './apps/**' run clean",
     "packages:build": "pnpm -F './packages/**' build",
@@ -31,11 +32,11 @@
     "packages:lint": "pnpm -F './packages/**' lint",
     "packages:typecheck": "pnpm -F './packages/**' typecheck",
     "packages:clean": "pnpm -F './packages/**' clean",
-    "nuke:node_modules": "rimraf '**/node_modules'",
+    "nuke:node_modules": "npx -y rimraf@3.0.1 '**/node_modules'",
     "deps:check": "npx -y npm-check-updates@latest --configFileName ncurc.yml --deep --mergeConfig",
     "deps:update": "npx -y npm-check-updates@latest --configFileName ncurc.yml -u --deep --mergeConfig",
     "install:playwright": "playwright install",
-    "deduplicate": "pnpm deduplicate",
+    "deduplicate": "pnpm dedupe",
     "docs:serve": "docsify serve ./docs",
     "postinstall": "is-ci || pnpm husky install"
   },
@@ -48,7 +49,7 @@
     "@commitlint/config-conventional": "17.4.2",
     "@types/prettier": "2.7.2",
     "@types/shell-quote": "1.7.1",
-    "@belgattitude/eslint-config-bases": "1.18.0",
+    "@belgattitude/eslint-config-bases": "1.19.0",
     "eslint": "8.33.0",
     "husky": "8.0.3",
     "is-ci": "3.0.1",
@@ -56,7 +57,6 @@
     "npm-run-all": "4.1.5",
     "prettier": "2.8.4",
     "rimraf": "4.1.2",
-    "shell-quote": "1.8.0",
     "typescript": "4.9.5"
   },
   "engines": {

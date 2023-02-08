@@ -1,9 +1,6 @@
 // @ts-check
 
 const path = require('path');
-const escape = require('shell-quote').quote;
-
-const isWin = process.platform === 'win32';
 
 const eslintGlobalRulesForFix = [
   // react-hooks/eslint and react in general is very strict about exhaustively
@@ -77,9 +74,7 @@ const getEslintFixCmd = ({
  * @returns {string} Return concatenated and escaped filenames
  */
 const concatFilesForPrettier = (filenames) =>
-  filenames
-    .map((filename) => `"${isWin ? filename : escape([filename])}"`)
-    .join(' ');
+  filenames.map((filename) => `"${filename}"`).join(' ');
 
 const concatFilesForStylelint = concatFilesForPrettier;
 

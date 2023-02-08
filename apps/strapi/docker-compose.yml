@@ -1,0 +1,108 @@
+services:
+  artist-strapi:
+    container_name: artist-strapi
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        USER_ID: ${USER_ID:-1000}
+        GROUP_ID: ${GROUP_ID:-1000}
+      #target: develop
+    image: artist-strapi:latest
+    restart: unless-stopped
+    hostname: artist-strapi-internal
+    env_file: ./.env
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      NODE_ENV: ${NODE_ENV:-production}
+    volumes:
+      # Share the source code to allow development
+      #- .:/app/
+      # Share the env
+      - ./.env:/app/.env
+      # Share the sqlite database
+      - ./data:/app/data
+      # Share the image uploads database
+      - ./public/uploads:/app/public/uploads
+
+      #- strapi-vlm-uploads:/app/public/uploads
+      # For install, build and development use volumes
+      # to prevent platform/ownership issues between host and container
+      #- artist-strapi-vlm-build:/app/build
+      #- artist-strapi-vlm-cache:/app/.cache
+      - artist-strapi-vlm-nm:/app/node_modules
+    ports:
+      - '1337:1337'
+    networks:
+      - cloud-net
+
+  artist-caddy:
+    container_name: artist-caddy
+    image: caddy:2.6-alpine
+    profiles:
+      - donotstart
+    depends_on:
+      - artist-strapi
+    restart: unless-stopped
+    env_file: ./.env
+    environment:
+      SERVER_NAME: ${CADDY_SERVER_NAME:-localhost}, caddy:80
+      TLS_EMAIL: ${CADDY_TLS_EMAIL:-internal}
+    ports:
+      # HTTPS
+      - target: 443
+        published: ${HTTPS_PORT:-443}
+        protocol: tcp
+      # HTTP/3
+      - target: 443
+        published: ${HTTP3_PORT:-443}
+        protocol: udp
+
+    volumes:
+      - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - artist-caddy-data:/data
+      - artist-caddy-config:/config
+
+    networks:
+      - cloud-net
+
+  artist-postgresql:
+    container_name: artist-postgresql
+    profiles:
+      - donotstart
+    platform: linux/amd64 #for platform error on Apple M1 chips
+    restart: unless-stopped
+    env_file: ./.env
+    image: postgres:15.1-alpine3.17
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME:-strapi}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-strapi}
+      POSTGRES_DB: ${DATABASE_NAME:-artist-strapi}
+    volumes:
+      - artist-strapi-vlm-postgresql-data:/var/lib/postgresql/data/
+    ports:
+      - '5432:5432'
+    networks:
+      - cloud-net
+    depends_on:
+      - artist-strapi
+
+volumes:
+  artist-strapi-vlm-postgresql-data:
+    labels:
+      type: 'db-data'
+  artist-strapi-vlm-nm:
+    labels:
+      type: 'removable'
+  artist-caddy-data:
+    labels:
+      type: 'webserver'
+  artist-caddy-config:
+    labels:
+      type: 'webserver'
+
+networks:
+  cloud-net:
+    name: cloud-net
+    driver: bridge
