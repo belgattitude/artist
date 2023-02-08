@@ -31,11 +31,11 @@
     "packages:lint": "pnpm -F './packages/**' lint",
     "packages:typecheck": "pnpm -F './packages/**' typecheck",
     "packages:clean": "pnpm -F './packages/**' clean",
-    "nuke:node_modules": "rimraf '**/node_modules'",
+    "nuke:node_modules": "npx -y rimraf@3.0.1 '**/node_modules'",
     "deps:check": "npx -y npm-check-updates@latest --configFileName ncurc.yml --deep --mergeConfig",
     "deps:update": "npx -y npm-check-updates@latest --configFileName ncurc.yml -u --deep --mergeConfig",
     "install:playwright": "playwright install",
-    "deduplicate": "pnpm deduplicate",
+    "deduplicate": "pnpm dedupe",
     "docs:serve": "docsify serve ./docs",
     "postinstall": "is-ci || pnpm husky install"
   },
