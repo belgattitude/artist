@@ -10,9 +10,9 @@ WORKDIR /app
 
 COPY ./package.json ./yarn.lock ./.yarnrc.yml ./
 
-RUN --mount=type=cache,target=/var/cache/yarn-mindfulness-strapi,rw \
+RUN --mount=type=cache,target=/var/cache/yarn-artist-strapi,rw \
     YARN_ENABLE_GLOBAL_CACHE="false" \
-    YARN_CACHE_FOLDER=/var/cache/yarn-mindfulness-strapi \
+    YARN_CACHE_FOLDER=/var/cache/yarn-artist-strapi \
     yarn install --immutable --inline-builds
 
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} as builder
