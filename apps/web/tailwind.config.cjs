@@ -3,7 +3,6 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    // './node_modules/flowbite-react/**/*.js',
     './src/**/*.tsx',
   ],
   theme: {
@@ -59,6 +58,5 @@ module.exports = {
     require('@tailwindcss/typography'),
     // require('@tailwindcss/aspect-ratio'),
     // require('@tailwindcss/forms'),
-    // require('flowbite/plugin'),
   ],
 };

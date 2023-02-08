@@ -70,7 +70,7 @@ let nextConfig = {
     deviceSizes: [750, 828, 1080, 1200], // default: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [32, 48, 64, 96], // default: [16, 32, 48, 64, 96, 128, 256, 384]
     // Allow domains and set default ttl if not provided upstream
-    domains: [strapiHostname, 'images.unsplash.com'],
+    domains: [strapiHostname, 'images.unsplash.com', 'media.failwell.be'],
     minimumCacheTTL: 86_400,
   },
 
@@ -99,6 +99,7 @@ let nextConfig = {
   },
 
   experimental: {
+    appDir: true,
     // https://nextjs.org/docs/messages/google-fonts-missing-subsets
     fontLoaders: [
       { loader: '@next/font/google', options: { subsets: ['latin'] } },

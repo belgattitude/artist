@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "?dev-no-tls": "Disable node tls verifications in dev. So we can use sefl-signed certs",
     "dev-no-tls": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 next dev",
     "build": "next build",
     "build-fast": "cross-env NEXTJS_IGNORE_TYPECHECK=1 next build --no-lint",
@@ -23,10 +22,6 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@emotion/cache": "11.10.5",
-    "@emotion/react": "11.10.5",
-    "@emotion/server": "11.10.0",
-    "@emotion/styled": "11.10.5",
     "@httpx/exception": "1.7.1",
     "@next/font": "13.1.7-canary.7",
     "@nextvalid/zod-request": "0.4.0",
@@ -54,7 +49,6 @@
   },
   "devDependencies": {
     "@belgattitude/eslint-config-bases": "1.18.0",
-    "@emotion/babel-preset-css-prop": "11.10.0",
     "@graphql-codegen/cli": "3.0.0",
     "@graphql-codegen/client-preset": "2.0.0",
     "@graphql-codegen/typescript": "3.0.0",
