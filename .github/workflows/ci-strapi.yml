@@ -32,7 +32,7 @@ jobs:
       - name: 📥 Monorepo install
         uses: ./.github/actions/yarn-nm-install
         with:
-          cwd: ${{ github.workspace }}/strapi
+          cwd: ${{ github.workspace }}/apps/strapi
 
       - name: Build strapi
         run: yarn build
