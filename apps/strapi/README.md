@@ -1,6 +1,5 @@
 ## Docker
 
 ```bash
-docker compose run mindfulness-strapi sh
-``
+docker compose run artist-strapi sh
 ```
