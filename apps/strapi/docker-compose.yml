@@ -33,7 +33,7 @@ services:
       #- artist-strapi-vlm-cache:/app/.cache
       - artist-strapi-vlm-nm:/app/node_modules
     ports:
-      - '1337:1337'
+      - '1338:1337'
     networks:
       - cloud-net
 
