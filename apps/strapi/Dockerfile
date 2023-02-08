@@ -41,6 +41,6 @@ COPY --from=builder --chown=node:node /app/config ./config
 COPY --from=builder --chown=node:node /app/src ./src
 COPY --from=builder --chown=node:node /app/database ./database
 EXPOSE 1337
-CMD ["./node_modules/.bin/strapi", "start"]
+CMD ["./node_modules/.bin/strapi", "develop"]
 
 
