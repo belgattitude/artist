@@ -1,3 +1,4 @@
+name: artist
 services:
   artist-strapi:
     container_name: artist-strapi
@@ -31,7 +32,7 @@ services:
       # to prevent platform/ownership issues between host and container
       #- artist-strapi-vlm-build:/app/build
       #- artist-strapi-vlm-cache:/app/.cache
-      - artist-strapi-vlm-nm:/app/node_modules
+      - strapi-vlm-nm:/app/node_modules
     ports:
       - '1338:1337'
     networks:
@@ -61,8 +62,8 @@ services:
 
     volumes:
       - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
-      - artist-caddy-data:/data
-      - artist-caddy-config:/config
+      - caddy-data:/data
+      - caddy-config:/config
 
     networks:
       - cloud-net
@@ -80,7 +81,7 @@ services:
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-strapi}
       POSTGRES_DB: ${DATABASE_NAME:-artist-strapi}
     volumes:
-      - artist-strapi-vlm-postgresql-data:/var/lib/postgresql/data/
+      - strapi-vlm-postgresql-data:/var/lib/postgresql/data/
     ports:
       - '5432:5432'
     networks:
@@ -89,16 +90,16 @@ services:
       - artist-strapi
 
 volumes:
-  artist-strapi-vlm-postgresql-data:
+  strapi-vlm-postgresql-data:
     labels:
       type: 'db-data'
-  artist-strapi-vlm-nm:
+  strapi-vlm-nm:
     labels:
       type: 'removable'
-  artist-caddy-data:
+  caddy-data:
     labels:
       type: 'webserver'
-  artist-caddy-config:
+  caddy-config:
     labels:
       type: 'webserver'
 
