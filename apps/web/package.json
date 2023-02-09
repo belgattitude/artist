@@ -22,6 +22,7 @@
   "dependencies": {
     "@httpx/exception": "1.7.1",
     "@next/font": "13.1.7-canary.8",
+    "@next/mdx": "^13.1.6",
     "@nextvalid/zod-request": "0.4.0",
     "@tanstack/query-core": "4.24.4",
     "@tanstack/react-query": "4.24.4",
