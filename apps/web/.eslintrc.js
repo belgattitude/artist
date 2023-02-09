@@ -8,6 +8,12 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: 'tsconfig.json',
   },
+  settings: {
+    'mdx/code-blocks': true,
+    // optional, if you want to disable language mapper, set it to `false`
+    // if you want to override the default language mapper inside, you can provide your own
+    'mdx/language-mapper': {},
+  },
   ignorePatterns: [...getDefaultIgnorePatterns()],
   extends: [
     '@belgattitude/eslint-config-bases/typescript',
@@ -16,6 +22,8 @@ module.exports = {
     '@belgattitude/eslint-config-bases/tailwind',
     '@belgattitude/eslint-config-bases/storybook',
     'next/core-web-vitals',
+    // after next plugins to avoid parser errors
+    '@belgattitude/eslint-config-bases/mdx',
     // Apply prettier and disable incompatible rules
     '@belgattitude/eslint-config-bases/prettier-plugin',
   ],

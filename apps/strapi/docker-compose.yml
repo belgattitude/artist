@@ -25,7 +25,7 @@ services:
       # Share the sqlite database
       - ./data:/app/data
       # Share the image uploads database
-      - ./public/uploads:/app/public/uploads
+      - ${DOCKER_UPLOAD_HOST_DIRECTORY:-./public/uploads}:/app/public/uploads
 
       #- strapi-vlm-uploads:/app/public/uploads
       # For install, build and development use volumes

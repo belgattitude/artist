@@ -1,6 +1,9 @@
 // @ts-check
 
 const withBundleAnalyzer = require('@next/bundle-analyzer');
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+});
 // @ts-ignore
 const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
 const { createSecureHeaders } = require('next-secure-headers');
@@ -56,6 +59,8 @@ const secureHeaders = createSecureHeaders({
 let nextConfig = {
   reactStrictMode: true,
 
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+
   transpilePackages: isProd
     ? [
         // dist make usage of nullish ?.
@@ -100,6 +105,7 @@ let nextConfig = {
 
   experimental: {
     appDir: true,
+    mdxRs: true,
     // https://nextjs.org/docs/messages/google-fonts-missing-subsets
     fontLoaders: [
       { loader: '@next/font/google', options: { subsets: ['latin'] } },
@@ -152,4 +158,4 @@ if (process.env.ANALYZE === 'true') {
   })(nextConfig);
 }
 
-module.exports = nextConfig;
+module.exports = withMDX(nextConfig);
