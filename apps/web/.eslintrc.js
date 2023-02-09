@@ -21,8 +21,10 @@ module.exports = {
     '@belgattitude/eslint-config-bases/react-query',
     '@belgattitude/eslint-config-bases/tailwind',
     '@belgattitude/eslint-config-bases/storybook',
-    '@belgattitude/eslint-config-bases/mdx',
+
     'next/core-web-vitals',
+    '@belgattitude/eslint-config-bases/mdx',
+
     // Apply prettier and disable incompatible rules
     '@belgattitude/eslint-config-bases/prettier-plugin',
   ],

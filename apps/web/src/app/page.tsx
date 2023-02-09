@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Content from './message.mdx';
+import Content from '@/components/message.mdx';
 const img = 'https://media.failwell.be/pictures/butoh-picture.jpg';
 export default function HomePage() {
   return (
