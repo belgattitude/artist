@@ -1,5 +1,5 @@
 import Image from 'next/image';
-
+import Content from './message.mdx';
 const img = 'https://media.failwell.be/pictures/butoh-picture.jpg';
 export default function HomePage() {
   return (
@@ -9,6 +9,7 @@ export default function HomePage() {
 
       <p>New website coming soon</p>
       <Image src={img} width={800} height={400} alt={'Butoh picture'} />
+      <Content />
     </div>
   );
 }
