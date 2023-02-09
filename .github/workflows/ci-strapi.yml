@@ -21,12 +21,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: ⚙️ Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Enable Corepack
+      - name: ⚙️ Enable Corepack
         run: corepack enable
 
       - name: 📥 Monorepo install
@@ -34,7 +34,7 @@ jobs:
         with:
           cwd: ${{ github.workspace }}/apps/strapi
 
-      - name: Build strapi
+      - name: 🏗 Build strapi
         run: yarn build
         env:
           DATABASE_FILENAME: data/artist.ci.sqlite.db
