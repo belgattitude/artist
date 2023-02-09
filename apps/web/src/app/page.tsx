@@ -8,7 +8,13 @@ export default function HomePage() {
       <p>Dancer | Instant composition | Project</p>
 
       <p>New website coming soon</p>
-      <Image src={img} width={800} height={400} alt={'Butoh picture'} />
+      <Image
+        priority={true}
+        src={img}
+        width={800}
+        height={400}
+        alt={'Butoh picture'}
+      />
       <Content />
     </div>
   );
