@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import Content from '@/components/message.mdx';
+import type { FC } from 'react';
 const img = 'https://media.failwell.be/pictures/butoh-picture.jpg';
-export default function HomePage() {
+const HomePage: FC = () => {
   return (
     <div className={'border-1 container p-5'}>
       <h1>Sébastien Vanvelthem</h1>
@@ -15,7 +15,8 @@ export default function HomePage() {
         height={400}
         alt={'Butoh picture'}
       />
-      <Content />
     </div>
   );
-}
+};
+
+export default HomePage;

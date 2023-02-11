@@ -1,0 +1,18 @@
+'use client';
+
+import type { FC, PropsWithChildren } from 'react';
+import { MainNav } from './main-nav';
+
+type Props = PropsWithChildren & {
+  hideMainNav?: boolean;
+};
+
+export const MainLayout: FC<Props> = (props) => {
+  const { hideMainNav } = props;
+  return (
+    <div>
+      <MainNav extraCls={hideMainNav ? 'hidden' : ''} />
+      <div>{props.children}</div>
+    </div>
+  );
+};
