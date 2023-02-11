@@ -1,8 +1,9 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import type { FC } from 'react';
 const img = 'https://media.failwell.be/pictures/butoh-picture.jpg';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Home',
 };
 
