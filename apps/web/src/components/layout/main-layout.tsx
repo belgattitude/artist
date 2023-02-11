@@ -1,6 +1,7 @@
 'use client';
 
 import type { FC, PropsWithChildren } from 'react';
+import { MainFooter } from '@/components/layout/main-footer';
 import { MainNav } from './main-nav';
 
 type Props = PropsWithChildren & {
@@ -13,6 +14,7 @@ export const MainLayout: FC<Props> = (props) => {
     <div>
       <MainNav extraCls={hideMainNav ? 'hidden' : ''} />
       <div>{props.children}</div>
+      <MainFooter />
     </div>
   );
 };
