@@ -4,11 +4,14 @@ const { merge } = require('webpack-merge');
 
 module.exports = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  /*
   babel: (config) => {
     config.presets.push(require.resolve('@emotion/babel-preset-css-prop'));
     return config;
-  },
+  },*/
+
   // https://github.com/storybookjs/storybook/tree/next/code/frameworks/nextjs#custom-webpack-config
+  /*
   webpackFinal: async (config) => {
     // This modifies the existing image rule to exclude .svg files
     // since you want to handle those files with @svgr/webpack
@@ -26,7 +29,7 @@ module.exports = {
     return merge(config, {
       plugins: [new VanillaExtractPlugin()],
     });
-  },
+  },*/
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
