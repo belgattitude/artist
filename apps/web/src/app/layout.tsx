@@ -1,6 +1,6 @@
 import '@/styles/globals.scss';
-import { Inter } from '@next/font/google';
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { MainLayout } from '@/components/layout/main-layout';
 
@@ -20,7 +20,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang={'en'}>
-      <head />
+      <head>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className={`${inter.className} ${inter.variable}`}>
         <MainLayout hideMainNav={true}>
           <div className={'flex w-full'}>{children}</div>

@@ -50,7 +50,6 @@ importers:
       '@graphql-codegen/typescript-react-query': 4.1.0
       '@httpx/exception': 1.7.1
       '@next/bundle-analyzer': 13.1.7-canary.20
-      '@next/font': 13.1.7-canary.20
       '@next/mdx': 13.1.7-canary.20
       '@nextvalid/zod-request': 0.4.0
       '@storybook/addon-essentials': 7.0.0-beta.50
@@ -120,7 +119,6 @@ importers:
       '@emotion/server': 11.10.0
       '@emotion/styled': 11.10.6_oouaibmszuch5k64ms7uxp2aia
       '@httpx/exception': 1.7.1
-      '@next/font': 13.1.7-canary.20
       '@next/mdx': 13.1.7-canary.20
       '@nextvalid/zod-request': 0.4.0_rcqk3gt3ndmfar5f7fibpxb56y
       '@tanstack/query-core': 4.24.6
@@ -4067,13 +4065,6 @@ packages:
         integrity: sha512-AITjmeb1RgX1HKMCiA39ztx2mxeAyxl4ljv2UoSBUGAbFFMg8MO7YAvjHCgFhD39hL7YTbFjol04e/BPBH5RzQ==,
       }
     dev: true
-
-  /@next/font/13.1.7-canary.20:
-    resolution:
-      {
-        integrity: sha512-w5jqwwUUDpZJvqqlTrr2c8QiS13RdCgf/VloMSrCiGFpHGrVuWajlkYmx1eBF0kgyHDQJ/sX6W6J2UWmMnw41Q==,
-      }
-    dev: false
 
   /@next/mdx/13.1.7-canary.20:
     resolution:
