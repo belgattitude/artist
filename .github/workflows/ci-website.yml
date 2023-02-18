@@ -35,13 +35,13 @@ jobs:
         uses: ./.github/actions/yarn-nm-install
 
       - name: 🕵️ Typecheck
-        run: pnpm typecheck
+        run: yarn typecheck
 
       - name: 🔬 Linter
-        run: pnpm lint
+        run: yarn lint
 
       - name: 🏗 Build website
-        run: pnpm build
+        run: yarn build
         env:
           # Speed up build: they are linted in a previous step
           NEXTJS_IGNORE_ESLINT: true
