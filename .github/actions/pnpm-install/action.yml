@@ -36,9 +36,9 @@ runs:
       id: pnpm-store-cache
       with:
         path: ${{ steps.pnpm-config.outputs.STORE_PATH }}
-        key: ${{ runner.os }}-pnpm-store-cache-${{ steps.cache-rotation.outputs.YEAR_WEEK }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+        key: ${{ runner.os }}-pnpm-store-cache-${{ steps.cache-rotation.outputs.YEAR_WEEK }}-${{ hashFiles('.npmrc') }}-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
-          ${{ runner.os }}-pnpm-store-cache-${{ steps.cache-rotation.outputs.YEAR_WEEK }}-
+          ${{ runner.os }}-pnpm-store-cache-${{ steps.cache-rotation.outputs.YEAR_WEEK }}--${{ hashFiles('.npmrc') }}
 
     # Prevent store to grow over time (not needed with yarn)
     # Note: not perfect as it prune too much in monorepos so the idea
