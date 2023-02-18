@@ -4,8 +4,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer');
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
 });
-// @ts-ignore
-const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
+
 const { createSecureHeaders } = require('next-secure-headers');
 const { publicEnv } = require('./src/config/public-env');
 
@@ -20,8 +19,6 @@ const NEXTJS_IGNORE_TYPECHECK = trueEnv.includes(
 
 const strapiUrl = publicEnv.NEXT_PUBLIC_STRAPI_API_URL;
 const { hostname: strapiHostname } = new URL(strapiUrl);
-
-const withVanillaExtract = createVanillaExtractPlugin();
 
 // @link https://github.com/jagaapple/next-secure-headers
 const secureHeaders = createSecureHeaders({
@@ -147,6 +144,12 @@ let nextConfig = {
 };
 
 if (enableVanillaExtract) {
+  const {
+    createVanillaExtractPlugin,
+    // @ts-ignore vanilla extract next plugin does not publish types (yet)
+  } = require('@vanilla-extract/next-plugin');
+  const withVanillaExtract = createVanillaExtractPlugin();
+
   nextConfig = withVanillaExtract(nextConfig, {
     debug: !isProd,
   });

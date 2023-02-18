@@ -1,18 +1,15 @@
-@use 'reset.scss';
+@import './reset.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --main-nav-full-height: 60px;
-  --main-nav-reduced-height: 40px;
   --color-brand: hotpink;
 }
 
 @media only screen and (max-width: 600px) {
   :root {
-    --main-nav-full-height: 60px;
-    --main-nav-reduced-height: 40px;
+    --color-brand: blue;
   }
 }

@@ -88,7 +88,6 @@
     "postcss": "8.4.21",
     "prettier": "2.8.4",
     "rimraf": "4.1.2",
-    "sass": "1.58.3",
     "storybook": "7.0.0-beta.50",
     "tailwindcss": "3.2.7",
     "ts-node": "10.9.1",
