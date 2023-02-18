@@ -28,11 +28,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      #- name: ⚙️ Enable Corepack
-      #  run: corepack enable
+      - name: ⚙️ Enable Corepack
+        run: corepack enable
 
       - name: 📥 Monorepo install
-        uses: ./.github/actions/pnpm-install
+        uses: ./.github/actions/yarn-nm-install
 
       - name: 🕵️ Typecheck
         run: pnpm typecheck

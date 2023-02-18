@@ -1,5 +1,0 @@
-packages:
-  - 'apps/*'
-  - 'packages/*'
-  # Strapi does not work with pnpm
-  - '!apps/strapi'

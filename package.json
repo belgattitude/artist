@@ -11,10 +11,14 @@
     "name": "Vanvelthem Sébastien",
     "url": "https://github.com/belgattitude"
   },
+  "workspaces": [
+    "packages/**",
+    "apps/web"
+  ],
   "scripts": {
     "install:strapi": "cd apps/strapi && yarn install",
-    "g:clean": "pnpm clean:global-cache && pnpm -r clean",
-    "g:build": "pnpm -r build",
+    "g:clean": "yarn clean:global-cache && yarn workspaces foreach run clean",
+    "g:build": "yarn -r build",
     "g:build-changed": "pnpm -r -F '...[origin/main]' build",
     "g:test-unit": "pnpm -r --parralel test-unit",
     "g:test-e2e": "pnpm -r test-e2e",
@@ -38,18 +42,18 @@
     "install:playwright": "playwright install",
     "deduplicate": "pnpm dedupe",
     "docs:serve": "docsify serve ./docs",
-    "postinstall": "is-ci || pnpm husky install"
+    "postinstall": "is-ci || yarn husky install"
   },
   "dependencies": {
     "cross-env": "7.0.3"
   },
   "devDependencies": {
+    "@belgattitude/eslint-config-bases": "1.21.0",
     "@changesets/changelog-github": "0.4.8",
     "@commitlint/cli": "17.4.4",
     "@commitlint/config-conventional": "17.4.4",
     "@types/prettier": "2.7.2",
     "@types/shell-quote": "1.7.1",
-    "@belgattitude/eslint-config-bases": "1.21.0",
     "eslint": "8.34.0",
     "husky": "8.0.3",
     "is-ci": "3.0.1",
@@ -62,5 +66,5 @@
   "engines": {
     "node": ">=18.0.0"
   },
-  "packageManager": "pnpm@7.27.1"
+  "packageManager": "yarn@4.0.0-rc.39"
 }
