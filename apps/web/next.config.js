@@ -1,6 +1,5 @@
 // @ts-check
 
-const withBundleAnalyzer = require('@next/bundle-analyzer');
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
 });
@@ -10,7 +9,6 @@ const { publicEnv } = require('./src/config/public-env');
 
 const isProd = process.env.NODE_ENV === 'production';
 const enableCSP = isProd;
-const enableVanillaExtract = false;
 
 const trueEnv = ['true', '1', 'yes'];
 const NEXTJS_IGNORE_TYPECHECK = trueEnv.includes(
@@ -105,7 +103,7 @@ let nextConfig = {
     mdxRs: true,
     // https://nextjs.org/docs/messages/google-fonts-missing-subsets
     fontLoaders: [
-      { loader: '@next/font/google', options: { subsets: ['latin'] } },
+      { loader: 'next/font/google', options: { subsets: ['latin'] } },
     ],
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
     esmExternals: true,
@@ -143,6 +141,9 @@ let nextConfig = {
   },
 };
 
+/*
+const enableVanillaExtract = false;
+
 if (enableVanillaExtract) {
   const {
     createVanillaExtractPlugin,
@@ -154,8 +155,10 @@ if (enableVanillaExtract) {
     debug: !isProd,
   });
 }
+*/
 
 if (process.env.ANALYZE === 'true') {
+  const withBundleAnalyzer = require('@next/bundle-analyzer');
   nextConfig = withBundleAnalyzer({
     enabled: true,
   })(nextConfig);
