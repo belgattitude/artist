@@ -25,10 +25,10 @@ const HomePage: FC = () => {
     <div className={'border-1 container mx-auto flex flex-col gap-5 p-5'}>
       <div className={'text-white'}>
         <h1 className={'text-xl'}>Sébastien Vanvelthem</h1>
-        <p>Dancer | Instant composition | Project</p>
+        <p>Dancer | Instant composition | Choreograph</p>
         <p>New website coming soon</p>
       </div>
-      <div className={'grow-1 aspect-[16/5] w-full bg-black'}>
+      <div className={'grow-1 aspect-[2/1] w-full bg-black'}>
         <VideoPlayer
           url={videoUrl}
           muted={true}
