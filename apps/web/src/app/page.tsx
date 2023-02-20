@@ -24,7 +24,7 @@ const HomePage: FC = () => {
   return (
     <div className={'border-1 container mx-auto flex flex-col gap-5 p-5'}>
       <div className={'text-white'}>
-        <h1>Sébastien Vanvelthem</h1>
+        <h1 className={'text-xl'}>Sébastien Vanvelthem</h1>
         <p>Dancer | Instant composition | Project</p>
         <p>New website coming soon</p>
       </div>
