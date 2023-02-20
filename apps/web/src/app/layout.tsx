@@ -1,12 +1,20 @@
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import {
+  Inter,
+  Space_Grotesk,
+  Rubik_Dirt,
+  Press_Start_2P,
+  Monoton,
+  Rubik_80s_Fade,
+} from 'next/font/google';
 import type { ReactNode } from 'react';
 import { MainLayout } from '@/components/layout/main-layout';
 
-const inter = Inter({
+const inter = Press_Start_2P({
   subsets: ['latin'],
-  weight: 'variable',
+  // weight: 'variable',
+  weight: ['400'],
   variable: '--font-inter',
 });
 
