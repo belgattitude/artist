@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${inter.className} ${inter.variable}`}>
+      <body className={`${inter.className} ${inter.variable} bg-black`}>
         <MainLayout hideMainNav={true}>
           <div className={'flex w-full'}>{children}</div>
         </MainLayout>

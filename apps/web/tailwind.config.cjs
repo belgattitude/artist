@@ -25,7 +25,10 @@ module.exports = {
           ...defaultTheme.fontFamily.sans,
         ],
       },
-
+      aspectRatio: {
+        '4/3': '4 / 3',
+        '16/9': '16 / 9',
+      },
       colors: {
         brightRed: 'hsl(12, 88%, 59)',
         'custom-brown': {
@@ -54,7 +57,7 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
-    // require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/aspect-ratio'),
     // require('@tailwindcss/forms'),
   ],
 };

@@ -112,6 +112,9 @@ importers:
       react-dom:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
+      react-intersection-observer:
+        specifier: ^9.4.2
+        version: 9.4.2(react@18.2.0)
       react-markdown:
         specifier: 8.0.5
         version: 8.0.5(@types/react@18.0.28)(react@18.2.0)
@@ -17373,6 +17376,17 @@ packages:
     dependencies:
       react: 18.2.0
     dev: true
+
+  /react-intersection-observer@9.4.2(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-AdK+ryzZ7U9ZJYttDUZ8q2Am3nqE0exg5Ryl5Y124KeVsix/1hGZPbdu58EqA98TwnzwDNWHxg/kwNawmIiUig==,
+      }
+    peerDependencies:
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /react-is@16.13.1:
     resolution:
