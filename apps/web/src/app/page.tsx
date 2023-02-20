@@ -1,14 +1,10 @@
 'use client';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import Image from 'next/image';
 import type { FC } from 'react';
-import { useRef } from 'react';
-// import ReactPlayer from 'react-player';
-// import { VideoPlayer } from '@/components/player/VideoPlayer';
 const VideoPlayer = dynamic(
   () =>
-    import('../components/player/VideoPlayer').then((mod) => mod.VideoPlayer),
+    import('@/components/player/VideoPlayer').then((mod) => mod.VideoPlayer),
   {
     ssr: false,
   }
@@ -25,7 +21,7 @@ const HomePage: FC = () => {
     <div className={'border-1 container mx-auto flex flex-col gap-5 p-5'}>
       <div className={'text-white'}>
         <h1 className={'text-xl'}>Sébastien Vanvelthem</h1>
-        <p>Dancer | Instant composition | Choreograph</p>
+        <p>Dancer | Instant composition | Choreography</p>
         <p>New website coming soon</p>
       </div>
       <div className={'grow-1 aspect-[2/1] w-full bg-black'}>
@@ -40,15 +36,6 @@ const HomePage: FC = () => {
           playing={true}
           width={'100%'}
           height={'100%'}
-        />
-      </div>
-      <div className={''}>
-        <Image
-          priority={true}
-          src={img}
-          width={800}
-          height={400}
-          alt={'Butoh picture'}
         />
       </div>
     </div>
