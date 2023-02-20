@@ -32,9 +32,11 @@ const secureHeaders = createSecureHeaders({
           connectSrc: [
             "'self'",
             'https://vitals.vercel-insights.com',
+            'https://media.failwell.be',
             strapiUrl,
           ],
           imgSrc: ["'self'", 'https:', 'http:', 'data:'],
+          mediaSrc: ["'self'", 'https:', 'http:'],
           workerSrc: ['blob:'],
         }
       : {},
@@ -53,7 +55,7 @@ const secureHeaders = createSecureHeaders({
 /** @type {import('next').NextConfig} */
 let nextConfig = {
   reactStrictMode: true,
-
+  swcMinify: false,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
 
   transpilePackages: isProd
