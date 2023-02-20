@@ -8,7 +8,7 @@ const { createSecureHeaders } = require('next-secure-headers');
 const { publicEnv } = require('./src/config/public-env');
 
 const isProd = process.env.NODE_ENV === 'production';
-const enableCSP = isProd;
+const enableCSP = true;
 
 const trueEnv = ['true', '1', 'yes'];
 const NEXTJS_IGNORE_TYPECHECK = trueEnv.includes(
@@ -28,11 +28,18 @@ const secureHeaders = createSecureHeaders({
           styleSrc: ["'self'", "'unsafe-inline'"],
           // 'unsafe-inline' for react-markdown
           scriptSrc: ["'self'", "'unsafe-eval'", "'unsafe-inline'"],
+          scriptSrcElem: [
+            "'self'",
+            "'unsafe-eval'",
+            "'unsafe-inline'",
+            'blob:', // for threejs to work
+          ],
           frameSrc: ["'self'"],
           connectSrc: [
             "'self'",
             'https://vitals.vercel-insights.com',
             'https://media.failwell.be',
+            'https://fonts.gstatic.com',
             strapiUrl,
           ],
           imgSrc: ["'self'", 'https:', 'http:', 'data:'],

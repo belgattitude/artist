@@ -67,7 +67,7 @@ function Scene() {
       </Text>
 
       <mesh scale={size}>
-        <planeBufferGeometry args={[1, 1]} />
+        <planeGeometry args={[1, 1]} />
 
         <meshBasicMaterial>
           <videoTexture attach="map" args={[video]} />
