@@ -1,16 +1,8 @@
-'use client';
 import type { Metadata } from 'next';
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import type { FC } from 'react';
+import { VideoPlayer } from '@/components/player/VideoPlayer';
 
-const VideoPlayer = dynamic(
-  () =>
-    import('@/components/player/VideoPlayer').then((mod) => mod.VideoPlayer),
-  {
-    ssr: false,
-  }
-);
 const img = 'https://media.failwell.be/pictures/butoh-picture.jpg';
 
 export const metadata: Metadata = {

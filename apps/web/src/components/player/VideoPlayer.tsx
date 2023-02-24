@@ -2,6 +2,11 @@
 
 'use client';
 
-import ReactPlayer from 'react-player';
+import dynamic from 'next/dynamic';
 
-export const VideoPlayer = ReactPlayer;
+export const VideoPlayer = dynamic(
+  () => import('react-player').then((mod) => mod),
+  {
+    ssr: false,
+  }
+);
