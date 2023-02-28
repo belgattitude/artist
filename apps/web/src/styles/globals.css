@@ -41,7 +41,7 @@
 }
 
 .dot1 {
-  pointer-events: none;
+  /*pointer-events: none;*/
   color: #a0a0a0;
   background-color: rgba(0, 0, 0, 0.5);
   line-height: 1.6em;
@@ -61,12 +61,11 @@
 }
 
 .dot {
-  pointer-events: none;
+  /*pointer-events: none;*/
   position: sticky;
   top: 0px;
   display: inline-block;
   max-width: 700px;
-  padding: 0;
   padding: 80px;
   color: #a0a0a0;
   background-color: rgba(0, 0, 0, 0.5);

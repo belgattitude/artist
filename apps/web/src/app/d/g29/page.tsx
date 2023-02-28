@@ -8,6 +8,7 @@ import { Canvas } from '@react-three/fiber';
 import type { Metadata } from 'next';
 import type { FC, MutableRefObject, Ref, RefObject } from 'react';
 import React, { useRef, Suspense, forwardRef } from 'react';
+import { VideoPlayer } from '@/components/player/VideoPlayer';
 // import { VideoPlayer } from '@/components/player/VideoPlayer';
 
 // const img = 'https://media.failwell.be/pictures/butoh-picture.jpg';
@@ -129,6 +130,13 @@ const dictionnary = [
     `,
     img: 'https://media.failwell.be/mr/garage29/mr-garage29-secretary-notes-feb-2023-004.jpg',
   },
+  {
+    title: 'impros',
+    description: `
+
+    `,
+    video: 'https://media.failwell.be/mr/garage29/garage29-1.mp4',
+  },
 ];
 
 // eslint-disable-next-line react/display-name
@@ -141,12 +149,29 @@ const Overlay = forwardRef<HTMLDivElement, OverlayProps>(({ scroll }, ref) => (
         (e.currentTarget.scrollHeight - window.innerHeight);
     }}
   >
-    {dictionnary.map(({ title, description, img }) => (
+    {dictionnary.map(({ title, description, img, video }) => (
       <div key={title} style={{ height: '200vh' }}>
         <div className="dot">
           <h1>{title}</h1>
-          {description}
-          <img src={img} style={{ width: '100%', marginTop: '15px' }} />
+          <p>{description}</p>
+          {img && (
+            <img src={img} style={{ width: '100%', marginTop: '15px' }} />
+          )}
+          {video && (
+            <VideoPlayer
+              url={video}
+              muted={true}
+              loop={false}
+              // playsinline={true}
+              light={false}
+              playbackRate={1}
+              controls={true}
+              // playing={true}
+              width={'100%'}
+              style={{ width: '100%', marginTop: '15px' }}
+              height={'100%'}
+            />
+          )}
         </div>
       </div>
     ))}
