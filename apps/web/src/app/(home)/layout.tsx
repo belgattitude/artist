@@ -11,10 +11,10 @@ import {
 import type { ReactNode } from 'react';
 import { MainLayout } from '@/components/layout/main-layout';
 
-const inter = Press_Start_2P({
+const inter = Inter({
   subsets: ['latin'],
-  // weight: 'variable',
-  weight: ['400'],
+  weight: 'variable',
+  // weight: ['400'],
   variable: '--font-inter',
 });
 

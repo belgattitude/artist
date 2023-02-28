@@ -13,8 +13,8 @@ import { MainLayout } from '@/components/layout/main-layout';
 
 const inter = Inter({
   subsets: ['latin'],
-  // weight: 'variable',
-  weight: ['400'],
+  weight: 'variable',
+  // weight: ['400'],
   variable: '--font-inter',
 });
 
