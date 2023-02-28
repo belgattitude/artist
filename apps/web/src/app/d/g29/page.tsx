@@ -18,7 +18,8 @@ const img = 'https://media.failwell.be/mr/garage29/garage29-jeanne.jpg';
 // };
 
 // const videoUrl = 'https://media.failwell.be/dark.mp4';
-const videoUrl = 'https://media.failwell.be/mr/garage29/garage29-1.mp4';
+const videoUrl =
+  'https://media.failwell.be/mr/garage29/garage29-background.mp4';
 
 const url = 'https://media.failwell.be/mr/garage29';
 const images = Array.from(
