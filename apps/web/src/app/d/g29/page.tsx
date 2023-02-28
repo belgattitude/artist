@@ -9,7 +9,6 @@ import type { Metadata } from 'next';
 import type { FC, MutableRefObject, Ref, RefObject } from 'react';
 import React, { useRef, Suspense, forwardRef } from 'react';
 import { VideoPlayer } from '@/components/player/VideoPlayer';
-// import { VideoPlayer } from '@/components/player/VideoPlayer';
 
 // const img = 'https://media.failwell.be/pictures/butoh-picture.jpg';
 const img = 'https://media.failwell.be/mr/garage29/garage29-jeanne.jpg';
@@ -136,6 +135,20 @@ const dictionnary = [
 
     `,
     video: 'https://media.failwell.be/mr/garage29/garage29-1.mp4',
+  },
+  {
+    title: 'fish and chips',
+    description: `
+
+    `,
+    img: 'https://media.failwell.be/mr/garage29/from-parc_1.5.1.webp',
+  },
+  {
+    title: 'secretary',
+    description: `
+      Between the ones who dance and the one who write.
+    `,
+    img: 'https://media.failwell.be/mr/garage29/mr-garage29-secretary-notes-feb-2023-001.jpg',
   },
 ];
 
