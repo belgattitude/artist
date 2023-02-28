@@ -15,6 +15,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
+        'font-inter': [],
         'text-primary': [
           'var(--font-family-text-primary)',
           ...defaultTheme.fontFamily.sans,
