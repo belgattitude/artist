@@ -16,6 +16,7 @@ const HomePage: FC = () => {
         <p>New website coming soon</p>
       </div>
       <div className={'grow-1 aspect-[2/1] w-full bg-black'}>
+        {/*
         <VideoPlayer
           url={videoUrl}
           muted={true}
@@ -27,7 +28,7 @@ const HomePage: FC = () => {
           playing={true}
           width={'100%'}
           height={'100%'}
-        />
+        /> */}
       </div>
     </div>
   );
