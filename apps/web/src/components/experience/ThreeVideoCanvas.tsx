@@ -7,12 +7,13 @@ import React, { Suspense } from 'react';
 // const img = 'https://media.failwell.be/pictures/butoh-picture.jpg';
 const img = 'https://media.failwell.be/mr/garage29/garage29-jeanne.jpg';
 // const videoUrl = 'https://media.failwell.be/dark.mp4';
+// const videoUrl = 'https://media.failwell.be/mr/garage29/garage29-background.mp4';
 const videoUrl =
-  'https://media.failwell.be/mr/garage29/garage29-background.mp4';
+  'https://media.failwell.be/bubble/bubble_dance_11th_april_2021.mp4';
 
 function Scene() {
   // const size = useAspect(1800, 1000);
-  const size = useAspect(4000, 1000);
+  const size = useAspect(1800, 1000);
   return (
     <mesh scale={size}>
       <planeGeometry />
@@ -26,7 +27,7 @@ function Scene() {
 function VideoMaterial({ url }: { url: string }) {
   const texture = useVideoTexture(url, {
     autoplay: true,
-    playbackRate: 0.4,
+    playbackRate: 1,
   });
   return <meshBasicMaterial map={texture} toneMapped={false} />;
 }
