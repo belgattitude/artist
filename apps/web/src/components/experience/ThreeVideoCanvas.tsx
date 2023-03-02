@@ -3,12 +3,12 @@
 import { useAspect, useTexture, useVideoTexture } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import type { FC } from 'react';
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 
 const Scene: FC<{ imgUrl: string; videoUrl: string }> = (props) => {
   // const size = useAspect(1800, 1000);
   const { videoUrl, imgUrl } = props;
-  const size = useAspect(1800, 1000);
+  const size = useAspect(4000, 1000);
   return (
     <mesh scale={size}>
       <planeGeometry />
@@ -22,7 +22,7 @@ const Scene: FC<{ imgUrl: string; videoUrl: string }> = (props) => {
 const VideoMaterial: FC<{ url: string }> = ({ url }) => {
   const texture = useVideoTexture(url, {
     autoplay: true,
-    playbackRate: 1,
+    playbackRate: 0.4,
   });
   return <meshBasicMaterial map={texture} toneMapped={false} />;
 };
