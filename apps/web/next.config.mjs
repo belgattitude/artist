@@ -25,6 +25,9 @@ const trueEnv = ['true', '1', 'yes'];
 const NEXTJS_IGNORE_TYPECHECK = trueEnv.includes(
   process.env?.NEXTJS_IGNORE_TYPECHECK ?? 'false'
 );
+const NEXTJS_IGNORE_LINT = trueEnv.includes(
+  process.env?.NEXTJS_IGNORE_LINT ?? 'false'
+);
 
 const strapiUrl = publicEnv.NEXT_PUBLIC_STRAPI_API_URL;
 const { hostname: strapiHostname } = new URL(strapiUrl);
@@ -84,7 +87,7 @@ let nextConfig = {
       ]
     : [],
 
-  eslint: { ignoreDuringBuilds: !!process.env.CI },
+  eslint: { ignoreDuringBuilds: NEXTJS_IGNORE_LINT },
 
   images: {
     // Reduce the number of possibles (no real-need)
