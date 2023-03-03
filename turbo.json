@@ -1,0 +1,8 @@
+{
+  "globalDependencies": ["**/.env.*local"],
+  "pipeline": {
+    "build": {
+      // "dependsOn": ["^codegen"],
+    }
+  }
+}

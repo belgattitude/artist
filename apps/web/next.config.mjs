@@ -1,13 +1,22 @@
 // @ts-check
 
-const path = require('path');
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const withMDX = require('@next/mdx')({
+import withBundleAnalyzer from '@next/bundle-analyzer';
+import nextMdx from '@next/mdx';
+import { createSecureHeaders } from 'next-secure-headers';
+import { publicEnv } from './src/config/public-env.mjs';
+
+const workspaceRoot = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  '..',
+  '..'
+);
+
+const withMDX = nextMdx({
   extension: /\.mdx?$/,
 });
-
-const { createSecureHeaders } = require('next-secure-headers');
-const { publicEnv } = require('./src/config/public-env');
 
 const isProd = process.env.NODE_ENV === 'production';
 const enableCSP = true;
@@ -116,7 +125,7 @@ let nextConfig = {
     typedRoutes: true,
     mdxRs: true,
     // https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
-    outputFileTracingRoot: path.join(__dirname, '../../'),
+    outputFileTracingRoot: workspaceRoot,
     outputFileTracingExcludes: {
       // '/api/hello': ['./un-necessary-folder/**/*'],
     },
@@ -177,10 +186,9 @@ if (enableVanillaExtract) {
 */
 
 if (process.env.ANALYZE === 'true') {
-  const withBundleAnalyzer = require('@next/bundle-analyzer');
   nextConfig = withBundleAnalyzer({
     enabled: true,
   })(nextConfig);
 }
 
-module.exports = withMDX(nextConfig);
+export default withMDX(nextConfig);
