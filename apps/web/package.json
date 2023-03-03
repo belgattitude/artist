@@ -35,7 +35,7 @@
     "@tanstack/query-core": "4.24.10",
     "@tanstack/react-query": "4.24.10",
     "@vanilla-extract/dynamic": "2.0.3",
-    "@vercel/og": "0.2.0",
+    "@vercel/og": "0.3.0",
     "clsx": "1.2.1",
     "date-fns": "2.29.3",
     "framer-motion": "10.0.1",
@@ -61,6 +61,7 @@
     "zustand": "4.3.5"
   },
   "devDependencies": {
+    "@babel/core": "7.21.0",
     "@belgattitude/eslint-config-bases": "1.23.0",
     "@emotion/babel-preset-css-prop": "11.10.0",
     "@graphql-codegen/cli": "3.2.1",
@@ -80,7 +81,7 @@
     "@tailwindcss/typography": "0.5.9",
     "@types/d": "1.0.1",
     "@types/mdx": "2.0.3",
-    "@types/node": "18.14.5",
+    "@types/node": "18.14.6",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "@types/three": "0.149.0",
