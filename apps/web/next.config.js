@@ -1,5 +1,7 @@
 // @ts-check
 
+const path = require('path');
+
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
 });
@@ -64,6 +66,7 @@ let nextConfig = {
   reactStrictMode: true,
   swcMinify: false,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+  output: 'standalone',
 
   transpilePackages: isProd
     ? [
@@ -112,6 +115,11 @@ let nextConfig = {
     // https://beta.nextjs.org/docs/configuring/typescript#statically-typed-links
     typedRoutes: true,
     mdxRs: true,
+    // https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
+    outputFileTracingRoot: path.join(__dirname, '../../'),
+    outputFileTracingExcludes: {
+      // '/api/hello': ['./un-necessary-folder/**/*'],
+    },
     // https://nextjs.org/docs/messages/google-fonts-missing-subsets
     fontLoaders: [
       { loader: 'next/font/google', options: { subsets: ['latin'] } },
