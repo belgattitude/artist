@@ -5,6 +5,7 @@ module.exports = ({ env }) => {
   if (!dbFile.startsWith('/')) {
     dbFile = path.join(__dirname, '..', dbFile);
   }
+  console.log(`Using database ${dbFile}`);
   return {
     connection: {
       client: 'sqlite',
