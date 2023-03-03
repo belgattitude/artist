@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "diaries",
+  "info": {
+    "singularName": "diary",
+    "pluralName": "diaries",
+    "displayName": "Diary"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "introduction": {
+      "type": "richtext"
+    }
+  }
+}

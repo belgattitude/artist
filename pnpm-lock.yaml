@@ -67,6 +67,9 @@ importers:
       '@emotion/styled':
         specifier: 11.10.6
         version: 11.10.6(@emotion/react@11.10.6)(@types/react@18.0.28)(react@18.2.0)
+      '@graphql-typed-document-node/core':
+        specifier: ^3.1.2
+        version: 3.1.2(graphql@16.6.0)
       '@httpx/exception':
         specifier: 1.7.1
         version: 1.7.1
@@ -4969,7 +4972,7 @@ packages:
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:
-      '@graphql-typed-document-node/core': 3.1.1(graphql@16.6.0)
+      '@graphql-typed-document-node/core': 3.1.2(graphql@16.6.0)
       graphql: 16.6.0
       tslib: 2.5.0
     dev: true
@@ -4997,6 +5000,17 @@ packages:
       }
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    dependencies:
+      graphql: 16.6.0
+    dev: true
+
+  /@graphql-typed-document-node/core@3.1.2(graphql@16.6.0):
+    resolution:
+      {
+        integrity: sha512-9anpBMM9mEgZN4wr2v8wHJI2/u5TnnggewRN6OlvXTTnuVyoY19X6rOv9XTqKRw6dcGKwZsBi8n0kDE2I5i4VA==,
+      }
+    peerDependencies:
+      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:
       graphql: 16.6.0
 
@@ -13914,7 +13928,7 @@ packages:
     peerDependencies:
       graphql: 14 - 16
     dependencies:
-      '@graphql-typed-document-node/core': 3.1.1(graphql@16.6.0)
+      '@graphql-typed-document-node/core': 3.1.2(graphql@16.6.0)
       cross-fetch: 3.1.5
       extract-files: 9.0.0
       form-data: 3.0.1

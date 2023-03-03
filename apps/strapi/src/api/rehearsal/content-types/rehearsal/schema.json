@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rehearsals",
+  "info": {
+    "singularName": "rehearsal",
+    "pluralName": "rehearsals",
+    "displayName": "Rehearsal",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "words": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::word.word",
+      "mappedBy": "rehearsals"
+    }
+  }
+}

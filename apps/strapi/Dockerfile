@@ -1,4 +1,4 @@
-ARG NODE_VERSION=18
+ARG NODE_VERSION=18.14.2
 ARG ALPINE_VERSION=3.17
 
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} as deps
@@ -29,14 +29,14 @@ RUN NODE_ENV=production yarn build
 
 
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} as runner
-RUN apk update --no-cache && apk add --no-cache vips-dev
-#RUN apk update --no-cache
-RUN corepack enable
+RUN apk update --no-cache && \
+    apk add --no-cache vips-dev && \
+    corepack enable
 
 WORKDIR /app
 
 COPY ./package.json ./yarn.lock ./.yarnrc.yml ./favicon.png ./
-COPY --from=deps /app/node_modules ./node_modules
+COPY --from=builder /app/node_modules ./node_modules
 #COPY --from=builder --chown=node:node /app/node_modules ./node_modules
 COPY --from=builder --chown=node:node /app/build ./build
 COPY --from=builder --chown=node:node /app/config ./config
