@@ -22,46 +22,6 @@ type ExperienceOverlayProps = {
   experiences: Experience[];
 };
 
-const Letter: FC<PropsWithChildren> = ({ children }) => (
-  <span
-    className={
-      'mx-3 rounded border border-white p-2 text-5xl text-white opacity-100'
-    }
-  >
-    {children}
-  </span>
-);
-
-const Txt: FC<PropsWithChildren> = ({ children }) => (
-  <span className={'text-2xl text-white opacity-50'}>{children}</span>
-);
-
-const Intro: FC<{ className?: string }> = (props) => {
-  const { className = '' } = props;
-  return (
-    <div className={twMerge('p-5 text-2xl', className)}>
-      <Txt>Being</Txt>
-      <Letter>what's dance ?</Letter>
-      <Txt>Being a</Txt>
-      <Letter>question</Letter>
-      <Txt>Being</Txt>
-      <Letter>Casual</Letter>
-      <Txt>with a touch of</Txt>
-      <Letter>Crispness</Letter>
-      <Txt>Simply</Txt>
-      <Letter>Make</Letter>
-      <Letter>Let</Letter>
-
-      <Txt>it</Txt>
-      <Letter>Happen</Letter>
-      <Txt>Still need to figure out the</Txt>
-      <Letter>Meaning</Letter>
-      <Txt>Placing the condition of</Txt>
-      <Letter>Trust</Letter>
-    </div>
-  );
-};
-
 export const ExperienceOverlay = forwardRef<
   HTMLDivElement,
   ExperienceOverlayProps
@@ -69,7 +29,6 @@ export const ExperienceOverlay = forwardRef<
   const { experiences, scroll } = props;
   return (
     <>
-      <Intro className={'m-5 p-5'} />
       <div
         ref={ref}
         onScroll={(e) => {
@@ -81,9 +40,6 @@ export const ExperienceOverlay = forwardRef<
         {experiences.map(({ title, description, img, video }, idx) => (
           <Fragment key={`${title}`}>
             <div key={title} style={{ height: '200vh' }} className={'relative'}>
-              {idx % 4 === 3 && (
-                <Intro className={'align-right absolute top-[200px] flex'} />
-              )}
               <div className={styles.dot}>
                 <h1>{title}</h1>
                 <div>{description}</div>

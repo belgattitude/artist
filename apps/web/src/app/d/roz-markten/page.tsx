@@ -1,7 +1,9 @@
 // https://codesandbox.io/s/camera-scroll-tu24h?file=/src/App.js:623-670
 
 import type { Metadata } from 'next';
+import type { FC, PropsWithChildren } from 'react';
 import React from 'react';
+import { twMerge } from 'tailwind-merge';
 import type { Experience } from '@/components/experience/experience-overlay';
 import { ExperiencePage } from '@/components/experience/experience-page';
 
@@ -81,15 +83,47 @@ export const getExperiences = async (): Promise<Experience[]> => {
   ];
 };
 
-export default async function DiaryGarage29Page() {
+const Letter: FC<PropsWithChildren> = ({ children }) => (
+  <span
+    className={
+      'mx-3 rounded border border-white p-2 text-5xl text-white opacity-100'
+    }
+  >
+    {children}
+  </span>
+);
+
+const Txt: FC<PropsWithChildren> = ({ children }) => (
+  <span className={'text-2xl text-white opacity-50'}>{children}</span>
+);
+
+const Intro: FC<{ className?: string }> = (props) => {
+  const { className = '' } = props;
+  return (
+    <div className={twMerge('p-5 text-2xl', className)}>
+      <Letter>Becoming</Letter>
+      <Txt>a musical</Txt>
+      <Letter>canon</Letter>
+      <Txt>within</Txt>
+      <Letter>replicated</Letter>
+      <Txt>self</Txt>
+      <Letter>boundaries</Letter>
+    </div>
+  );
+};
+
+export default async function DiaryRozMarktenPage() {
   const experiences = await getExperiences();
   return (
     <>
-      <ExperiencePage
-        experiences={experiences}
-        bgFallbackImg={img}
-        bgVideoUrl={videoUrl}
-      />
+      <div className={'flex flex-col'}>
+        <Intro className={'m-5 p-5'} />
+        <ExperiencePage
+          experiences={experiences}
+          bgFallbackImg={img}
+          bgVideoUrl={videoUrl}
+        />
+      </div>
     </>
   );
 }
