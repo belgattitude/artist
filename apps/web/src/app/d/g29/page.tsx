@@ -23,11 +23,21 @@ const images = Array.from(
     )}.jpg`
 );
 
+// const img = 'https://media.failwell.be/pictures/butoh-picture.jpg';
+const img = 'https://media.failwell.be/mr/garage29/garage29-jeanne.jpg';
+// const videoUrl = 'https://media.failwell.be/dark.mp4';
+const videoUrl =
+  'https://media.failwell.be/mr/garage29/garage29-background.mp4';
+
 export default async function DiaryGarage29Page() {
   const experiences = await getExperiences();
   return (
     <>
-      <ExperiencePage experiences={experiences} />
+      <ExperiencePage
+        experiences={experiences}
+        bgFallbackImg={img}
+        bgVideoUrl={videoUrl}
+      />
     </>
   );
 }

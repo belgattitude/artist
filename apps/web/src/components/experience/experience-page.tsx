@@ -8,28 +8,22 @@ import { ThreeVideoCanvas } from '@/components/experience/ThreeVideoCanvas';
 
 type Props = {
   experiences: Experience[];
+  bgVideoUrl: string;
+  bgFallbackImg: string;
 };
 
-// const img = 'https://media.failwell.be/pictures/butoh-picture.jpg';
-const img = 'https://media.failwell.be/mr/garage29/garage29-jeanne.jpg';
-// const videoUrl = 'https://media.failwell.be/dark.mp4';
-const videoUrl =
-  'https://media.failwell.be/mr/garage29/garage29-background.mp4';
-// const videoUrl =
-//  'https://media.failwell.be/bubble/bubble_dance_11th_april_2021.mp4';
-
 export const ExperiencePage: FC<Props> = (props) => {
-  const { experiences } = props;
+  const { experiences, bgFallbackImg, bgVideoUrl } = props;
   const overlay = useRef();
   // const caption = useRef<HTMLSpanElement>();
   const scroll = useRef<number>(0);
 
-  const [video, setVideo] = useState<string>(videoUrl);
+  const [video, setVideo] = useState<string>(bgVideoUrl);
 
   return (
     <>
-      <ThreeVideoCanvas videoUrl={video} imgUrl={img} />
-      <div>
+      <ThreeVideoCanvas videoUrl={video} imgUrl={bgFallbackImg} />
+      <div className={'flex flex-col'}>
         <ExperienceOverlay
           experiences={experiences}
           ref={overlay.current}

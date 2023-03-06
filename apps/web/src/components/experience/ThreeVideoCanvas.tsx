@@ -8,7 +8,7 @@ import { Suspense } from 'react';
 const Scene: FC<{ imgUrl: string; videoUrl: string }> = (props) => {
   // const size = useAspect(1800, 1000);
   const { videoUrl, imgUrl } = props;
-  const size = useAspect(4000, 1000);
+  const size = useAspect(1800, 1000);
   return (
     <mesh scale={size}>
       <planeGeometry />

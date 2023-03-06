@@ -1,4 +1,10 @@
-import type { FC, MutableRefObject, PropsWithChildren } from 'react';
+import type {
+  FC,
+  MutableRefObject,
+  PropsWithChildren,
+  ReactComponentElement,
+  ReactElement,
+} from 'react';
 import React, { forwardRef, Fragment } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { VideoPlayer } from '@/components/player/VideoPlayer';
@@ -6,7 +12,7 @@ import styles from './styles.module.css';
 
 export type Experience = {
   title: string;
-  description: string;
+  description: string | ReactElement;
   img?: string;
   video?: string;
 };
@@ -80,7 +86,7 @@ export const ExperienceOverlay = forwardRef<
               )}
               <div className={styles.dot}>
                 <h1>{title}</h1>
-                <p>{description}</p>
+                <div>{description}</div>
                 {img && (
                   <img src={img} style={{ width: '100%', marginTop: '15px' }} />
                 )}
