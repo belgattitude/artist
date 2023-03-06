@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 // const img = 'https://media.failwell.be/pictures/butoh-picture.jpg';
-const img = 'https://media.failwell.be/mr/garage29/garage29-jeanne.jpg';
+const img = 'https://media.failwell.be/roz/roz-blob-video-bg.jpg';
 // const videoUrl = 'https://media.failwell.be/dark.mp4';
 const videoUrl = 'https://media.failwell.be/roz/Roz2.mp4';
 
@@ -69,6 +69,14 @@ const Poem = () => {
 export const getExperiences = async (): Promise<Experience[]> => {
   return [
     {
+      title: 'I did not fall',
+      description: `
+         I did not want to get out. 
+         Until I learned that I did not fall at all. 
+         But was pushed. And I fell into a strange loop. (Alice Fitzgerald)`,
+      video: 'https://media.failwell.be/roz/roz-rolling-end.m4v',
+    },
+    {
       title: 'trio',
       description: `
       Relaxed and unconcerned. Happening or coming to pass without design.
@@ -78,7 +86,19 @@ export const getExperiences = async (): Promise<Experience[]> => {
     {
       title: 'double tap',
       description: <Poem />,
-      // img: 'https://media.failwell.be/mr/garage29/garage29-stephanie-love.webp',
+    },
+    {
+      title: 'Stand',
+      description: 'Standing - Awake',
+      img: [
+        'https://media.failwell.be/roz/exports/P1006590.jpg',
+        'https://media.failwell.be/roz/exports/P1006627.jpg',
+      ],
+    },
+    {
+      title: 'Photos',
+      description: 'Photos from the performance in de Markten.',
+      img: 'https://media.failwell.be/roz/exports/P1006696.jpg',
     },
   ];
 };
@@ -101,13 +121,15 @@ const Intro: FC<{ className?: string }> = (props) => {
   const { className = '' } = props;
   return (
     <div className={twMerge('p-5 text-2xl', className)}>
-      <Letter>Becoming</Letter>
-      <Txt>a musical</Txt>
-      <Letter>canon</Letter>
-      <Txt>within</Txt>
-      <Letter>replicated</Letter>
-      <Txt>self</Txt>
-      <Letter>boundaries</Letter>
+      <Letter>I did not want </Letter>
+      <Txt>to get out</Txt>
+      <Letter>Until I learned</Letter>
+      <Txt>that I did not fall</Txt>
+      <Letter>at all.</Letter>
+      <Txt>But was pushed</Txt>
+      <Letter>And I fell</Letter>
+      <Txt>into a strange</Txt>
+      <Letter>loop.</Letter>
     </div>
   );
 };

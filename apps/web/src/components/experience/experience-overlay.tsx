@@ -13,13 +13,33 @@ import styles from './styles.module.css';
 export type Experience = {
   title: string;
   description: string | ReactElement;
-  img?: string;
+  img?: string | string[];
   video?: string;
 };
 
 type ExperienceOverlayProps = {
   scroll: MutableRefObject<number>;
   experiences: Experience[];
+};
+
+const Images: FC<{ images: string[] | string }> = (props) => {
+  const { images } = props;
+  if (typeof images === 'string') {
+    return <img src={images} style={{ width: '100%', marginTop: '15px' }} />;
+  }
+  return (
+    <div className={'flex flex-row'}>
+      {images.map((img) => {
+        return (
+          <img
+            key={img}
+            src={img}
+            style={{ width: '100%', marginTop: '15px' }}
+          />
+        );
+      })}
+    </div>
+  );
 };
 
 export const ExperienceOverlay = forwardRef<
@@ -37,32 +57,38 @@ export const ExperienceOverlay = forwardRef<
             (e.currentTarget.scrollHeight - window.innerHeight);
         }}
       >
-        {experiences.map(({ title, description, img, video }, idx) => (
-          <Fragment key={`${title}`}>
-            <div key={title} style={{ height: '200vh' }} className={'relative'}>
-              <div className={styles.dot}>
-                <h1>{title}</h1>
-                <div>{description}</div>
-                {img && (
-                  <img src={img} style={{ width: '100%', marginTop: '15px' }} />
-                )}
-                {video && (
-                  <VideoPlayer
-                    url={video}
-                    muted={true}
-                    loop={false}
-                    light={false}
-                    playbackRate={1}
-                    controls={true}
-                    width={'100%'}
-                    style={{ width: '100%', marginTop: '15px' }}
-                    height={'100%'}
-                  />
-                )}
+        {experiences.map((props, idx) => {
+          const { title, description, img, video } = props;
+          const images = typeof img === 'string' ? [img] : img;
+          return (
+            <Fragment key={`${title}`}>
+              <div
+                key={title}
+                style={{ height: '200vh' }}
+                className={'relative'}
+              >
+                <div className={styles.dot}>
+                  <h1>{title}</h1>
+                  <div>{description}</div>
+                  {images !== undefined ? <Images images={images} /> : null}
+                  {video && (
+                    <VideoPlayer
+                      url={video}
+                      muted={false}
+                      loop={false}
+                      light={false}
+                      playbackRate={1}
+                      controls={true}
+                      width={'100%'}
+                      style={{ width: '100%', marginTop: '15px' }}
+                      height={'100%'}
+                    />
+                  )}
+                </div>
               </div>
-            </div>
-          </Fragment>
-        ))}
+            </Fragment>
+          );
+        })}
         {/* <span className="caption">G-29</span> */}
       </div>
     </>
