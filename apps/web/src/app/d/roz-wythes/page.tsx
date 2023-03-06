@@ -8,7 +8,7 @@ import type { Experience } from '@/components/experience/experience-overlay';
 import { ExperiencePage } from '@/components/experience/experience-page';
 
 export const metadata: Metadata = {
-  title: 'Roz Whytes - Research - DeMarkten - feb 2023',
+  title: 'Roz wythes - Research - DeMarkten - feb 2023',
   viewport: {
     width: 'device-width',
     initialScale: 1,
