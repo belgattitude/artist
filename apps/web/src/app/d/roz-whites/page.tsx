@@ -98,7 +98,10 @@ export const getExperiences = async (): Promise<Experience[]> => {
     {
       title: 'Photos',
       description: 'Photos from the performance in de Markten.',
-      img: 'https://media.failwell.be/roz/exports/P1006696.jpg',
+      img: [
+        'https://media.failwell.be/roz/exports/P1006696.jpg',
+        'https://media.failwell.be/roz/exports/P1006722.jpg',
+      ],
     },
   ];
 };
