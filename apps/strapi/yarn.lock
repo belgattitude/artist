@@ -4598,19 +4598,19 @@ __metadata:
     "@strapi/plugin-i18n": "npm:4.7.1"
     "@strapi/plugin-users-permissions": "npm:4.7.1"
     "@strapi/strapi": "npm:4.7.1"
-    better-sqlite3: "npm:8.1.0"
-    rimraf: "npm:4.2.0"
+    better-sqlite3: "npm:8.2.0"
+    rimraf: "npm:4.4.0"
   languageName: unknown
   linkType: soft
 
-"better-sqlite3@npm:8.1.0":
-  version: 8.1.0
-  resolution: "better-sqlite3@npm:8.1.0"
+"better-sqlite3@npm:8.2.0":
+  version: 8.2.0
+  resolution: "better-sqlite3@npm:8.2.0"
   dependencies:
     bindings: "npm:^1.5.0"
     node-gyp: "npm:latest"
     prebuild-install: "npm:^7.1.0"
-  checksum: 293d9aeb2ff5db6c32961fe83cc2fd7fcf9ff25b0069a704d9570865c59ae8e1cbff1b98dad6b83502a4cc8c39abcf05bc5302e5f6038b5049679cfc4e84ade1
+  checksum: 2b0af98b5a7282c238cffa1fff7fda478f0adf586aa658efbd8db78742dd87e1c50c59a7eb528ff19c98c5a20352646c353154905ec738e8c5033f0e0a5c3a1b
   languageName: node
   linkType: hard
 
@@ -11920,14 +11920,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:4.2.0":
-  version: 4.2.0
-  resolution: "rimraf@npm:4.2.0"
+"rimraf@npm:4.4.0":
+  version: 4.4.0
+  resolution: "rimraf@npm:4.4.0"
   dependencies:
     glob: "npm:^9.2.0"
   bin:
     rimraf: dist/cjs/src/bin.js
-  checksum: ac9263adf4d95db87da57dddb77e2368457576cab630d16b016b16ccad3851668925332fd7d170f762824d9b8f32530942dfe02e367481303e81d6082475af13
+  checksum: 9f171359bcb9a00a82125dd796c921fb787d0bc57dba0d93b25ca6ce37463385b8a6e39bbb8db57c4fdebfc721c839b829438dacd9e9da796d4f4cce8188ba0c
   languageName: node
   linkType: hard
 
