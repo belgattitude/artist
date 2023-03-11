@@ -17,5 +17,7 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    children: 'Click me !',
+  },
 };

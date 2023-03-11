@@ -1,6 +1,6 @@
 const path = require('path');
-const { VanillaExtractPlugin } = require('@vanilla-extract/webpack-plugin');
-const { merge } = require('webpack-merge');
+// const { VanillaExtractPlugin } = require('@vanilla-extract/webpack-plugin');
+// const { merge } = require('webpack-merge');
 
 module.exports = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -39,7 +39,7 @@ module.exports = {
   framework: {
     name: '@storybook/nextjs',
     options: {
-      nextConfigPath: path.resolve(__dirname, '../next.config.js'),
+      nextConfigPath: path.resolve(__dirname, '../next.config.mjs'),
     },
   },
   docs: {
