@@ -2,7 +2,7 @@
   "name": "belgattitude-artist-strapi",
   "private": true,
   "version": "0.1.0",
-  "description": "Belgattitude's artist website",
+  "description": "Personal artist website CMS",
   "license": "MIT",
   "author": {
     "name": "Sébastien Vanvelthem"
@@ -16,16 +16,16 @@
     "docker:build": "docker compose build"
   },
   "dependencies": {
-    "@strapi/plugin-graphql": "4.8.0",
-    "@strapi/plugin-i18n": "4.8.0",
-    "@strapi/plugin-users-permissions": "4.8.0",
-    "@strapi/strapi": "4.8.0",
+    "@strapi/plugin-graphql": "4.8.2",
+    "@strapi/plugin-i18n": "4.8.2",
+    "@strapi/plugin-users-permissions": "4.8.2",
+    "@strapi/strapi": "4.8.2",
     "better-sqlite3": "8.2.0"
   },
   "devDependencies": {
     "rimraf": "4.4.0"
   },
-  "packageManager": "yarn@4.0.0-rc.39",
+  "packageManager": "yarn@4.0.0-rc.40",
   "engines": {
     "node": ">=18.12",
     "yarn": ">=3.2.1"
