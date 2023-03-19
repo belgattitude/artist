@@ -21,11 +21,11 @@ const HomePage: FC = () => {
           sources={[
             {
               type: 'video/mp4',
-              // url: 'https://media.failwell.be/roz/roz-markten-trio.m4v',
-              url: videoUrl,
+              url: 'https://media.failwell.be/roz/roz-markten-trio.m4v',
+              // url: videoUrl,
             },
           ]}
-          playbackRate={0.1}
+          playbackRate={0.3}
           autoPlay={true}
         />
       </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import type { FC } from 'react';
-import { useEffect, useRef } from 'react';
+import { useCallback } from 'react';
 
 type Props = {
   sources: Array<{ url: string; type: string }>;
@@ -10,16 +10,15 @@ type Props = {
 };
 export const VideoBackground: FC<Props> = (props) => {
   const { sources, playbackRate = 1.0, autoPlay = true } = props;
-  const videoRef = useRef<HTMLVideoElement>(null);
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = playbackRate;
-    }
-  }, [playbackRate]);
 
-  useEffect(() => {
-    videoRef.current?.load();
-  }, [sources]);
+  const videoRef = useCallback(
+    (node: HTMLVideoElement) => {
+      if (node !== null) {
+        node.playbackRate = playbackRate;
+      }
+    },
+    [playbackRate]
+  );
 
   return (
     <div
@@ -32,7 +31,6 @@ export const VideoBackground: FC<Props> = (props) => {
           className={
             'absolute top-0 left-0 -z-10 block h-full w-full overflow-hidden bg-black object-cover'
           }
-          id="background-video"
           autoPlay={autoPlay}
           ref={videoRef}
           loop={true}
