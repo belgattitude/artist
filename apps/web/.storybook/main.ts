@@ -1,9 +1,19 @@
-const path = require('path');
-// const { VanillaExtractPlugin } = require('@vanilla-extract/webpack-plugin');
-// const { merge } = require('webpack-merge');
+import type { StorybookConfig } from '@storybook/nextjs';
 
-module.exports = {
+const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+  ],
+  framework: {
+    name: '@storybook/nextjs',
+    options: {
+      strictMode: true,
+      nextConfigPath: '../next.config.mjs',
+    },
+  },
   /*
   babel: (config) => {
     config.presets.push(require.resolve('@emotion/babel-preset-css-prop'));
@@ -30,19 +40,10 @@ module.exports = {
       plugins: [new VanillaExtractPlugin()],
     });
   },*/
-  addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
-  ],
-  // https://github.com/storybookjs/storybook/tree/next/code/frameworks/nextjs
-  framework: {
-    name: '@storybook/nextjs',
-    options: {
-      nextConfigPath: path.resolve(__dirname, '../next.config.mjs'),
-    },
-  },
+
   docs: {
     autodocs: 'tag',
+    defaultName: 'Docs', // set to change the name of generated docs entries
   },
 };
+export default config;
