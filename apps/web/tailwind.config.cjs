@@ -15,16 +15,20 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        'font-inter': [],
+        'family-inter': [
+          'var(--font-family-inter)',
+          ...defaultTheme.fontFamily.sans,
+        ],
+        'family-monoton': [
+          'var(--font-family-monoton)',
+          ...defaultTheme.fontFamily.sans,
+        ],
         'text-primary': [
-          'var(--font-family-text-primary)',
+          'var(--font-family-inter)',
           ...defaultTheme.fontFamily.sans,
         ],
         brand: ['var(--font-family-brand)', ...defaultTheme.fontFamily.sans],
-        title: [
-          'var(--font-family-text-primary)',
-          ...defaultTheme.fontFamily.sans,
-        ],
+        title: ['var(--font-family-inter)', ...defaultTheme.fontFamily.sans],
       },
       aspectRatio: {
         '4/3': '4 / 3',

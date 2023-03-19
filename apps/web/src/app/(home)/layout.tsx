@@ -10,14 +10,9 @@ import {
   Rubik_80s_Fade, */
 } from 'next/font/google';
 import type { ReactNode } from 'react';
+import { fontInter } from '@/components/fonts/FontInter';
+import { fontMonoton } from '@/components/fonts/FontMonoton';
 import { MainLayout } from '@/components/layout/main-layout';
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: 'variable',
-  // weight: ['400'],
-  variable: '--font-inter',
-});
 
 export const metadata: Metadata = {
   title: {
@@ -33,9 +28,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${inter.className} ${inter.variable}`}>
+      <body className={`${fontInter.variable} ${fontMonoton.variable}`}>
         <MainLayout hideMainNav={true}>
-          <div className={'flex w-full'}>{children}</div>
+          <div className={'font-family-inter flex h-[100vh] w-full'}>
+            {children}
+          </div>
         </MainLayout>
       </body>
     </html>

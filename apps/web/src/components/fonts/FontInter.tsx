@@ -4,8 +4,7 @@ import type { FC, PropsWithChildren } from 'react';
 export const fontInter = Inter({
   subsets: ['latin'],
   weight: 'variable',
-  // weight: ['400'],
-  variable: '--font-inter',
+  variable: '--font-family-inter',
 });
 
 export const FontLoaderInter: FC<PropsWithChildren> = (props) => (

@@ -4,17 +4,29 @@ import React from 'react';
 import { VideoBackground } from '@/components/video/VideoBackground';
 
 export const metadata: Metadata = {
-  title: 'Home',
+  title: 'Reflective Resonance',
 };
 
 const HomePage: FC = () => {
   const videoUrl = 'https://media.failwell.be/dark.mp4';
   return (
-    <div className={'container mx-auto flex flex-col gap-5 bg-white p-5'}>
-      <div className={'mt-5 p-5 text-black'}>
-        <h1 className={'text-3xl'}>Sébastien Vanvelthem</h1>
-        <p>Dance | Instant composition | Improvisation</p>
-        <p>New website coming soon</p>
+    <div
+      className={
+        'container mx-auto flex flex-col gap-5 bg-white p-5 text-[#a0a0a0]'
+      }
+    >
+      <div className={'font-text-primary mt-5 text-black'}>
+        <h1
+          className={
+            'font-family-monoton text-3xl font-extralight tracking-wide'
+          }
+        >
+          Sébastien Vanvelthem
+        </h1>
+        <div className={'tracking-wide'}>
+          <p>Dance | Instant composition | Improvisation</p>
+          <p>New website coming soon</p>
+        </div>
       </div>
       <div className={'mb-[50px] flex flex-col gap-5 lg:flex-row'}>
         <VideoBackground
