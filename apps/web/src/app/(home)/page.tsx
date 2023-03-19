@@ -18,7 +18,7 @@ const HomePage: FC = () => {
       <div className={'font-text-primary mt-5 text-black'}>
         <h1
           className={
-            'font-family-monoton text-3xl font-extralight tracking-wide'
+            'font-family-monoton text-3xl font-extralight tracking-wide text-neutral-600'
           }
         >
           Sébastien Vanvelthem
