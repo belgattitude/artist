@@ -30,14 +30,14 @@ export const VideoBackground: FC<Props> = (props) => {
   return (
     <div
       className={twMerge(
-        'relative flex flex-col flex-grow bg-black drop-shadow pt-[20px]',
+        'relative flex flex-col flex-grow drop-shadow pt-[20px]',
         className
       )}
     >
       <div>
         <video
           className={
-            'absolute top-0 left-0 -z-10 block h-full w-full overflow-hidden bg-black object-cover'
+            'absolute top-0 left-0 -z-10 block h-full w-full overflow-hidden object-cover'
           }
           autoPlay={autoPlay}
           ref={videoRef}
@@ -52,10 +52,10 @@ export const VideoBackground: FC<Props> = (props) => {
       </div>
       <div
         className={
-          'mb-[50px] mr-[20px] max-w-[400px] bg-black/40 p-[65px] tracking-wide text-[#a0a0a0]'
+          'mx-[20px] mb-[50px] max-w-[95%] bg-black/40 p-[65px] tracking-wide text-[#a0a0a0] lg:max-w-[78%]'
         }
       >
-        <h1 className={'mb-5  text-6xl font-thin text-white'}>Casual</h1>
+        <h1 className={'mb-5 text-6xl font-thin text-white'}>Casual</h1>
         <div className={''}>
           <p>
             Iqlksqdjf lqsdjf qqs dflkjqsd f qs dflqsjdf lqsd jf qs dflsqdjf qs

@@ -10,13 +10,13 @@ export const metadata: Metadata = {
 const HomePage: FC = () => {
   const videoUrl = 'https://media.failwell.be/dark.mp4';
   return (
-    <div className={'container mx-auto flex flex-col gap-5 p-5'}>
-      <div className={'dot1 mt-5 text-white'}>
-        <h1>Sébastien Vanvelthem</h1>
+    <div className={'container mx-auto flex flex-col gap-5 bg-white p-5'}>
+      <div className={'mt-5 p-5 text-black'}>
+        <h1 className={'text-3xl'}>Sébastien Vanvelthem</h1>
         <p>Dance | Instant composition | Improvisation</p>
         <p>New website coming soon</p>
       </div>
-      <div className={'mb-[50px] flex flex-col gap-5 bg-black md:flex-row'}>
+      <div className={'mb-[50px] flex flex-col gap-5 lg:flex-row'}>
         <VideoBackground
           sources={[
             {
