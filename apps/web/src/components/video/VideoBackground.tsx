@@ -9,9 +9,11 @@ type Props = {
   sources: Array<{ url: string; type: string }>;
   playbackRate: number;
   autoPlay: boolean;
+  title: string;
 };
 export const VideoBackground: FC<Props> = (props) => {
   const {
+    title,
     sources,
     playbackRate = 1.0,
     autoPlay = true,
@@ -56,7 +58,7 @@ export const VideoBackground: FC<Props> = (props) => {
         }
       >
         <h1 className={'mb-5 text-5xl font-thin text-white md:text-6xl'}>
-          Interactions
+          {title}
         </h1>
         <div className={''}>
           <p>
