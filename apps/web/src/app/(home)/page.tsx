@@ -52,19 +52,19 @@ const HomePage: FC = () => {
           playbackRate={0.4}
           autoPlay={true}
         />
-        {/*
-        <VideoBackground
-          sources={[
-            {
-              type: 'video/mp4',
-              // url: 'https://media.failwell.be/roz/roz-markten-trio.m4v',
-              url: 'https://media.failwell.be/citla/citlali-full-graded.mp4',
-            },
-          ]}
-          playbackRate={0.7}
-          autoPlay={true}
-        />
-        */}
+        {
+          <VideoBackground
+            sources={[
+              {
+                type: 'video/mp4',
+                // url: 'https://media.failwell.be/roz/roz-markten-trio.m4v',
+                url: 'https://media.failwell.be/sudakas/sudakas-training-entry.mp4#t=8,30',
+              },
+            ]}
+            playbackRate={0.7}
+            autoPlay={true}
+          />
+        }
       </div>
     </div>
   );
