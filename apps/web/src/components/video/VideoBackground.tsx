@@ -1,7 +1,7 @@
 'use client';
 
 import type { FC } from 'react';
-import { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 type Props = {
@@ -69,13 +69,13 @@ export const VideoBackground: FC<Props> = (props) => {
             qsdlkfj sqdf lkq jdfl qsdlkfj sqdf lkq jdfl qsdlkfj sqdf lkq jdfl
             qsdlkfj sqdf lkq jdfl
           </p>
-          <p>
-            Iqlksqdjf lqsdjf qqs dflkjqsd f qs dflqsjdf lqsd jf qs dflsqdjf qs
-            df qsdlkfj sqdf lkq jdfl qsdlkfj sqdf lkq jdfl qsdlkfj sqdf lkq jdfl
-            qsdlkfj sqdf lkq jdfl qsdlkfj sqdf lkq jdfl qsdlkfj sqdf lkq jdfl
-            qsdlkfj sqdf lkq jdfl
-          </p>
         </div>
+        {/*
+        <img
+          src={'https://media.failwell.be/mr/garage29/gage29-typhen_1.3.4.webp'}
+          style={{ width: '100%', marginTop: '15px' }}
+        />
+        */}
       </div>
     </div>
   );
