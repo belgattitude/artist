@@ -33,7 +33,8 @@ const HomePage: FC = () => {
           sources={[
             {
               type: 'video/mp4',
-              url: 'https://media.failwell.be/roz/roz-markten-trio.m4v',
+              url: 'https://media.failwell.be/roz/roz-markten-trio.m4v#t=20,27',
+              // url: 'https://media.failwell.be/roz/Roz2.mp4#t=20,22',
               // url: videoUrl,
             },
           ]}
@@ -46,7 +47,7 @@ const HomePage: FC = () => {
               type: 'video/mp4',
               // url: 'https://media.failwell.be/roz/roz-markten-trio.m4v',
               // url: 'https://media.failwell.be/roz/Roz2.mp4',
-              url: 'https://media.failwell.be/bubble/bubble_dance_11th_april_2021.mp4',
+              url: 'https://media.failwell.be/bubble/bubble_dance_11th_april_2021.mp4#t=11,25',
               // url: 'https://media.failwell.be/mr/garage29/garage29-background.mp4',
             },
           ]}
