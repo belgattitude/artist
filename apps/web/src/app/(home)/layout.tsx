@@ -28,7 +28,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${fontInter.variable} ${fontMonoton.variable}`}>
+      <body
+        className={`${fontInter.variable} ${fontMonoton.variable} bg-black/90`}
+      >
         <MainLayout hideMainNav={true}>
           <div className={'font-family-inter flex h-[100vh] w-full'}>
             {children}
