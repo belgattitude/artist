@@ -52,10 +52,12 @@ export const VideoBackground: FC<Props> = (props) => {
       </div>
       <div
         className={
-          'mx-[20px] mb-[50px] max-w-[95%] bg-black/40 p-[65px] tracking-wide text-[#a0a0a0] lg:max-w-[78%]'
+          'mx-[20px] max-w-[95%] bg-black/40 p-[15px] tracking-wide text-[#a0a0a0] md:mx-[20px] md:mb-[50px] md:p-[65px] lg:max-w-[78%]'
         }
       >
-        <h1 className={'mb-5 text-6xl font-thin text-white'}>Interactions</h1>
+        <h1 className={'mb-5 text-5xl font-thin text-white md:text-6xl'}>
+          Interactions
+        </h1>
         <div className={''}>
           <p>
             Iqlksqdjf lqsdjf qqs dflkjqsd f qs dflqsjdf lqsd jf qs dflsqdjf qs

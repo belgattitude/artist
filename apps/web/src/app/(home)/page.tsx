@@ -11,7 +11,7 @@ const HomePage: FC = () => {
   const videoUrl = 'https://media.failwell.be/dark.mp4';
   return (
     <div
-      className={'container mx-auto flex flex-col gap-5  p-5 text-[#a0a0a0]'}
+      className={'container mx-auto flex flex-col gap-5 text-[#a0a0a0] md:p-5'}
     >
       <div className={'font-text-primary mt-5'}>
         <h1
