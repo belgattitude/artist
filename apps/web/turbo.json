@@ -5,7 +5,7 @@
     "build": {
       "env": ["NEXT_PUBLIC_STRAPI_API_URL"],
       "outputs": [".next/**", "!.next/cache/**"],
-      "dependsOn": ["^codegen"]
+      "dependsOn": ["^codegen-api"]
     }
   }
 }

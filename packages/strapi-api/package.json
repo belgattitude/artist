@@ -10,7 +10,7 @@
     "test-unit": "vitest run",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "clean": "rimraf ./dist ./tsconfig.tsbuildinfo ./node_modules/.cache",
-    "codegen": "dotenv-flow -- node ./scripts/codegen.mjs"
+    "codegen-api": "dotenv-flow -- node ./scripts/codegen.mjs"
   },
   "devDependencies": {
     "@belgattitude/eslint-config-bases": "1.26.0",
