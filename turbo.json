@@ -3,8 +3,9 @@
   "globalDependencies": ["**/.env.*local", "**/tsconfig*.json"],
   "pipeline": {
     "build": {
-      // "dependsOn": ["^codegen"],
+      "dependsOn": ["^codegen"]
     },
+    "codegen": {},
     "test": {},
     "test-unit": {},
     "lint": {

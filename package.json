@@ -38,7 +38,8 @@
     "install:playwright": "playwright install",
     "deduplicate": "pnpm dedupe",
     "docs:serve": "docsify serve ./docs",
-    "postinstall": "is-ci || pnpm husky install"
+    "postinstall": "is-ci || pnpm husky install",
+    "codegen": "npx openapi-typescript ./apps/strapi/src/extensions/documentation/documentation/1.0.0/full_documentation.json  --output schema.ts\n"
   },
   "dependencies": {
     "cross-env": "7.0.3"

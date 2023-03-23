@@ -17,6 +17,7 @@
     "incremental": true,
     "baseUrl": "./src",
     "paths": {
+      "artist-strapi-api": ["../../../packages/strapi-api/src/index"],
       "@/components/*": ["./components/*"],
       "@/config/*": ["./config/*"],
       "@/features/*": ["./features/*"],
