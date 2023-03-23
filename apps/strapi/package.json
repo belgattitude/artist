@@ -23,7 +23,7 @@
     "better-sqlite3": "8.2.0"
   },
   "devDependencies": {
-    "rimraf": "4.4.0"
+    "rimraf": "4.4.1"
   },
   "packageManager": "yarn@4.0.0-rc.40",
   "engines": {

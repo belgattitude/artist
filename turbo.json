@@ -1,8 +1,20 @@
 {
-  "globalDependencies": ["**/.env.*local"],
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env.*local", "**/tsconfig*.json"],
   "pipeline": {
     "build": {
       // "dependsOn": ["^codegen"],
+    },
+    "test": {},
+    "test-unit": {},
+    "lint": {
+      "env": ["TIMING"]
+    },
+    "lint-styles": {},
+    "typecheck": {},
+    "build-storybook": {},
+    "clean": {
+      "cache": false
     }
   }
 }

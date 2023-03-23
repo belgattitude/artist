@@ -32,7 +32,7 @@
     "packages:lint": "pnpm -F './packages/**' lint",
     "packages:typecheck": "pnpm -F './packages/**' typecheck",
     "packages:clean": "pnpm -F './packages/**' clean",
-    "nuke:node_modules": "npx -y rimraf@3.0.1 '**/node_modules'",
+    "nuke:node_modules": "rimraf --glob '**/node_modules'",
     "deps:check": "npx -y npm-check-updates@latest --configFileName ncurc.yml --deep --mergeConfig",
     "deps:update": "npx -y npm-check-updates@latest --configFileName ncurc.yml -u --deep --mergeConfig",
     "install:playwright": "playwright install",
@@ -45,24 +45,24 @@
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.4.8",
+    "@belgattitude/eslint-config-bases": "1.26.0",
     "@commitlint/cli": "17.5.0",
     "@commitlint/config-conventional": "17.4.4",
     "@types/prettier": "2.7.2",
     "@types/shell-quote": "1.7.1",
-    "@belgattitude/eslint-config-bases": "1.26.0",
     "eslint": "8.36.0",
     "husky": "8.0.3",
     "is-ci": "3.0.1",
     "lint-staged": "13.2.0",
     "npm-run-all": "4.1.5",
     "prettier": "2.8.6",
-    "rimraf": "4.4.0",
+    "rimraf": "4.4.1",
     "turbo": "1.8.5",
     "typescript": "5.0.2"
   },
   "engines": {
     "node": ">=18.14.0",
-    "pnpm": ">=7.30.0"
+    "pnpm": ">=7.30.1"
   },
-  "packageManager": "pnpm@7.30.0"
+  "packageManager": "pnpm@7.30.1"
 }

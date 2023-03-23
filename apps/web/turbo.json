@@ -2,11 +2,9 @@
   "$schema": "https://turbo.build/schema.json",
   "extends": ["//"],
   "pipeline": {
-    "typecheck": {},
     "build": {
       "env": ["NEXT_PUBLIC_STRAPI_API_URL"],
       "outputs": [".next/**", "!.next/cache/**"]
-    },
-    "lint": {}
+    }
   }
 }
