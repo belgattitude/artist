@@ -101,7 +101,7 @@ importers:
         specifier: 0.4.1
         version: 0.4.1
       artist-strapi-api:
-        specifier: workspace:^
+        specifier: 'workspace:'
         version: link:../../packages/strapi-api
       clsx:
         specifier: 1.2.1
