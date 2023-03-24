@@ -13,6 +13,7 @@
   },
   "scripts": {
     "install:strapi": "cd apps/strapi && yarn install",
+    "g:turbo": "turbo",
     "g:clean": "pnpm clean:global-cache && pnpm -r clean",
     "g:build": "pnpm -r build",
     "g:build-changed": "pnpm -r -F '...[origin/main]' build",

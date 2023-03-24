@@ -4,7 +4,11 @@
   "pipeline": {
     "build": {
       "env": ["NEXT_PUBLIC_STRAPI_API_URL"],
-      "outputs": [".next/**", "!.next/cache/**"],
+      "outputs": [".next/**", "!.next/cache/**"]
+      // "dependsOn": ["^codegen-api"]
+    },
+    "dev": {
+      "cache": false,
       "dependsOn": ["^codegen-api"]
     }
   }

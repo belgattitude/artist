@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsup",
+    "build-disabled": "tsup",
     "lint": "cross-env TIMING=1 eslint .. --ext .ts,.tsx,.js,.jsx,.mjs,.cjs,.mts,.cts,.mdx --cache --cache-location ../../.cache/api.eslintcache",
     "test": "vitest run",
     "test-unit": "vitest run",

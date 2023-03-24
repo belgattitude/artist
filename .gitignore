@@ -6,6 +6,10 @@
 .env.local
 .env.*.local
 
+# dist
+
+**/dist
+
 # security: atlassian/changeset
 
 **/.netrc

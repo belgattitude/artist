@@ -1,0 +1,13 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "pipeline": {
+    "build": {
+      "env": ["OPENAPI_SOURCE"],
+      "outputs": ["dist/**"],
+      "dependsOn": ["^codegen-api"],
+      "persistent": true,
+      "cache": false
+    }
+  }
+}
