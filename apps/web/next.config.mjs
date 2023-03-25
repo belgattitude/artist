@@ -57,6 +57,7 @@ const secureHeaders = createSecureHeaders({
             "'self'",
             'https://vitals.vercel-insights.com',
             'https://media.failwell.be',
+            'https://b-artist.failwell.be',
             'https://fonts.gstatic.com',
             strapiUrl,
           ],
@@ -80,8 +81,13 @@ const secureHeaders = createSecureHeaders({
 /** @type {import('next').NextConfig} */
 let nextConfig = {
   reactStrictMode: true,
-  swcMinify: false,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+  swcMinify: true,
+
+  httpAgentOptions: {
+    keepAlive: true,
+  },
+
   output: 'standalone',
 
   transpilePackages: isProd
