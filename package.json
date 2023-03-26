@@ -14,7 +14,7 @@
   "scripts": {
     "install:strapi": "cd apps/strapi && yarn install",
     "g:turbo": "turbo",
-    "g:codegen": "turbo codegen",
+    "g:codegen": "pnpm run -r codegen",
     "g:clean": "pnpm clean:global-cache && pnpm -r clean",
     "g:build": "turbo build",
     "g:test-unit": "turbo test-unit",
