@@ -29,7 +29,6 @@ export const Interactions: FC = () => {
           video={{
             src: 'https://media.failwell.be/roz/roz-markten-trio.m4v#t=20,29.1',
             playbackRate: 0.2,
-            autoPlay: true,
             loop: true,
           }}
         />
@@ -45,7 +44,6 @@ export const Interactions: FC = () => {
           video={{
             src: 'https://media.failwell.be/bubble/bubble_dance_11th_april_2021.mp4#t=11,15',
             playbackRate: 0.4,
-            autoPlay: true,
           }}
         />
         <VideoCard
@@ -59,7 +57,6 @@ export const Interactions: FC = () => {
           video={{
             src: 'https://media.failwell.be/sudakas/sudakas-training-entry.mp4#t=8,30',
             playbackRate: 0.7,
-            autoPlay: true,
           }}
         />
       </div>

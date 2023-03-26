@@ -39,7 +39,8 @@ export const VideoCard: FC<VideoCardProps> = (props) => {
           )}
         >
           <a
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               if (handleClick) {
                 handleClick();
               }
