@@ -1,12 +1,6 @@
-import type {
-  FC,
-  MutableRefObject,
-  PropsWithChildren,
-  ReactComponentElement,
-  ReactElement,
-} from 'react';
+import Image from 'next/image';
+import type { FC, MutableRefObject, ReactElement } from 'react';
 import React, { forwardRef, Fragment } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { VideoPlayer } from '@/components/player/VideoPlayer';
 import styles from './styles.module.css';
 
@@ -25,7 +19,9 @@ type ExperienceOverlayProps = {
 const Images: FC<{ images: string[] | string }> = (props) => {
   const { images } = props;
   if (typeof images === 'string') {
-    return <img src={images} style={{ width: '100%', marginTop: '15px' }} />;
+    return (
+      <Image src={images} alt="" style={{ width: '100%', marginTop: '15px' }} />
+    );
   }
   return (
     <div className={'flex flex-row'}>
@@ -57,7 +53,7 @@ export const ExperienceOverlay = forwardRef<
             (e.currentTarget.scrollHeight - window.innerHeight);
         }}
       >
-        {experiences.map((props, idx) => {
+        {experiences.map((props) => {
           const { title, description, img, video } = props;
           const images = typeof img === 'string' ? [img] : img;
           return (

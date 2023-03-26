@@ -18,7 +18,7 @@ export const ExperiencePage: FC<Props> = (props) => {
   // const caption = useRef<HTMLSpanElement>();
   const scroll = useRef<number>(0);
 
-  const [video, setVideo] = useState<string>(bgVideoUrl);
+  const [video, _setVideo] = useState<string>(bgVideoUrl);
 
   return (
     <>

@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${fontInter.className} ${fontInter.variable} bg-white`}>
+      <body className={`${fontInter.className} ${fontInter.variable} bg-black`}>
         <div className={'flex w-full'}>{children}</div>
       </body>
     </html>
