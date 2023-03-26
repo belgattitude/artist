@@ -29,6 +29,7 @@ module.exports = {
   ],
   rules: {
     'jsx-a11y/anchor-is-valid': 'off',
+    'jsx-a11y/media-has-caption': 'off',
     '@typescript-eslint/naming-convention': 'off',
   },
   overrides: [

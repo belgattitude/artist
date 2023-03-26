@@ -1,69 +1,62 @@
 import type { Metadata } from 'next';
-import type { FC, PropsWithChildren } from 'react';
+import type { FC } from 'react';
 import React from 'react';
-import type { VideoBackgroundProps } from '@/components/video/VideoBackground';
-import { VideoBackground } from '@/components/video/VideoBackground';
+import { VideoCard } from '@/components/video/VideoCard';
 
 export const metadata: Metadata = {
   title: 'Reflective Resonance',
 };
 
-type VideoCardProps = {
-  className?: string;
-  video: VideoBackgroundProps;
-} & PropsWithChildren;
-const VideoCard: FC<VideoCardProps> = (props) => {
-  const { video, children } = props;
-  return (
-    <div>
-      <VideoBackground {...video} />
-      <div>{children}</div>
-    </div>
-  );
-};
-
 const Interactions: FC = () => {
   return (
-    <div className={'bg-black/70 p-5'}>
+    <div className={'bg-black p-5'}>
       <h1 className={'mb-5 py-5 text-5xl font-thin text-white md:text-6xl'}>
         Interactions
       </h1>
       <div className={'mx-auto flex flex-col gap-5 lg:flex-row'}>
         <VideoCard
+          title={'Roz Wythes'}
+          text={
+            <>
+              <p>Look for what you notice</p>
+              <p>but no one else see</p>
+            </>
+          }
           video={{
-            title: 'Roz Wythes',
             src: 'https://media.failwell.be/roz/roz-markten-trio.m4v#t=20,29.1',
             playbackRate: 0.2,
             autoPlay: true,
+            loop: true,
           }}
-        >
-          <p>Look for what you notice</p>
-          <p>but no one else see</p>
-        </VideoCard>
-        <VideoBackground
-          title={'Roz Wythes'}
-          src={'https://media.failwell.be/roz/roz-markten-trio.m4v#t=20,29.1'}
-          playbackRate={0.2}
-          autoPlay={true}
         />
-        <VideoBackground
-          title={'Bubble dance'}
-          src={
-            'https://media.failwell.be/bubble/bubble_dance_11th_april_2021.mp4#t=11,15'
+        <VideoCard
+          title={'Bubble Dance'}
+          text={
+            <>
+              <p>Look for what you notice</p>
+              <p>but no one else see</p>
+            </>
           }
-          playbackRate={0.4}
-          autoPlay={true}
+          video={{
+            src: 'https://media.failwell.be/bubble/bubble_dance_11th_april_2021.mp4#t=11,15',
+            playbackRate: 0.4,
+            autoPlay: true,
+          }}
         />
-        {
-          <VideoBackground
-            title={'Les Sudakas'}
-            src={
-              'https://media.failwell.be/sudakas/sudakas-training-entry.mp4#t=8,30'
-            }
-            playbackRate={0.7}
-            autoPlay={true}
-          />
-        }
+        <VideoCard
+          title={'Les sudakas'}
+          text={
+            <>
+              <p>Look for what you notice</p>
+              <p>but no one else see</p>
+            </>
+          }
+          video={{
+            src: 'https://media.failwell.be/sudakas/sudakas-training-entry.mp4#t=8,30',
+            playbackRate: 0.7,
+            autoPlay: true,
+          }}
+        />
       </div>
     </div>
   );
