@@ -25,10 +25,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang={'en'}>
-      <head>
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <link rel="icon" href="/favicon.ico" />
-      </head>
       <body
         className={`${fontInter.variable} ${fontMonoton.variable} bg-black`}
       >
