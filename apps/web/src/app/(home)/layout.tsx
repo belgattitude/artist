@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body
-        className={`${fontInter.variable} ${fontMonoton.variable} bg-white`}
+        className={`${fontInter.variable} ${fontMonoton.variable} bg-black`}
       >
         <UrqlProvider>
           <MainLayout hideMainNav={true}>

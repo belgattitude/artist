@@ -24,13 +24,13 @@ export const VideoCard: FC<VideoCardProps> = (props) => {
       <VideoBackground {...video} />
       <div
         className={
-          'mx-[20px] max-w-[95%] bg-black/40 p-[15px] tracking-wide text-[#a0a0a0] md:mx-[20px] md:mb-[50px] md:p-[65px] lg:max-w-[78%]'
+          'mx-[20px] max-w-[95%] bg-black/60 p-[15px] tracking-wide text-[#a0a0a0] md:mx-[20px] md:mb-[50px] md:p-[65px] lg:max-w-[78%]'
         }
       >
-        <h1 className={'mb-5 text-5xl font-thin text-white md:text-6xl'}>
+        <h1 className={'mb-5 text-5xl font-thin text-white md:text-5xl'}>
           {title}
         </h1>
-        <div className={''}>{text}</div>
+        <div className={'text-md'}>{text}</div>
       </div>
     </div>
   );
