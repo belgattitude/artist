@@ -10,9 +10,19 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /** A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
+  Date: any;
+  /** A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
   DateTime: any;
+  /** A string used to identify an i18n locale */
   I18NLocaleCode: any;
+  /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
   JSON: any;
+  /** The `BigInt` scalar type represents non-fractional signed whole numeric values. */
+  Long: any;
+  /** A time string with format HH:mm:ss.SSS */
+  Time: any;
+  /** The `Upload` scalar type represents a file upload. */
   Upload: any;
 };
 
@@ -38,6 +48,30 @@ export type BooleanFilterInput = {
   null?: InputMaybe<Scalars['Boolean']>;
   or?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
   startsWith?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type DateFilterInput = {
+  and?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  between?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  contains?: InputMaybe<Scalars['Date']>;
+  containsi?: InputMaybe<Scalars['Date']>;
+  endsWith?: InputMaybe<Scalars['Date']>;
+  eq?: InputMaybe<Scalars['Date']>;
+  eqi?: InputMaybe<Scalars['Date']>;
+  gt?: InputMaybe<Scalars['Date']>;
+  gte?: InputMaybe<Scalars['Date']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  lt?: InputMaybe<Scalars['Date']>;
+  lte?: InputMaybe<Scalars['Date']>;
+  ne?: InputMaybe<Scalars['Date']>;
+  not?: InputMaybe<DateFilterInput>;
+  notContains?: InputMaybe<Scalars['Date']>;
+  notContainsi?: InputMaybe<Scalars['Date']>;
+  notIn?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  notNull?: InputMaybe<Scalars['Boolean']>;
+  null?: InputMaybe<Scalars['Boolean']>;
+  or?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  startsWith?: InputMaybe<Scalars['Date']>;
 };
 
 export type DateTimeFilterInput = {
@@ -111,6 +145,17 @@ export type DiaryInput = {
   title?: InputMaybe<Scalars['String']>;
 };
 
+export type DiaryRelationResponseCollection = {
+  __typename?: 'DiaryRelationResponseCollection';
+  data: Array<DiaryEntity>;
+};
+
+export type Error = {
+  __typename?: 'Error';
+  code: Scalars['String'];
+  message?: Maybe<Scalars['String']>;
+};
+
 export type FileInfoInput = {
   alternativeText?: InputMaybe<Scalars['String']>;
   caption?: InputMaybe<Scalars['String']>;
@@ -177,6 +222,16 @@ export type I18NLocaleFiltersInput = {
   not?: InputMaybe<I18NLocaleFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<I18NLocaleFiltersInput>>>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type I18NLocaleInput = {
+  code?: InputMaybe<Scalars['String']>;
+  name?: InputMaybe<Scalars['String']>;
+};
+
+export type I18NLocaleRelationResponseCollection = {
+  __typename?: 'I18NLocaleRelationResponseCollection';
+  data: Array<I18NLocaleEntity>;
 };
 
 export type IdFilterInput = {
@@ -249,6 +304,30 @@ export type JsonFilterInput = {
   null?: InputMaybe<Scalars['Boolean']>;
   or?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
   startsWith?: InputMaybe<Scalars['JSON']>;
+};
+
+export type LongFilterInput = {
+  and?: InputMaybe<Array<InputMaybe<Scalars['Long']>>>;
+  between?: InputMaybe<Array<InputMaybe<Scalars['Long']>>>;
+  contains?: InputMaybe<Scalars['Long']>;
+  containsi?: InputMaybe<Scalars['Long']>;
+  endsWith?: InputMaybe<Scalars['Long']>;
+  eq?: InputMaybe<Scalars['Long']>;
+  eqi?: InputMaybe<Scalars['Long']>;
+  gt?: InputMaybe<Scalars['Long']>;
+  gte?: InputMaybe<Scalars['Long']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['Long']>>>;
+  lt?: InputMaybe<Scalars['Long']>;
+  lte?: InputMaybe<Scalars['Long']>;
+  ne?: InputMaybe<Scalars['Long']>;
+  not?: InputMaybe<LongFilterInput>;
+  notContains?: InputMaybe<Scalars['Long']>;
+  notContainsi?: InputMaybe<Scalars['Long']>;
+  notIn?: InputMaybe<Array<InputMaybe<Scalars['Long']>>>;
+  notNull?: InputMaybe<Scalars['Boolean']>;
+  null?: InputMaybe<Scalars['Boolean']>;
+  or?: InputMaybe<Array<InputMaybe<Scalars['Long']>>>;
+  startsWith?: InputMaybe<Scalars['Long']>;
 };
 
 export type Mutation = {
@@ -557,6 +636,11 @@ export type ProjectInput = {
   slug?: InputMaybe<Scalars['String']>;
 };
 
+export type ProjectRelationResponseCollection = {
+  __typename?: 'ProjectRelationResponseCollection';
+  data: Array<ProjectEntity>;
+};
+
 export enum PublicationState {
   Live = 'LIVE',
   Preview = 'PREVIEW'
@@ -787,6 +871,30 @@ export type StringFilterInput = {
   startsWith?: InputMaybe<Scalars['String']>;
 };
 
+export type TimeFilterInput = {
+  and?: InputMaybe<Array<InputMaybe<Scalars['Time']>>>;
+  between?: InputMaybe<Array<InputMaybe<Scalars['Time']>>>;
+  contains?: InputMaybe<Scalars['Time']>;
+  containsi?: InputMaybe<Scalars['Time']>;
+  endsWith?: InputMaybe<Scalars['Time']>;
+  eq?: InputMaybe<Scalars['Time']>;
+  eqi?: InputMaybe<Scalars['Time']>;
+  gt?: InputMaybe<Scalars['Time']>;
+  gte?: InputMaybe<Scalars['Time']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['Time']>>>;
+  lt?: InputMaybe<Scalars['Time']>;
+  lte?: InputMaybe<Scalars['Time']>;
+  ne?: InputMaybe<Scalars['Time']>;
+  not?: InputMaybe<TimeFilterInput>;
+  notContains?: InputMaybe<Scalars['Time']>;
+  notContainsi?: InputMaybe<Scalars['Time']>;
+  notIn?: InputMaybe<Array<InputMaybe<Scalars['Time']>>>;
+  notNull?: InputMaybe<Scalars['Boolean']>;
+  null?: InputMaybe<Scalars['Boolean']>;
+  or?: InputMaybe<Array<InputMaybe<Scalars['Time']>>>;
+  startsWith?: InputMaybe<Scalars['Time']>;
+};
+
 export type UploadFile = {
   __typename?: 'UploadFile';
   alternativeText?: Maybe<Scalars['String']>;
@@ -1005,6 +1113,17 @@ export type UsersPermissionsPermissionEntity = {
   id?: Maybe<Scalars['ID']>;
 };
 
+export type UsersPermissionsPermissionEntityResponse = {
+  __typename?: 'UsersPermissionsPermissionEntityResponse';
+  data?: Maybe<UsersPermissionsPermissionEntity>;
+};
+
+export type UsersPermissionsPermissionEntityResponseCollection = {
+  __typename?: 'UsersPermissionsPermissionEntityResponseCollection';
+  data: Array<UsersPermissionsPermissionEntity>;
+  meta: ResponseCollectionMeta;
+};
+
 export type UsersPermissionsPermissionFiltersInput = {
   action?: InputMaybe<StringFilterInput>;
   and?: InputMaybe<Array<InputMaybe<UsersPermissionsPermissionFiltersInput>>>;
@@ -1014,6 +1133,11 @@ export type UsersPermissionsPermissionFiltersInput = {
   or?: InputMaybe<Array<InputMaybe<UsersPermissionsPermissionFiltersInput>>>;
   role?: InputMaybe<UsersPermissionsRoleFiltersInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type UsersPermissionsPermissionInput = {
+  action?: InputMaybe<Scalars['String']>;
+  role?: InputMaybe<Scalars['ID']>;
 };
 
 export type UsersPermissionsPermissionRelationResponseCollection = {
@@ -1089,6 +1213,11 @@ export type UsersPermissionsRoleInput = {
   permissions?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
   type?: InputMaybe<Scalars['String']>;
   users?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+};
+
+export type UsersPermissionsRoleRelationResponseCollection = {
+  __typename?: 'UsersPermissionsRoleRelationResponseCollection';
+  data: Array<UsersPermissionsRoleEntity>;
 };
 
 export type UsersPermissionsUpdateRolePayload = {

@@ -6,7 +6,6 @@
       "dependsOn": ["^codegen-api"]
     },
     "codegen": {},
-    "codegen-api": {},
     "test": {},
     "test-unit": {},
     "lint": {

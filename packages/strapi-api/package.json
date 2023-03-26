@@ -10,7 +10,7 @@
     "test-unit": "vitest run",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "clean": "rimraf ./dist ./tsconfig.tsbuildinfo ./node_modules/.cache",
-    "codegen-api": "dotenv-flow -- node ./scripts/codegen.mjs"
+    "codegen": "dotenv-flow -- node ./scripts/codegen.mjs"
   },
   "dependencies": {
     "server-only": "0.0.1"

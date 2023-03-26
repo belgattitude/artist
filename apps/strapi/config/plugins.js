@@ -1,3 +1,5 @@
+const { join } = require('path');
+
 module.exports = ({ env }) => ({
   upload: {
     config: {
@@ -20,6 +22,11 @@ module.exports = ({ env }) => ({
     config: {
       endpoint: '/graphql',
       shadowCRUD: true,
+      generateArtifacts: true,
+      artifacts: {
+        schema: join(__dirname, '..', 'public/generated/schema.graphql'),
+        // typegen: join(__dirname, '..', 'types.d.ts'),
+      },
       playgroundAlways: false,
       depthLimit: 7,
       amountLimit: 100,

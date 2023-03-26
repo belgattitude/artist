@@ -9,7 +9,7 @@
     },
     "dev": {
       "cache": false,
-      "dependsOn": ["^codegen-api"]
+      "dependsOn": ["^codegen"]
     }
   }
 }
