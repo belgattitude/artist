@@ -1,10 +1,25 @@
 import type { Metadata } from 'next';
-import type { FC } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import React from 'react';
+import type { VideoBackgroundProps } from '@/components/video/VideoBackground';
 import { VideoBackground } from '@/components/video/VideoBackground';
 
 export const metadata: Metadata = {
   title: 'Reflective Resonance',
+};
+
+type VideoCardProps = {
+  className?: string;
+  video: VideoBackgroundProps;
+} & PropsWithChildren;
+const VideoCard: FC<VideoCardProps> = (props) => {
+  const { video, children } = props;
+  return (
+    <div>
+      <VideoBackground {...video} />
+      <div>{children}</div>
+    </div>
+  );
 };
 
 const Interactions: FC = () => {
@@ -14,43 +29,37 @@ const Interactions: FC = () => {
         Interactions
       </h1>
       <div className={'mx-auto flex flex-col gap-5 lg:flex-row'}>
+        <VideoCard
+          video={{
+            title: 'Roz Wythes',
+            src: 'https://media.failwell.be/roz/roz-markten-trio.m4v#t=20,29.1',
+            playbackRate: 0.2,
+            autoPlay: true,
+          }}
+        >
+          <p>Look for what you notice</p>
+          <p>but no one else see</p>
+        </VideoCard>
         <VideoBackground
           title={'Roz Wythes'}
-          sources={[
-            {
-              type: 'video/mp4',
-              url: 'https://media.failwell.be/roz/roz-markten-trio.m4v#t=20,29.1',
-              // url: 'https://media.failwell.be/roz/Roz2.mp4#t=20,22',
-              // url: videoUrl,
-            },
-          ]}
+          src={'https://media.failwell.be/roz/roz-markten-trio.m4v#t=20,29.1'}
           playbackRate={0.2}
           autoPlay={true}
         />
         <VideoBackground
           title={'Bubble dance'}
-          sources={[
-            {
-              type: 'video/mp4',
-              // url: 'https://media.failwell.be/roz/roz-markten-trio.m4v',
-              // url: 'https://media.failwell.be/roz/Roz2.mp4',
-              url: 'https://media.failwell.be/bubble/bubble_dance_11th_april_2021.mp4#t=11,15',
-              // url: 'https://media.failwell.be/mr/garage29/garage29-background.mp4',
-            },
-          ]}
+          src={
+            'https://media.failwell.be/bubble/bubble_dance_11th_april_2021.mp4#t=11,15'
+          }
           playbackRate={0.4}
           autoPlay={true}
         />
         {
           <VideoBackground
             title={'Les Sudakas'}
-            sources={[
-              {
-                type: 'video/mp4',
-                // url: 'https://media.failwell.be/roz/roz-markten-trio.m4v',
-                url: 'https://media.failwell.be/sudakas/sudakas-training-entry.mp4#t=8,30',
-              },
-            ]}
+            src={
+              'https://media.failwell.be/sudakas/sudakas-training-entry.mp4#t=8,30'
+            }
             playbackRate={0.7}
             autoPlay={true}
           />
@@ -76,7 +85,6 @@ const HomePage: FC = () => {
           <p>New website coming soon</p>
         </div>
       </div>
-      <Interactions />
       <Interactions />
     </div>
   );

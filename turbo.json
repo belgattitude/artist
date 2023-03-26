@@ -3,7 +3,7 @@
   "globalDependencies": ["**/.env.*local", "**/tsconfig*.json"],
   "pipeline": {
     "build": {
-      "dependsOn": ["^codegen-api"]
+      // "dependsOn": ["^codegen-api"]
     },
     "codegen": {},
     "test": {},

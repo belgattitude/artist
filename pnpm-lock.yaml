@@ -172,6 +172,9 @@ importers:
       three-stdlib:
         specifier: 2.21.8
         version: 2.21.8(three@0.150.1)
+      urql:
+        specifier: 3.0.4
+        version: 3.0.4(graphql@16.6.0)(react@18.2.0)
       zod:
         specifier: 3.21.4
         version: 3.21.4
@@ -7808,6 +7811,18 @@ packages:
       '@typescript-eslint/types': 5.56.0
       eslint-visitor-keys: 3.3.0
     dev: true
+
+  /@urql/core@3.2.2(graphql@16.6.0):
+    resolution:
+      {
+        integrity: sha512-i046Cz8cZ4xIzGMTyHZrbdgzcFMcKD7+yhCAH5FwWBRjcKrc+RjEOuR9X5AMuBvr8c6IAaE92xAqa4wmlGfWTQ==,
+      }
+    peerDependencies:
+      graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    dependencies:
+      graphql: 16.6.0
+      wonka: 6.2.6
+    dev: false
 
   /@use-gesture/core@10.2.24:
     resolution:
@@ -22329,6 +22344,21 @@ packages:
       braces: 3.0.2
     dev: true
 
+  /urql@3.0.4(graphql@16.6.0)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-okmQKQ9pF4t8O8iCC5gH9acqfFji5lkhW3nLBjx8WKDd2zZG7PXoUpUK19VQEMK87L6VFBOO/XZ52MMKFEI0AA==,
+      }
+    peerDependencies:
+      graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+      react: '>= 16.8.0'
+    dependencies:
+      '@urql/core': 3.2.2(graphql@16.6.0)
+      graphql: 16.6.0
+      react: 18.2.0
+      wonka: 6.2.6
+    dev: false
+
   /use-error-boundary@2.0.6(react-dom@18.2.0)(react@17.0.2):
     resolution:
       {
@@ -23094,6 +23124,13 @@ packages:
         integrity: sha512-JcKqAHLPxcdb9KM49dufGXn2x3ssnfjbcaQdLlfZsL9rH9wgDQjUtDxbo8NE0F6SFvydeu1VhZe7hZuHsB2/pw==,
       }
     dev: true
+
+  /wonka@6.2.6:
+    resolution:
+      {
+        integrity: sha512-ExUBenRwEyf8YswAVOFZDmAdiUMgpnuyDV28G9bF+73o2hnhAG9tLqnn7LmtWgB2KCFQdWywbUfvUW3UgxARew==,
+      }
+    dev: false
 
   /word-wrap@1.2.3:
     resolution:

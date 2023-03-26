@@ -4,17 +4,19 @@ import type { FC } from 'react';
 import React, { useCallback } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-type Props = {
+export type VideoBackgroundProps = {
   className?: string;
-  sources: Array<{ url: string; type: string }>;
+  src: string;
   playbackRate: number;
   autoPlay: boolean;
   title: string;
+  // @todo support for sources (not needed now)
+  // sources: Array<{ url: string; type: string }>;
 };
-export const VideoBackground: FC<Props> = (props) => {
+export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
   const {
     title,
-    sources,
+    src,
     playbackRate = 1.0,
     autoPlay = true,
     className = '',
@@ -45,12 +47,8 @@ export const VideoBackground: FC<Props> = (props) => {
           ref={videoRef}
           loop={true}
           muted={true}
-          // poster="https://assets.codepen.io/6093409/river.jpg"
-        >
-          {sources.map(({ url, type }) => {
-            return <source key={`${url}`} src={url} type={type} />;
-          })}
-        </video>
+          src={src}
+        />
       </div>
       <div
         className={

@@ -23,6 +23,35 @@ input BooleanFilterInput {
 }
 
 """
+A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar Date
+
+input DateFilterInput {
+  and: [Date]
+  between: [Date]
+  contains: Date
+  containsi: Date
+  endsWith: Date
+  eq: Date
+  eqi: Date
+  gt: Date
+  gte: Date
+  in: [Date]
+  lt: Date
+  lte: Date
+  ne: Date
+  not: DateFilterInput
+  notContains: Date
+  notContainsi: Date
+  notIn: [Date]
+  notNull: Boolean
+  null: Boolean
+  or: [Date]
+  startsWith: Date
+}
+
+"""
 A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
 """
 scalar DateTime
@@ -94,6 +123,15 @@ input DiaryInput {
   title: String
 }
 
+type DiaryRelationResponseCollection {
+  data: [DiaryEntity!]!
+}
+
+type Error {
+  code: String!
+  message: String
+}
+
 input FileInfoInput {
   alternativeText: String
   caption: String
@@ -161,6 +199,15 @@ input I18NLocaleFiltersInput {
   updatedAt: DateTimeFilterInput
 }
 
+input I18NLocaleInput {
+  code: String
+  name: String
+}
+
+type I18NLocaleRelationResponseCollection {
+  data: [I18NLocaleEntity!]!
+}
+
 input IDFilterInput {
   and: [ID]
   between: [ID]
@@ -212,7 +259,7 @@ input IntFilterInput {
 """
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 """
-scalar JSON
+scalar JSON @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
 
 input JSONFilterInput {
   and: [JSON]
@@ -236,6 +283,35 @@ input JSONFilterInput {
   null: Boolean
   or: [JSON]
   startsWith: JSON
+}
+
+"""
+The `BigInt` scalar type represents non-fractional signed whole numeric values.
+"""
+scalar Long
+
+input LongFilterInput {
+  and: [Long]
+  between: [Long]
+  contains: Long
+  containsi: Long
+  endsWith: Long
+  eq: Long
+  eqi: Long
+  gt: Long
+  gte: Long
+  in: [Long]
+  lt: Long
+  lte: Long
+  ne: Long
+  not: LongFilterInput
+  notContains: Long
+  notContainsi: Long
+  notIn: [Long]
+  notNull: Boolean
+  null: Boolean
+  or: [Long]
+  startsWith: Long
 }
 
 type Mutation {
@@ -350,6 +426,10 @@ input ProjectInput {
   slug: String
 }
 
+type ProjectRelationResponseCollection {
+  data: [ProjectEntity!]!
+}
+
 enum PublicationState {
   LIVE
   PREVIEW
@@ -450,6 +530,33 @@ input StringFilterInput {
   null: Boolean
   or: [String]
   startsWith: String
+}
+
+"""A time string with format HH:mm:ss.SSS"""
+scalar Time
+
+input TimeFilterInput {
+  and: [Time]
+  between: [Time]
+  contains: Time
+  containsi: Time
+  endsWith: Time
+  eq: Time
+  eqi: Time
+  gt: Time
+  gte: Time
+  in: [Time]
+  lt: Time
+  lte: Time
+  ne: Time
+  not: TimeFilterInput
+  notContains: Time
+  notContainsi: Time
+  notIn: [Time]
+  notNull: Boolean
+  null: Boolean
+  or: [Time]
+  startsWith: Time
 }
 
 """The `Upload` scalar type represents a file upload."""
@@ -641,6 +748,15 @@ type UsersPermissionsPermissionEntity {
   id: ID
 }
 
+type UsersPermissionsPermissionEntityResponse {
+  data: UsersPermissionsPermissionEntity
+}
+
+type UsersPermissionsPermissionEntityResponseCollection {
+  data: [UsersPermissionsPermissionEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
 input UsersPermissionsPermissionFiltersInput {
   action: StringFilterInput
   and: [UsersPermissionsPermissionFiltersInput]
@@ -650,6 +766,11 @@ input UsersPermissionsPermissionFiltersInput {
   or: [UsersPermissionsPermissionFiltersInput]
   role: UsersPermissionsRoleFiltersInput
   updatedAt: DateTimeFilterInput
+}
+
+input UsersPermissionsPermissionInput {
+  action: String
+  role: ID
 }
 
 type UsersPermissionsPermissionRelationResponseCollection {
@@ -706,6 +827,10 @@ input UsersPermissionsRoleInput {
   permissions: [ID]
   type: String
   users: [ID]
+}
+
+type UsersPermissionsRoleRelationResponseCollection {
+  data: [UsersPermissionsRoleEntity!]!
 }
 
 type UsersPermissionsUpdateRolePayload {

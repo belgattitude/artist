@@ -18,14 +18,8 @@ type Story = StoryObj<typeof VideoBackground>;
 
 export const Default: Story = {
   args: {
-    // url: 'https://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v',
-    // url: 'https://media.failwell.be/roz/Roz2.mp4',
-    sources: [
-      {
-        url: 'https://media.failwell.be/roz/roz-markten-trio.m4v',
-        type: 'video/mp4',
-      },
-    ],
+    src: 'https://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v',
+    // src: 'https://media.failwell.be/roz/roz-markten-trio.m4v',
     playbackRate: 0.1,
   },
 };

@@ -1,8 +1,29 @@
+import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+
+function fetcher<TData, TVariables>(endpoint: string, requestInit: RequestInit, query: string, variables?: TVariables) {
+  return async (): Promise<TData> => {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      ...requestInit,
+      body: JSON.stringify({ query, variables }),
+    });
+
+    const json = await res.json();
+
+    if (json.errors) {
+      const { message } = json.errors[0];
+
+      throw new Error(message);
+    }
+
+    return json.data;
+  }
+}
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -1367,3 +1388,67 @@ export type WordRelationResponseCollection = {
   __typename?: 'WordRelationResponseCollection';
   data: Array<WordEntity>;
 };
+
+export type FullWordFragmentFragment = { __typename?: 'Word', name?: string | null, slug?: string | null, definition?: string | null, cover?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null, mime: string } | null } | null } | null, video?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, mime: string } | null } | null } | null };
+
+export type SearchWordsQueryVariables = Exact<{
+  limit?: InputMaybe<Scalars['Int']>;
+  publicationState?: InputMaybe<PublicationState>;
+}>;
+
+
+export type SearchWordsQuery = { __typename?: 'Query', words?: { __typename?: 'WordEntityResponseCollection', data: Array<{ __typename?: 'WordEntity', id?: string | null, attributes?: { __typename?: 'Word', name?: string | null, slug?: string | null, definition?: string | null, cover?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null, mime: string } | null } | null } | null, video?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, mime: string } | null } | null } | null } | null }> } | null };
+
+export const FullWordFragmentFragmentDoc = `
+    fragment FullWordFragment on Word {
+  name
+  slug
+  definition
+  cover {
+    data {
+      attributes {
+        url
+        alternativeText
+        mime
+      }
+    }
+  }
+  video {
+    data {
+      attributes {
+        url
+        mime
+      }
+    }
+  }
+}
+    `;
+export const SearchWordsDocument = `
+    query searchWords($limit: Int = 100, $publicationState: PublicationState = LIVE) {
+  words(
+    sort: ["name:ASC", "publishedAt:ASC"]
+    pagination: {page: 1, pageSize: $limit}
+    publicationState: $publicationState
+  ) {
+    data {
+      id
+      attributes {
+        ...FullWordFragment
+      }
+    }
+  }
+}
+    ${FullWordFragmentFragmentDoc}`;
+export const useSearchWordsQuery = <
+      TData = SearchWordsQuery,
+      TError = unknown
+    >(
+      dataSource: { endpoint: string, fetchParams?: RequestInit },
+      variables?: SearchWordsQueryVariables,
+      options?: UseQueryOptions<SearchWordsQuery, TError, TData>
+    ) =>
+    useQuery<SearchWordsQuery, TError, TData>(
+      variables === undefined ? ['searchWords'] : ['searchWords', variables],
+      fetcher<SearchWordsQuery, SearchWordsQueryVariables>(dataSource.endpoint, dataSource.fetchParams || {}, SearchWordsDocument, variables),
+      options
+    );

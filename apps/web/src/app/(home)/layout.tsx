@@ -13,6 +13,7 @@ import type { ReactNode } from 'react';
 import { fontInter } from '@/components/fonts/FontInter';
 import { fontMonoton } from '@/components/fonts/FontMonoton';
 import { MainLayout } from '@/components/layout/main-layout';
+import { UrqlProvider } from '../../providers/UrqlProvider';
 
 export const metadata: Metadata = {
   title: {
@@ -31,11 +32,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={`${fontInter.variable} ${fontMonoton.variable} bg-white`}
       >
-        <MainLayout hideMainNav={true}>
-          <div className={'font-family-inter flex h-[100vh] w-full'}>
-            {children}
-          </div>
-        </MainLayout>
+        <UrqlProvider>
+          <MainLayout hideMainNav={true}>
+            <div className={'font-family-inter flex h-[100vh] w-full'}>
+              {children}
+            </div>
+          </MainLayout>
+        </UrqlProvider>
       </body>
     </html>
   );
