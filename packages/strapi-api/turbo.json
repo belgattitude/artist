@@ -5,7 +5,6 @@
     "build": {
       "env": ["OPENAPI_SOURCE"],
       "outputs": ["dist/**"],
-      "dependsOn": ["^codegen-api"],
       "persistent": true,
       "cache": false
     }
