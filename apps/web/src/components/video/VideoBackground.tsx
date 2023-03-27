@@ -13,6 +13,7 @@ export type VideoBackgroundProps = {
   autoPlay?: boolean;
   muted?: boolean;
   loop?: boolean;
+  preload?: HTMLVideoElement['preload'];
   // @todo support for sources (not needed now)
   // sources: Array<{ url: string; type: string }>;
 };
@@ -24,6 +25,7 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
     autoPlay = false,
     muted = true,
     loop = false,
+    preload = 'metadata',
   } = props;
 
   const { start, end } = getVideoUrlTimeRange(src);
@@ -70,6 +72,7 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
         //  loop={loop}
         muted={muted}
         src={src}
+        preload={preload}
       />
     </div>
   );

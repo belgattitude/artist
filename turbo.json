@@ -5,6 +5,7 @@
     "build": {
       // "dependsOn": ["^codegen-api"]
     },
+    "build-fast": {},
     "codegen": {},
     "test": {},
     "test-unit": {},

@@ -51,7 +51,6 @@ export const Interactions: FC = () => {
             loop: true,
           }}
         />
-
         <VideoCard
           title={'Les sudakas'}
           className={'min-w-[600px]'}

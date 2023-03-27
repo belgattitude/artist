@@ -15,12 +15,7 @@ import { fontMonoton } from '@/components/fonts/FontMonoton';
 import { MainLayout } from '@/components/layout/main-layout';
 import { UrqlProvider } from '../../providers/UrqlProvider';
 
-export const metadata: Metadata = {
-  title: {
-    default: 'Reflective Resonance',
-    template: '%s | Reflective Resonance',
-  },
-};
+export const metadata: Metadata = {};
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
