@@ -17,7 +17,11 @@ const HomePage: FC = () => {
   return (
     <div className={'mx-auto mt-5 flex flex-col gap-5 text-white'}>
       <div className={'font-text-primary p-5'}>
-        <h1 className={'font-family-monoton mb-5 text-3xl tracking-wide'}>
+        <h1
+          className={
+            'font-family-monoton mb-5 text-3xl font-thin tracking-wide'
+          }
+        >
           Sébastien Vanvelthem
         </h1>
         <div className={'tracking-wide'}>
