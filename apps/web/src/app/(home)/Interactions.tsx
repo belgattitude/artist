@@ -14,15 +14,16 @@ export const Interactions: FC = () => {
       >
         Interactions
       </h1>
-      <div className={'mx-auto flex flex-col gap-5 lg:flex-row'}>
+      <div className={'mx-auto flex flex-col flex-wrap gap-5 lg:flex-row'}>
         <VideoCard
           handleClick={() => {
             push('/d/roz-wythes');
           }}
-          title={'Roz Wythes'}
+          className={'md:min-w-[660px]'}
+          title="Roz Wythes"
           text={
             <>
-              <p>Look for what you notice</p>
+              <p className={'rotate-90'}>Look for what you notice</p>
               <p>but no one else see</p>
             </>
           }
@@ -34,12 +35,15 @@ export const Interactions: FC = () => {
         />
         <VideoCard
           title={'Bubble Dance'}
+          className={'md:min-w-[660px]'}
           text={
-            <>
-              <p>The object is not to make art</p>
-              <p>It's to be in that wonderful state</p>
+            <div className={'absolute top-0 rotate-90 border-2 text-3xl'}>
+              <p className={'text-3xl'}>The object is not to make art</p>
+              <div className={'align-bottom text-3xl font-extrabold'}>
+                It's to be in that wonderful state
+              </div>
               <p>Which makes art inevitable</p>
-            </>
+            </div>
           }
           video={{
             src: 'https://media.failwell.be/bubble/bubble_dance_11th_april_2021.mp4#t=11,14.3',
@@ -47,8 +51,10 @@ export const Interactions: FC = () => {
             loop: true,
           }}
         />
+
         <VideoCard
           title={'Les sudakas'}
+          className={'min-w-[600px]'}
           text={
             <>
               <p>Look for what you notice</p>

@@ -11,7 +11,7 @@ import type { VideoBackgroundProps } from '@/components/video/VideoBackground';
 export type VideoCardProps = {
   className?: string;
   video: VideoBackgroundProps;
-  title: string;
+  title: ReactNode;
   text: ReactNode;
   handleClick?: () => void;
 };
@@ -32,13 +32,13 @@ export const VideoCard: FC<VideoCardProps> = (props) => {
       >
         <h1
           className={clsx(
-            'mb-5 cursor-pointer text-5xl font-thin text-white md:text-5xl',
-            {
-              'hover:bg-amber-500': handleClick !== undefined,
-            }
+            'mb-5 cursor-pointer text-5xl font-thin text-white md:text-5xl'
           )}
         >
           <a
+            className={clsx('', {
+              'hover:bg-amber-500': handleClick !== undefined,
+            })}
             onClick={(e) => {
               e.preventDefault();
               if (handleClick) {
@@ -49,7 +49,7 @@ export const VideoCard: FC<VideoCardProps> = (props) => {
             {title}
           </a>
         </h1>
-        <div className={'text-md'}>{text}</div>
+        <div className={'relative flex'}>{text}</div>
       </div>
     </div>
   );
