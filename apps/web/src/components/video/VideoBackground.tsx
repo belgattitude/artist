@@ -32,18 +32,20 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
   const videoRefCallback = useCallback(
     (node: HTMLVideoElement) => {
       videoRef.current = node;
-      if (node !== null) {
-        node.playbackRate = playbackRate;
-        node.ontimeupdate = (ev) => {
-          ev.preventDefault();
-          if (end && node.currentTime >= end - 0.05) {
-            node.currentTime = start;
-            node.play();
-          }
-        };
+      if (loop) {
+        if (node !== null) {
+          node.playbackRate = playbackRate;
+          node.ontimeupdate = (ev) => {
+            ev.preventDefault();
+            if (end && node.currentTime >= end - 0.05) {
+              node.currentTime = start;
+              node.play();
+            }
+          };
+        }
       }
     },
-    [playbackRate, src]
+    [playbackRate, src, loop]
   );
 
   const [viewInRef] = useInViewRef((entries) => {
