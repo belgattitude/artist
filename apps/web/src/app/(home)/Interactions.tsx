@@ -27,8 +27,8 @@ export const Interactions: FC = () => {
             </>
           }
           video={{
-            src: 'https://media.failwell.be/roz/roz-markten-trio.m4v#t=20,29.1',
-            playbackRate: 0.2,
+            src: 'https://media.failwell.be/roz/roz-markten-trio.m4v#t=24,29.1',
+            playbackRate: 0.4,
             loop: true,
           }}
         />
