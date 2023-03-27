@@ -35,13 +35,13 @@ jobs:
         uses: ./.github/actions/pnpm-install
 
       - name: 🕵️ Typecheck
-        run: pnpm -w turbo typecheck
+        run: pnpm turbo typecheck
 
       - name: 🔬 Linter
-        run: pnpm -w turbo lint
+        run: pnpm turbo lint
 
       - name: 🏗 Build website
-        run: pnpm -w turbo build
+        run: pnpm turbo build
         env:
           # Speed up build: they are linted in a previous step
           NEXTJS_IGNORE_LINT: true
