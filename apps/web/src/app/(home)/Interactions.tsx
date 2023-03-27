@@ -42,7 +42,7 @@ export const Interactions: FC = () => {
             </>
           }
           video={{
-            src: 'https://media.failwell.be/bubble/bubble_dance_11th_april_2021.mp4#t=11,15',
+            src: 'https://media.failwell.be/bubble/bubble_dance_11th_april_2021.mp4#t=11,14.3',
             playbackRate: 0.4,
           }}
         />
@@ -55,7 +55,7 @@ export const Interactions: FC = () => {
             </>
           }
           video={{
-            src: 'https://media.failwell.be/sudakas/sudakas-training-entry.mp4#t=8,30',
+            src: 'https://media.failwell.be/sudakas/sudakas-training-entry.mp4#t=67,74',
             playbackRate: 0.7,
           }}
         />

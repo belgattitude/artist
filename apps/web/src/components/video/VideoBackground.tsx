@@ -1,9 +1,10 @@
 'use client';
 
 import type { FC } from 'react';
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { useInViewRef } from 'rooks';
 import { twMerge } from 'tailwind-merge';
+import { getVideoUrlTimeRange } from '@/lib/url/getVideoUrlTimeRange';
 
 export type VideoBackgroundProps = {
   className?: string;
@@ -25,6 +26,7 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
     loop = false,
   } = props;
 
+  const { start, end } = getVideoUrlTimeRange(src);
   const videoRef = useRef<HTMLVideoElement>();
 
   const videoRefCallback = useCallback(
@@ -32,12 +34,19 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
       videoRef.current = node;
       if (node !== null) {
         node.playbackRate = playbackRate;
+        node.ontimeupdate = (ev) => {
+          ev.preventDefault();
+          if (end && node.currentTime >= end - 0.05) {
+            node.currentTime = start;
+            node.play();
+          }
+        };
       }
     },
     [playbackRate, src]
   );
 
-  const [viewInRef] = useInViewRef((entries, observer) => {
+  const [viewInRef] = useInViewRef((entries) => {
     if (videoRef.current) {
       if (entries?.[0].isIntersecting) {
         videoRef.current.play();
@@ -56,7 +65,7 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
         )}
         autoPlay={autoPlay}
         ref={videoRefCallback}
-        loop={loop}
+        //  loop={loop}
         muted={muted}
         src={src}
       />
