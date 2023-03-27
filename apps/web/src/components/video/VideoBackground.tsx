@@ -37,7 +37,7 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
           node.playbackRate = playbackRate;
           node.ontimeupdate = (ev) => {
             ev.preventDefault();
-            if (end && node.currentTime >= end - 0.05) {
+            if (end && node.currentTime >= end - 0.3) {
               node.currentTime = start;
               node.play();
             }
