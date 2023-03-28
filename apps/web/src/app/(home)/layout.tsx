@@ -20,9 +20,7 @@ export const metadata: Metadata = {};
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang={'en'}>
-      <body
-        className={`${fontInter.variable} ${fontMonoton.variable} bg-black`}
-      >
+      <body className={`${fontInter.variable} ${fontMonoton.variable}`}>
         <UrqlProvider>
           <MainLayout hideMainNav={true}>
             <div className={'font-family-inter flex h-[100vh] w-full'}>

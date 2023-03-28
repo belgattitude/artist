@@ -37,7 +37,9 @@ export const Interactions: FC = () => {
           title={'Bubble Dance'}
           className={'md:min-w-[660px]'}
           text={
-            <div className={'absolute top-0 rotate-90 border-2 text-3xl'}>
+            <div
+              className={'-m-2 translate-x-[300px] rotate-90 border-2 text-3xl'}
+            >
               <p className={'text-3xl'}>The object is not to make art</p>
               <div className={'align-bottom text-3xl font-extrabold'}>
                 It's to be in that wonderful state
