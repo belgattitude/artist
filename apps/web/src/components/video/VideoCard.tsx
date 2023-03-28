@@ -10,13 +10,14 @@ import type { VideoBackgroundProps } from '@/components/video/VideoBackground';
 
 export type VideoCardProps = {
   className?: string;
-  video: VideoBackgroundProps;
+  video: VideoBackgroundProps & { className?: string };
   title: ReactNode;
   text: ReactNode;
   handleClick?: () => void;
 };
 export const VideoCard: FC<VideoCardProps> = (props) => {
   const { video, title, className = '', text, handleClick } = props;
+  const { className: videoClassName = '', ...videoProps } = video;
   return (
     <div
       className={twMerge(
@@ -24,7 +25,7 @@ export const VideoCard: FC<VideoCardProps> = (props) => {
         className
       )}
     >
-      <VideoBackground {...video} />
+      <VideoBackground className={videoClassName} {...videoProps} />
       <div
         className={
           'mx-[20px] max-w-[95%] bg-black/60 p-[15px] tracking-wide text-[#a0a0a0] md:mx-[20px] md:mb-[50px] md:p-[65px] lg:max-w-[78%]'
