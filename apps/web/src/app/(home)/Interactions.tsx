@@ -40,7 +40,8 @@ export const Interactions: FC<Props> = (props) => {
             src: 'https://media.failwell.be/roz/roz-markten-trio.m4v#t=24,29.1',
             playbackRate: 0.4,
             loop: true,
-            // className: 'aspect-video',
+            className:
+              'transition duration-1000 blur-[35px] invert-[1] hover:blur-[0px] hover:invert-0',
           }}
         />
         <VideoCard
@@ -61,12 +62,13 @@ export const Interactions: FC<Props> = (props) => {
             src: 'https://media.failwell.be/bubble/bubble_dance_11th_april_2021.mp4#t=11,14.3',
             playbackRate: 0.4,
             loop: true,
-            // className: 'aspect-16/9',
+            className:
+              'transition duration-1000 blur-[35px] invert-[1] hover:blur-[0px] hover:invert-0',
           }}
         />
         <VideoCard
           title={'Les sudakas'}
-          className={'aspect-16/9 min-w-[600px]'}
+          className={'min-w-[600px]'}
           text={
             <>
               <p>Look for what you notice</p>
@@ -77,6 +79,8 @@ export const Interactions: FC<Props> = (props) => {
             src: 'https://media.failwell.be/sudakas/sudakas-training-entry.mp4#t=67,71',
             playbackRate: 0.7,
             loop: true,
+            className:
+              'transition duration-1000 blur-[35px] invert-[1] hover:blur-[0px] hover:invert-0',
           }}
         />
       </div>
