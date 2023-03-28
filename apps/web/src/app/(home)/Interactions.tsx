@@ -3,14 +3,23 @@
 import { useRouter } from 'next/navigation';
 import type { FC } from 'react';
 import React from 'react';
+import { twMerge } from 'tailwind-merge';
 import { VideoCard } from '@/components/video/VideoCard';
 
-export const Interactions: FC = () => {
+type Props = {
+  className?: string;
+};
+
+export const Interactions: FC<Props> = (props) => {
+  const { className = '' } = props;
   const { push } = useRouter();
   return (
     <div className={`p-5`}>
       <h1
-        className={`font-family-monoton mb-5 py-5 text-2xl font-thin text-white md:text-3xl`}
+        className={twMerge(
+          'font-family-monoton mb-5 py-5 text-2xl font-thin md:text-3xl',
+          className
+        )}
       >
         Interactions
       </h1>
