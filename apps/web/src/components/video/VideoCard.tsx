@@ -25,6 +25,13 @@ export const VideoCard: FC<VideoCardProps> = (props) => {
         className
       )}
     >
+      <div
+        className={
+          'border-1 font-family-inter absolute -left-5 rotate-90 bg-white px-3 py-1 font-thin text-[#222]'
+        }
+      >
+        Video
+      </div>
       <VideoBackground className={videoClassName} {...videoProps} />
       <div
         className={

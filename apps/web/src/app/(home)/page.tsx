@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 
 const HomePage: FC = () => {
   return (
-    <div className={'mx-auto mt-5 flex flex-col gap-5 text-black'}>
+    <div className={'mx-auto mt-5 flex flex-col gap-5'}>
       <div className={'font-text-primary p-5'}>
         <h1
           className={
-            'font-family-monoton mb-5 text-3xl font-thin tracking-wide'
+            'font-family-elika-gorika mb-5 text-3xl font-thin tracking-wider'
           }
         >
           Sébastien Vanvelthem

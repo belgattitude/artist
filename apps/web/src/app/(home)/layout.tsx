@@ -59,11 +59,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang={'en'}>
       <body
-        className={`${fontInter.variable} ${fontMonoton.variable} ${fontElikaGorika.variable}`}
+        className={`h-full ${fontInter.variable} ${fontMonoton.variable} ${fontElikaGorika.variable}`}
       >
         <UrqlProvider>
           <MainLayout hideMainNav={true}>
-            <div className={'font-family-inter flex h-[100vh] w-full'}>
+            <div
+              className={
+                'font-family-inter flex h-full w-full bg-black text-[#fefefe]'
+              }
+            >
               {children}
             </div>
           </MainLayout>

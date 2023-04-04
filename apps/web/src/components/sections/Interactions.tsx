@@ -13,8 +13,9 @@ export type InteractionsProps = {
 export const Interactions: FC<InteractionsProps> = (props) => {
   const { className = '' } = props;
   const { push } = useRouter();
+  // bg-[#ffe900]
   return (
-    <div className={`font-family-elika-gorika p-5`}>
+    <div className={` p-5 font-family-elika-gorika`}>
       <h1
         className={twMerge(
           'mb-5 py-5 text-2xl font-thin md:text-3xl',
@@ -25,22 +26,21 @@ export const Interactions: FC<InteractionsProps> = (props) => {
       </h1>
       <div className={'mx-auto flex flex-col flex-wrap gap-5 lg:flex-row'}>
         <VideoCard
-          handleClick={() => {
-            push('/d/roz-wythes');
-          }}
-          className={' md:min-w-[660px]'}
+          // handleClick={() => {
+          // >  push('/d/roz-wythes');
+          // >}}
+          className={'aspect-16/9  min-h-[250px]'}
           title="Interstices"
           text={
             <>
-              <p className={'rotate-45'}>Look for what you notice</p>
-              <p>but no one else see</p>
+              <p>Typhen Rocchia Ⓒ 2023</p>
             </>
           }
           video={{
             // src: 'https://media.failwell.be/roz/roz-markten-trio.m4v#t=24,29.1',
             // src: 'https://media.failwell.be/roz/Roz2.mp4',
-            src: 'https://media.reflective-resonance.be/typhen/INTERSTICES_typhen.mp4#t=203,220',
-            playbackRate: 1,
+            src: 'https://media.reflective-resonance.be/typhen/INTERSTICES_typhen.mp4#t=0,14',
+            playbackRate: 0.3,
             loop: true,
             className:
               // 'transition duration-1000 grayscale-[100] contrast-[1.5] invert-[1] hover:blur-[0px] hover:invert-0',
@@ -49,10 +49,10 @@ export const Interactions: FC<InteractionsProps> = (props) => {
         />
 
         <VideoCard
-          handleClick={() => {
-            push('/d/roz-wythes');
-          }}
-          className={'md:min-w-[660px]'}
+          // handleClick={() => {
+          // push('/d/roz-wythes');
+          // >}}
+          className={'aspect-16/9  md:min-w-[660px]'}
           title="Roz Wythes"
           text={
             <>
@@ -61,10 +61,10 @@ export const Interactions: FC<InteractionsProps> = (props) => {
             </>
           }
           video={{
-            // src: 'https://media.failwell.be/roz/roz-markten-trio.m4v#t=24,29.1',
+            src: 'https://media.failwell.be/roz/roz-markten-trio.m4v#t=24,29.1',
             // src: 'https://media.failwell.be/roz/Roz2.mp4',
-            src: 'https://media.failwell.be/roz/roz-rolling-end.m4v#t=16,28',
-            playbackRate: 1,
+            // src: 'https://media.failwell.be/roz/roz-rolling-end.m4v#t=16,28',
+            playbackRate: 0.3,
             loop: true,
             className:
               // 'transition duration-1000 grayscale-[100] contrast-[1.5] invert-[1] hover:blur-[0px] hover:invert-0',
@@ -89,8 +89,8 @@ export const Interactions: FC<InteractionsProps> = (props) => {
             src: 'https://media.failwell.be/bubble/bubble_dance_11th_april_2021.mp4#t=11,14.3',
             playbackRate: 0.4,
             loop: true,
-            className:
-              'transition duration-1000 rotate-180 hover:rotate-0 translate-x-full hover:translate-x-0 blur-[35px] invert-[1] hover:blur-[0px] hover:invert-0',
+            // className:
+            // 'transition duration-1000 rotate-180 hover:rotate-0 translate-x-full hover:translate-x-0 blur-[35px] invert-[1] hover:blur-[0px] hover:invert-0',
           }}
         />
         <VideoCard
@@ -106,8 +106,7 @@ export const Interactions: FC<InteractionsProps> = (props) => {
             src: 'https://media.failwell.be/sudakas/sudakas-training-entry.mp4#t=67,71',
             playbackRate: 0.7,
             loop: true,
-            className:
-              'transition duration-1000 blur-[35px] invert-[1] hover:blur-[0px] hover:invert-0',
+            // className: 'transition duration-1000',
           }}
         />
       </div>
