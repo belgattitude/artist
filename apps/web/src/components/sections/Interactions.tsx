@@ -50,8 +50,31 @@ export const Interactions: FC<InteractionsProps> = (props) => {
 
         <VideoCard
           // handleClick={() => {
-          // push('/d/roz-wythes');
+          // >  push('/d/roz-wythes');
           // >}}
+          className={'aspect-16/9  min-h-[250px]'}
+          title="Soft Touch to Death"
+          text={
+            <>
+              <p>Johan Legraie / Paola Madrid Ⓒ 2022</p>
+            </>
+          }
+          video={{
+            // src: 'https://media.failwell.be/roz/roz-markten-trio.m4v#t=24,29.1',
+            // src: 'https://media.failwell.be/roz/Roz2.mp4',
+            src: 'https://media.reflective-resonance.be/paola/johan-legraie-soft-touch-to-death.mp4#t=60,70',
+            playbackRate: 0.9,
+            loop: true,
+            className:
+              // 'transition duration-1000 grayscale-[100] contrast-[1.5] invert-[1] hover:blur-[0px] hover:invert-0',
+              'transition duration-1000 brightness-[1.4]',
+          }}
+        />
+
+        <VideoCard
+          handleClick={() => {
+            push('/d/roz-wythes');
+          }}
           className={'aspect-16/9  md:min-w-[660px]'}
           title="Roz Wythes"
           text={
