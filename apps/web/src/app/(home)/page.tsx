@@ -1,17 +1,11 @@
 import type { Metadata } from 'next';
 import type { FC } from 'react';
 import React from 'react';
-import { Interactions } from './Interactions';
+import { Interactions } from '@/components/sections/Interactions';
 
 export const metadata: Metadata = {
-  title: 'Reflective Resonance',
-  description: 'Resonances appears along the paths of life',
-  viewport: 'width=device-width, initial-scale=1',
   authors: [{ name: 'Sébastien Vanvelthem' }],
   applicationName: 'Reflective Resonance',
-  icons: {
-    icon: '/favicon.ico',
-  },
 };
 
 const HomePage: FC = () => {

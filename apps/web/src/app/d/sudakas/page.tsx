@@ -5,8 +5,7 @@
 import { useAspect, useVideoTexture, useTexture } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 
-import type { Metadata } from 'next';
-import type { FC, MutableRefObject, Ref, RefObject } from 'react';
+import type { FC, MutableRefObject } from 'react';
 import React, { useRef, Suspense, forwardRef } from 'react';
 import { VideoPlayer } from '@/components/player/VideoPlayer';
 

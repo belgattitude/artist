@@ -18,6 +18,9 @@
     "build-storybook": {},
     "clean": {
       "cache": false
+    },
+    "g:clean": {
+      "cache": false
     }
   }
 }

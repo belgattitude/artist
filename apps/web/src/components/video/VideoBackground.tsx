@@ -47,7 +47,7 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
         }
       }
     },
-    [playbackRate, src, loop]
+    [playbackRate, loop, end, start]
   );
 
   const [viewInRef] = useInViewRef((entries) => {

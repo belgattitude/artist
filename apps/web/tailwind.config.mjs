@@ -1,7 +1,9 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+// @ts-check
+
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: ['./src/**/*.tsx', './src/**/*.ts'],
   theme: {
     screens: {
@@ -21,6 +23,10 @@ module.exports = {
         ],
         'family-monoton': [
           'var(--font-family-monoton)',
+          ...defaultTheme.fontFamily.sans,
+        ],
+        'family-elika-gorika': [
+          'var(--font-family-elika-gorika)',
           ...defaultTheme.fontFamily.sans,
         ],
         'text-primary': [
