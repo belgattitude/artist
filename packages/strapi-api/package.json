@@ -16,7 +16,7 @@
     "server-only": "0.0.1"
   },
   "devDependencies": {
-    "@belgattitude/eslint-config-bases": "1.28.0",
+    "@belgattitude/eslint-config-bases": "1.29.0",
     "@types/fs-extra": "11.0.1",
     "cross-env": "7.0.3",
     "dotenv-flow-cli": "1.0.0",

@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.4.8",
-    "@belgattitude/eslint-config-bases": "1.28.0",
+    "@belgattitude/eslint-config-bases": "1.29.0",
     "@commitlint/cli": "17.5.1",
     "@commitlint/config-conventional": "17.4.4",
     "@types/prettier": "2.7.2",
@@ -55,7 +55,7 @@
   },
   "engines": {
     "node": ">=16.17.0",
-    "pnpm": ">=8.1.0"
+    "pnpm": ">=8.1.1"
   },
-  "packageManager": "pnpm@8.1.0"
+  "packageManager": "pnpm@8.1.1"
 }

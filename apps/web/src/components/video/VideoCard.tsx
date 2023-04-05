@@ -27,7 +27,7 @@ export const VideoCard: FC<VideoCardProps> = (props) => {
     >
       <div
         className={
-          'border-1 font-family-inter absolute -left-5 rotate-90 bg-white px-3 py-1 font-thin text-[#222]'
+          'border-1 absolute -left-5 rotate-90 bg-white px-3 py-1 font-family-inter font-thin text-[#222]'
         }
       >
         Video
