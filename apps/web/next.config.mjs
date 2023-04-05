@@ -8,9 +8,6 @@ import nextMdx from '@next/mdx';
 import { createSecureHeaders } from 'next-secure-headers';
 import { publicEnv } from './src/config/public-env.mjs';
 
-// @ts-ignore
-import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin';
-
 const workspaceRoot = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   '..',
@@ -23,7 +20,6 @@ const withMDX = nextMdx({
 
 const isProd = process.env.NODE_ENV === 'production';
 const enableCSP = true;
-const enableVanillaExtract = true;
 
 const trueEnv = ['true', '1', 'yes'];
 const NEXTJS_IGNORE_TYPECHECK = trueEnv.includes(
@@ -168,13 +164,6 @@ let nextConfig = {
     return config;
   },
 };
-
-if (enableVanillaExtract) {
-  const withVanillaExtract = createVanillaExtractPlugin();
-  nextConfig = withVanillaExtract(nextConfig, {
-    debug: !isProd,
-  });
-}
 
 if (process.env.ANALYZE === 'true') {
   nextConfig = withBundleAnalyzer({

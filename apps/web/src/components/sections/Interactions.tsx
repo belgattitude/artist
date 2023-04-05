@@ -39,7 +39,7 @@ export const Interactions: FC<InteractionsProps> = (props) => {
           video={{
             // src: 'https://media.failwell.be/roz/roz-markten-trio.m4v#t=24,29.1',
             // src: 'https://media.failwell.be/roz/Roz2.mp4',
-            src: 'https://media.reflective-resonance.be/typhen/INTERSTICES_typhen.mp4#t=0,14',
+            src: 'https://media.reflective-resonance.be/typhen/INTERSTICES_typhen-light.mp4#t=0,14',
             playbackRate: 0.3,
             loop: true,
             className:
@@ -62,7 +62,7 @@ export const Interactions: FC<InteractionsProps> = (props) => {
           video={{
             // src: 'https://media.failwell.be/roz/roz-markten-trio.m4v#t=24,29.1',
             // src: 'https://media.failwell.be/roz/Roz2.mp4',
-            src: 'https://media.reflective-resonance.be/paola/johan-legraie-soft-touch-to-death.mp4#t=60,70',
+            src: 'https://media.reflective-resonance.be/paola/johan-legraie-soft-touch-to-death-light.mp4#t=60,70',
             playbackRate: 0.9,
             loop: true,
             className:
@@ -75,7 +75,7 @@ export const Interactions: FC<InteractionsProps> = (props) => {
           handleClick={() => {
             push('/d/roz-wythes');
           }}
-          className={'aspect-16/9  md:min-w-[660px]'}
+          className={'aspect-16/9 md:min-w-[660px]'}
           title="Roz Wythes"
           text={
             <>
