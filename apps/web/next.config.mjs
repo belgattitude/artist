@@ -84,8 +84,6 @@ let nextConfig = {
     keepAlive: true,
   },
 
-  output: 'standalone',
-
   transpilePackages: isProd
     ? [
         // dist make usage of nullish ?.
@@ -128,16 +126,32 @@ let nextConfig = {
     ];
   },
 
+  // output: 'standalone',
+
   experimental: {
     appDir: true,
     // https://beta.nextjs.org/docs/configuring/typescript#statically-typed-links
     typedRoutes: true,
     mdxRs: true,
     // https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
-    outputFileTracingRoot: workspaceRoot,
-    outputFileTracingExcludes: {
-      // '/api/hello': ['./un-necessary-folder/**/*'],
-    },
+    // outputFileTracingRoot: workspaceRoot,
+    // Caution if using pnpm you might also need to consider that things are hoisted
+    // under node_modules/.pnpm/<something variable>. Depends on version
+
+    // outputFileTracingExcludes: {
+    //  '*': [
+    //    '**/node_modules/@swc/core-linux-x64-gnu/**/*',
+    //    '**/node_modules/@swc/core-linux-x64-musl/**/*',
+    //    // If you're nor relying on mdx-remote... drop this
+    //    '**/node_modules/esbuild/linux/**/*',
+    //    '**/node_modules/webpack/**/*',
+    //    '**/node_modules/terser/**/*',
+    //    // If you're not relying on sentry edge or any weird stuff... drop this too
+    //    // https://github.com/getsentry/sentry-javascript/pull/6982
+    //    '**/node_modules/rollup/**/*',
+    //  ],
+    // },
+
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
     esmExternals: true,
   },
