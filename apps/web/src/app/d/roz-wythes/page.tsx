@@ -10,11 +10,6 @@ import { VideoBackground } from '@/components/video/VideoBackground';
 
 export const metadata: Metadata = {
   title: 'Roz Wythes - Research - DeMarkten - feb 2023',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
 };
 
 // const img = 'https://media.failwell.be/pictures/butoh-picture.jpg';

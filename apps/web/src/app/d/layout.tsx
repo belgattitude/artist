@@ -3,18 +3,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { fontInter } from '@/components/fonts/FontInter';
 
-export const metadata: Metadata = {
-  title: {
-    default: 'Reflective Resonance',
-    template: '%s | Reflective Resonance',
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: true,
-  },
-};
+export const metadata: Metadata = {};
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

@@ -3,6 +3,7 @@
 import { z } from 'zod';
 
 const publicEnvSchema = z.object({
+  APP_CACHE_DSN: z.string().url(),
   NEXT_PUBLIC_STRAPI_API_URL: z.string().url(),
 });
 

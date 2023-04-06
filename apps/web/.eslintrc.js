@@ -28,6 +28,7 @@ module.exports = {
     '@belgattitude/eslint-config-bases/prettier-plugin',
   ],
   rules: {
+    'jsx-a11y/mouse-events-have-key-events': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'jsx-a11y/media-has-caption': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',

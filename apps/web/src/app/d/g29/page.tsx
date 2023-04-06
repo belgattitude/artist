@@ -6,11 +6,6 @@ import { getExperiences } from '@/components/experience/getExperiences';
 
 export const metadata: Metadata = {
   title: 'MR - Research - Garage29 - feb 2023',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
 };
 
 const url = 'https://media.failwell.be/mr/garage29';

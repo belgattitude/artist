@@ -15,7 +15,7 @@ export const Interactions: FC<InteractionsProps> = (props) => {
   const { push } = useRouter();
   // bg-[#ffe900]
   return (
-    <div className={` p-5 font-family-elika-gorika`}>
+    <div className={`p-5 font-family-elika-gorika`}>
       <h1
         className={twMerge(
           'mb-5 py-5 text-2xl font-thin md:text-3xl',
@@ -29,7 +29,7 @@ export const Interactions: FC<InteractionsProps> = (props) => {
           // handleClick={() => {
           // >  push('/d/roz-wythes');
           // >}}
-          className={'aspect-16/9  min-h-[250px]'}
+          className={'aspect-16/9 min-h-[250px]'}
           title="Interstices"
           text={
             <>
@@ -39,8 +39,12 @@ export const Interactions: FC<InteractionsProps> = (props) => {
           video={{
             // src: 'https://media.failwell.be/roz/roz-markten-trio.m4v#t=24,29.1',
             // src: 'https://media.failwell.be/roz/Roz2.mp4',
-            src: 'https://media.reflective-resonance.be/typhen/INTERSTICES_typhen-light.mp4#t=0,14',
-            playbackRate: 0.3,
+            src: 'https://media.reflective-resonance.be/typhen/INTERSTICES_typhen-light.mp4#t=2,6',
+            playbackRate: 0.2,
+            playbackStrategy: {
+              type: 'autoplay',
+              inViewport: true,
+            },
             loop: true,
             className:
               // 'transition duration-1000 grayscale-[100] contrast-[1.5] invert-[1] hover:blur-[0px] hover:invert-0',
