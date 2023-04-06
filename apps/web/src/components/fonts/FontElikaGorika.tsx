@@ -1,4 +1,3 @@
-import path from 'node:path';
 import localFont from 'next/font/local';
 import type { FC, PropsWithChildren } from 'react';
 

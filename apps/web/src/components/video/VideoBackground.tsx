@@ -1,7 +1,7 @@
 'use client';
 
 import type { FC } from 'react';
-import React, { useCallback, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDeepCompareEffect, useInViewRef } from 'rooks';
 import { twMerge } from 'tailwind-merge';
 import { getVideoUrlTimeRange } from '@/lib/url/getVideoUrlTimeRange';
@@ -40,6 +40,7 @@ const logError = (msg: string, e?: Error | DOMException | unknown) => {
     console.log(`[VideoBackground] ${msg} (${errorMsg})`);
   }
 };
+
 export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
   const {
     src,
@@ -60,22 +61,22 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
     ...(playbackStrategy ?? {}),
   };
 
-  const handleTimeUpdate = (_event: Event) => {
-    const domVideo = videoRef.current;
-    if (domVideo) {
-      if (end && domVideo.currentTime >= end - 0.3) {
-        domVideo.currentTime = start;
-        if (!domVideo.paused) {
-          domVideo.play().catch((e) => {
-            logError("Couldn't loop and call play", e);
-          });
-        }
-      }
-    }
-  };
-
   useEffect(() => {
     const domVideo = videoRef.current;
+    const handleTimeUpdate = (_event: Event) => {
+      const domVideo = videoRef.current;
+      if (domVideo) {
+        if (end && domVideo.currentTime >= end - 0.3) {
+          domVideo.currentTime = start;
+          if (!domVideo.paused) {
+            domVideo.play().catch((e) => {
+              logError("Couldn't loop and call play", e);
+            });
+          }
+        }
+      }
+    };
+
     if (!domVideo) {
       console.log(
         'Error: videoRef is unknown, did you conditionally rendered the video tag ?'
@@ -90,7 +91,7 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
         domVideo.removeEventListener('timeupdate', handleTimeUpdate);
       };
     }
-  }, [playbackRate, start, end]);
+  }, [playbackRate, start, end, loop]);
   /**
   const videoRefCallback = useCallback(
     (domVideo: HTMLVideoElement) => {

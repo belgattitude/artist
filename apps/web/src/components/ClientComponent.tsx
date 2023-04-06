@@ -33,7 +33,7 @@ export const ClientComponent: FC = () => {
             src: 'https://media.reflective-resonance.be/typhen/INTERSTICES_typhen-light.mp4#t=0,14',
             playbackRate: 0.3,
             playbackStrategy: {
-              type: 'onHover',
+              type: 'playOnMouseOver',
             },
             loop: true,
             className:

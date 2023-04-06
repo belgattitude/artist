@@ -6,7 +6,6 @@ import React from 'react';
 import { twMerge } from 'tailwind-merge';
 import type { Experience } from '@/components/experience/experience-overlay';
 import { ExperiencePage } from '@/components/experience/experience-page';
-import { VideoBackground } from '@/components/video/VideoBackground';
 
 export const metadata: Metadata = {
   title: 'Roz Wythes - Research - DeMarkten - feb 2023',
