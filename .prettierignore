@@ -1,4 +1,6 @@
 .yarn
+*.lock
+pnpm-lock.yaml
 **/.next/**
 **/dist/**
 **/build/**
