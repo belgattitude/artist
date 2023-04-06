@@ -4,3 +4,5 @@
 **/build/**
 **/tmp/**
 **/generated/**
+apps/strapi/src/extensions/documentation/*.0.0/**
+apps/strapi/src/extensions/documentation/public/**
