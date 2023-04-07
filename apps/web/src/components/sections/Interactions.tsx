@@ -15,13 +15,15 @@ export const Interactions: FC<InteractionsProps> = (props) => {
   const { push } = useRouter();
   // bg-[#ffe900]
 
-  const commonVideoCls = 'min-h-[300px]';
+  const commonVideoCls = 'min-h-[220px] md:min-h-[300px]';
 
   return (
-    <div className={`p-5 font-family-elika-gorika`}>
+    <div
+      className={`m-1 -rotate-1 overflow-hidden bg-[#FF00FF] p-5 font-family-elika-gorika md:m-5`}
+    >
       <h1
         className={twMerge(
-          'mb-5 py-5 text-2xl font-thin md:text-3xl',
+          'rotate-1 mb-5 py-10 text-2xl font-thin md:text-3xl',
           className
         )}
       >
