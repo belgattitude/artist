@@ -19,7 +19,7 @@ export const Interactions: FC<InteractionsProps> = (props) => {
 
   return (
     <div
-      className={`m-1 -rotate-1 overflow-hidden bg-[#FF00FF] p-5 font-family-elika-gorika md:m-5`}
+      className={`m-1 -rotate-1 overflow-hidden bg-[#FF00FF] p-5 font-family-elika-gorika md:m-5 md:scale-95`}
     >
       <h1
         className={twMerge(
@@ -29,7 +29,11 @@ export const Interactions: FC<InteractionsProps> = (props) => {
       >
         Interactions
       </h1>
-      <div className={'mx-auto flex flex-col flex-wrap gap-5 lg:flex-row'}>
+      <div
+        className={
+          'mx-auto flex flex-col flex-wrap gap-5  will-change-transform lg:flex-row'
+        }
+      >
         <VideoCard
           // handleClick={() => {
           // >  push('/d/roz-wythes');
