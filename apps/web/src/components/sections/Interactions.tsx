@@ -14,6 +14,9 @@ export const Interactions: FC<InteractionsProps> = (props) => {
   const { className = '' } = props;
   const { push } = useRouter();
   // bg-[#ffe900]
+
+  const commonVideoCls = 'min-h-[300px]';
+
   return (
     <div className={`p-5 font-family-elika-gorika`}>
       <h1
@@ -29,7 +32,7 @@ export const Interactions: FC<InteractionsProps> = (props) => {
           // handleClick={() => {
           // >  push('/d/roz-wythes');
           // >}}
-          className={'aspect-16/9 min-h-[250px]'}
+          className={commonVideoCls}
           title="Interstices"
           text={
             <>
@@ -56,7 +59,7 @@ export const Interactions: FC<InteractionsProps> = (props) => {
           // handleClick={() => {
           // >  push('/d/roz-wythes');
           // >}}
-          className={'aspect-16/9  min-h-[250px]'}
+          className={commonVideoCls}
           title="Soft Touch to Death"
           text={
             <>
@@ -79,7 +82,7 @@ export const Interactions: FC<InteractionsProps> = (props) => {
           handleClick={() => {
             push('/d/roz-wythes');
           }}
-          className={'aspect-16/9 md:min-w-[660px]'}
+          className={commonVideoCls}
           title="Roz Wythes"
           text={
             <>
@@ -100,18 +103,8 @@ export const Interactions: FC<InteractionsProps> = (props) => {
         />
         <VideoCard
           title={'Bubble Dance'}
-          className={'aspect-16/9 md:min-w-[660px]'}
-          text={
-            <div
-              className={'-m-2 translate-x-[300px] rotate-90 border-2 text-3xl'}
-            >
-              <p className={'text-3xl'}>The object is not to make art</p>
-              <div className={'align-bottom text-3xl font-extrabold'}>
-                It's to be in that wonderful state
-              </div>
-              <p>Which makes art inevitable</p>
-            </div>
-          }
+          className={commonVideoCls}
+          text={''}
           video={{
             src: 'https://media.failwell.be/bubble/bubble_dance_11th_april_2021.mp4#t=11,14.3',
             playbackRate: 0.4,
@@ -122,7 +115,7 @@ export const Interactions: FC<InteractionsProps> = (props) => {
         />
         <VideoCard
           title={'Les sudakas'}
-          className={'min-w-[600px]'}
+          className={commonVideoCls}
           text={
             <>
               <p>Look for what you notice</p>

@@ -16,7 +16,7 @@
     "codegen-schema": "dotenv-flow -- pnpm graphql-codegen --config codegen.schema-ast.ts",
     "codegen": "dotenv-flow -- pnpm graphql-codegen --config codegen.ts",
     "favpie": "npx favpie@latest ./public/icons/rr/favicon-original.png ./public/favicon --app-name 'Reflective Resonance' --short-name 'Reflective Resonance'",
-    "bundle-analyze": "cross-env ANALYZE=true pnpm build",
+    "bundle-analyze": "cross-env ANALYZE=true NEXTJS_IGNORE_TYPECHECK=1 NEXTJS_IGNORE_LINT=1 next build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

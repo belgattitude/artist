@@ -3,10 +3,7 @@ import type { FC } from 'react';
 import React from 'react';
 import { Interactions } from '@/components/sections/Interactions';
 
-export const metadata: Metadata = {
-  authors: [{ name: 'Sébastien Vanvelthem' }],
-  applicationName: 'Reflective Resonance',
-};
+export const metadata: Metadata = {};
 
 const HomePage: FC = () => {
   return (
@@ -24,6 +21,7 @@ const HomePage: FC = () => {
           <p>New website coming soon</p>
         </div>
       </div>
+      {/*
       <div
         className={
           'absolute right-0 z-10 m-5 -scale-100 border-2 bg-black p-5 font-family-monoton text-3xl text-white [writing-mode:vertical-lr]'
@@ -36,6 +34,7 @@ const HomePage: FC = () => {
         </div>
         <p className={'text-3xl'}>The object is not to make art</p>
       </div>
+      */}
 
       <Interactions />
     </div>

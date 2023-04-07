@@ -36,7 +36,7 @@ export const VideoCard: FC<VideoCardProps> = (props) => {
   return (
     <div
       className={twMerge(
-        'relative flex flex-col flex-grow drop-shadow pt-[20px] border-2 border-amber-500',
+        'relative flex flex-col flex-grow drop-shadow pt-[20px]',
         className
       )}
       onMouseOver={(event) => {
@@ -64,13 +64,14 @@ export const VideoCard: FC<VideoCardProps> = (props) => {
         playing={playing}
       />
       <div
+        // bg-[url(https://png.pngtree.com/png-clipart/20220213/original/pngtree-grain-noise-texture-for-download-psd-and-png-transparent-png-image_7265771.png)]
         className={
-          'mx-[20px] max-w-[95%] bg-black/60 p-[15px] tracking-wide text-[#a0a0a0] md:mx-[20px] md:mb-[50px] md:p-[65px] lg:max-w-[78%]'
+          'mx-[20px] max-w-[95%]  p-[15px] tracking-wide text-[#a0a0a0] md:mx-[20px] md:mb-[50px] md:p-[65px] lg:max-w-[78%]'
         }
       >
         <h1
           className={clsx(
-            'mb-5 cursor-pointer text-5xl font-thin text-white md:text-5xl'
+            'mb-5 cursor-pointer text-3xl font-thin text-white md:text-5xl'
           )}
         >
           <a
