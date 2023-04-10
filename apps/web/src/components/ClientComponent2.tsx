@@ -44,7 +44,10 @@ export const ClientComponent2: FC = () => {
     },
   };
 
-  const text = `Taking a wrong turn allows to see landscapes that wouldn't otherwise have seen`;
+  const text =
+    `Taking a wrong turn allows to see landscapes that wouldn't otherwise have seen.`.repeat(
+      4
+    );
 
   return (
     <div ref={app} className={'mt-[500px]'}>
@@ -58,15 +61,11 @@ export const ClientComponent2: FC = () => {
             <motion.span
               key={index}
               className={
-                'ml-5 overflow-hidden font-family-elika-gorika text-8xl text-fuchsia-900'
+                'ml-5 overflow-hidden font-family-elika-gorika text-8xl text-fuchsia-700'
               }
               initial="hidden"
               whileInView="visible"
               // viewport={{ once: true }}
-              transition={{
-                // delayChildren: index * 0.35,
-                staggerChildren: 0.01,
-              }}
             >
               {word.split('').map((character, index) => {
                 return (
