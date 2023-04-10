@@ -1,24 +1,25 @@
 import type { FC } from 'react';
 import type { CSSProperties } from 'theme-ui';
 type Props = {
-  text: string;
+  children: string;
+  className?: string;
 };
 
 const charStyle: CSSProperties = {
   display: 'inline-block',
-  // marginRight: '-0.05em',
+  marginRight: '-0.05em',
 };
 
 const wordStyle: CSSProperties = {
   display: 'inline-block',
-  // marginRight: '-0.05em',
+  marginRight: '1em',
 };
 
 export const SplitText: FC<Props> = (props) => {
-  const { text } = props;
+  const { children: text } = props;
   const words = text.split(' ');
   return (
-    <span aria-label={text}>
+    <span aria-label={text} className={'text-fuchsia-500'}>
       {words.map((word, wordIdx) => {
         return (
           <span

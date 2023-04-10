@@ -1,6 +1,6 @@
 'use client';
 
-import Lenis from '@studio-freight/lenis';
+// import Lenis from '@studio-freight/lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import type { FC } from 'react';
@@ -32,7 +32,7 @@ export const ClientComponent: FC = () => {
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-
+    /*
     const lenis = new Lenis({
       lerp: 0.2,
       smoothWheel: true,
@@ -48,7 +48,7 @@ export const ClientComponent: FC = () => {
 
       requestAnimationFrame(scrollFn);
     };
-
+*/
     const ctx = gsap.context(() => {
       // use scoped selectors
       gsap.to('#box', { rotation: 360 });
@@ -112,7 +112,6 @@ export const ClientComponent: FC = () => {
               // end: 'bottom top',
               start: 'center+=20% bottom',
               end: '+=20%',
-
               scrub: true,
             },
           }
@@ -137,9 +136,12 @@ export const ClientComponent: FC = () => {
         {
           ease: 'none',
           opacity: 1,
-          scale: 1,
-          rotateX: 0,
-          z: 0,
+          // scale: 1,
+          // rotateX: 0,
+          // z: 0,
+          scale: () => gsap.utils.random(1.01, 1.05),
+          rotateX: () => gsap.utils.random(0, 5),
+          z: () => gsap.utils.random(1, 100),
           stagger: 0.001,
           scrollTrigger: {
             trigger: test3.current,
@@ -153,7 +155,7 @@ export const ClientComponent: FC = () => {
         }
       );
 
-      initSmoothScrolling();
+      // initSmoothScrolling();
       scroll();
     }, app);
 
@@ -197,12 +199,12 @@ export const ClientComponent: FC = () => {
       <div
         ref={test}
         className={
-          'm-5 mx-auto mt-[120px] flex max-w-[600px] flex-col border-2 p-5 text-2xl'
+          'm-5 mx-auto mt-[120px] flex max-w-[600px] flex-col p-5 text-2xl'
         }
       >
         <div className={'content font-family-elika-gorika text-8xl '}>
           <h2>
-            <SplitText text={'Beauty Remains'} />
+            <SplitText>Beauty Remains</SplitText>
           </h2>
         </div>
       </div>
@@ -210,12 +212,12 @@ export const ClientComponent: FC = () => {
       <div
         ref={test2}
         className={
-          'm-5 mx-auto mt-[120px] flex max-w-[600px] flex-col border-2 p-5 text-2xl'
+          'm-5 mx-auto mt-[120px] flex max-w-[600px] flex-col p-5 text-2xl'
         }
       >
         <div className={'content font-family-elika-gorika text-8xl '}>
           <h2>
-            <SplitText text={'Stubborn'} />
+            <SplitText>Stubborn</SplitText>
           </h2>
         </div>
       </div>
@@ -228,18 +230,17 @@ export const ClientComponent: FC = () => {
       >
         <div className={'content font-family-elika-gorika text-8xl '}>
           <h2>
-            <SplitText
-              text={
-                'Studying texts and stiff meditation can make you lose your Original\n' +
-                'Mind. A solitary tune by a fisherman, though, can be an invaluable\n' +
-                'treasure. Dusk rain on the river, the moon peeking in and out of the\n' +
-                'clouds; Elegant beyond words, he chants his songs night after night.\n' +
-                'This treasure was discovered in a bamboo thicket &mdash; I washed the\n' +
-                'bowl in a spring and then mended it. After morning meditation, I take\n' +
-                'my gruel in it; At night, it serves me soup or rice. Cracked, worn,\n' +
-                'weather-beaten, and misshapen But still of noble stock!'
-              }
-            />
+            <SplitText>
+              Studying texts and stiff meditation can make you lose your
+              Original Mind. A solitary tune by a fisherman, though, can be an
+              invaluable treasure. Dusk rain on the river, the moon peeking in
+              and out of the clouds; Elegant beyond words, he chants his songs
+              night after night This treasure was discovered in a bamboo thicket
+              &mdash; I washed the bowl in a spring and then mended it. After
+              morning meditation, I take my gruel in it; At night, it serves me
+              soup or rice. Cracked, worn weather-beaten, and misshapen But
+              still of noble stock!
+            </SplitText>
           </h2>
         </div>
       </div>
