@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "target": "es5",
+    "target": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -20,6 +20,7 @@
       "artist-strapi-api": ["../../../packages/strapi-api/src/index"],
       "@/components/*": ["./components/*"],
       "@/config/*": ["./config/*"],
+      "@/data/*": ["./data/*"],
       "@/features/*": ["./features/*"],
       "@/gql/*": ["./gql/*"],
       "@/layout/*": ["./layout/*"],

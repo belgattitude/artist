@@ -2,18 +2,17 @@ import type { Metadata } from 'next';
 import type { FC } from 'react';
 import React from 'react';
 import { Interactions } from '@/components/sections/Interactions';
+import { VideoBackground } from '@/components/video/VideoBackground';
+import { getInteractionData } from '@/data/interactions';
 
 export const metadata: Metadata = {};
 
 const HomePage: FC = () => {
+  const interactionsData = getInteractionData();
   return (
     <div className={'mx-auto mt-5 flex flex-col gap-5'}>
       <div className={'p-5 font-text-primary'}>
-        <h1
-          className={
-            'mb-5 font-family-elika-gorika text-3xl font-thin tracking-wider'
-          }
-        >
+        <h1 className={'mb-5 font-family-elika-gorika text-3xl tracking-wider'}>
           Sébastien Vanvelthem
         </h1>
         <div className={'tracking-wide'}>
@@ -36,7 +35,21 @@ const HomePage: FC = () => {
       </div>
       */}
 
-      <Interactions />
+      <div className={`drop-shadow-2xl`}>
+        <VideoBackground
+          src={'https://media.failwell.be/sudakas/sudakas-training-entry.mp4'}
+        />
+        <div
+          className={`max-w-100vw rotate-2 overflow-hidden border-2 border-e-white bg-amber-800/30 p-1`}
+        >
+          <Interactions title={'Interactions'} items={interactionsData} />
+        </div>
+      </div>
+      {/*
+      <div className={`rotate-1 bg-[#FF00FF] p-5`}>
+        <Interactions title={'Interactions'} items={interactionsData} />
+      </div>
+      */}
     </div>
   );
 };

@@ -1,0 +1,48 @@
+.test2 {
+  > span {
+    color: pink;
+    margin: 15px;
+  }
+}
+
+.box:root {
+  --dark: #1d1d1d;
+  --light: #fff;
+  --green: #28a92b;
+  --purple: #8d3dae;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  border-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #28a92b;
+  font-weight: 600;
+  color: #fff;
+}
+
+.circle:root {
+  --dark: #1d1d1d;
+  --light: #fff;
+  --green: #28a92b;
+  --purple: #8d3dae;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 99%;
+  border-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #8d3dae;
+  font-weight: 600;
+  color: white;
+}
