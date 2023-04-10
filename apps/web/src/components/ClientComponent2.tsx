@@ -22,11 +22,12 @@ export const ClientComponent2: FC = () => {
   const characterAnimation: Variants = {
     hidden: {
       opacity: 0,
-      y: 100,
-      z: 100,
-      rotateX: '90deg',
+      y: 0,
+      z: 0,
+      rotate: 90,
       scale: 5.4,
       skewY: 90,
+      // color: 'rgb(0,0,0)',
     },
     visible: {
       opacity: 1,
@@ -34,7 +35,8 @@ export const ClientComponent2: FC = () => {
       z: 0,
       skewY: 0,
       scale: 1,
-      rotateX: '0deg',
+      // color: 'rgb(255,0,255)',
+      rotate: 0,
       transition: {
         duration: 1,
         ease: 'easeIn',
@@ -44,27 +46,40 @@ export const ClientComponent2: FC = () => {
     },
   };
 
-  const text =
-    `Taking a wrong turn allows to see landscapes that wouldn't otherwise have seen.`.repeat(
-      4
-    );
+  const text = `C'est là, à cet endroit précis, suspendu entre deux cîmes d'arbres que
+     la couleur prends forme conique, sphérique, scénique.
+     Puis un autre jour, différenciation par le sourire d'un soleil levant.
+             Il y a un souffle divin caché entre les lignes du destin en courbe et
+     prolongations, le décor enseveli, redécoré en quadrillages symétriques
+        semble se courber afin de former un lit de rivière.
+        Elle emprunte, l'eau, les dessins fermentés d'un angle contrarié.
+        Au sommet d'un souterrain.
+        Transfiguration déraisonnée de sagesse aux accents de tendresse
+        délibérée.
+
+     `;
 
   return (
     <div ref={app} className={'mt-[500px]'}>
       <div
         aria-label={text}
         style={{ perspective: '1000px' }}
-        className={'max-w-[800px] overflow-hidden will-change-transform'}
+        className={'max-w-[300px] overflow-hidden will-change-transform'}
       >
         {text.split(' ').map((word, index) => {
           return (
             <motion.span
               key={index}
               className={
-                'ml-5 overflow-hidden font-family-elika-gorika text-8xl text-fuchsia-700'
+                'ml-5 overflow-hidden font-family-inter text-2xl font-normal text-fuchsia-700'
               }
               initial="hidden"
               whileInView="visible"
+              transition={{
+                type: 'spring',
+                staggerChildren: 0.15,
+                delayChildren: 0.25,
+              }}
               // viewport={{ once: true }}
             >
               {word.split('').map((character, index) => {
@@ -72,7 +87,7 @@ export const ClientComponent2: FC = () => {
                   <motion.span
                     aria-hidden="true"
                     key={index}
-                    className={'mr-1'}
+                    className={'mr-1 select-none'}
                     variants={characterAnimation}
                   >
                     {character}

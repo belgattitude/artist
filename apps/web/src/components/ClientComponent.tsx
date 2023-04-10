@@ -52,7 +52,7 @@ export const ClientComponent: FC = () => {
           {
             'will-change': 'opacity, transform',
             opacity: 0,
-            scale: () => gsap.utils.random(1.4, 2.1),
+            scale: () => gsap.utils.random(1.8, 2.5),
             rotateX: () => gsap.utils.random(-120, 120),
             z: () => gsap.utils.random(-500, 500),
           },
@@ -120,7 +120,7 @@ export const ClientComponent: FC = () => {
   }, []);
 
   return (
-    <div ref={app} className={'mt-[500px]'}>
+    <div ref={app} className={'mt-[300px]'}>
       <div className={'w-100 flex flex-col'}>
         <div
           ref={test}
