@@ -48,7 +48,7 @@ export const interactionsData: InteractionData[] = [
       end: 42,
       src: 'https://media.reflective-resonance.be/paola/soft-touch-to-death-720p.mp4',
       playbackRate: 0.8,
-      className: 'brightness-[1.2]',
+      className: 'brightness-[1.1]',
     },
   },
   {

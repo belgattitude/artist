@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { FC } from 'react';
 import React from 'react';
+import { ClientComponent } from '@/components/ClientComponent';
 import { Interactions } from '@/components/sections/Interactions';
 import { VideoBackground } from '@/components/video/VideoBackground';
 import { getInteractionData } from '@/data/interactions';
@@ -35,16 +36,16 @@ const HomePage: FC = () => {
       </div>
       */}
 
-      <div className={`drop-shadow-2xl`}>
-        <VideoBackground
-          src={'https://media.failwell.be/sudakas/sudakas-training-entry.mp4'}
-        />
+      <div
+        className={`m-5 rotate-1 overflow-hidden bg-fuchsia-500 drop-shadow-2xl will-change-transform`}
+      >
         <div
-          className={`max-w-100vw rotate-2 overflow-hidden border-2 border-e-white bg-amber-800/30 p-1`}
+          className={`max-w-100vw -rotate-1 overflow-hidden p-1 will-change-transform`}
         >
           <Interactions title={'Interactions'} items={interactionsData} />
         </div>
       </div>
+      <ClientComponent />
       {/*
       <div className={`rotate-1 bg-[#FF00FF] p-5`}>
         <Interactions title={'Interactions'} items={interactionsData} />

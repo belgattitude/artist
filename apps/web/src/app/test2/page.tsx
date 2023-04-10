@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import type { FC } from 'react';
 import React from 'react';
-import { ClientComponent } from '@/components/ClientComponent';
+import { ClientComponent2 } from '@/components/ClientComponent2';
 
 export const metadata: Metadata = {};
 
@@ -9,7 +9,7 @@ const TestPage: FC = () => {
   return (
     <div>
       <h1>Cool</h1>
-      <ClientComponent />
+      <ClientComponent2 />
     </div>
   );
 };

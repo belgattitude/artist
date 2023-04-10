@@ -35,7 +35,7 @@ export const ClientComponent: FC = () => {
             scrollTrigger: {
               trigger: test.current,
               start: 'center+=20% bottom',
-              end: '+=80%',
+              end: '+=30%',
               scrub: true,
             },
           }
@@ -137,9 +137,7 @@ export const ClientComponent: FC = () => {
 
         <div
           ref={test2}
-          className={
-            'm-5 mx-auto mt-[120px] flex max-w-[600px] flex-col p-5 text-2xl'
-          }
+          className={'m-5 mx-auto flex max-w-[600px] flex-col p-5 text-2xl'}
         >
           <div className={'content font-family-elika-gorika text-8xl '}>
             <h2>
