@@ -20,6 +20,9 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "browserslist": [
+    "chrome 100"
+  ],
   "dependencies": {
     "@emotion/cache": "11.10.7",
     "@emotion/react": "11.10.6",

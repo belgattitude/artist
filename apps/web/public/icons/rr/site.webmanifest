@@ -1,6 +1,6 @@
 {
-    "name": "Reflective Resonance",
-    "short_name": "Reflective Resonance",
+    "name": "",
+    "short_name": "",
     "icons": [
         {
             "src": "/icons/rr/android-chrome-192x192.png",
@@ -8,8 +8,8 @@
             "type": "image/png"
         },
         {
-            "src": "/icons/rr/android-chrome-512x512.png",
-            "sizes": "512x512",
+            "src": "/icons/rr/android-chrome-256x256.png",
+            "sizes": "256x256",
             "type": "image/png"
         }
     ],

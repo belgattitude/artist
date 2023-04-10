@@ -92,32 +92,7 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
       };
     }
   }, [playbackRate, start, end, loop]);
-  /**
-  const videoRefCallback = useCallback(
-    (domVideo: HTMLVideoElement) => {
-      videoRef.current = domVideo;
-      if (domVideo !== null) {
-        domVideo.playbackRate = playbackRate;
-        if (loop) {
-          domVideo.ontimeupdate = async (ev) => {
-            ev.preventDefault();
-            if (end && domVideo.currentTime >= end - 0.3) {
-              domVideo.currentTime = start;
-              if (!domVideo.paused) {
-                await domVideo.play().catch((e) => {
-                  logError("Couldn't loop and call play", e);
-                });
-              }
-            }
-          };
-        }
-      } else {
-        logError('HTMLDomVideo reference missing');
-      }
-    },
-    [playbackRate, loop, end, start]
-  );
-*/
+
   const [viewInRef] = useInViewRef((entries) => {
     if (strategy.type == 'autoplay' && strategy.inViewport) {
       if (videoRef.current) {
@@ -150,7 +125,7 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
   const autoPlay = strategy.type == 'autoplay' && !strategy.inViewport;
 
   return (
-    <div ref={viewInRef}>
+    <div ref={viewInRef} className={''}>
       <video
         className={twMerge(
           'absolute top-0 left-0 -z-10 block h-full w-full overflow-hidden object-cover',

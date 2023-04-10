@@ -1,18 +1,10 @@
-.test2 {
-  > span {
-    color: pink;
-    margin: 15px;
-  }
-}
-
-.box:root {
-  --dark: #1d1d1d;
-  --light: #fff;
-  --green: #28a92b;
-  --purple: #8d3dae;
-}
-
 .box {
+  :root {
+    --dark: #1d1d1d;
+    --light: #fff;
+    --green: #28a92b;
+    --purple: #8d3dae;
+  }
   width: 100px;
   height: 100px;
   border-radius: 12px;
@@ -34,15 +26,14 @@
 }
 
 .circle {
-  width: 100px;
-  height: 100px;
-  border-radius: 99%;
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
   border-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  //text-align: center;
   background-color: #8d3dae;
-  font-weight: 600;
   color: white;
 }
