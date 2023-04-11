@@ -36,21 +36,19 @@ const HomePage: FC = () => {
       </div>
       */}
 
-      <div
-        className={`m-5 rotate-1 overflow-hidden bg-fuchsia-500 drop-shadow-2xl will-change-transform`}
-      >
-        <div
-          className={`max-w-100vw -rotate-1 overflow-hidden p-1 will-change-transform`}
-        >
-          <Interactions title={'Interactions'} items={interactionsData} />
-        </div>
+      <div className={``}>
+        <Interactions
+          title={'Interactions'}
+          items={getInteractionData({
+            slugs: ['soft-touch-to-death', 'interstices'],
+          })}
+        />
       </div>
+
       <ClientComponent />
-      {/*
-      <div className={`rotate-1 bg-[#FF00FF] p-5`}>
-        <Interactions title={'Interactions'} items={interactionsData} />
+      <div className={``}>
+        <Interactions title={'Interactions'} items={getInteractionData()} />
       </div>
-      */}
     </div>
   );
 };

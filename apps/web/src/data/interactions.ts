@@ -29,10 +29,10 @@ export const interactionsData: InteractionData[] = [
     authors: ['Typhen Rocchia'],
     year: 2023,
     previewVideo: {
-      start: 2,
-      end: 5,
+      start: 4,
+      end: 7,
       src: 'https://media.reflective-resonance.be/typhen/INTERSTICES_typhen-light.mp4',
-      playbackRate: 0.2,
+      playbackRate: 0.4,
       className: '',
     },
   },
@@ -45,9 +45,9 @@ export const interactionsData: InteractionData[] = [
     year: 2022,
     previewVideo: {
       start: 35,
-      end: 42,
+      end: 39,
       src: 'https://media.reflective-resonance.be/paola/soft-touch-to-death-720p.mp4',
-      playbackRate: 0.8,
+      playbackRate: 0.6,
       className: 'brightness-[1.1]',
     },
   },
@@ -100,6 +100,22 @@ export const interactionsData: InteractionData[] = [
   },
 ];
 
-export const getInteractionData = () => {
-  return interactionsData;
+type Filters = {
+  slug?: string;
+  slugs?: string[];
+};
+export const getInteractionData = (filters?: Filters) => {
+  if (filters === undefined) {
+    return interactionsData;
+  }
+  return interactionsData.filter((data) => {
+    if (filters.slug && filters.slug === data.slug) {
+      return true;
+    }
+    if (filters.slugs && filters.slugs.includes(data.slug)) {
+      return true;
+    }
+
+    return false;
+  });
 };
