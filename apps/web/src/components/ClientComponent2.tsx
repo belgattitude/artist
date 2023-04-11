@@ -5,6 +5,7 @@ import { motion, useAnimation, useInView } from 'framer-motion';
 import type { FC } from 'react';
 import { useRef } from 'react';
 import { SplitText } from '@/components/text/SplitText';
+import { getRandomInt } from '@/lib/random';
 
 export const ClientComponent2: FC = () => {
   const app = useRef<HTMLDivElement>(null);
@@ -19,31 +20,34 @@ export const ClientComponent2: FC = () => {
     margin: '0px 100px -50px 0px',
   });
 
-  const characterAnimation: Variants = {
-    hidden: {
-      opacity: 0,
-      y: 0,
-      z: 0,
-      rotate: 90,
-      scale: 5.4,
-      skewY: 90,
-      // color: 'rgb(0,0,0)',
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      z: 0,
-      skewY: 0,
-      scale: 1,
-      // color: 'rgb(255,0,255)',
-      rotate: 0,
-      transition: {
-        duration: 1,
-        ease: 'easeIn',
-        // delayChildren: 0.8,
-        // staggerChildren: 1.1,
+  const getCharAnimVariants = (): Variants => {
+    return {
+      hidden: {
+        opacity: 0,
+        y: 0,
+        z: 0,
+        rotate: 90,
+        // scale: getRandomInt(3, 12),
+        scale: 10,
+        skewY: 10,
       },
-    },
+      visible: {
+        opacity: 1,
+        y: 0,
+        z: 0,
+        skewY: 0,
+        // scale: getRandomInt(10, 18) / 10,
+        scale: 1,
+
+        rotate: 0,
+        transition: {
+          duration: 1,
+          ease: 'easeIn',
+          // delayChildren: 0.8,
+          // staggerChildren: 1.1,
+        },
+      },
+    };
   };
 
   const text = `C'est là, à cet endroit précis, suspendu entre deux cîmes d'arbres que
@@ -60,7 +64,7 @@ export const ClientComponent2: FC = () => {
      `;
 
   return (
-    <div ref={app} className={'mt-[500px]'}>
+    <div ref={app} className={'mt-[10px]'}>
       <div
         aria-label={text}
         style={{ perspective: '1000px' }}
@@ -71,16 +75,17 @@ export const ClientComponent2: FC = () => {
             <motion.span
               key={index}
               className={
-                'ml-5 overflow-hidden font-family-inter text-2xl font-normal text-fuchsia-700'
+                'ml-5 overflow-hidden font-family-elika-gorika text-4xl font-normal text-fuchsia-500'
               }
               initial="hidden"
               whileInView="visible"
               transition={{
-                type: 'spring',
+                type: 'tween',
+                ease: 'easeInOut',
                 staggerChildren: 0.15,
-                delayChildren: 0.25,
+                delayChildren: 0.05,
               }}
-              // viewport={{ once: true }}
+              viewport={{ once: true }}
             >
               {word.split('').map((character, index) => {
                 return (
@@ -88,7 +93,7 @@ export const ClientComponent2: FC = () => {
                     aria-hidden="true"
                     key={index}
                     className={'mr-1 select-none'}
-                    variants={characterAnimation}
+                    variants={getCharAnimVariants()}
                   >
                     {character}
                   </motion.span>
@@ -107,7 +112,7 @@ export const ClientComponent2: FC = () => {
           <div className={'content font-family-elika-gorika text-8xl '}>
             <motion.span
               animate={ctrls}
-              variants={characterAnimation}
+              variants={getCharAnimVariants()}
               whileHover={{ scale: 1.2 }}
               initial={{
                 visibility: 'hidden',

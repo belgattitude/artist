@@ -78,8 +78,8 @@ importers:
         specifier: 0.4.0
         version: 0.4.0(@types/node@18.15.11)(next@13.3.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.0.4)
       '@react-three/drei':
-        specifier: 9.64.0
-        version: 9.64.0(@react-three/fiber@8.12.0)(@types/three@0.150.1)(react-dom@18.2.0)(react@18.2.0)(three@0.151.3)
+        specifier: 9.65.2
+        version: 9.65.2(@react-three/fiber@8.12.0)(@types/three@0.150.1)(react-dom@18.2.0)(react@18.2.0)(three@0.151.3)
       '@react-three/fiber':
         specifier: 8.12.0
         version: 8.12.0(react-dom@18.2.0)(react@18.2.0)(three@0.151.3)
@@ -120,8 +120,8 @@ importers:
         specifier: 2.29.3
         version: 2.29.3
       framer-motion:
-        specifier: 10.11.2
-        version: 10.11.2(react-dom@18.2.0)(react@18.2.0)
+        specifier: 10.11.4
+        version: 10.11.4(react-dom@18.2.0)(react@18.2.0)
       graphql:
         specifier: 16.6.0
         version: 16.6.0
@@ -343,11 +343,11 @@ importers:
         specifier: 4.2.1
         version: 4.2.1(@types/node@18.15.11)(sass@1.61.0)
       vite-tsconfig-paths:
-        specifier: 4.0.9
-        version: 4.0.9(typescript@5.0.4)(vite@4.2.1)
+        specifier: 4.1.0
+        version: 4.1.0(typescript@5.0.4)(vite@4.2.1)
       vitest:
-        specifier: 0.30.0
-        version: 0.30.0(sass@1.61.0)
+        specifier: 0.30.1
+        version: 0.30.1(sass@1.61.0)
       webpack:
         specifier: 5.78.0
         version: 5.78.0
@@ -404,11 +404,11 @@ importers:
         specifier: 4.2.1
         version: 4.2.1(@types/node@18.15.11)(sass@1.61.0)
       vite-tsconfig-paths:
-        specifier: 4.0.9
-        version: 4.0.9(typescript@5.0.4)(vite@4.2.1)
+        specifier: 4.1.0
+        version: 4.1.0(typescript@5.0.4)(vite@4.2.1)
       vitest:
-        specifier: 0.30.0
-        version: 0.30.0(sass@1.61.0)
+        specifier: 0.30.1
+        version: 0.30.1(sass@1.61.0)
 
 packages:
 
@@ -3692,8 +3692,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@react-three/drei@9.64.0(@react-three/fiber@8.12.0)(@types/three@0.150.1)(react-dom@18.2.0)(react@18.2.0)(three@0.151.3):
-    resolution: {integrity: sha512-xkdc26PcNQlp3lXKBV+FUEAbC4zuBugfhkuptJa1Mb2yoDNmsGnIApgWCRR/Wd2zZqU7W9yw/a7derZa1oPQxg==}
+  /@react-three/drei@9.65.2(@react-three/fiber@8.12.0)(@types/three@0.150.1)(react-dom@18.2.0)(react@18.2.0)(three@0.151.3):
+    resolution: {integrity: sha512-oxYeDHyNG6CepdvTxYu4cH/163Ej8v2kvqBWAtjC2Lm46Fb59yDM6hEKls0uVgx/Gg6qpBDuEUcJj+oRDe0QDg==}
     peerDependencies:
       '@react-three/fiber': '>=8.0'
       react: '>=18.0'
@@ -5893,39 +5893,39 @@ packages:
       yoga-wasm-web: 0.3.3
     dev: false
 
-  /@vitest/expect@0.30.0:
-    resolution: {integrity: sha512-b/jLWBqi6WQHfezWm8VjgXdIyfejAurtxqdyCdDqoToCim5W/nDxKjFAADitEHPz80oz+IP+c+wmkGKBucSpiw==}
+  /@vitest/expect@0.30.1:
+    resolution: {integrity: sha512-c3kbEtN8XXJSeN81iDGq29bUzSjQhjES2WR3aColsS4lPGbivwLtas4DNUe0jD9gg/FYGIteqOenfU95EFituw==}
     dependencies:
-      '@vitest/spy': 0.30.0
-      '@vitest/utils': 0.30.0
+      '@vitest/spy': 0.30.1
+      '@vitest/utils': 0.30.1
       chai: 4.3.7
     dev: true
 
-  /@vitest/runner@0.30.0:
-    resolution: {integrity: sha512-Xh4xkdRcymdeRNrSwjhgarCTSgnQu2J59wsFI6i4UhKrL5whzo5+vWyq7iWK1ht3fppPeNAtvkbqUDf+OJSCbQ==}
+  /@vitest/runner@0.30.1:
+    resolution: {integrity: sha512-W62kT/8i0TF1UBCNMRtRMOBWJKRnNyv9RrjIgdUryEe0wNpGZvvwPDLuzYdxvgSckzjp54DSpv1xUbv4BQ0qVA==}
     dependencies:
-      '@vitest/utils': 0.30.0
+      '@vitest/utils': 0.30.1
       concordance: 5.0.4
       p-limit: 4.0.0
       pathe: 1.1.0
     dev: true
 
-  /@vitest/snapshot@0.30.0:
-    resolution: {integrity: sha512-e4eSGCy36Bw3/Tkir9qYJDlFsUz3NALFPNJSxzlY8CFl901TV9iZdKgpqXpyG1sAhLO0tPHThBAMHRi8hRA8cg==}
+  /@vitest/snapshot@0.30.1:
+    resolution: {integrity: sha512-fJZqKrE99zo27uoZA/azgWyWbFvM1rw2APS05yB0JaLwUIg9aUtvvnBf4q7JWhEcAHmSwbrxKFgyBUga6tq9Tw==}
     dependencies:
       magic-string: 0.30.0
       pathe: 1.1.0
       pretty-format: 27.5.1
     dev: true
 
-  /@vitest/spy@0.30.0:
-    resolution: {integrity: sha512-olTWyG5gVWdfhCrdgxWQb2K3JYtj1/ZwInFFOb4GZ2HFI91PUWHWHhLRPORxwRwVvoXD1MS1162vPJZuHlKJkg==}
+  /@vitest/spy@0.30.1:
+    resolution: {integrity: sha512-YfJeIf37GvTZe04ZKxzJfnNNuNSmTEGnla2OdL60C8od16f3zOfv9q9K0nNii0NfjDJRt/CVN/POuY5/zTS+BA==}
     dependencies:
       tinyspy: 2.1.0
     dev: true
 
-  /@vitest/utils@0.30.0:
-    resolution: {integrity: sha512-qFZgoOKQ+rJV9xG4BBxgOSilnLQ2gkfG4I+z1wBuuQ3AD33zQrnB88kMFfzsot1E1AbF3dNK1e4CU7q3ojahRA==}
+  /@vitest/utils@0.30.1:
+    resolution: {integrity: sha512-/c8Xv2zUVc+rnNt84QF0Y0zkfxnaGhp87K2dYJMLtLOIckPzuxLVzAtFCicGFdB4NeBHNzTRr1tNn7rCtQcWFA==}
     dependencies:
       concordance: 5.0.4
       loupe: 2.3.6
@@ -9314,8 +9314,8 @@ packages:
     resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
     dev: true
 
-  /framer-motion@10.11.2(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-IrwuC9regNOU99JoM/Z62CAMA3awGV6AcF7e3bcgXk/ZoNlGSt5aVq0J7UAwtLmCkwVlRvBkiMnvv2mZ1GW2pg==}
+  /framer-motion@10.11.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-G69oXNILHETM95lI7UNORG8T7lVN9GnwAf6V8OV7asdWLo7cLVsCFXgPQveWb4fSIDC0FnQQhFnx6blVdmdl3A==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -16283,8 +16283,8 @@ packages:
       unist-util-stringify-position: 3.0.3
       vfile-message: 3.1.4
 
-  /vite-node@0.30.0(@types/node@18.15.11)(sass@1.61.0):
-    resolution: {integrity: sha512-23X5Ggylx0kU/bMf8MCcEEl55d/gsTtU81mMZjm7Z0FSpgKZexUqmX3mJtgglP9SySQQs9ydYg/GEahi/cKHaA==}
+  /vite-node@0.30.1(@types/node@18.15.11)(sass@1.61.0):
+    resolution: {integrity: sha512-vTikpU/J7e6LU/8iM3dzBo8ZhEiKZEKRznEMm+mJh95XhWaPrJQraT/QsT2NWmuEf+zgAoMe64PKT7hfZ1Njmg==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
     dependencies:
@@ -16304,8 +16304,8 @@ packages:
       - terser
     dev: true
 
-  /vite-tsconfig-paths@4.0.9(typescript@5.0.4)(vite@4.2.1):
-    resolution: {integrity: sha512-qtjwLELs7AEtvZGWbv5aXNda0vyaU8MDjvohMS05sePdUNqBZbBk670Rpfoe0GguF4R1G/DT7yBTPSHdF4h9kA==}
+  /vite-tsconfig-paths@4.1.0(typescript@5.0.4)(vite@4.2.1):
+    resolution: {integrity: sha512-Ps275He1fF6Wpm/3tvyokIfXd3lcmk4KsdCG4yduSTRVt+htaxIoEor88M1h3soOeXg5fn77ZiupVRwGeB/XNQ==}
     peerDependencies:
       vite: '*'
     peerDependenciesMeta:
@@ -16356,8 +16356,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest@0.30.0(sass@1.61.0):
-    resolution: {integrity: sha512-2WW4WeTHtrLFeoiuotWvEW6khozx1NvMGYoGsNz2btdddEbqvEdPJIouIdoiC5i61Rl1ctZvm9cn2R9TcPQlzw==}
+  /vitest@0.30.1(sass@1.61.0):
+    resolution: {integrity: sha512-y35WTrSTlTxfMLttgQk4rHcaDkbHQwDP++SNwPb+7H8yb13Q3cu2EixrtHzF27iZ8v0XCciSsLg00RkPAzB/aA==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
     peerDependencies:
@@ -16390,11 +16390,11 @@ packages:
       '@types/chai': 4.3.4
       '@types/chai-subset': 1.3.3
       '@types/node': 18.15.11
-      '@vitest/expect': 0.30.0
-      '@vitest/runner': 0.30.0
-      '@vitest/snapshot': 0.30.0
-      '@vitest/spy': 0.30.0
-      '@vitest/utils': 0.30.0
+      '@vitest/expect': 0.30.1
+      '@vitest/runner': 0.30.1
+      '@vitest/snapshot': 0.30.1
+      '@vitest/spy': 0.30.1
+      '@vitest/utils': 0.30.1
       acorn: 8.8.2
       acorn-walk: 8.2.0
       cac: 6.7.14
@@ -16411,7 +16411,7 @@ packages:
       tinybench: 2.4.0
       tinypool: 0.4.0
       vite: 4.2.1(@types/node@18.15.11)(sass@1.61.0)
-      vite-node: 0.30.0(@types/node@18.15.11)(sass@1.61.0)
+      vite-node: 0.30.1(@types/node@18.15.11)(sass@1.61.0)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less

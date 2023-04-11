@@ -1,6 +1,6 @@
 'use client';
 
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import type { FC } from 'react';
 import { useLayoutEffect, useRef } from 'react';
@@ -104,7 +104,6 @@ export const ClientComponent: FC = () => {
             // end: 'bottom top',
             start: 'center-=40% bottom',
             end: '+=40%',
-
             scrub: true,
           },
         }
