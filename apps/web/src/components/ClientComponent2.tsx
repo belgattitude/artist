@@ -14,11 +14,11 @@ export const ClientComponent2: FC = () => {
   const test2 = useRef<HTMLDivElement>(null);
   const test3 = useRef<HTMLDivElement>(null);
 
-  const ctrls = useAnimation();
+  // const ctrls = useAnimation();
 
-  const isInView = useInView(test, {
-    margin: '0px 100px -50px 0px',
-  });
+  // const isInView = useInView(test, {
+  //   margin: '0px 100px -50px 0px',
+  // });
 
   const getCharAnimVariants = (): Variants => {
     return {
@@ -85,7 +85,7 @@ export const ClientComponent2: FC = () => {
                 staggerChildren: 0.15,
                 delayChildren: 0.05,
               }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
               {word.split('').map((character, index) => {
                 return (
@@ -111,7 +111,7 @@ export const ClientComponent2: FC = () => {
         >
           <div className={'content font-family-elika-gorika text-8xl '}>
             <motion.span
-              animate={ctrls}
+              // animate={ctrls}
               variants={getCharAnimVariants()}
               whileHover={{ scale: 1.2 }}
               initial={{
