@@ -5,7 +5,7 @@ import pc from 'picocolors';
 // import  from "dotenv-flow"
 
 const source = process.env.OPENAPI_SOURCE;
-const target = './src/generated/strapi-api.types.ts';
+const target = './src/generated/openapi/openapi.types.ts';
 
 const localPath = new URL(source, import.meta.url);
 

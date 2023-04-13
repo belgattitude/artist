@@ -1,1 +1,1 @@
-export * from './generated/strapi-api.types';
+export * from './generated/openapi/openapi.types';

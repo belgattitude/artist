@@ -5,6 +5,7 @@ import { fontElikaGorika } from '@/components/fonts/FontElikaGorika';
 import { fontInter } from '@/components/fonts/FontInter';
 import { fontMonoton } from '@/components/fonts/FontMonoton';
 import { MainLayout } from '@/components/layout/main-layout';
+import { UrqlProvider } from '../../providers/UrqlProvider';
 
 export const metadata: Metadata = {};
 
@@ -14,13 +15,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={`h-full ${fontInter.variable} ${fontMonoton.variable} ${fontElikaGorika.variable}`}
       >
-        <MainLayout hideMainNav={true}>
-          <div
-            className={'flex w-full bg-black font-family-inter text-[#fefefe]'}
-          >
-            {children}
-          </div>
-        </MainLayout>
+        <UrqlProvider>
+          <MainLayout hideMainNav={true}>
+            <div
+              className={
+                'flex w-full bg-black font-family-inter text-[#fefefe]'
+              }
+            >
+              {children}
+            </div>
+          </MainLayout>
+        </UrqlProvider>
       </body>
     </html>
   );

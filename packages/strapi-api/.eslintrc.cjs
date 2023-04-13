@@ -34,6 +34,8 @@ module.exports = {
         'import/export': 'off',
         'import/order': 'off',
         '@typescript-eslint/ban-types': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/consistent-type-imports': 'off',
       },
     },
   ],

@@ -5,7 +5,7 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "target": "ESNext",
-    "lib": ["ESNext"],
+    "lib": ["ESNext", "DOM"],
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "noEmit": false,

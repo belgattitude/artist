@@ -28,6 +28,9 @@ const NEXTJS_IGNORE_TYPECHECK = trueEnv.includes(
 const NEXTJS_IGNORE_LINT = trueEnv.includes(
   process.env?.NEXTJS_IGNORE_LINT ?? 'false'
 );
+const NEXTJS_PROD_SOURCE_MAPS = trueEnv.includes(
+  process.env?.NEXTJS_PROD_SOURCE_MAPS ?? 'true'
+);
 
 const strapiUrl = publicEnv.NEXT_PUBLIC_STRAPI_API_URL;
 const { hostname: strapiHostname } = new URL(strapiUrl);
@@ -183,10 +186,12 @@ let nextConfig = {
 
     return config;
   },
-  productionBrowserSourceMaps: true,
+
+  productionBrowserSourceMaps: NEXTJS_PROD_SOURCE_MAPS,
+
   compiler: {
-    reactRemoveProperties: true,
-    removeConsole: false,
+    // reactRemoveProperties: true,
+    // removeConsole: false,
   },
 };
 
