@@ -183,6 +183,11 @@ let nextConfig = {
 
     return config;
   },
+  productionBrowserSourceMaps: true,
+  compiler: {
+    reactRemoveProperties: true,
+    removeConsole: false,
+  },
 };
 
 if (process.env.ANALYZE === 'true') {
