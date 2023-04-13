@@ -17,7 +17,7 @@ export const Interactions: FC<InteractionsProps> = (props) => {
   const { title, items, className = '' } = props;
   const { push } = useRouter();
 
-  const commonVideoCls = 'h-[300px] min-h-[220px] md:min-h-[300px]';
+  const commonVideoCls = 'aspect-16/9 min-h-[220px] md:min-h-[300px]';
 
   return (
     <div

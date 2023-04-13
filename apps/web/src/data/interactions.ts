@@ -103,19 +103,35 @@ export const interactionsData: InteractionData[] = [
 type Filters = {
   slug?: string;
   slugs?: string[];
+  excludedSlugs?: string[];
 };
 export const getInteractionData = (filters?: Filters) => {
   if (filters === undefined) {
     return interactionsData;
   }
-  return interactionsData.filter((data) => {
-    if (filters.slug && filters.slug === data.slug) {
-      return true;
+  const included = interactionsData.filter((data) => {
+    if (filters.slug !== undefined || filters.slugs !== undefined) {
+      if (filters.slug && filters.slug === data.slug) {
+        return true;
+      }
+      if (filters.slugs && filters.slugs.includes(data.slug)) {
+        return true;
+      }
+      return false;
     }
-    if (filters.slugs && filters.slugs.includes(data.slug)) {
-      return true;
-    }
+    return true;
+  });
 
-    return false;
+  const { excludedSlugs } = filters;
+  console.log('exc', excludedSlugs, included);
+  if (excludedSlugs === undefined) {
+    console.log('excluded', excludedSlugs);
+    return included;
+  }
+  return included.filter((data) => {
+    if (excludedSlugs.includes(data.slug)) {
+      return false;
+    }
+    return true;
   });
 };

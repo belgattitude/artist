@@ -28,9 +28,9 @@
     "rimraf": "5.0.0",
     "tsup": "6.7.0",
     "typescript": "5.0.4",
-    "turbo": "1.9.0",
+    "turbo": "1.9.1",
     "vite": "4.2.1",
-    "vite-tsconfig-paths": "4.1.0",
+    "vite-tsconfig-paths": "4.2.0",
     "vitest": "0.30.1"
   }
 }

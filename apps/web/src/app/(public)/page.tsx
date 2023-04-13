@@ -3,13 +3,12 @@ import type { FC } from 'react';
 import React from 'react';
 import { ClientComponent } from '@/components/ClientComponent';
 import { Interactions } from '@/components/sections/Interactions';
-import { VideoBackground } from '@/components/video/VideoBackground';
 import { getInteractionData } from '@/data/interactions';
 
 export const metadata: Metadata = {};
 
 const HomePage: FC = () => {
-  const interactionsData = getInteractionData();
+  const firstPageVideos = ['soft-touch-to-death', 'interstices'];
   return (
     <div className={'mx-auto mt-5 flex flex-col gap-5'}>
       <div className={'p-5 font-text-primary'}>
@@ -40,14 +39,19 @@ const HomePage: FC = () => {
         <Interactions
           title={'Interactions'}
           items={getInteractionData({
-            slugs: ['soft-touch-to-death', 'interstices'],
+            slugs: firstPageVideos,
           })}
         />
       </div>
 
       <ClientComponent />
       <div className={``}>
-        <Interactions title={'Interactions'} items={getInteractionData()} />
+        <Interactions
+          title={'Interactions'}
+          items={getInteractionData({
+            excludedSlugs: firstPageVideos,
+          })}
+        />
       </div>
     </div>
   );
