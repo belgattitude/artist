@@ -4193,8 +4193,8 @@ export interface components {
       meta?: Record<string, never>;
     };
     WordLocalizationRequest: {
-      name?: string;
-      slug?: string;
+      name: string;
+      slug: string;
       definition?: string;
       /** @example string or id */
       cover?: number | string;
@@ -4205,8 +4205,8 @@ export interface components {
     };
     WordRequest: {
       data: {
-        name?: string;
-        slug?: string;
+        name: string;
+        slug: string;
         definition?: string;
         /** @example string or id */
         cover?: number | string;
