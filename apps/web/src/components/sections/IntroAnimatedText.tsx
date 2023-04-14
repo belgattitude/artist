@@ -2,6 +2,7 @@
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import dynamic from 'next/dynamic';
 import type { FC } from 'react';
 import { useLayoutEffect, useRef } from 'react';
 import { SplitText } from '@/components/text/SplitText';
@@ -159,3 +160,13 @@ export const IntroAnimatedText: FC = () => {
     </div>
   );
 };
+
+export const DynamicIntroAnimatedText = dynamic(
+  () =>
+    import('@/components/sections/IntroAnimatedText').then(
+      (mod) => mod.IntroAnimatedText
+    ),
+  {
+    ssr: false,
+  }
+);

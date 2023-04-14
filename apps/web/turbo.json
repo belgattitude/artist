@@ -6,7 +6,8 @@
       "env": [
         "NEXT_PUBLIC_STRAPI_API_URL",
         "NEXTJS_IGNORE_LINT",
-        "NEXTJS_IGNORE_TYPECHECK"
+        "NEXTJS_IGNORE_TYPECHECK",
+        "NEXTJS_PROD_SOURCE_MAPS"
       ],
       "outputs": [".next/**", "!.next/cache/**"]
       // "dependsOn": ["^codegen-api"]

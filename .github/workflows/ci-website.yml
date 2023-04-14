@@ -48,6 +48,6 @@ jobs:
           # Speed up build: they are typechecked in a previous step
           NEXTJS_IGNORE_TYPECHECK: true
           # Speed up build: don't run if not needed, enable if it becomes needed
-          NEXT_DISABLE_SOURCEMAPS: true
+          NEXTJS_PROD_SOURCE_MAPS: false
           # Don't send telemetry for ci
           NEXT_TELEMETRY_DISABLED: true
