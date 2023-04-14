@@ -5,7 +5,7 @@ export const metadata: Metadata = {};
 
 const HomePage: FC = () => {
   return (
-    <div className={'mx-auto mt-5 flex flex-col gap-5'}>
+    <div className={''}>
       <div className={'p-5 font-text-primary'}>
         <h1 className={'mb-5 font-family-elika-gorika text-3xl tracking-wider'}>
           URQL test
@@ -24,9 +24,7 @@ const HomePage: FC = () => {
         <p className={'text-3xl'}>The object is not to make art</p>
       </div>
 
-      <div className={``}>
-        <WordList />
-      </div>
+      <WordList />
     </div>
   );
 };

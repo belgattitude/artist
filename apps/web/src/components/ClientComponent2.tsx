@@ -75,7 +75,7 @@ export const ClientComponent2: FC = () => {
             <motion.span
               key={index}
               className={
-                'ml-5 overflow-hidden font-family-elika-gorika text-4xl font-normal text-fuchsia-500'
+                'ml-5 inline-block overflow-hidden font-family-elika-gorika text-4xl font-normal text-fuchsia-500'
               }
               initial="hidden"
               whileInView="visible"
@@ -92,7 +92,7 @@ export const ClientComponent2: FC = () => {
                   <motion.span
                     aria-hidden="true"
                     key={index}
-                    className={'mr-1 select-none'}
+                    className={'mr-1 inline-block select-none'}
                     variants={getCharAnimVariants()}
                   >
                     {character}

@@ -17,11 +17,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       >
         <UrqlProvider>
           <MainLayout hideMainNav={true}>
-            <div
-              className={
-                'flex w-full bg-black font-family-inter text-[#fefefe]'
-              }
-            >
+            <div className={'flex bg-black font-family-inter text-[#fefefe]'}>
               {children}
             </div>
           </MainLayout>

@@ -20,7 +20,9 @@ const WordCard: FC<WordCardProps> = (props) => {
     <div>
       <h1>{word.name}</h1>
       {image && <img alt={word.name ?? ''} src={getStrapiURL(image)} />}
-      {video && <VideoPlayer url={getStrapiURL(video)} controls={true} />}
+      {video && (
+        <VideoPlayer url={getStrapiURL(video)} controls={true} width={'100%'} />
+      )}
     </div>
   );
 };

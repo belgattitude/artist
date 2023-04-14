@@ -74,7 +74,3 @@ h6 {
 .docs-story {
   isolation: isolate;
 }
-
-span {
-  display: inline-block;
-}

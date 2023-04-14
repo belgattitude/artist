@@ -119,15 +119,13 @@ export const ClientComponent: FC = () => {
   }, []);
 
   return (
-    <div ref={app} className={'mt-[300px]'}>
+    <div ref={app} className={'mt-[300px]  font-family-elika-gorika'}>
       <div className={'w-100 flex flex-col'}>
         <div
           ref={test}
-          className={
-            'm-5 mx-auto mt-[120px] flex max-w-[600px] flex-col p-5 text-2xl'
-          }
+          className={'m-5 mx-auto mt-[120px] flex max-w-[600px] flex-col p-5'}
         >
-          <div className={'content font-family-elika-gorika text-8xl '}>
+          <div className={'content  text-6xl md:text-8xl'}>
             <h2>
               <SplitText>Beauty Remains</SplitText>
             </h2>
@@ -136,9 +134,11 @@ export const ClientComponent: FC = () => {
 
         <div
           ref={test2}
-          className={'m-5 mx-auto flex max-w-[600px] flex-col p-5 text-2xl'}
+          className={
+            'm-5 mx-auto flex max-w-[600px] flex-col text-7xl md:text-8xl'
+          }
         >
-          <div className={'content font-family-elika-gorika text-8xl '}>
+          <div className={'content'}>
             <h2>
               <SplitText>Stubborn</SplitText>
             </h2>
@@ -151,11 +151,7 @@ export const ClientComponent: FC = () => {
             'container mx-auto mt-[180px] flex max-w-[600px] flex-col p-5 text-2xl'
           }
         >
-          <div
-            className={
-              'relative font-family-elika-gorika text-7xl drop-shadow '
-            }
-          >
+          <div className={'relative text-5xl drop-shadow md:text-8xl '}>
             <SplitText>
               Standing in the center of a circle. Long waves hearing a sound
               that breathe across the space. Now lying outside far against the
