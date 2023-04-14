@@ -20,20 +20,6 @@ const HomePage: FC = () => {
           <p>New website coming soon</p>
         </div>
       </div>
-      {/*
-      <div
-        className={
-          'absolute right-0 z-10 m-5 -scale-100 border-2 bg-black p-5 font-family-monoton text-3xl text-white [writing-mode:vertical-lr]'
-        }
-      >
-        <p>Which makes art inevitable</p>
-
-        <div className={'text-3xl font-extrabold'}>
-          It's to be in that wonderful state
-        </div>
-        <p className={'text-3xl'}>The object is not to make art</p>
-      </div>
-      */}
 
       <div className={``}>
         <Interactions
