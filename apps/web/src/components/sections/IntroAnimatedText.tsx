@@ -44,10 +44,11 @@ export const IntroAnimatedText: FC = () => {
 
         const chars2 = test2.current?.querySelectorAll('.char') ?? [];
 
+        /*
         chars2.forEach((char) =>
           gsap.set(char.parentNode, { perspective: 1000 })
         );
-
+*/
         gsap.fromTo(
           chars2,
           {
@@ -155,7 +156,7 @@ export const IntroAnimatedText: FC = () => {
             'container mx-auto mt-[180px] flex max-w-[700px] flex-col p-5 text-2xl'
           }
         >
-          <div className={'relative text-5xl drop-shadow md:text-7xl '}>
+          <div className={'relative text-5xl md:text-7xl '}>
             <SplitText>
               Standing in the center of a circle. Long waves hearing a sound
               that breathe across the space. Now lying outside far against the
