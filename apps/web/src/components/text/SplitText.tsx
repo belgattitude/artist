@@ -19,12 +19,12 @@ export const SplitText: FC<Props> = (props) => {
   const { children: text } = props;
   const words = text.split(' ');
   return (
-    <span aria-label={text}>
+    <span className={'[&>span]:inline-block'} aria-label={text}>
       {words.map((word, wordIdx) => {
         return (
           <span
             key={`${word}-${wordIdx}`}
-            className="word"
+            className="word break-inside-avoid whitespace-nowrap [&>span]:inline-block"
             style={wordStyle}
             aria-hidden="true"
           >
