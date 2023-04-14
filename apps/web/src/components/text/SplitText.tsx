@@ -6,12 +6,12 @@ type Props = {
 };
 
 const charStyle: CSSProperties = {
-  display: 'inline-block',
+  // display: 'inline-block',
   marginRight: '-0.05em',
 };
 
 const wordStyle: CSSProperties = {
-  display: 'inline-block',
+  // display: 'inline-block',
   marginRight: '1em',
 };
 
@@ -19,7 +19,7 @@ export const SplitText: FC<Props> = (props) => {
   const { children: text } = props;
   const words = text.split(' ');
   return (
-    <span aria-label={text} className={'text-fuchsia-500'}>
+    <span aria-label={text}>
       {words.map((word, wordIdx) => {
         return (
           <span

@@ -1,0 +1,6 @@
+.ctn {
+  will-change: opacity, transform;
+  * > span {
+    display: inline-block;
+  }
+}

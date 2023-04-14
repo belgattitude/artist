@@ -5,8 +5,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import type { FC } from 'react';
 import { useLayoutEffect, useRef } from 'react';
 import { SplitText } from '@/components/text/SplitText';
+import styles from './IntroAnimatedText.module.scss';
 
-export const ClientComponent: FC = () => {
+export const IntroAnimatedText: FC = () => {
   const app = useRef<HTMLDivElement>(null);
 
   const test = useRef<HTMLDivElement>(null);
@@ -76,13 +77,13 @@ export const ClientComponent: FC = () => {
       };
 
       const chars3 = test3.current?.querySelectorAll('.char') ?? [];
+      /*
       chars3.forEach((char) =>
         gsap.set(char.parentNode, { perspective: 1000 })
-      );
+      ); */
       gsap.fromTo(
         chars3,
         {
-          'will-change': 'opacity, transform',
           opacity: 0,
           scale: () => gsap.utils.random(1.4, 2.1),
           rotateX: () => gsap.utils.random(-120, 120),
@@ -119,13 +120,16 @@ export const ClientComponent: FC = () => {
   }, []);
 
   return (
-    <div ref={app} className={'mt-[300px]  font-family-elika-gorika'}>
-      <div className={'w-100 flex flex-col'}>
+    <div
+      ref={app}
+      className={'mt-[300px] font-family-elika-gorika text-fuchsia-500'}
+    >
+      <div className={`${styles.ctn} w-100 flex flex-col`}>
         <div
           ref={test}
           className={'m-5 mx-auto mt-[120px] flex max-w-[600px] flex-col p-5'}
         >
-          <div className={'content  text-6xl md:text-8xl'}>
+          <div className={'content text-6xl md:text-8xl'}>
             <h2>
               <SplitText>Beauty Remains</SplitText>
             </h2>
@@ -148,10 +152,10 @@ export const ClientComponent: FC = () => {
         <div
           ref={test3}
           className={
-            'container mx-auto mt-[180px] flex max-w-[600px] flex-col p-5 text-2xl'
+            'container mx-auto mt-[180px] flex max-w-[700px] flex-col p-5 text-2xl'
           }
         >
-          <div className={'relative text-5xl drop-shadow md:text-8xl '}>
+          <div className={'relative text-5xl drop-shadow md:text-7xl '}>
             <SplitText>
               Standing in the center of a circle. Long waves hearing a sound
               that breathe across the space. Now lying outside far against the

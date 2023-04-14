@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import type { FC } from 'react';
 import React from 'react';
-import { ClientComponent } from '@/components/ClientComponent';
 import { Interactions } from '@/components/sections/Interactions';
+import { IntroAnimatedText } from '@/components/sections/IntroAnimatedText';
 import { getInteractionData } from '@/data/interactions';
 
 export const metadata: Metadata = {};
@@ -30,7 +30,7 @@ const HomePage: FC = () => {
         />
       </div>
 
-      <ClientComponent />
+      <IntroAnimatedText />
       <div className={``}>
         <Interactions
           title={'Interactions'}
