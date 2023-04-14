@@ -18,7 +18,7 @@ export const IntroAnimatedText: FC = () => {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
       const scroll = () => {
-        const chars = test.current?.querySelectorAll('.char') ?? [];
+        const chars = test.current?.querySelectorAll('span.char') ?? [];
         gsap.fromTo(
           chars,
           {
@@ -35,20 +35,15 @@ export const IntroAnimatedText: FC = () => {
             stagger: 0.4,
             scrollTrigger: {
               trigger: test.current,
-              start: 'center+=20% bottom',
-              end: '+=30%',
+              start: 'center+=5% bottom',
+              end: '+=50%',
               scrub: true,
             },
           }
         );
 
-        const chars2 = test2.current?.querySelectorAll('.char') ?? [];
+        const chars2 = test2.current?.querySelectorAll('span.char') ?? [];
 
-        /*
-        chars2.forEach((char) =>
-          gsap.set(char.parentNode, { perspective: 1000 })
-        );
-*/
         gsap.fromTo(
           chars2,
           {
@@ -70,23 +65,20 @@ export const IntroAnimatedText: FC = () => {
               // start: 'top bottom',
               // end: 'bottom top',
               start: 'center+=20% bottom',
-              end: '+=20%',
+              end: '+=40%',
               scrub: true,
             },
           }
         );
       };
 
-      const chars3 = test3.current?.querySelectorAll('.char') ?? [];
-      /*
-      chars3.forEach((char) =>
-        gsap.set(char.parentNode, { perspective: 1000 })
-      ); */
+      const chars3 = test3.current?.querySelectorAll('span.char') ?? [];
+
       gsap.fromTo(
         chars3,
         {
           opacity: 0,
-          scale: () => gsap.utils.random(1.4, 2.1),
+          scale: () => gsap.utils.random(1.4, 2.8),
           rotateX: () => gsap.utils.random(-120, 120),
           z: () => gsap.utils.random(-500, 500),
         },
@@ -104,7 +96,7 @@ export const IntroAnimatedText: FC = () => {
             trigger: test3.current,
             // start: 'top bottom',
             // end: 'bottom top',
-            start: 'center-=40% bottom',
+            start: 'center-=30% bottom',
             end: '+=40%',
             scrub: true,
           },
@@ -123,17 +115,15 @@ export const IntroAnimatedText: FC = () => {
   return (
     <div
       ref={app}
-      className={'mt-[300px] font-family-elika-gorika text-fuchsia-500'}
+      className={'mt-[150px] font-family-elika-gorika text-fuchsia-500'}
     >
       <div className={`${styles.ctn} w-100 flex flex-col`}>
         <div
           ref={test}
-          className={'m-5 mx-auto mt-[120px] flex max-w-[600px] flex-col p-5'}
+          className={'m-5 mx-auto flex max-w-[600px] flex-col p-5'}
         >
           <div className={'content text-6xl md:text-8xl'}>
-            <h2>
-              <SplitText>Beauty Remains</SplitText>
-            </h2>
+            <SplitText>Beauty Remains</SplitText>
           </div>
         </div>
 
@@ -144,16 +134,14 @@ export const IntroAnimatedText: FC = () => {
           }
         >
           <div className={'content'}>
-            <h2>
-              <SplitText>Stubborn</SplitText>
-            </h2>
+            <SplitText>Stubborn</SplitText>
           </div>
         </div>
 
         <div
           ref={test3}
           className={
-            'container mx-auto mt-[180px] flex max-w-[700px] flex-col p-5 text-2xl'
+            'container mx-auto mt-[90px] flex max-w-[700px] flex-col p-5 text-2xl'
           }
         >
           <div className={'relative text-5xl md:text-7xl '}>
