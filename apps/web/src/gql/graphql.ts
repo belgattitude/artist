@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -13,19 +13,19 @@ export type Scalars = {
   Int: number;
   Float: number;
   /** A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
-  Date: any;
+  Date: unknown;
   /** A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
-  DateTime: any;
+  DateTime: unknown;
   /** A string used to identify an i18n locale */
-  I18NLocaleCode: any;
+  I18NLocaleCode: unknown;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
-  JSON: any;
+  JSON: unknown;
   /** The `BigInt` scalar type represents non-fractional signed whole numeric values. */
-  Long: any;
+  Long: unknown;
   /** A time string with format HH:mm:ss.SSS */
-  Time: any;
+  Time: unknown;
   /** The `Upload` scalar type represents a file upload. */
-  Upload: any;
+  Upload: unknown;
 };
 
 export type BooleanFilterInput = {
@@ -1298,10 +1298,10 @@ export type Word = {
   definition?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
   localizations?: Maybe<WordRelationResponseCollection>;
-  name?: Maybe<Scalars['String']>;
+  name: Scalars['String'];
   publishedAt?: Maybe<Scalars['DateTime']>;
   rehearsals?: Maybe<RehearsalRelationResponseCollection>;
-  slug?: Maybe<Scalars['String']>;
+  slug: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
   video?: Maybe<UploadFileEntityResponse>;
 };
@@ -1370,7 +1370,7 @@ export type WordRelationResponseCollection = {
   data: Array<WordEntity>;
 };
 
-export type FullWordFragmentFragment = { __typename?: 'Word', name?: string | null, slug?: string | null, definition?: string | null, cover?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null, mime: string } | null } | null } | null, video?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, mime: string } | null } | null } | null } & { ' $fragmentName'?: 'FullWordFragmentFragment' };
+export type FullWordFragmentFragment = { __typename?: 'Word', name: string, slug: string, definition?: string | null, cover?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null, mime: string } | null } | null } | null, video?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, mime: string } | null } | null } | null } & { ' $fragmentName'?: 'FullWordFragmentFragment' };
 
 export type SearchWordsQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;

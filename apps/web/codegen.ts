@@ -17,19 +17,28 @@ const config: CodegenConfig = {
       preset: 'client',
       plugins: [],
       // https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#config-api
-      presetConfig: {
+      config: {
+        defaultScalarType: 'unknown',
+        disableDescriptions: true,
+        enumPrefix: false, // avoid adding typesPrefix
+        useTypeImports: true,
+        typesPrefix: 'I',
+        emitLegacyCommonJSImports: false, // set this to true if problems with bundlers
         // fragmentMasking: false,
-        // useTypeImports: true,
-        // enumsAsTypes: true,
       },
     },
 
     './src/gql/hooks.ts': {
-      plugins: [
-        'typescript',
-        'typescript-operations',
-        'typescript-react-query',
-      ],
+      plugins: ['typescript', 'typescript-operations', 'typescript-urql'],
+      presetConfig: {},
+      config: {
+        defaultScalarType: 'unknown',
+        disableDescriptions: true,
+        enumPrefix: false, // avoid adding typesPrefix
+        useTypeImports: true,
+        typesPrefix: 'I',
+        emitLegacyCommonJSImports: false, // set this to true if problems with bundlers
+      },
     },
   },
 };

@@ -1,29 +1,11 @@
-import { useQuery, UseQueryOptions } from '@tanstack/react-query';
+import gql from 'graphql-tag';
+import * as Urql from 'urql';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-
-function fetcher<TData, TVariables>(endpoint: string, requestInit: RequestInit, query: string, variables?: TVariables) {
-  return async (): Promise<TData> => {
-    const res = await fetch(endpoint, {
-      method: 'POST',
-      ...requestInit,
-      body: JSON.stringify({ query, variables }),
-    });
-
-    const json = await res.json();
-
-    if (json.errors) {
-      const { message } = json.errors[0];
-
-      throw new Error(message);
-    }
-
-    return json.data;
-  }
-}
+export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -31,23 +13,16 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  /** A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
-  Date: any;
-  /** A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
-  DateTime: any;
-  /** A string used to identify an i18n locale */
-  I18NLocaleCode: any;
-  /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
-  JSON: any;
-  /** The `BigInt` scalar type represents non-fractional signed whole numeric values. */
-  Long: any;
-  /** A time string with format HH:mm:ss.SSS */
-  Time: any;
-  /** The `Upload` scalar type represents a file upload. */
-  Upload: any;
+  Date: unknown;
+  DateTime: unknown;
+  I18NLocaleCode: unknown;
+  JSON: unknown;
+  Long: unknown;
+  Time: unknown;
+  Upload: unknown;
 };
 
-export type BooleanFilterInput = {
+export type IBooleanFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
   contains?: InputMaybe<Scalars['Boolean']>;
@@ -61,7 +36,7 @@ export type BooleanFilterInput = {
   lt?: InputMaybe<Scalars['Boolean']>;
   lte?: InputMaybe<Scalars['Boolean']>;
   ne?: InputMaybe<Scalars['Boolean']>;
-  not?: InputMaybe<BooleanFilterInput>;
+  not?: InputMaybe<IBooleanFilterInput>;
   notContains?: InputMaybe<Scalars['Boolean']>;
   notContainsi?: InputMaybe<Scalars['Boolean']>;
   notIn?: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
@@ -71,7 +46,7 @@ export type BooleanFilterInput = {
   startsWith?: InputMaybe<Scalars['Boolean']>;
 };
 
-export type DateFilterInput = {
+export type IDateFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
   contains?: InputMaybe<Scalars['Date']>;
@@ -85,7 +60,7 @@ export type DateFilterInput = {
   lt?: InputMaybe<Scalars['Date']>;
   lte?: InputMaybe<Scalars['Date']>;
   ne?: InputMaybe<Scalars['Date']>;
-  not?: InputMaybe<DateFilterInput>;
+  not?: InputMaybe<IDateFilterInput>;
   notContains?: InputMaybe<Scalars['Date']>;
   notContainsi?: InputMaybe<Scalars['Date']>;
   notIn?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
@@ -95,7 +70,7 @@ export type DateFilterInput = {
   startsWith?: InputMaybe<Scalars['Date']>;
 };
 
-export type DateTimeFilterInput = {
+export type IDateTimeFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   contains?: InputMaybe<Scalars['DateTime']>;
@@ -109,7 +84,7 @@ export type DateTimeFilterInput = {
   lt?: InputMaybe<Scalars['DateTime']>;
   lte?: InputMaybe<Scalars['DateTime']>;
   ne?: InputMaybe<Scalars['DateTime']>;
-  not?: InputMaybe<DateTimeFilterInput>;
+  not?: InputMaybe<IDateTimeFilterInput>;
   notContains?: InputMaybe<Scalars['DateTime']>;
   notContainsi?: InputMaybe<Scalars['DateTime']>;
   notIn?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
@@ -119,7 +94,7 @@ export type DateTimeFilterInput = {
   startsWith?: InputMaybe<Scalars['DateTime']>;
 };
 
-export type Diary = {
+export type IDiary = {
   __typename?: 'Diary';
   createdAt?: Maybe<Scalars['DateTime']>;
   introduction?: Maybe<Scalars['String']>;
@@ -129,61 +104,61 @@ export type Diary = {
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
-export type DiaryEntity = {
+export type IDiaryEntity = {
   __typename?: 'DiaryEntity';
-  attributes?: Maybe<Diary>;
+  attributes?: Maybe<IDiary>;
   id?: Maybe<Scalars['ID']>;
 };
 
-export type DiaryEntityResponse = {
+export type IDiaryEntityResponse = {
   __typename?: 'DiaryEntityResponse';
-  data?: Maybe<DiaryEntity>;
+  data?: Maybe<IDiaryEntity>;
 };
 
-export type DiaryEntityResponseCollection = {
+export type IDiaryEntityResponseCollection = {
   __typename?: 'DiaryEntityResponseCollection';
-  data: Array<DiaryEntity>;
-  meta: ResponseCollectionMeta;
+  data: Array<IDiaryEntity>;
+  meta: IResponseCollectionMeta;
 };
 
-export type DiaryFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<DiaryFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  introduction?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<DiaryFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<DiaryFiltersInput>>>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  slug?: InputMaybe<StringFilterInput>;
-  title?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
+export type IDiaryFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<IDiaryFiltersInput>>>;
+  createdAt?: InputMaybe<IDateTimeFilterInput>;
+  id?: InputMaybe<IIdFilterInput>;
+  introduction?: InputMaybe<IStringFilterInput>;
+  not?: InputMaybe<IDiaryFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<IDiaryFiltersInput>>>;
+  publishedAt?: InputMaybe<IDateTimeFilterInput>;
+  slug?: InputMaybe<IStringFilterInput>;
+  title?: InputMaybe<IStringFilterInput>;
+  updatedAt?: InputMaybe<IDateTimeFilterInput>;
 };
 
-export type DiaryInput = {
+export type IDiaryInput = {
   introduction?: InputMaybe<Scalars['String']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   slug?: InputMaybe<Scalars['String']>;
   title?: InputMaybe<Scalars['String']>;
 };
 
-export type DiaryRelationResponseCollection = {
+export type IDiaryRelationResponseCollection = {
   __typename?: 'DiaryRelationResponseCollection';
-  data: Array<DiaryEntity>;
+  data: Array<IDiaryEntity>;
 };
 
-export type Error = {
+export type IError = {
   __typename?: 'Error';
   code: Scalars['String'];
   message?: Maybe<Scalars['String']>;
 };
 
-export type FileInfoInput = {
+export type IFileInfoInput = {
   alternativeText?: InputMaybe<Scalars['String']>;
   caption?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
 };
 
-export type FloatFilterInput = {
+export type IFloatFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
   contains?: InputMaybe<Scalars['Float']>;
@@ -197,7 +172,7 @@ export type FloatFilterInput = {
   lt?: InputMaybe<Scalars['Float']>;
   lte?: InputMaybe<Scalars['Float']>;
   ne?: InputMaybe<Scalars['Float']>;
-  not?: InputMaybe<FloatFilterInput>;
+  not?: InputMaybe<IFloatFilterInput>;
   notContains?: InputMaybe<Scalars['Float']>;
   notContainsi?: InputMaybe<Scalars['Float']>;
   notIn?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
@@ -207,9 +182,9 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = Diary | I18NLocale | Project | Rehearsal | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | Word;
+export type IGenericMorph = IDiary | II18NLocale | IProject | IRehearsal | IUploadFile | IUploadFolder | IUsersPermissionsPermission | IUsersPermissionsRole | IUsersPermissionsUser | IWord;
 
-export type I18NLocale = {
+export type II18NLocale = {
   __typename?: 'I18NLocale';
   code?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['DateTime']>;
@@ -217,45 +192,45 @@ export type I18NLocale = {
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
-export type I18NLocaleEntity = {
+export type II18NLocaleEntity = {
   __typename?: 'I18NLocaleEntity';
-  attributes?: Maybe<I18NLocale>;
+  attributes?: Maybe<II18NLocale>;
   id?: Maybe<Scalars['ID']>;
 };
 
-export type I18NLocaleEntityResponse = {
+export type II18NLocaleEntityResponse = {
   __typename?: 'I18NLocaleEntityResponse';
-  data?: Maybe<I18NLocaleEntity>;
+  data?: Maybe<II18NLocaleEntity>;
 };
 
-export type I18NLocaleEntityResponseCollection = {
+export type II18NLocaleEntityResponseCollection = {
   __typename?: 'I18NLocaleEntityResponseCollection';
-  data: Array<I18NLocaleEntity>;
-  meta: ResponseCollectionMeta;
+  data: Array<II18NLocaleEntity>;
+  meta: IResponseCollectionMeta;
 };
 
-export type I18NLocaleFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<I18NLocaleFiltersInput>>>;
-  code?: InputMaybe<StringFilterInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<I18NLocaleFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<I18NLocaleFiltersInput>>>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
+export type II18NLocaleFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<II18NLocaleFiltersInput>>>;
+  code?: InputMaybe<IStringFilterInput>;
+  createdAt?: InputMaybe<IDateTimeFilterInput>;
+  id?: InputMaybe<IIdFilterInput>;
+  name?: InputMaybe<IStringFilterInput>;
+  not?: InputMaybe<II18NLocaleFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<II18NLocaleFiltersInput>>>;
+  updatedAt?: InputMaybe<IDateTimeFilterInput>;
 };
 
-export type I18NLocaleInput = {
+export type II18NLocaleInput = {
   code?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
 };
 
-export type I18NLocaleRelationResponseCollection = {
+export type II18NLocaleRelationResponseCollection = {
   __typename?: 'I18NLocaleRelationResponseCollection';
-  data: Array<I18NLocaleEntity>;
+  data: Array<II18NLocaleEntity>;
 };
 
-export type IdFilterInput = {
+export type IIdFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
   contains?: InputMaybe<Scalars['ID']>;
@@ -269,7 +244,7 @@ export type IdFilterInput = {
   lt?: InputMaybe<Scalars['ID']>;
   lte?: InputMaybe<Scalars['ID']>;
   ne?: InputMaybe<Scalars['ID']>;
-  not?: InputMaybe<IdFilterInput>;
+  not?: InputMaybe<IIdFilterInput>;
   notContains?: InputMaybe<Scalars['ID']>;
   notContainsi?: InputMaybe<Scalars['ID']>;
   notIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
@@ -279,7 +254,7 @@ export type IdFilterInput = {
   startsWith?: InputMaybe<Scalars['ID']>;
 };
 
-export type IntFilterInput = {
+export type IIntFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
   contains?: InputMaybe<Scalars['Int']>;
@@ -293,7 +268,7 @@ export type IntFilterInput = {
   lt?: InputMaybe<Scalars['Int']>;
   lte?: InputMaybe<Scalars['Int']>;
   ne?: InputMaybe<Scalars['Int']>;
-  not?: InputMaybe<IntFilterInput>;
+  not?: InputMaybe<IIntFilterInput>;
   notContains?: InputMaybe<Scalars['Int']>;
   notContainsi?: InputMaybe<Scalars['Int']>;
   notIn?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
@@ -303,7 +278,7 @@ export type IntFilterInput = {
   startsWith?: InputMaybe<Scalars['Int']>;
 };
 
-export type JsonFilterInput = {
+export type IJsonFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
   contains?: InputMaybe<Scalars['JSON']>;
@@ -317,7 +292,7 @@ export type JsonFilterInput = {
   lt?: InputMaybe<Scalars['JSON']>;
   lte?: InputMaybe<Scalars['JSON']>;
   ne?: InputMaybe<Scalars['JSON']>;
-  not?: InputMaybe<JsonFilterInput>;
+  not?: InputMaybe<IJsonFilterInput>;
   notContains?: InputMaybe<Scalars['JSON']>;
   notContainsi?: InputMaybe<Scalars['JSON']>;
   notIn?: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
@@ -327,7 +302,7 @@ export type JsonFilterInput = {
   startsWith?: InputMaybe<Scalars['JSON']>;
 };
 
-export type LongFilterInput = {
+export type ILongFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['Long']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['Long']>>>;
   contains?: InputMaybe<Scalars['Long']>;
@@ -341,7 +316,7 @@ export type LongFilterInput = {
   lt?: InputMaybe<Scalars['Long']>;
   lte?: InputMaybe<Scalars['Long']>;
   ne?: InputMaybe<Scalars['Long']>;
-  not?: InputMaybe<LongFilterInput>;
+  not?: InputMaybe<ILongFilterInput>;
   notContains?: InputMaybe<Scalars['Long']>;
   notContainsi?: InputMaybe<Scalars['Long']>;
   notIn?: InputMaybe<Array<InputMaybe<Scalars['Long']>>>;
@@ -351,169 +326,158 @@ export type LongFilterInput = {
   startsWith?: InputMaybe<Scalars['Long']>;
 };
 
-export type Mutation = {
+export type IMutation = {
   __typename?: 'Mutation';
-  /** Change user password. Confirm with the current password. */
-  changePassword?: Maybe<UsersPermissionsLoginPayload>;
-  createDiary?: Maybe<DiaryEntityResponse>;
-  createProject?: Maybe<ProjectEntityResponse>;
-  createRehearsal?: Maybe<RehearsalEntityResponse>;
-  createUploadFile?: Maybe<UploadFileEntityResponse>;
-  createUploadFolder?: Maybe<UploadFolderEntityResponse>;
-  /** Create a new role */
-  createUsersPermissionsRole?: Maybe<UsersPermissionsCreateRolePayload>;
-  /** Create a new user */
-  createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
-  createWord?: Maybe<WordEntityResponse>;
-  createWordLocalization?: Maybe<WordEntityResponse>;
-  deleteDiary?: Maybe<DiaryEntityResponse>;
-  deleteProject?: Maybe<ProjectEntityResponse>;
-  deleteRehearsal?: Maybe<RehearsalEntityResponse>;
-  deleteUploadFile?: Maybe<UploadFileEntityResponse>;
-  deleteUploadFolder?: Maybe<UploadFolderEntityResponse>;
-  /** Delete an existing role */
-  deleteUsersPermissionsRole?: Maybe<UsersPermissionsDeleteRolePayload>;
-  /** Delete an existing user */
-  deleteUsersPermissionsUser: UsersPermissionsUserEntityResponse;
-  deleteWord?: Maybe<WordEntityResponse>;
-  /** Confirm an email users email address */
-  emailConfirmation?: Maybe<UsersPermissionsLoginPayload>;
-  /** Request a reset password token */
-  forgotPassword?: Maybe<UsersPermissionsPasswordPayload>;
-  login: UsersPermissionsLoginPayload;
-  multipleUpload: Array<Maybe<UploadFileEntityResponse>>;
-  /** Register a user */
-  register: UsersPermissionsLoginPayload;
-  removeFile?: Maybe<UploadFileEntityResponse>;
-  /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
-  resetPassword?: Maybe<UsersPermissionsLoginPayload>;
-  updateDiary?: Maybe<DiaryEntityResponse>;
-  updateFileInfo: UploadFileEntityResponse;
-  updateProject?: Maybe<ProjectEntityResponse>;
-  updateRehearsal?: Maybe<RehearsalEntityResponse>;
-  updateUploadFile?: Maybe<UploadFileEntityResponse>;
-  updateUploadFolder?: Maybe<UploadFolderEntityResponse>;
-  /** Update an existing role */
-  updateUsersPermissionsRole?: Maybe<UsersPermissionsUpdateRolePayload>;
-  /** Update an existing user */
-  updateUsersPermissionsUser: UsersPermissionsUserEntityResponse;
-  updateWord?: Maybe<WordEntityResponse>;
-  upload: UploadFileEntityResponse;
+  changePassword?: Maybe<IUsersPermissionsLoginPayload>;
+  createDiary?: Maybe<IDiaryEntityResponse>;
+  createProject?: Maybe<IProjectEntityResponse>;
+  createRehearsal?: Maybe<IRehearsalEntityResponse>;
+  createUploadFile?: Maybe<IUploadFileEntityResponse>;
+  createUploadFolder?: Maybe<IUploadFolderEntityResponse>;
+  createUsersPermissionsRole?: Maybe<IUsersPermissionsCreateRolePayload>;
+  createUsersPermissionsUser: IUsersPermissionsUserEntityResponse;
+  createWord?: Maybe<IWordEntityResponse>;
+  createWordLocalization?: Maybe<IWordEntityResponse>;
+  deleteDiary?: Maybe<IDiaryEntityResponse>;
+  deleteProject?: Maybe<IProjectEntityResponse>;
+  deleteRehearsal?: Maybe<IRehearsalEntityResponse>;
+  deleteUploadFile?: Maybe<IUploadFileEntityResponse>;
+  deleteUploadFolder?: Maybe<IUploadFolderEntityResponse>;
+  deleteUsersPermissionsRole?: Maybe<IUsersPermissionsDeleteRolePayload>;
+  deleteUsersPermissionsUser: IUsersPermissionsUserEntityResponse;
+  deleteWord?: Maybe<IWordEntityResponse>;
+  emailConfirmation?: Maybe<IUsersPermissionsLoginPayload>;
+  forgotPassword?: Maybe<IUsersPermissionsPasswordPayload>;
+  login: IUsersPermissionsLoginPayload;
+  multipleUpload: Array<Maybe<IUploadFileEntityResponse>>;
+  register: IUsersPermissionsLoginPayload;
+  removeFile?: Maybe<IUploadFileEntityResponse>;
+  resetPassword?: Maybe<IUsersPermissionsLoginPayload>;
+  updateDiary?: Maybe<IDiaryEntityResponse>;
+  updateFileInfo: IUploadFileEntityResponse;
+  updateProject?: Maybe<IProjectEntityResponse>;
+  updateRehearsal?: Maybe<IRehearsalEntityResponse>;
+  updateUploadFile?: Maybe<IUploadFileEntityResponse>;
+  updateUploadFolder?: Maybe<IUploadFolderEntityResponse>;
+  updateUsersPermissionsRole?: Maybe<IUsersPermissionsUpdateRolePayload>;
+  updateUsersPermissionsUser: IUsersPermissionsUserEntityResponse;
+  updateWord?: Maybe<IWordEntityResponse>;
+  upload: IUploadFileEntityResponse;
 };
 
 
-export type MutationChangePasswordArgs = {
+export type IMutationChangePasswordArgs = {
   currentPassword: Scalars['String'];
   password: Scalars['String'];
   passwordConfirmation: Scalars['String'];
 };
 
 
-export type MutationCreateDiaryArgs = {
-  data: DiaryInput;
+export type IMutationCreateDiaryArgs = {
+  data: IDiaryInput;
 };
 
 
-export type MutationCreateProjectArgs = {
-  data: ProjectInput;
+export type IMutationCreateProjectArgs = {
+  data: IProjectInput;
 };
 
 
-export type MutationCreateRehearsalArgs = {
-  data: RehearsalInput;
+export type IMutationCreateRehearsalArgs = {
+  data: IRehearsalInput;
 };
 
 
-export type MutationCreateUploadFileArgs = {
-  data: UploadFileInput;
+export type IMutationCreateUploadFileArgs = {
+  data: IUploadFileInput;
 };
 
 
-export type MutationCreateUploadFolderArgs = {
-  data: UploadFolderInput;
+export type IMutationCreateUploadFolderArgs = {
+  data: IUploadFolderInput;
 };
 
 
-export type MutationCreateUsersPermissionsRoleArgs = {
-  data: UsersPermissionsRoleInput;
+export type IMutationCreateUsersPermissionsRoleArgs = {
+  data: IUsersPermissionsRoleInput;
 };
 
 
-export type MutationCreateUsersPermissionsUserArgs = {
-  data: UsersPermissionsUserInput;
+export type IMutationCreateUsersPermissionsUserArgs = {
+  data: IUsersPermissionsUserInput;
 };
 
 
-export type MutationCreateWordArgs = {
-  data: WordInput;
+export type IMutationCreateWordArgs = {
+  data: IWordInput;
   locale?: InputMaybe<Scalars['I18NLocaleCode']>;
 };
 
 
-export type MutationCreateWordLocalizationArgs = {
-  data?: InputMaybe<WordInput>;
+export type IMutationCreateWordLocalizationArgs = {
+  data?: InputMaybe<IWordInput>;
   id?: InputMaybe<Scalars['ID']>;
   locale?: InputMaybe<Scalars['I18NLocaleCode']>;
 };
 
 
-export type MutationDeleteDiaryArgs = {
+export type IMutationDeleteDiaryArgs = {
   id: Scalars['ID'];
 };
 
 
-export type MutationDeleteProjectArgs = {
+export type IMutationDeleteProjectArgs = {
   id: Scalars['ID'];
 };
 
 
-export type MutationDeleteRehearsalArgs = {
+export type IMutationDeleteRehearsalArgs = {
   id: Scalars['ID'];
 };
 
 
-export type MutationDeleteUploadFileArgs = {
+export type IMutationDeleteUploadFileArgs = {
   id: Scalars['ID'];
 };
 
 
-export type MutationDeleteUploadFolderArgs = {
+export type IMutationDeleteUploadFolderArgs = {
   id: Scalars['ID'];
 };
 
 
-export type MutationDeleteUsersPermissionsRoleArgs = {
+export type IMutationDeleteUsersPermissionsRoleArgs = {
   id: Scalars['ID'];
 };
 
 
-export type MutationDeleteUsersPermissionsUserArgs = {
+export type IMutationDeleteUsersPermissionsUserArgs = {
   id: Scalars['ID'];
 };
 
 
-export type MutationDeleteWordArgs = {
+export type IMutationDeleteWordArgs = {
   id: Scalars['ID'];
   locale?: InputMaybe<Scalars['I18NLocaleCode']>;
 };
 
 
-export type MutationEmailConfirmationArgs = {
+export type IMutationEmailConfirmationArgs = {
   confirmation: Scalars['String'];
 };
 
 
-export type MutationForgotPasswordArgs = {
+export type IMutationForgotPasswordArgs = {
   email: Scalars['String'];
 };
 
 
-export type MutationLoginArgs = {
-  input: UsersPermissionsLoginInput;
+export type IMutationLoginArgs = {
+  input: IUsersPermissionsLoginInput;
 };
 
 
-export type MutationMultipleUploadArgs = {
+export type IMutationMultipleUploadArgs = {
   field?: InputMaybe<Scalars['String']>;
   files: Array<InputMaybe<Scalars['Upload']>>;
   ref?: InputMaybe<Scalars['String']>;
@@ -521,87 +485,87 @@ export type MutationMultipleUploadArgs = {
 };
 
 
-export type MutationRegisterArgs = {
-  input: UsersPermissionsRegisterInput;
+export type IMutationRegisterArgs = {
+  input: IUsersPermissionsRegisterInput;
 };
 
 
-export type MutationRemoveFileArgs = {
+export type IMutationRemoveFileArgs = {
   id: Scalars['ID'];
 };
 
 
-export type MutationResetPasswordArgs = {
+export type IMutationResetPasswordArgs = {
   code: Scalars['String'];
   password: Scalars['String'];
   passwordConfirmation: Scalars['String'];
 };
 
 
-export type MutationUpdateDiaryArgs = {
-  data: DiaryInput;
+export type IMutationUpdateDiaryArgs = {
+  data: IDiaryInput;
   id: Scalars['ID'];
 };
 
 
-export type MutationUpdateFileInfoArgs = {
+export type IMutationUpdateFileInfoArgs = {
   id: Scalars['ID'];
-  info?: InputMaybe<FileInfoInput>;
+  info?: InputMaybe<IFileInfoInput>;
 };
 
 
-export type MutationUpdateProjectArgs = {
-  data: ProjectInput;
-  id: Scalars['ID'];
-};
-
-
-export type MutationUpdateRehearsalArgs = {
-  data: RehearsalInput;
+export type IMutationUpdateProjectArgs = {
+  data: IProjectInput;
   id: Scalars['ID'];
 };
 
 
-export type MutationUpdateUploadFileArgs = {
-  data: UploadFileInput;
+export type IMutationUpdateRehearsalArgs = {
+  data: IRehearsalInput;
   id: Scalars['ID'];
 };
 
 
-export type MutationUpdateUploadFolderArgs = {
-  data: UploadFolderInput;
+export type IMutationUpdateUploadFileArgs = {
+  data: IUploadFileInput;
   id: Scalars['ID'];
 };
 
 
-export type MutationUpdateUsersPermissionsRoleArgs = {
-  data: UsersPermissionsRoleInput;
+export type IMutationUpdateUploadFolderArgs = {
+  data: IUploadFolderInput;
   id: Scalars['ID'];
 };
 
 
-export type MutationUpdateUsersPermissionsUserArgs = {
-  data: UsersPermissionsUserInput;
+export type IMutationUpdateUsersPermissionsRoleArgs = {
+  data: IUsersPermissionsRoleInput;
   id: Scalars['ID'];
 };
 
 
-export type MutationUpdateWordArgs = {
-  data: WordInput;
+export type IMutationUpdateUsersPermissionsUserArgs = {
+  data: IUsersPermissionsUserInput;
+  id: Scalars['ID'];
+};
+
+
+export type IMutationUpdateWordArgs = {
+  data: IWordInput;
   id: Scalars['ID'];
   locale?: InputMaybe<Scalars['I18NLocaleCode']>;
 };
 
 
-export type MutationUploadArgs = {
+export type IMutationUploadArgs = {
   field?: InputMaybe<Scalars['String']>;
   file: Scalars['Upload'];
-  info?: InputMaybe<FileInfoInput>;
+  info?: InputMaybe<IFileInfoInput>;
   ref?: InputMaybe<Scalars['String']>;
   refId?: InputMaybe<Scalars['ID']>;
 };
 
-export type Pagination = {
+export type IPagination = {
   __typename?: 'Pagination';
   page: Scalars['Int'];
   pageCount: Scalars['Int'];
@@ -609,14 +573,14 @@ export type Pagination = {
   total: Scalars['Int'];
 };
 
-export type PaginationArg = {
+export type IPaginationArg = {
   limit?: InputMaybe<Scalars['Int']>;
   page?: InputMaybe<Scalars['Int']>;
   pageSize?: InputMaybe<Scalars['Int']>;
   start?: InputMaybe<Scalars['Int']>;
 };
 
-export type Project = {
+export type IProject = {
   __typename?: 'Project';
   createdAt?: Maybe<Scalars['DateTime']>;
   name?: Maybe<Scalars['String']>;
@@ -624,42 +588,42 @@ export type Project = {
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
-export type ProjectEntity = {
+export type IProjectEntity = {
   __typename?: 'ProjectEntity';
-  attributes?: Maybe<Project>;
+  attributes?: Maybe<IProject>;
   id?: Maybe<Scalars['ID']>;
 };
 
-export type ProjectEntityResponse = {
+export type IProjectEntityResponse = {
   __typename?: 'ProjectEntityResponse';
-  data?: Maybe<ProjectEntity>;
+  data?: Maybe<IProjectEntity>;
 };
 
-export type ProjectEntityResponseCollection = {
+export type IProjectEntityResponseCollection = {
   __typename?: 'ProjectEntityResponseCollection';
-  data: Array<ProjectEntity>;
-  meta: ResponseCollectionMeta;
+  data: Array<IProjectEntity>;
+  meta: IResponseCollectionMeta;
 };
 
-export type ProjectFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<ProjectFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<ProjectFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ProjectFiltersInput>>>;
-  slug?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
+export type IProjectFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<IProjectFiltersInput>>>;
+  createdAt?: InputMaybe<IDateTimeFilterInput>;
+  id?: InputMaybe<IIdFilterInput>;
+  name?: InputMaybe<IStringFilterInput>;
+  not?: InputMaybe<IProjectFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<IProjectFiltersInput>>>;
+  slug?: InputMaybe<IStringFilterInput>;
+  updatedAt?: InputMaybe<IDateTimeFilterInput>;
 };
 
-export type ProjectInput = {
+export type IProjectInput = {
   name?: InputMaybe<Scalars['String']>;
   slug?: InputMaybe<Scalars['String']>;
 };
 
-export type ProjectRelationResponseCollection = {
+export type IProjectRelationResponseCollection = {
   __typename?: 'ProjectRelationResponseCollection';
-  data: Array<ProjectEntity>;
+  data: Array<IProjectEntity>;
 };
 
 export enum PublicationState {
@@ -667,208 +631,208 @@ export enum PublicationState {
   Preview = 'PREVIEW'
 }
 
-export type Query = {
+export type IQuery = {
   __typename?: 'Query';
-  diaries?: Maybe<DiaryEntityResponseCollection>;
-  diary?: Maybe<DiaryEntityResponse>;
-  i18NLocale?: Maybe<I18NLocaleEntityResponse>;
-  i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
-  me?: Maybe<UsersPermissionsMe>;
-  project?: Maybe<ProjectEntityResponse>;
-  projects?: Maybe<ProjectEntityResponseCollection>;
-  rehearsal?: Maybe<RehearsalEntityResponse>;
-  rehearsals?: Maybe<RehearsalEntityResponseCollection>;
-  uploadFile?: Maybe<UploadFileEntityResponse>;
-  uploadFiles?: Maybe<UploadFileEntityResponseCollection>;
-  uploadFolder?: Maybe<UploadFolderEntityResponse>;
-  uploadFolders?: Maybe<UploadFolderEntityResponseCollection>;
-  usersPermissionsRole?: Maybe<UsersPermissionsRoleEntityResponse>;
-  usersPermissionsRoles?: Maybe<UsersPermissionsRoleEntityResponseCollection>;
-  usersPermissionsUser?: Maybe<UsersPermissionsUserEntityResponse>;
-  usersPermissionsUsers?: Maybe<UsersPermissionsUserEntityResponseCollection>;
-  word?: Maybe<WordEntityResponse>;
-  words?: Maybe<WordEntityResponseCollection>;
+  diaries?: Maybe<IDiaryEntityResponseCollection>;
+  diary?: Maybe<IDiaryEntityResponse>;
+  i18NLocale?: Maybe<II18NLocaleEntityResponse>;
+  i18NLocales?: Maybe<II18NLocaleEntityResponseCollection>;
+  me?: Maybe<IUsersPermissionsMe>;
+  project?: Maybe<IProjectEntityResponse>;
+  projects?: Maybe<IProjectEntityResponseCollection>;
+  rehearsal?: Maybe<IRehearsalEntityResponse>;
+  rehearsals?: Maybe<IRehearsalEntityResponseCollection>;
+  uploadFile?: Maybe<IUploadFileEntityResponse>;
+  uploadFiles?: Maybe<IUploadFileEntityResponseCollection>;
+  uploadFolder?: Maybe<IUploadFolderEntityResponse>;
+  uploadFolders?: Maybe<IUploadFolderEntityResponseCollection>;
+  usersPermissionsRole?: Maybe<IUsersPermissionsRoleEntityResponse>;
+  usersPermissionsRoles?: Maybe<IUsersPermissionsRoleEntityResponseCollection>;
+  usersPermissionsUser?: Maybe<IUsersPermissionsUserEntityResponse>;
+  usersPermissionsUsers?: Maybe<IUsersPermissionsUserEntityResponseCollection>;
+  word?: Maybe<IWordEntityResponse>;
+  words?: Maybe<IWordEntityResponseCollection>;
 };
 
 
-export type QueryDiariesArgs = {
-  filters?: InputMaybe<DiaryFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
+export type IQueryDiariesArgs = {
+  filters?: InputMaybe<IDiaryFiltersInput>;
+  pagination?: InputMaybe<IPaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-export type QueryDiaryArgs = {
+export type IQueryDiaryArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
 
 
-export type QueryI18NLocaleArgs = {
+export type IQueryI18NLocaleArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
 
 
-export type QueryI18NLocalesArgs = {
-  filters?: InputMaybe<I18NLocaleFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
+export type IQueryI18NLocalesArgs = {
+  filters?: InputMaybe<II18NLocaleFiltersInput>;
+  pagination?: InputMaybe<IPaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-export type QueryProjectArgs = {
+export type IQueryProjectArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
 
 
-export type QueryProjectsArgs = {
-  filters?: InputMaybe<ProjectFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
+export type IQueryProjectsArgs = {
+  filters?: InputMaybe<IProjectFiltersInput>;
+  pagination?: InputMaybe<IPaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-export type QueryRehearsalArgs = {
+export type IQueryRehearsalArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
 
 
-export type QueryRehearsalsArgs = {
-  filters?: InputMaybe<RehearsalFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
+export type IQueryRehearsalsArgs = {
+  filters?: InputMaybe<IRehearsalFiltersInput>;
+  pagination?: InputMaybe<IPaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-export type QueryUploadFileArgs = {
+export type IQueryUploadFileArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
 
 
-export type QueryUploadFilesArgs = {
-  filters?: InputMaybe<UploadFileFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
+export type IQueryUploadFilesArgs = {
+  filters?: InputMaybe<IUploadFileFiltersInput>;
+  pagination?: InputMaybe<IPaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-export type QueryUploadFolderArgs = {
+export type IQueryUploadFolderArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
 
 
-export type QueryUploadFoldersArgs = {
-  filters?: InputMaybe<UploadFolderFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
+export type IQueryUploadFoldersArgs = {
+  filters?: InputMaybe<IUploadFolderFiltersInput>;
+  pagination?: InputMaybe<IPaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-export type QueryUsersPermissionsRoleArgs = {
+export type IQueryUsersPermissionsRoleArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
 
 
-export type QueryUsersPermissionsRolesArgs = {
-  filters?: InputMaybe<UsersPermissionsRoleFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
+export type IQueryUsersPermissionsRolesArgs = {
+  filters?: InputMaybe<IUsersPermissionsRoleFiltersInput>;
+  pagination?: InputMaybe<IPaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-export type QueryUsersPermissionsUserArgs = {
+export type IQueryUsersPermissionsUserArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
 
 
-export type QueryUsersPermissionsUsersArgs = {
-  filters?: InputMaybe<UsersPermissionsUserFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
+export type IQueryUsersPermissionsUsersArgs = {
+  filters?: InputMaybe<IUsersPermissionsUserFiltersInput>;
+  pagination?: InputMaybe<IPaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-export type QueryWordArgs = {
+export type IQueryWordArgs = {
   id?: InputMaybe<Scalars['ID']>;
   locale?: InputMaybe<Scalars['I18NLocaleCode']>;
 };
 
 
-export type QueryWordsArgs = {
-  filters?: InputMaybe<WordFiltersInput>;
+export type IQueryWordsArgs = {
+  filters?: InputMaybe<IWordFiltersInput>;
   locale?: InputMaybe<Scalars['I18NLocaleCode']>;
-  pagination?: InputMaybe<PaginationArg>;
+  pagination?: InputMaybe<IPaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
-export type Rehearsal = {
+export type IRehearsal = {
   __typename?: 'Rehearsal';
   createdAt?: Maybe<Scalars['DateTime']>;
   publishedAt?: Maybe<Scalars['DateTime']>;
   slug?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
-  words?: Maybe<WordRelationResponseCollection>;
+  words?: Maybe<IWordRelationResponseCollection>;
 };
 
 
-export type RehearsalWordsArgs = {
-  filters?: InputMaybe<WordFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
+export type IRehearsalWordsArgs = {
+  filters?: InputMaybe<IWordFiltersInput>;
+  pagination?: InputMaybe<IPaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
-export type RehearsalEntity = {
+export type IRehearsalEntity = {
   __typename?: 'RehearsalEntity';
-  attributes?: Maybe<Rehearsal>;
+  attributes?: Maybe<IRehearsal>;
   id?: Maybe<Scalars['ID']>;
 };
 
-export type RehearsalEntityResponse = {
+export type IRehearsalEntityResponse = {
   __typename?: 'RehearsalEntityResponse';
-  data?: Maybe<RehearsalEntity>;
+  data?: Maybe<IRehearsalEntity>;
 };
 
-export type RehearsalEntityResponseCollection = {
+export type IRehearsalEntityResponseCollection = {
   __typename?: 'RehearsalEntityResponseCollection';
-  data: Array<RehearsalEntity>;
-  meta: ResponseCollectionMeta;
+  data: Array<IRehearsalEntity>;
+  meta: IResponseCollectionMeta;
 };
 
-export type RehearsalFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<RehearsalFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  not?: InputMaybe<RehearsalFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<RehearsalFiltersInput>>>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  slug?: InputMaybe<StringFilterInput>;
-  title?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-  words?: InputMaybe<WordFiltersInput>;
+export type IRehearsalFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<IRehearsalFiltersInput>>>;
+  createdAt?: InputMaybe<IDateTimeFilterInput>;
+  id?: InputMaybe<IIdFilterInput>;
+  not?: InputMaybe<IRehearsalFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<IRehearsalFiltersInput>>>;
+  publishedAt?: InputMaybe<IDateTimeFilterInput>;
+  slug?: InputMaybe<IStringFilterInput>;
+  title?: InputMaybe<IStringFilterInput>;
+  updatedAt?: InputMaybe<IDateTimeFilterInput>;
+  words?: InputMaybe<IWordFiltersInput>;
 };
 
-export type RehearsalInput = {
+export type IRehearsalInput = {
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   slug?: InputMaybe<Scalars['String']>;
   title?: InputMaybe<Scalars['String']>;
   words?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
 };
 
-export type RehearsalRelationResponseCollection = {
+export type IRehearsalRelationResponseCollection = {
   __typename?: 'RehearsalRelationResponseCollection';
-  data: Array<RehearsalEntity>;
+  data: Array<IRehearsalEntity>;
 };
 
-export type ResponseCollectionMeta = {
+export type IResponseCollectionMeta = {
   __typename?: 'ResponseCollectionMeta';
-  pagination: Pagination;
+  pagination: IPagination;
 };
 
-export type StringFilterInput = {
+export type IStringFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   contains?: InputMaybe<Scalars['String']>;
@@ -882,7 +846,7 @@ export type StringFilterInput = {
   lt?: InputMaybe<Scalars['String']>;
   lte?: InputMaybe<Scalars['String']>;
   ne?: InputMaybe<Scalars['String']>;
-  not?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<IStringFilterInput>;
   notContains?: InputMaybe<Scalars['String']>;
   notContainsi?: InputMaybe<Scalars['String']>;
   notIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
@@ -892,7 +856,7 @@ export type StringFilterInput = {
   startsWith?: InputMaybe<Scalars['String']>;
 };
 
-export type TimeFilterInput = {
+export type ITimeFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['Time']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['Time']>>>;
   contains?: InputMaybe<Scalars['Time']>;
@@ -906,7 +870,7 @@ export type TimeFilterInput = {
   lt?: InputMaybe<Scalars['Time']>;
   lte?: InputMaybe<Scalars['Time']>;
   ne?: InputMaybe<Scalars['Time']>;
-  not?: InputMaybe<TimeFilterInput>;
+  not?: InputMaybe<ITimeFilterInput>;
   notContains?: InputMaybe<Scalars['Time']>;
   notContainsi?: InputMaybe<Scalars['Time']>;
   notIn?: InputMaybe<Array<InputMaybe<Scalars['Time']>>>;
@@ -916,7 +880,7 @@ export type TimeFilterInput = {
   startsWith?: InputMaybe<Scalars['Time']>;
 };
 
-export type UploadFile = {
+export type IUploadFile = {
   __typename?: 'UploadFile';
   alternativeText?: Maybe<Scalars['String']>;
   caption?: Maybe<Scalars['String']>;
@@ -930,56 +894,56 @@ export type UploadFile = {
   previewUrl?: Maybe<Scalars['String']>;
   provider: Scalars['String'];
   provider_metadata?: Maybe<Scalars['JSON']>;
-  related?: Maybe<Array<Maybe<GenericMorph>>>;
+  related?: Maybe<Array<Maybe<IGenericMorph>>>;
   size: Scalars['Float'];
   updatedAt?: Maybe<Scalars['DateTime']>;
   url: Scalars['String'];
   width?: Maybe<Scalars['Int']>;
 };
 
-export type UploadFileEntity = {
+export type IUploadFileEntity = {
   __typename?: 'UploadFileEntity';
-  attributes?: Maybe<UploadFile>;
+  attributes?: Maybe<IUploadFile>;
   id?: Maybe<Scalars['ID']>;
 };
 
-export type UploadFileEntityResponse = {
+export type IUploadFileEntityResponse = {
   __typename?: 'UploadFileEntityResponse';
-  data?: Maybe<UploadFileEntity>;
+  data?: Maybe<IUploadFileEntity>;
 };
 
-export type UploadFileEntityResponseCollection = {
+export type IUploadFileEntityResponseCollection = {
   __typename?: 'UploadFileEntityResponseCollection';
-  data: Array<UploadFileEntity>;
-  meta: ResponseCollectionMeta;
+  data: Array<IUploadFileEntity>;
+  meta: IResponseCollectionMeta;
 };
 
-export type UploadFileFiltersInput = {
-  alternativeText?: InputMaybe<StringFilterInput>;
-  and?: InputMaybe<Array<InputMaybe<UploadFileFiltersInput>>>;
-  caption?: InputMaybe<StringFilterInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  ext?: InputMaybe<StringFilterInput>;
-  folder?: InputMaybe<UploadFolderFiltersInput>;
-  folderPath?: InputMaybe<StringFilterInput>;
-  formats?: InputMaybe<JsonFilterInput>;
-  hash?: InputMaybe<StringFilterInput>;
-  height?: InputMaybe<IntFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  mime?: InputMaybe<StringFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<UploadFileFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<UploadFileFiltersInput>>>;
-  previewUrl?: InputMaybe<StringFilterInput>;
-  provider?: InputMaybe<StringFilterInput>;
-  provider_metadata?: InputMaybe<JsonFilterInput>;
-  size?: InputMaybe<FloatFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-  url?: InputMaybe<StringFilterInput>;
-  width?: InputMaybe<IntFilterInput>;
+export type IUploadFileFiltersInput = {
+  alternativeText?: InputMaybe<IStringFilterInput>;
+  and?: InputMaybe<Array<InputMaybe<IUploadFileFiltersInput>>>;
+  caption?: InputMaybe<IStringFilterInput>;
+  createdAt?: InputMaybe<IDateTimeFilterInput>;
+  ext?: InputMaybe<IStringFilterInput>;
+  folder?: InputMaybe<IUploadFolderFiltersInput>;
+  folderPath?: InputMaybe<IStringFilterInput>;
+  formats?: InputMaybe<IJsonFilterInput>;
+  hash?: InputMaybe<IStringFilterInput>;
+  height?: InputMaybe<IIntFilterInput>;
+  id?: InputMaybe<IIdFilterInput>;
+  mime?: InputMaybe<IStringFilterInput>;
+  name?: InputMaybe<IStringFilterInput>;
+  not?: InputMaybe<IUploadFileFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<IUploadFileFiltersInput>>>;
+  previewUrl?: InputMaybe<IStringFilterInput>;
+  provider?: InputMaybe<IStringFilterInput>;
+  provider_metadata?: InputMaybe<IJsonFilterInput>;
+  size?: InputMaybe<IFloatFilterInput>;
+  updatedAt?: InputMaybe<IDateTimeFilterInput>;
+  url?: InputMaybe<IStringFilterInput>;
+  width?: InputMaybe<IIntFilterInput>;
 };
 
-export type UploadFileInput = {
+export type IUploadFileInput = {
   alternativeText?: InputMaybe<Scalars['String']>;
   caption?: InputMaybe<Scalars['String']>;
   ext?: InputMaybe<Scalars['String']>;
@@ -998,70 +962,70 @@ export type UploadFileInput = {
   width?: InputMaybe<Scalars['Int']>;
 };
 
-export type UploadFileRelationResponseCollection = {
+export type IUploadFileRelationResponseCollection = {
   __typename?: 'UploadFileRelationResponseCollection';
-  data: Array<UploadFileEntity>;
+  data: Array<IUploadFileEntity>;
 };
 
-export type UploadFolder = {
+export type IUploadFolder = {
   __typename?: 'UploadFolder';
-  children?: Maybe<UploadFolderRelationResponseCollection>;
+  children?: Maybe<IUploadFolderRelationResponseCollection>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  files?: Maybe<UploadFileRelationResponseCollection>;
+  files?: Maybe<IUploadFileRelationResponseCollection>;
   name: Scalars['String'];
-  parent?: Maybe<UploadFolderEntityResponse>;
+  parent?: Maybe<IUploadFolderEntityResponse>;
   path: Scalars['String'];
   pathId: Scalars['Int'];
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
 
-export type UploadFolderChildrenArgs = {
-  filters?: InputMaybe<UploadFolderFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
+export type IUploadFolderChildrenArgs = {
+  filters?: InputMaybe<IUploadFolderFiltersInput>;
+  pagination?: InputMaybe<IPaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-export type UploadFolderFilesArgs = {
-  filters?: InputMaybe<UploadFileFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
+export type IUploadFolderFilesArgs = {
+  filters?: InputMaybe<IUploadFileFiltersInput>;
+  pagination?: InputMaybe<IPaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
-export type UploadFolderEntity = {
+export type IUploadFolderEntity = {
   __typename?: 'UploadFolderEntity';
-  attributes?: Maybe<UploadFolder>;
+  attributes?: Maybe<IUploadFolder>;
   id?: Maybe<Scalars['ID']>;
 };
 
-export type UploadFolderEntityResponse = {
+export type IUploadFolderEntityResponse = {
   __typename?: 'UploadFolderEntityResponse';
-  data?: Maybe<UploadFolderEntity>;
+  data?: Maybe<IUploadFolderEntity>;
 };
 
-export type UploadFolderEntityResponseCollection = {
+export type IUploadFolderEntityResponseCollection = {
   __typename?: 'UploadFolderEntityResponseCollection';
-  data: Array<UploadFolderEntity>;
-  meta: ResponseCollectionMeta;
+  data: Array<IUploadFolderEntity>;
+  meta: IResponseCollectionMeta;
 };
 
-export type UploadFolderFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<UploadFolderFiltersInput>>>;
-  children?: InputMaybe<UploadFolderFiltersInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  files?: InputMaybe<UploadFileFiltersInput>;
-  id?: InputMaybe<IdFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<UploadFolderFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<UploadFolderFiltersInput>>>;
-  parent?: InputMaybe<UploadFolderFiltersInput>;
-  path?: InputMaybe<StringFilterInput>;
-  pathId?: InputMaybe<IntFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
+export type IUploadFolderFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<IUploadFolderFiltersInput>>>;
+  children?: InputMaybe<IUploadFolderFiltersInput>;
+  createdAt?: InputMaybe<IDateTimeFilterInput>;
+  files?: InputMaybe<IUploadFileFiltersInput>;
+  id?: InputMaybe<IIdFilterInput>;
+  name?: InputMaybe<IStringFilterInput>;
+  not?: InputMaybe<IUploadFolderFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<IUploadFolderFiltersInput>>>;
+  parent?: InputMaybe<IUploadFolderFiltersInput>;
+  path?: InputMaybe<IStringFilterInput>;
+  pathId?: InputMaybe<IIntFilterInput>;
+  updatedAt?: InputMaybe<IDateTimeFilterInput>;
 };
 
-export type UploadFolderInput = {
+export type IUploadFolderInput = {
   children?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
   files?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
   name?: InputMaybe<Scalars['String']>;
@@ -1070,44 +1034,44 @@ export type UploadFolderInput = {
   pathId?: InputMaybe<Scalars['Int']>;
 };
 
-export type UploadFolderRelationResponseCollection = {
+export type IUploadFolderRelationResponseCollection = {
   __typename?: 'UploadFolderRelationResponseCollection';
-  data: Array<UploadFolderEntity>;
+  data: Array<IUploadFolderEntity>;
 };
 
-export type UsersPermissionsCreateRolePayload = {
+export type IUsersPermissionsCreateRolePayload = {
   __typename?: 'UsersPermissionsCreateRolePayload';
   ok: Scalars['Boolean'];
 };
 
-export type UsersPermissionsDeleteRolePayload = {
+export type IUsersPermissionsDeleteRolePayload = {
   __typename?: 'UsersPermissionsDeleteRolePayload';
   ok: Scalars['Boolean'];
 };
 
-export type UsersPermissionsLoginInput = {
+export type IUsersPermissionsLoginInput = {
   identifier: Scalars['String'];
   password: Scalars['String'];
   provider?: Scalars['String'];
 };
 
-export type UsersPermissionsLoginPayload = {
+export type IUsersPermissionsLoginPayload = {
   __typename?: 'UsersPermissionsLoginPayload';
   jwt?: Maybe<Scalars['String']>;
-  user: UsersPermissionsMe;
+  user: IUsersPermissionsMe;
 };
 
-export type UsersPermissionsMe = {
+export type IUsersPermissionsMe = {
   __typename?: 'UsersPermissionsMe';
   blocked?: Maybe<Scalars['Boolean']>;
   confirmed?: Maybe<Scalars['Boolean']>;
   email?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
-  role?: Maybe<UsersPermissionsMeRole>;
+  role?: Maybe<IUsersPermissionsMeRole>;
   username: Scalars['String'];
 };
 
-export type UsersPermissionsMeRole = {
+export type IUsersPermissionsMeRole = {
   __typename?: 'UsersPermissionsMeRole';
   description?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -1115,120 +1079,120 @@ export type UsersPermissionsMeRole = {
   type?: Maybe<Scalars['String']>;
 };
 
-export type UsersPermissionsPasswordPayload = {
+export type IUsersPermissionsPasswordPayload = {
   __typename?: 'UsersPermissionsPasswordPayload';
   ok: Scalars['Boolean'];
 };
 
-export type UsersPermissionsPermission = {
+export type IUsersPermissionsPermission = {
   __typename?: 'UsersPermissionsPermission';
   action: Scalars['String'];
   createdAt?: Maybe<Scalars['DateTime']>;
-  role?: Maybe<UsersPermissionsRoleEntityResponse>;
+  role?: Maybe<IUsersPermissionsRoleEntityResponse>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
-export type UsersPermissionsPermissionEntity = {
+export type IUsersPermissionsPermissionEntity = {
   __typename?: 'UsersPermissionsPermissionEntity';
-  attributes?: Maybe<UsersPermissionsPermission>;
+  attributes?: Maybe<IUsersPermissionsPermission>;
   id?: Maybe<Scalars['ID']>;
 };
 
-export type UsersPermissionsPermissionEntityResponse = {
+export type IUsersPermissionsPermissionEntityResponse = {
   __typename?: 'UsersPermissionsPermissionEntityResponse';
-  data?: Maybe<UsersPermissionsPermissionEntity>;
+  data?: Maybe<IUsersPermissionsPermissionEntity>;
 };
 
-export type UsersPermissionsPermissionEntityResponseCollection = {
+export type IUsersPermissionsPermissionEntityResponseCollection = {
   __typename?: 'UsersPermissionsPermissionEntityResponseCollection';
-  data: Array<UsersPermissionsPermissionEntity>;
-  meta: ResponseCollectionMeta;
+  data: Array<IUsersPermissionsPermissionEntity>;
+  meta: IResponseCollectionMeta;
 };
 
-export type UsersPermissionsPermissionFiltersInput = {
-  action?: InputMaybe<StringFilterInput>;
-  and?: InputMaybe<Array<InputMaybe<UsersPermissionsPermissionFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  not?: InputMaybe<UsersPermissionsPermissionFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<UsersPermissionsPermissionFiltersInput>>>;
-  role?: InputMaybe<UsersPermissionsRoleFiltersInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
+export type IUsersPermissionsPermissionFiltersInput = {
+  action?: InputMaybe<IStringFilterInput>;
+  and?: InputMaybe<Array<InputMaybe<IUsersPermissionsPermissionFiltersInput>>>;
+  createdAt?: InputMaybe<IDateTimeFilterInput>;
+  id?: InputMaybe<IIdFilterInput>;
+  not?: InputMaybe<IUsersPermissionsPermissionFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<IUsersPermissionsPermissionFiltersInput>>>;
+  role?: InputMaybe<IUsersPermissionsRoleFiltersInput>;
+  updatedAt?: InputMaybe<IDateTimeFilterInput>;
 };
 
-export type UsersPermissionsPermissionInput = {
+export type IUsersPermissionsPermissionInput = {
   action?: InputMaybe<Scalars['String']>;
   role?: InputMaybe<Scalars['ID']>;
 };
 
-export type UsersPermissionsPermissionRelationResponseCollection = {
+export type IUsersPermissionsPermissionRelationResponseCollection = {
   __typename?: 'UsersPermissionsPermissionRelationResponseCollection';
-  data: Array<UsersPermissionsPermissionEntity>;
+  data: Array<IUsersPermissionsPermissionEntity>;
 };
 
-export type UsersPermissionsRegisterInput = {
+export type IUsersPermissionsRegisterInput = {
   email: Scalars['String'];
   password: Scalars['String'];
   username: Scalars['String'];
 };
 
-export type UsersPermissionsRole = {
+export type IUsersPermissionsRole = {
   __typename?: 'UsersPermissionsRole';
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['String']>;
   name: Scalars['String'];
-  permissions?: Maybe<UsersPermissionsPermissionRelationResponseCollection>;
+  permissions?: Maybe<IUsersPermissionsPermissionRelationResponseCollection>;
   type?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
-  users?: Maybe<UsersPermissionsUserRelationResponseCollection>;
+  users?: Maybe<IUsersPermissionsUserRelationResponseCollection>;
 };
 
 
-export type UsersPermissionsRolePermissionsArgs = {
-  filters?: InputMaybe<UsersPermissionsPermissionFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
+export type IUsersPermissionsRolePermissionsArgs = {
+  filters?: InputMaybe<IUsersPermissionsPermissionFiltersInput>;
+  pagination?: InputMaybe<IPaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-export type UsersPermissionsRoleUsersArgs = {
-  filters?: InputMaybe<UsersPermissionsUserFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
+export type IUsersPermissionsRoleUsersArgs = {
+  filters?: InputMaybe<IUsersPermissionsUserFiltersInput>;
+  pagination?: InputMaybe<IPaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
-export type UsersPermissionsRoleEntity = {
+export type IUsersPermissionsRoleEntity = {
   __typename?: 'UsersPermissionsRoleEntity';
-  attributes?: Maybe<UsersPermissionsRole>;
+  attributes?: Maybe<IUsersPermissionsRole>;
   id?: Maybe<Scalars['ID']>;
 };
 
-export type UsersPermissionsRoleEntityResponse = {
+export type IUsersPermissionsRoleEntityResponse = {
   __typename?: 'UsersPermissionsRoleEntityResponse';
-  data?: Maybe<UsersPermissionsRoleEntity>;
+  data?: Maybe<IUsersPermissionsRoleEntity>;
 };
 
-export type UsersPermissionsRoleEntityResponseCollection = {
+export type IUsersPermissionsRoleEntityResponseCollection = {
   __typename?: 'UsersPermissionsRoleEntityResponseCollection';
-  data: Array<UsersPermissionsRoleEntity>;
-  meta: ResponseCollectionMeta;
+  data: Array<IUsersPermissionsRoleEntity>;
+  meta: IResponseCollectionMeta;
 };
 
-export type UsersPermissionsRoleFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<UsersPermissionsRoleFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  description?: InputMaybe<StringFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<UsersPermissionsRoleFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<UsersPermissionsRoleFiltersInput>>>;
-  permissions?: InputMaybe<UsersPermissionsPermissionFiltersInput>;
-  type?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-  users?: InputMaybe<UsersPermissionsUserFiltersInput>;
+export type IUsersPermissionsRoleFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<IUsersPermissionsRoleFiltersInput>>>;
+  createdAt?: InputMaybe<IDateTimeFilterInput>;
+  description?: InputMaybe<IStringFilterInput>;
+  id?: InputMaybe<IIdFilterInput>;
+  name?: InputMaybe<IStringFilterInput>;
+  not?: InputMaybe<IUsersPermissionsRoleFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<IUsersPermissionsRoleFiltersInput>>>;
+  permissions?: InputMaybe<IUsersPermissionsPermissionFiltersInput>;
+  type?: InputMaybe<IStringFilterInput>;
+  updatedAt?: InputMaybe<IDateTimeFilterInput>;
+  users?: InputMaybe<IUsersPermissionsUserFiltersInput>;
 };
 
-export type UsersPermissionsRoleInput = {
+export type IUsersPermissionsRoleInput = {
   description?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
   permissions?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
@@ -1236,64 +1200,64 @@ export type UsersPermissionsRoleInput = {
   users?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
 };
 
-export type UsersPermissionsRoleRelationResponseCollection = {
+export type IUsersPermissionsRoleRelationResponseCollection = {
   __typename?: 'UsersPermissionsRoleRelationResponseCollection';
-  data: Array<UsersPermissionsRoleEntity>;
+  data: Array<IUsersPermissionsRoleEntity>;
 };
 
-export type UsersPermissionsUpdateRolePayload = {
+export type IUsersPermissionsUpdateRolePayload = {
   __typename?: 'UsersPermissionsUpdateRolePayload';
   ok: Scalars['Boolean'];
 };
 
-export type UsersPermissionsUser = {
+export type IUsersPermissionsUser = {
   __typename?: 'UsersPermissionsUser';
   blocked?: Maybe<Scalars['Boolean']>;
   confirmed?: Maybe<Scalars['Boolean']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   email: Scalars['String'];
   provider?: Maybe<Scalars['String']>;
-  role?: Maybe<UsersPermissionsRoleEntityResponse>;
+  role?: Maybe<IUsersPermissionsRoleEntityResponse>;
   updatedAt?: Maybe<Scalars['DateTime']>;
   username: Scalars['String'];
 };
 
-export type UsersPermissionsUserEntity = {
+export type IUsersPermissionsUserEntity = {
   __typename?: 'UsersPermissionsUserEntity';
-  attributes?: Maybe<UsersPermissionsUser>;
+  attributes?: Maybe<IUsersPermissionsUser>;
   id?: Maybe<Scalars['ID']>;
 };
 
-export type UsersPermissionsUserEntityResponse = {
+export type IUsersPermissionsUserEntityResponse = {
   __typename?: 'UsersPermissionsUserEntityResponse';
-  data?: Maybe<UsersPermissionsUserEntity>;
+  data?: Maybe<IUsersPermissionsUserEntity>;
 };
 
-export type UsersPermissionsUserEntityResponseCollection = {
+export type IUsersPermissionsUserEntityResponseCollection = {
   __typename?: 'UsersPermissionsUserEntityResponseCollection';
-  data: Array<UsersPermissionsUserEntity>;
-  meta: ResponseCollectionMeta;
+  data: Array<IUsersPermissionsUserEntity>;
+  meta: IResponseCollectionMeta;
 };
 
-export type UsersPermissionsUserFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<UsersPermissionsUserFiltersInput>>>;
-  blocked?: InputMaybe<BooleanFilterInput>;
-  confirmationToken?: InputMaybe<StringFilterInput>;
-  confirmed?: InputMaybe<BooleanFilterInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  email?: InputMaybe<StringFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  not?: InputMaybe<UsersPermissionsUserFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<UsersPermissionsUserFiltersInput>>>;
-  password?: InputMaybe<StringFilterInput>;
-  provider?: InputMaybe<StringFilterInput>;
-  resetPasswordToken?: InputMaybe<StringFilterInput>;
-  role?: InputMaybe<UsersPermissionsRoleFiltersInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-  username?: InputMaybe<StringFilterInput>;
+export type IUsersPermissionsUserFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<IUsersPermissionsUserFiltersInput>>>;
+  blocked?: InputMaybe<IBooleanFilterInput>;
+  confirmationToken?: InputMaybe<IStringFilterInput>;
+  confirmed?: InputMaybe<IBooleanFilterInput>;
+  createdAt?: InputMaybe<IDateTimeFilterInput>;
+  email?: InputMaybe<IStringFilterInput>;
+  id?: InputMaybe<IIdFilterInput>;
+  not?: InputMaybe<IUsersPermissionsUserFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<IUsersPermissionsUserFiltersInput>>>;
+  password?: InputMaybe<IStringFilterInput>;
+  provider?: InputMaybe<IStringFilterInput>;
+  resetPasswordToken?: InputMaybe<IStringFilterInput>;
+  role?: InputMaybe<IUsersPermissionsRoleFiltersInput>;
+  updatedAt?: InputMaybe<IDateTimeFilterInput>;
+  username?: InputMaybe<IStringFilterInput>;
 };
 
-export type UsersPermissionsUserInput = {
+export type IUsersPermissionsUserInput = {
   blocked?: InputMaybe<Scalars['Boolean']>;
   confirmationToken?: InputMaybe<Scalars['String']>;
   confirmed?: InputMaybe<Scalars['Boolean']>;
@@ -1305,76 +1269,76 @@ export type UsersPermissionsUserInput = {
   username?: InputMaybe<Scalars['String']>;
 };
 
-export type UsersPermissionsUserRelationResponseCollection = {
+export type IUsersPermissionsUserRelationResponseCollection = {
   __typename?: 'UsersPermissionsUserRelationResponseCollection';
-  data: Array<UsersPermissionsUserEntity>;
+  data: Array<IUsersPermissionsUserEntity>;
 };
 
-export type Word = {
+export type IWord = {
   __typename?: 'Word';
-  cover?: Maybe<UploadFileEntityResponse>;
+  cover?: Maybe<IUploadFileEntityResponse>;
   createdAt?: Maybe<Scalars['DateTime']>;
   definition?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
-  localizations?: Maybe<WordRelationResponseCollection>;
-  name?: Maybe<Scalars['String']>;
+  localizations?: Maybe<IWordRelationResponseCollection>;
+  name: Scalars['String'];
   publishedAt?: Maybe<Scalars['DateTime']>;
-  rehearsals?: Maybe<RehearsalRelationResponseCollection>;
-  slug?: Maybe<Scalars['String']>;
+  rehearsals?: Maybe<IRehearsalRelationResponseCollection>;
+  slug: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
-  video?: Maybe<UploadFileEntityResponse>;
+  video?: Maybe<IUploadFileEntityResponse>;
 };
 
 
-export type WordLocalizationsArgs = {
-  filters?: InputMaybe<WordFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
+export type IWordLocalizationsArgs = {
+  filters?: InputMaybe<IWordFiltersInput>;
+  pagination?: InputMaybe<IPaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 
-export type WordRehearsalsArgs = {
-  filters?: InputMaybe<RehearsalFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
+export type IWordRehearsalsArgs = {
+  filters?: InputMaybe<IRehearsalFiltersInput>;
+  pagination?: InputMaybe<IPaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
-export type WordEntity = {
+export type IWordEntity = {
   __typename?: 'WordEntity';
-  attributes?: Maybe<Word>;
+  attributes?: Maybe<IWord>;
   id?: Maybe<Scalars['ID']>;
 };
 
-export type WordEntityResponse = {
+export type IWordEntityResponse = {
   __typename?: 'WordEntityResponse';
-  data?: Maybe<WordEntity>;
+  data?: Maybe<IWordEntity>;
 };
 
-export type WordEntityResponseCollection = {
+export type IWordEntityResponseCollection = {
   __typename?: 'WordEntityResponseCollection';
-  data: Array<WordEntity>;
-  meta: ResponseCollectionMeta;
+  data: Array<IWordEntity>;
+  meta: IResponseCollectionMeta;
 };
 
-export type WordFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<WordFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  definition?: InputMaybe<StringFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  locale?: InputMaybe<StringFilterInput>;
-  localizations?: InputMaybe<WordFiltersInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<WordFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<WordFiltersInput>>>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  rehearsals?: InputMaybe<RehearsalFiltersInput>;
-  slug?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
+export type IWordFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<IWordFiltersInput>>>;
+  createdAt?: InputMaybe<IDateTimeFilterInput>;
+  definition?: InputMaybe<IStringFilterInput>;
+  id?: InputMaybe<IIdFilterInput>;
+  locale?: InputMaybe<IStringFilterInput>;
+  localizations?: InputMaybe<IWordFiltersInput>;
+  name?: InputMaybe<IStringFilterInput>;
+  not?: InputMaybe<IWordFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<IWordFiltersInput>>>;
+  publishedAt?: InputMaybe<IDateTimeFilterInput>;
+  rehearsals?: InputMaybe<IRehearsalFiltersInput>;
+  slug?: InputMaybe<IStringFilterInput>;
+  updatedAt?: InputMaybe<IDateTimeFilterInput>;
 };
 
-export type WordInput = {
+export type IWordInput = {
   cover?: InputMaybe<Scalars['ID']>;
   definition?: InputMaybe<Scalars['String']>;
   name?: InputMaybe<Scalars['String']>;
@@ -1384,22 +1348,22 @@ export type WordInput = {
   video?: InputMaybe<Scalars['ID']>;
 };
 
-export type WordRelationResponseCollection = {
+export type IWordRelationResponseCollection = {
   __typename?: 'WordRelationResponseCollection';
-  data: Array<WordEntity>;
+  data: Array<IWordEntity>;
 };
 
-export type FullWordFragmentFragment = { __typename?: 'Word', name?: string | null, slug?: string | null, definition?: string | null, cover?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null, mime: string } | null } | null } | null, video?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, mime: string } | null } | null } | null };
+export type IFullWordFragmentFragment = { __typename?: 'Word', name: string, slug: string, definition?: string | null, cover?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null, mime: string } | null } | null } | null, video?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, mime: string } | null } | null } | null };
 
-export type SearchWordsQueryVariables = Exact<{
+export type ISearchWordsQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']>;
   publicationState?: InputMaybe<PublicationState>;
 }>;
 
 
-export type SearchWordsQuery = { __typename?: 'Query', words?: { __typename?: 'WordEntityResponseCollection', data: Array<{ __typename?: 'WordEntity', id?: string | null, attributes?: { __typename?: 'Word', name?: string | null, slug?: string | null, definition?: string | null, cover?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null, mime: string } | null } | null } | null, video?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, mime: string } | null } | null } | null } | null }> } | null };
+export type ISearchWordsQuery = { __typename?: 'Query', words?: { __typename?: 'WordEntityResponseCollection', data: Array<{ __typename?: 'WordEntity', id?: string | null, attributes?: { __typename?: 'Word', name: string, slug: string, definition?: string | null, cover?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null, mime: string } | null } | null } | null, video?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, mime: string } | null } | null } | null } | null }> } | null };
 
-export const FullWordFragmentFragmentDoc = `
+export const FullWordFragmentFragmentDoc = gql`
     fragment FullWordFragment on Word {
   name
   slug
@@ -1423,7 +1387,7 @@ export const FullWordFragmentFragmentDoc = `
   }
 }
     `;
-export const SearchWordsDocument = `
+export const SearchWordsDocument = gql`
     query searchWords($limit: Int = 100, $publicationState: PublicationState = LIVE) {
   words(
     sort: ["name:ASC", "publishedAt:ASC"]
@@ -1439,16 +1403,7 @@ export const SearchWordsDocument = `
   }
 }
     ${FullWordFragmentFragmentDoc}`;
-export const useSearchWordsQuery = <
-      TData = SearchWordsQuery,
-      TError = unknown
-    >(
-      dataSource: { endpoint: string, fetchParams?: RequestInit },
-      variables?: SearchWordsQueryVariables,
-      options?: UseQueryOptions<SearchWordsQuery, TError, TData>
-    ) =>
-    useQuery<SearchWordsQuery, TError, TData>(
-      variables === undefined ? ['searchWords'] : ['searchWords', variables],
-      fetcher<SearchWordsQuery, SearchWordsQueryVariables>(dataSource.endpoint, dataSource.fetchParams || {}, SearchWordsDocument, variables),
-      options
-    );
+
+export function useSearchWordsQuery(options?: Omit<Urql.UseQueryArgs<ISearchWordsQueryVariables>, 'query'>) {
+  return Urql.useQuery<ISearchWordsQuery, ISearchWordsQueryVariables>({ query: SearchWordsDocument, ...options });
+};

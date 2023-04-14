@@ -22,7 +22,11 @@
           "localized": true
         }
       },
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 1,
+      "maxLength": 180
     },
     "slug": {
       "pluginOptions": {
@@ -31,7 +35,8 @@
         }
       },
       "type": "uid",
-      "targetField": "name"
+      "targetField": "name",
+      "required": true
     },
     "definition": {
       "pluginOptions": {

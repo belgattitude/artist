@@ -1,6 +1,6 @@
 /* eslint-disable */
 import * as types from './graphql';
-import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 
 /**
  * Map of all GraphQL operations in the project.
@@ -14,7 +14,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  */
 const documents = {
     "\n  fragment FullWordFragment on Word {\n    name\n    slug\n    definition\n    cover {\n      data {\n        attributes {\n          url\n          alternativeText\n          mime\n        }\n      }\n    }\n    video {\n      data {\n        attributes {\n          url\n          mime\n        }\n      }\n    }\n  }\n": types.FullWordFragmentFragmentDoc,
-    "\n    query searchWords(\n      $limit: Int = 100\n      $publicationState: PublicationState = LIVE\n    ) {\n      words(\n        sort: [\"name:ASC\", \"publishedAt:ASC\"]\n        pagination: { page: 1, pageSize: $limit }\n        publicationState: $publicationState\n      ) {\n        data {\n          id\n          attributes {\n            ...FullWordFragment\n          }\n        }\n      }\n    }\n  ": types.SearchWordsDocument,
+    "\n  query searchWords(\n    $limit: Int = 100\n    $publicationState: PublicationState = LIVE\n  ) {\n    words(\n      sort: [\"name:ASC\", \"publishedAt:ASC\"]\n      pagination: { page: 1, pageSize: $limit }\n      publicationState: $publicationState\n    ) {\n      data {\n        id\n        attributes {\n          ...FullWordFragment\n        }\n      }\n    }\n  }\n": types.SearchWordsDocument,
 };
 
 /**
@@ -38,7 +38,7 @@ export function graphql(source: "\n  fragment FullWordFragment on Word {\n    na
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n    query searchWords(\n      $limit: Int = 100\n      $publicationState: PublicationState = LIVE\n    ) {\n      words(\n        sort: [\"name:ASC\", \"publishedAt:ASC\"]\n        pagination: { page: 1, pageSize: $limit }\n        publicationState: $publicationState\n      ) {\n        data {\n          id\n          attributes {\n            ...FullWordFragment\n          }\n        }\n      }\n    }\n  "): (typeof documents)["\n    query searchWords(\n      $limit: Int = 100\n      $publicationState: PublicationState = LIVE\n    ) {\n      words(\n        sort: [\"name:ASC\", \"publishedAt:ASC\"]\n        pagination: { page: 1, pageSize: $limit }\n        publicationState: $publicationState\n      ) {\n        data {\n          id\n          attributes {\n            ...FullWordFragment\n          }\n        }\n      }\n    }\n  "];
+export function graphql(source: "\n  query searchWords(\n    $limit: Int = 100\n    $publicationState: PublicationState = LIVE\n  ) {\n    words(\n      sort: [\"name:ASC\", \"publishedAt:ASC\"]\n      pagination: { page: 1, pageSize: $limit }\n      publicationState: $publicationState\n    ) {\n      data {\n        id\n        attributes {\n          ...FullWordFragment\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query searchWords(\n    $limit: Int = 100\n    $publicationState: PublicationState = LIVE\n  ) {\n    words(\n      sort: [\"name:ASC\", \"publishedAt:ASC\"]\n      pagination: { page: 1, pageSize: $limit }\n      publicationState: $publicationState\n    ) {\n      data {\n        id\n        attributes {\n          ...FullWordFragment\n        }\n      }\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

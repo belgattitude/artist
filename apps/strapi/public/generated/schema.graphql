@@ -906,10 +906,10 @@ type Word {
   definition: String
   locale: String
   localizations(filters: WordFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): WordRelationResponseCollection
-  name: String
+  name: String!
   publishedAt: DateTime
   rehearsals(filters: RehearsalFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): RehearsalRelationResponseCollection
-  slug: String
+  slug: String!
   updatedAt: DateTime
   video: UploadFileEntityResponse
 }
