@@ -125,7 +125,7 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
   const autoPlay = strategy.type == 'autoplay' && !strategy.inViewport;
 
   return (
-    <div ref={viewInRef} className={''}>
+    <div ref={viewInRef}>
       <video
         className={twMerge(
           'absolute top-0 left-0 -z-10 block h-full w-full overflow-hidden object-cover',

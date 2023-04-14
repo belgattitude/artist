@@ -17,11 +17,11 @@ export const Interactions: FC<InteractionsProps> = (props) => {
   const { title, items, className = '' } = props;
   const { push } = useRouter();
 
-  const commonVideoCls = 'max-w-[100%] min-h-[220px] md:min-h-[300px]';
+  const commonVideoCls = 'aspect-16/10';
 
   return (
     <div
-      className={`m-1 overflow-hidden p-5 font-family-elika-gorika font-normal md:m-5`}
+      className={`m-1 grow overflow-hidden p-5 font-family-elika-gorika font-normal md:m-5`}
     >
       <h1 className={twMerge('mb-5 py-10 text-2xl md:text-3xl', className)}>
         {title}

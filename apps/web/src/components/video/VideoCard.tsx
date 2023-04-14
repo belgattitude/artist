@@ -50,13 +50,6 @@ export const VideoCard: FC<VideoCardProps> = (props) => {
         event.preventDefault();
       }}
     >
-      <div
-        className={
-          'border-1 absolute -left-5 hidden rotate-90 bg-white/50 px-4 py-1 font-family-inter text-[12px] font-extralight text-[#222]'
-        }
-      >
-        Video
-      </div>
       <VideoBackground
         className={videoClassName}
         {...videoProps}
@@ -66,7 +59,7 @@ export const VideoCard: FC<VideoCardProps> = (props) => {
       <div
         // bg-[url(https://png.pngtree.com/png-clipart/20220213/original/pngtree-grain-noise-texture-for-download-psd-and-png-transparent-png-image_7265771.png)]
         className={
-          'mx-[20px] max-w-[95%]  p-[15px] tracking-wide text-[#a0a0a0] md:mx-[20px] md:mb-[50px] md:p-[65px] lg:max-w-[78%]'
+          'mx-[20px] max-w-[95%] p-[15px] tracking-wide text-[#a0a0a0] md:mx-[20px] md:mb-[50px] md:p-[65px] lg:max-w-[78%]'
         }
       >
         <h1
