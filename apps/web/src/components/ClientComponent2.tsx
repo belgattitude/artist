@@ -1,11 +1,10 @@
 'use client';
 
 import type { Variants } from 'framer-motion';
-import { motion, useAnimation, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import type { FC } from 'react';
 import { useRef } from 'react';
 import { SplitText } from '@/components/text/SplitText';
-import { getRandomInt } from '@/lib/random';
 
 export const ClientComponent2: FC = () => {
   const app = useRef<HTMLDivElement>(null);

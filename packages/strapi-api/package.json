@@ -32,7 +32,7 @@
   "devDependencies": {
     "@belgattitude/eslint-config-bases": "1.30.0",
     "@types/fs-extra": "11.0.1",
-    "@types/node": "18.15.11",
+    "@types/node": "18.15.12",
     "cross-env": "7.0.3",
     "dotenv-flow-cli": "1.0.0",
     "eslint": "8.38.0",
@@ -43,8 +43,8 @@
     "rimraf": "5.0.0",
     "tsup": "6.7.0",
     "typescript": "5.0.4",
-    "turbo": "1.9.1",
-    "vite": "4.2.1",
+    "turbo": "1.9.3",
+    "vite": "4.2.2",
     "vite-tsconfig-paths": "4.2.0",
     "vitest": "0.30.1"
   }

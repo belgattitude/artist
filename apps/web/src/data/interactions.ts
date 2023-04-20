@@ -123,9 +123,7 @@ export const getInteractionData = (filters?: Filters) => {
   });
 
   const { excludedSlugs } = filters;
-  console.log('exc', excludedSlugs, included);
   if (excludedSlugs === undefined) {
-    console.log('excluded', excludedSlugs);
     return included;
   }
   return included.filter((data) => {
