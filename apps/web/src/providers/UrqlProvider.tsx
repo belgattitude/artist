@@ -20,8 +20,9 @@ export function UrqlProvider({
 }): JSX.Element {
   const [urqlClient] = useState((): UrqlClient => {
     return createClient({
-      suspense: true,
       url: getStrapiURL('/graphql'),
+      // disabled suspense: buggy as of nextjs 13.3.1, infinite requests, need to understand why ?
+      suspense: false,
       exchanges: [dedupExchange, cacheExchange, fetchExchange],
       fetchOptions: () => {
         // const token = getToken();;
