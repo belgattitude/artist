@@ -6,7 +6,9 @@ import { fileURLToPath } from 'node:url';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 import nextMdx from '@next/mdx';
 import { createSecureHeaders } from 'next-secure-headers';
-import { publicEnv } from './src/config/public-env.mjs';
+import { getValidatedServerEnv } from './src/config/validated-server-env.mjs';
+
+const serverEnv = getValidatedServerEnv();
 
 const workspaceRoot = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -32,7 +34,7 @@ const NEXTJS_PROD_SOURCE_MAPS = trueEnv.includes(
   process.env?.NEXTJS_PROD_SOURCE_MAPS ?? 'true'
 );
 
-const strapiUrl = publicEnv.NEXT_PUBLIC_STRAPI_API_URL;
+const strapiUrl = serverEnv.NEXT_PUBLIC_STRAPI_API_URL;
 const { hostname: strapiHostname } = new URL(strapiUrl);
 
 // @link https://github.com/jagaapple/next-secure-headers

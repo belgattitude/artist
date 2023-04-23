@@ -11,6 +11,14 @@ const HomePage: FC = () => {
   const firstPageVideos = ['soft-touch-to-death', 'interstices'];
   return (
     <div className={'mx-auto mt-5 flex flex-col gap-5'}>
+      <div className={``}>
+        <Interactions
+          title={'Interactions'}
+          items={getInteractionData({
+            slugs: firstPageVideos,
+          })}
+        />
+      </div>
       <div className={'p-5 font-text-primary'}>
         <h1 className={'mb-5 font-family-elika-gorika text-3xl tracking-wider'}>
           Sébastien Vanvelthem
@@ -20,16 +28,6 @@ const HomePage: FC = () => {
           <p>New website coming soon</p>
         </div>
       </div>
-
-      <div className={``}>
-        <Interactions
-          title={'Interactions'}
-          items={getInteractionData({
-            slugs: firstPageVideos,
-          })}
-        />
-      </div>
-
       <DynamicIntroAnimatedText />
       <div className={``}>
         <Interactions

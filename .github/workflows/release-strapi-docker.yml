@@ -2,8 +2,7 @@ name: Release Strapi
 
 on:
   push:
-    branches:
-      - 'main'
+    branches: [main]
 
 env:
   IMAGE: belgattitude/artist-strapi

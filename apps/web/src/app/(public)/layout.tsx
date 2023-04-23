@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={`h-full ${fontInter.variable} ${fontMonoton.variable} ${fontElikaGorika.variable}`}
       >
-        <MainLayout hideMainNav={true}>
+        <MainLayout hideMainNav={false}>
           <div
             className={'flex w-full bg-black font-family-inter text-[#fefefe]'}
           >

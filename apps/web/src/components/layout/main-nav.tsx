@@ -8,20 +8,27 @@ import CloseIcon from '@/public/icons/menu/cross-svgrepo-com.svg';
 
 const { mainNavLinks } = siteConfig;
 
-export const MainNav: FC<{ className?: string; extraCls?: string }> = (
-  props
-) => {
-  const { className, extraCls } = props;
+type Props = {
+  className?: string;
+};
+
+export const MainNav: FC<Props> = (props) => {
+  const { className } = props;
   const toggleSideBar = useMainLayoutStore((state) => state.toggleSidebar);
   const isSideBarOpen = useMainLayoutStore((state) => state.isSidebarOpen);
 
   return (
-    <div className={twMerge(className, extraCls)}>
+    <div
+      className={twMerge(
+        'bg-white absolute flex flex-row justify-end',
+        className
+      )}
+    >
       <nav>
         {isSideBarOpen ? (
-          <BurgerIcon className={'h-6 w-6'} onClick={toggleSideBar} />
-        ) : (
           <CloseIcon className={'h-6 w-6'} onClick={toggleSideBar} />
+        ) : (
+          <BurgerIcon className={'h-6 w-6'} onClick={toggleSideBar} />
         )}
 
         <MainSidebar mainLinks={mainNavLinks} />

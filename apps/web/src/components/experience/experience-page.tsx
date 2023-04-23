@@ -23,6 +23,12 @@ export const ExperiencePage: FC<Props> = (props) => {
   return (
     <>
       <ThreeVideoCanvas videoUrl={video} imgUrl={bgFallbackImg} />
+      {/*
+      <VideoBackground
+        src={video}
+        playbackRate={0.4}
+        className={'fixed h-full w-full object-cover'}
+      /> */}
       <div className={'flex flex-col'}>
         <ExperienceOverlay
           experiences={experiences}
@@ -30,6 +36,7 @@ export const ExperiencePage: FC<Props> = (props) => {
           scroll={scroll}
         />
       </div>
+      <div className={'text-fuchsia-500'}>COPY right</div>
     </>
   );
 };
