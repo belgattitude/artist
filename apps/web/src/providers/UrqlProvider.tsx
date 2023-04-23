@@ -20,6 +20,7 @@ export function UrqlProvider({
 }): JSX.Element {
   const [urqlClient] = useState((): UrqlClient => {
     return createClient({
+      suspense: true,
       url: getStrapiURL('/graphql'),
       exchanges: [dedupExchange, cacheExchange, fetchExchange],
       fetchOptions: () => {

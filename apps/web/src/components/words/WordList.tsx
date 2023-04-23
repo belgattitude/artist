@@ -19,9 +19,21 @@ const WordCard: FC<WordCardProps> = (props) => {
   return (
     <div>
       <h1>{word.name}</h1>
-      {image && <img alt={word.name ?? ''} src={getStrapiURL(image)} />}
+      {image && (
+        <img
+          alt={word.name ?? ''}
+          className={'aspect-16/9 w-full'}
+          src={getStrapiURL(image)}
+        />
+      )}
       {video && (
-        <VideoPlayer url={getStrapiURL(video)} controls={true} width={'100%'} />
+        <div className={'aspect-16/9 w-full'}>
+          <VideoPlayer
+            url={getStrapiURL(video)}
+            controls={true}
+            width={'100%'}
+          />
+        </div>
       )}
     </div>
   );

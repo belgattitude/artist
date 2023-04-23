@@ -15,20 +15,17 @@ const p: P = {
 };
 type B = components['schemas']['WordListResponseDataItem'][];
 
-const a: B = [
-  { id: 1, attributes: { cover: { data: { attributes: { url } } } } },
-];
-
 type GetWords = Awaited<ReturnType<typeof getWords>>;
-// const g: GetWords = [{}];
+
 export const getWords = async () => {
-  const a = await ky.get(`${getStrapiURL('/api')}${url}`, {
-    throwHttpErrors: true,
-    keepalive: true,
-    credentials: 'include',
-    searchParams: {
-      test: 1,
-    },
-  }).json<WordListReponseData[]>;
-  return a;
+  return ky
+    .get(`${getStrapiURL('/api')}${url}`, {
+      throwHttpErrors: true,
+      keepalive: true,
+      credentials: 'include',
+      searchParams: {
+        test: 1,
+      },
+    })
+    .json<WordListReponseData[]>();
 };
