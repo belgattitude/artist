@@ -5,6 +5,7 @@ import React, { useRef, useState } from 'react';
 import type { Experience } from '@/components/experience/experience-overlay';
 import { ExperienceOverlay } from '@/components/experience/experience-overlay';
 import { ThreeVideoCanvas } from '@/components/experience/ThreeVideoCanvas';
+import { VideoBackground } from '@/components/video/VideoBackground';
 
 type Props = {
   experiences: Experience[];
@@ -22,13 +23,17 @@ export const ExperiencePage: FC<Props> = (props) => {
 
   return (
     <>
-      <ThreeVideoCanvas videoUrl={video} imgUrl={bgFallbackImg} />
-      {/*
+      {/* <ThreeVideoCanvas videoUrl={video} imgUrl={bgFallbackImg} /> */}
+
       <VideoBackground
         src={video}
-        playbackRate={0.4}
         className={'fixed h-full w-full object-cover'}
-      /> */}
+        playbackRate={0.4}
+        playbackStrategy={{
+          type: 'autoplay',
+          inViewport: false,
+        }}
+      />
       <div className={'flex flex-col'}>
         <ExperienceOverlay
           experiences={experiences}

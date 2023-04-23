@@ -1,8 +1,8 @@
 .scroll {
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow-y: auto;
+  //position: absolute;
+  //top: 0;
+  //left: 0;
+  //overflow-y: auto;
   scroll-snap-type: y proximity;
 }
 
@@ -22,26 +22,6 @@
   line-height: 1em;
   font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: auto;
-}
-
-.dot1 {
-  /*pointer-events: none;*/
-  color: #a0a0a0;
-  background-color: rgba(0, 0, 0, 0.5);
-  line-height: 1.6em;
-  font-size: 15px;
-  letter-spacing: 1.5px;
-}
-
-.dot1 > h1 {
-  -webkit-font-smoothing: auto;
-  pointer-events: none;
-  color: white;
-  font-size: 5em;
-  font-weight: 100;
-  line-height: 1em;
-  margin: 0;
-  margin-bottom: 0.25em;
 }
 
 .dot {
