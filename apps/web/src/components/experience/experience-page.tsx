@@ -2,6 +2,7 @@
 
 import type { FC } from 'react';
 import { useRef } from 'react';
+import { twMerge } from 'tailwind-merge';
 import type { ExperienceSection } from '@/components/experience/experience-overlay';
 import { ExperienceOverlay } from '@/components/experience/experience-overlay';
 import { ThreeVideoCanvas } from '@/components/experience/ThreeVideoCanvas';
@@ -13,6 +14,7 @@ export type Experience = {
   description: string;
   background: {
     type: 'video';
+    className?: string;
     src: string;
     loop: boolean;
     poster?: string;
@@ -38,9 +40,10 @@ export const ExperiencePage: FC<Props> = (props) => {
 
       <VideoBackground
         src={background.src}
-        className={
-          'fixed h-full w-full object-cover contrast-150 hue-rotate-60'
-        }
+        className={twMerge(
+          'fixed h-full w-full object-cover',
+          background.className
+        )}
         playbackRate={background.playbackRate}
         loop={background.loop}
         poster={background.poster}
