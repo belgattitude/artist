@@ -107,6 +107,9 @@ importers:
       '@tanstack/react-query':
         specifier: 4.29.3
         version: 4.29.3(react-dom@18.2.0)(react@18.2.0)
+      '@vercel/analytics':
+        specifier: 1.0.0
+        version: 1.0.0(react@18.2.0)
       '@vercel/og':
         specifier: 0.5.3
         version: 0.5.3
@@ -6196,6 +6199,14 @@ packages:
       react: '>= 16.8.0'
     dependencies:
       '@use-gesture/core': 10.2.26
+      react: 18.2.0
+    dev: false
+
+  /@vercel/analytics@1.0.0(react@18.2.0):
+    resolution: {integrity: sha512-RQmj7pv82JwGDHrnKeRc6TtSw2U7rWNubc2IH0ernTzWTj02yr9zvIYiYJeztsBzrJtWv7m8Nz6vxxb+cdEtJw==}
+    peerDependencies:
+      react: ^16.8||^17||^18
+    dependencies:
       react: 18.2.0
     dev: false
 
