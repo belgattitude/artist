@@ -15,7 +15,7 @@ export type Experience = {
     type: 'video';
     src: string;
     loop: boolean;
-    poster: string;
+    poster?: string;
     playbackRate: number;
   };
   sections: ExperienceSection[];

@@ -27,6 +27,7 @@ export const interactionsData: InteractionData[] = [
     title: 'Interstices',
     category: ['movie'],
     authors: ['Typhen Rocchia'],
+    link: '/d/interstices-typhen-rocchia',
     year: 2023,
     previewVideo: {
       start: 4,
@@ -42,6 +43,7 @@ export const interactionsData: InteractionData[] = [
     type: 'short-movie',
     category: ['movie'],
     authors: ['Johan Legraie', 'Paola Madrid'],
+    link: '/d/soft-touch-to-death',
     year: 2022,
     previewVideo: {
       start: 35,

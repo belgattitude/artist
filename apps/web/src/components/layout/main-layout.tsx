@@ -12,7 +12,7 @@ export const MainLayout: FC<Props> = (props) => {
   const { hideMainNav } = props;
   return (
     <>
-      <MainNav extraCls={hideMainNav ? 'hidden' : ''} />
+      <MainNav className={hideMainNav ? 'hidden' : ''} />
       <div className={''}>{props.children}</div>
       <MainFooter />
     </>

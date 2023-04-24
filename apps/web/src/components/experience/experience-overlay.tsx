@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import type { FC, MutableRefObject, ReactElement } from 'react';
 import React, { forwardRef, Fragment } from 'react';
 import { VideoPlayer } from '@/components/player/VideoPlayer';
@@ -20,14 +19,17 @@ type ExperienceOverlayProps = {
 };
 
 const Images: FC<{ images: string[] | string }> = (props) => {
-  const { images } = props;
-  if (typeof images === 'string') {
-    return (
-      <Image src={images} alt="" style={{ width: '100%', marginTop: '15px' }} />
-    );
+  const { images: imgs } = props;
+  const images = typeof imgs === 'string' ? [imgs] : imgs;
+  if (images.length === 1) {
+    return <img src={images[0]} style={{ width: '100%', marginTop: '15px' }} />;
   }
   return (
-    <div className={'grid grid-cols-1 gap-1 md:w-[80vw] md:grid-cols-3'}>
+    <div
+      className={
+        'grid grid-cols-1 gap-1 md:w-[80vw] md:grid-cols-3 lg:w-[90vw]'
+      }
+    >
       {images.map((img) => {
         return <img key={img} src={img} style={{ width: '100%' }} />;
       })}
@@ -57,7 +59,7 @@ export const ExperienceOverlay = forwardRef<
           <Fragment key={`${title}`}>
             <div key={title} className={'relative h-[200vh]'}>
               <div className={[styles.dot, 'p-[15px] md:p-[80px]'].join(' ')}>
-                <h1>{title}</h1>
+                <h1 className={'font-family-elika-gorika'}>{title}</h1>
                 <div className={'mb-[25px]'}>{description}</div>
                 {images !== undefined ? <Images images={images} /> : null}
                 {video && (
@@ -87,7 +89,6 @@ export const ExperienceOverlay = forwardRef<
           </Fragment>
         );
       })}
-      {/* <span className="caption">G-29</span> */}
     </div>
   );
 });
