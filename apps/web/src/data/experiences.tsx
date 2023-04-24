@@ -142,22 +142,31 @@ const typhenInterstices: Experience = {
     loop: false,
     playbackRate: 0.4,
     poster: `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.7.webp`,
-    src: `${mediaUrl}/typhen/INTERSTICES_typhen-light.mp4#t=94,98`,
+    src: `${mediaUrl}/typhen/INTERSTICES_typhen-light.mp4#t=98,102.5`,
   },
   sections: [
     {
       title: 'Interstices',
       description: `
-         Entre mondes racontés .`,
+         Typen Rocchia 2023.
+         `,
       video: {
         src: 'https://media.reflective-resonance.be/typhen/INTERSTICES_typhen-light.mp4',
-        cover: `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.7.webp`,
+        cover: `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.2.webp`,
       },
     },
     {
-      title: 'Danse',
-      description:
-        '"La danse est un acte de résistance. Le corps féminin, souvent sexualisé et objectivé, peut être réapproprié et célébré à travers la danse. En combinant cela avec une conscience écologique, nous pouvons créer un mouvement qui honore la Terre et tous ses habitants, y compris les femmes." - Angela Davis',
+      title: 'Danse entre les failles',
+      description: (
+        <>
+          <p>
+            Dans ce théatre d'ombres, les failles sont aussi des espaces en
+            devenir. Nourrie de liberté et d'actes de résistance, la nature,
+            blessée elle aussi, guéri les plaies ardentes. Danser entre les
+            failles.
+          </p>
+        </>
+      ),
       img: [
         `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.2.webp`,
         `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.3.webp`,
@@ -166,11 +175,10 @@ const typhenInterstices: Experience = {
       ],
     },
     {
-      title: 'Ecologie',
+      title: 'Le feu fait danser la fumée',
       description: `
          Littoral métallique, ombre de bras, pas de danse. Un, deux puis sept ou vingt. 
-         Le rythme n'est plus un souffle quand le vent s'arrête. Un soleil voit tout.
-         
+         Le rythme n'est plus un souffle quand le vent s'arrête. Le feu fait danser la fumée.       
       `,
       img: [
         `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.6.webp`,

@@ -38,7 +38,9 @@ export const ExperiencePage: FC<Props> = (props) => {
 
       <VideoBackground
         src={background.src}
-        className={'fixed h-full w-full object-cover'}
+        className={
+          'fixed h-full w-full object-cover contrast-150 hue-rotate-60'
+        }
         playbackRate={background.playbackRate}
         loop={background.loop}
         poster={background.poster}
@@ -54,7 +56,6 @@ export const ExperiencePage: FC<Props> = (props) => {
           scroll={scroll}
         />
       </div>
-      <div className={'text-fuchsia-500'}>COPY right</div>
     </>
   );
 };

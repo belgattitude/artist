@@ -58,7 +58,7 @@ export const ExperienceOverlay = forwardRef<
   return (
     <div
       ref={ref}
-      className={[styles.scroll].join(' ')}
+      className={[].join(' ')}
       onScroll={(e) => {
         scroll.current =
           e.currentTarget.scrollTop /
@@ -70,10 +70,10 @@ export const ExperienceOverlay = forwardRef<
         const images = typeof img === 'string' ? [img] : img;
         return (
           <Fragment key={`${title}`}>
-            <div key={title} className={'relative h-[200vh]'}>
-              <div className={[styles.dot, 'p-[15px] md:p-[80px]'].join(' ')}>
-                <h1 className={'font-family-elika-gorika'}>{title}</h1>
-                <div className={'mb-[25px]'}>{description}</div>
+            <div key={title} className={'relative mt-[150px] h-[200vh]'}>
+              <div className={[styles.dot, 'p-[15px] md:p-[45px]'].join(' ')}>
+                <h1 className={''}>{title}</h1>
+                <div className={'mb-[35px]'}>{description}</div>
                 {images !== undefined ? (
                   <Images images={images} lazy={idx > 1} />
                 ) : null}
