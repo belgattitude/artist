@@ -167,7 +167,11 @@ const typhenInterstices: Experience = {
     },
     {
       title: 'Ecologie',
-      description: `D'une simension `,
+      description: `
+         Littoral métallique, ombre de bras, pas de danse. Un, deux puis sept ou vingt. 
+         Le rythme n'est plus un souffle quand le vent s'arrête. Un soleil voit tout.
+         
+      `,
       img: [
         `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.6.webp`,
         `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.7.webp`,
