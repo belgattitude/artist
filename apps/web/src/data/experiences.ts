@@ -141,7 +141,7 @@ const typhenInterstices: Experience = {
     type: 'video',
     loop: false,
     playbackRate: 0.4,
-    poster: `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.1.webp`,
+    poster: `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.7.webp`,
     src: `${mediaUrl}/typhen/INTERSTICES_typhen-light.mp4#t=94,98`,
   },
   sections: [
@@ -155,7 +155,7 @@ const typhenInterstices: Experience = {
       },
     },
     {
-      title: 'Féminisme',
+      title: 'Danse',
       description:
         '"La danse est un acte de résistance. Le corps féminin, souvent sexualisé et objectivé, peut être réapproprié et célébré à travers la danse. En combinant cela avec une conscience écologique, nous pouvons créer un mouvement qui honore la Terre et tous ses habitants, y compris les femmes." - Angela Davis',
       img: [
@@ -167,7 +167,7 @@ const typhenInterstices: Experience = {
     },
     {
       title: 'Ecologie',
-      description: 'Se relier à la nature au corps',
+      description: `D'une simension `,
       img: [
         `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.6.webp`,
         `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.7.webp`,

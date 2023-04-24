@@ -20,7 +20,7 @@ export const MainNav: FC<Props> = (props) => {
   return (
     <div
       className={twMerge(
-        'bg-white absolute flex flex-row justify-end',
+        'bg-white absolute top-0 right-0 flex flex-row justify-end',
         className
       )}
     >
@@ -28,7 +28,7 @@ export const MainNav: FC<Props> = (props) => {
         {isSideBarOpen ? (
           <CloseIcon className={'h-6 w-6'} onClick={toggleSideBar} />
         ) : (
-          <BurgerIcon className={'h-6 w-6'} onClick={toggleSideBar} />
+          <BurgerIcon className={'h-32 w-32'} onClick={toggleSideBar} />
         )}
 
         <MainSidebar mainLinks={mainNavLinks} />

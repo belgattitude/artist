@@ -18,11 +18,17 @@ type ExperienceOverlayProps = {
   sections: ExperienceSection[];
 };
 
-const Images: FC<{ images: string[] | string }> = (props) => {
-  const { images: imgs } = props;
+const Images: FC<{ images: string[] | string; lazy?: boolean }> = (props) => {
+  const { images: imgs, lazy = true } = props;
   const images = typeof imgs === 'string' ? [imgs] : imgs;
   if (images.length === 1) {
-    return <img src={images[0]} style={{ width: '100%', marginTop: '15px' }} />;
+    return (
+      <img
+        loading={lazy ? 'lazy' : undefined}
+        src={images[0]}
+        style={{ width: '100%', marginTop: '15px' }}
+      />
+    );
   }
   return (
     <div
@@ -31,7 +37,14 @@ const Images: FC<{ images: string[] | string }> = (props) => {
       }
     >
       {images.map((img) => {
-        return <img key={img} src={img} style={{ width: '100%' }} />;
+        return (
+          <img
+            key={img}
+            loading={lazy ? 'lazy' : undefined}
+            src={img}
+            style={{ width: '100%' }}
+          />
+        );
       })}
     </div>
   );
@@ -52,7 +65,7 @@ export const ExperienceOverlay = forwardRef<
           (e.currentTarget.scrollHeight - window.innerHeight);
       }}
     >
-      {sections.map((props) => {
+      {sections.map((props, idx) => {
         const { title, description, img, video } = props;
         const images = typeof img === 'string' ? [img] : img;
         return (
@@ -61,7 +74,9 @@ export const ExperienceOverlay = forwardRef<
               <div className={[styles.dot, 'p-[15px] md:p-[80px]'].join(' ')}>
                 <h1 className={'font-family-elika-gorika'}>{title}</h1>
                 <div className={'mb-[25px]'}>{description}</div>
-                {images !== undefined ? <Images images={images} /> : null}
+                {images !== undefined ? (
+                  <Images images={images} lazy={idx > 1} />
+                ) : null}
                 {video && (
                   <div className={'aspect-16/9 bg-black'}>
                     <VideoPlayer
