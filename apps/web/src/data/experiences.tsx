@@ -142,8 +142,8 @@ const typhenInterstices: Experience = {
     type: 'video',
     loop: false,
     playbackRate: 0.4,
-    className: 'contrast-150 hue-rotate-60',
-    poster: `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.7.webp`,
+    className: 'contrast-150 brightness-150 hue-rotate-180',
+    poster: `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.1.webp`,
     src: `${mediaUrl}/typhen/INTERSTICES_typhen-light.mp4#t=98,102.5`,
   },
   sections: [
@@ -154,7 +154,7 @@ const typhenInterstices: Experience = {
          `,
       video: {
         src: 'https://media.reflective-resonance.be/typhen/INTERSTICES_typhen-light.mp4',
-        cover: `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.2.webp`,
+        cover: `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.1.webp`,
       },
     },
     {
