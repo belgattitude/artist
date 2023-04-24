@@ -4,17 +4,20 @@ import type { Metadata } from 'next';
 import type { FC, PropsWithChildren } from 'react';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
-import type { Experience } from '@/components/experience/experience-overlay';
 import { ExperiencePage } from '@/components/experience/experience-page';
+import { fetchExperience } from '@/data/experiences';
 
-export const metadata: Metadata = {
-  title: 'Roz Wythes - Research - DeMarkten - feb 2023',
+const slug = 'canon-revisited-roz-wythes';
+
+export const generateMetadata = async (params: {
+  slug: string;
+}): Promise<Metadata> => {
+  const experience = await fetchExperience(slug);
+  return {
+    title: experience.title,
+    description: experience.description,
+  };
 };
-
-// const img = 'https://media.failwell.be/pictures/butoh-picture.jpg';
-const img = 'https://media.failwell.be/roz/roz-blob-video-bg.jpg';
-// const videoUrl = 'https://media.failwell.be/dark.mp4';
-const videoUrl = 'https://media.failwell.be/roz/Roz2.mp4';
 
 const Poem = () => {
   return (
@@ -61,46 +64,6 @@ const Poem = () => {
   );
 };
 
-const getExperiences = async (): Promise<Experience[]> => {
-  return [
-    {
-      title: 'I did not fall',
-      description: `
-         I did not want to get out. 
-         Until I learned that I did not fall at all. 
-         But was pushed. And I fell into a strange loop. (Alice Fitzgerald)`,
-      video: 'https://media.failwell.be/roz/roz-rolling-end.m4v',
-    },
-    {
-      title: 'trio',
-      description: `
-      Relaxed and unconcerned. Happening or coming to pass without design.
-    `,
-      video: 'https://media.failwell.be/roz/roz-markten-trio.m4v',
-    },
-    {
-      title: 'double tap',
-      description: <Poem />,
-    },
-    {
-      title: 'Stand',
-      description: 'Standing - Awake',
-      img: [
-        'https://media.failwell.be/roz/exports/P1006590.jpg',
-        'https://media.failwell.be/roz/exports/P1006627.jpg',
-      ],
-    },
-    {
-      title: 'Photos',
-      description: 'Photos from the performance in de Markten.',
-      img: [
-        'https://media.failwell.be/roz/exports/P1006696.jpg',
-        'https://media.failwell.be/roz/exports/P1006722.jpg',
-      ],
-    },
-  ];
-};
-
 const Letter: FC<PropsWithChildren> = ({ children }) => (
   <span
     className={
@@ -133,17 +96,12 @@ const Intro: FC<{ className?: string }> = (props) => {
 };
 
 export default async function DiaryRozMarktenPage() {
-  const experiences = await getExperiences();
+  const experience = await fetchExperience(slug);
   return (
     <>
       <div className={'flex flex-col'}>
         <Intro className={'m-5 p-5'} />
-
-        <ExperiencePage
-          experiences={experiences}
-          bgFallbackImg={img}
-          bgVideoUrl={videoUrl}
-        />
+        <ExperiencePage experience={experience} />
       </div>
     </>
   );

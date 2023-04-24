@@ -25,6 +25,7 @@ export type VideoBackgroundProps = {
   muted?: boolean;
   loop?: boolean;
   preload?: HTMLVideoElement['preload'];
+  poster?: string;
   // @todo support for sources (not needed now)
   // sources: Array<{ url: string; type: string }>;
 };
@@ -50,6 +51,7 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
     muted = true,
     playing = props.playing ?? false,
     loop = false,
+    poster,
     preload = 'metadata',
   } = props;
 
@@ -136,6 +138,7 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
         // loop={loop}
         muted={muted}
         src={src}
+        poster={poster}
         preload={preload}
       />
     </div>

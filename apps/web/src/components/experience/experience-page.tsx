@@ -1,34 +1,47 @@
 'use client';
 
 import type { FC } from 'react';
-import React, { useRef, useState } from 'react';
-import type { Experience } from '@/components/experience/experience-overlay';
+import { useRef } from 'react';
+import type { ExperienceSection } from '@/components/experience/experience-overlay';
 import { ExperienceOverlay } from '@/components/experience/experience-overlay';
 import { ThreeVideoCanvas } from '@/components/experience/ThreeVideoCanvas';
 import { VideoBackground } from '@/components/video/VideoBackground';
 
+export type Experience = {
+  slug: string;
+  title: string;
+  description: string;
+  background: {
+    type: 'video';
+    src: string;
+    loop: boolean;
+    poster: string;
+    playbackRate: number;
+  };
+  sections: ExperienceSection[];
+};
+
 type Props = {
-  experiences: Experience[];
-  bgVideoUrl: string;
-  bgFallbackImg: string;
+  experience: Experience;
 };
 
 export const ExperiencePage: FC<Props> = (props) => {
-  const { experiences, bgFallbackImg, bgVideoUrl } = props;
+  const { experience } = props;
+  const { background } = experience;
   const overlay = useRef();
   // const caption = useRef<HTMLSpanElement>();
   const scroll = useRef<number>(0);
-
-  const [video, _setVideo] = useState<string>(bgVideoUrl);
 
   return (
     <>
       {/* <ThreeVideoCanvas videoUrl={video} imgUrl={bgFallbackImg} /> */}
 
       <VideoBackground
-        src={video}
+        src={background.src}
         className={'fixed h-full w-full object-cover'}
-        playbackRate={0.4}
+        playbackRate={background.playbackRate}
+        loop={background.loop}
+        poster={background.poster}
         playbackStrategy={{
           type: 'autoplay',
           inViewport: false,
@@ -36,7 +49,7 @@ export const ExperiencePage: FC<Props> = (props) => {
       />
       <div className={'flex flex-col'}>
         <ExperienceOverlay
-          experiences={experiences}
+          sections={experience.sections}
           ref={overlay.current}
           scroll={scroll}
         />
