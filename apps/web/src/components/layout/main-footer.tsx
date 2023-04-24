@@ -24,7 +24,7 @@ export const MainFooter: FC<Props> = (props) => {
             );
           })}
         </div>
-        <div className={'border-4'}>PAS COOL</div>
+        <div className={''}></div>
       </div>
     </footer>
   );
