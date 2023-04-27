@@ -11,6 +11,7 @@ module.exports = ({ env }) => {
       client: 'sqlite',
       connection: {
         filename: dbFile,
+        timezone: 'utc',
       },
       useNullAsDefault: true,
     },
