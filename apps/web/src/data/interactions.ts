@@ -1,3 +1,5 @@
+import { siteConfig } from '@/config/site.config';
+
 export type InteractionData = {
   slug: string;
   title: string;
@@ -20,6 +22,8 @@ export type InteractionData = {
     className?: string;
   };
 };
+
+const mediaUrl = siteConfig.publicStorage.mediaBaseUrl;
 export const interactionsData: InteractionData[] = [
   {
     slug: 'interstices',
@@ -97,6 +101,22 @@ export const interactionsData: InteractionData[] = [
       end: 31.1,
       src: 'https://media.failwell.be/sudakas/sudakas-training-entry.mp4',
       playbackRate: 0.7,
+      className: '',
+    },
+  },
+  {
+    slug: 'explos-movement-research-g29',
+    type: 'creation',
+    title: 'Explorations',
+    category: ['performance'],
+    authors: ['Movement research'],
+    shortText: ['Look for what you notice', 'but no one else see'],
+    link: '/d/explos-movement-research-g29',
+    previewVideo: {
+      start: 8,
+      end: 10,
+      src: `${mediaUrl}/mr/garage29/garage29-1.mp4#t=8,10`,
+      playbackRate: 0.6,
       className: '',
     },
   },

@@ -1,3 +1,4 @@
+import { HttpNotFound } from '@httpx/exception';
 import type { Experience } from '@/components/experience/experience-page';
 import { siteConfig } from '@/config/site.config';
 
@@ -255,7 +256,7 @@ export const fetchExperience = async (slug: string): Promise<Experience> => {
       (experience) => experience.slug === slug
     )?.[0] ?? null;
   if (!experience) {
-    throw new Error(`Can't find experience '${slug}'`);
+    throw new HttpNotFound(`Can't find experience '${slug}'`);
   }
   return experience;
 };

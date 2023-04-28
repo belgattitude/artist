@@ -32,7 +32,7 @@
   "devDependencies": {
     "@belgattitude/eslint-config-bases": "1.30.0",
     "@types/fs-extra": "11.0.1",
-    "@types/node": "18.16.1",
+    "@types/node": "18.16.2",
     "cross-env": "7.0.3",
     "dotenv-flow-cli": "1.0.0",
     "eslint": "8.39.0",
