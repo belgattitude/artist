@@ -106,7 +106,7 @@ export const interactionsData: InteractionData[] = [
   },
   {
     slug: 'explos-movement-research-g29',
-    type: 'creation',
+    type: 'training-material',
     title: 'Explorations',
     category: ['performance'],
     authors: ['Movement research'],
