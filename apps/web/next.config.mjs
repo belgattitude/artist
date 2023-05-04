@@ -136,7 +136,7 @@ let nextConfig = {
   experimental: {
     appDir: true,
     // https://beta.nextjs.org/docs/configuring/typescript#statically-typed-links
-    typedRoutes: true,
+    // typedRoutes: true,
     mdxRs: true,
     // https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
     // outputFileTracingRoot: workspaceRoot,
