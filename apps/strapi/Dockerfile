@@ -2,9 +2,7 @@ ARG NODE_VERSION=18.16
 ARG ALPINE_VERSION=3.17
 
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} as deps
-# Installing libvips-dev for sharp Compatibility
-RUN apk add --no-cache tzdata bash && \
-    corepack enable
+RUN apk add --no-cache tzdata bash && corepack enable
 ENV TZ=Europe/Brussels
 
 WORKDIR /app
@@ -15,9 +13,8 @@ RUN YARN_ENABLE_GLOBAL_CACHE="false" \
     YARN_CACHE_FOLDER=/var/cache/yarn-artist-strapi \
     yarn install --immutable --inline-builds
 
-FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} as builder
-RUN apk add --no-cache bash && \
-    corepack enable
+FROM deps as builder
+RUN corepack enable
 
 ARG DATABASE_FILENAME
 ENV DATABASE_FILENAME ${DATABASE_FILENAME}
@@ -30,9 +27,8 @@ RUN NODE_ENV=production yarn build
 
 
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} as runner
-RUN apk update --no-cache && \
-    apk add --no-cache bash && \
-    corepack enable
+RUN apk add --no-cache tzdata bash && corepack enable
+ENV TZ=Europe/Brussels
 
 WORKDIR /app
 
