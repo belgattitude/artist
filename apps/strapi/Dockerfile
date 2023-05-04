@@ -11,6 +11,8 @@ COPY ./package.json ./yarn.lock ./.yarnrc.yml ./
 
 RUN YARN_ENABLE_GLOBAL_CACHE="false" \
     YARN_CACHE_FOLDER=/var/cache/yarn-artist-strapi \
+    YARN_COMPRESSION_LEVEL=0 \
+    YARN_CHECKSUM_BEHAVIOR=ignore \
     yarn install --immutable --inline-builds
 
 FROM deps as builder
