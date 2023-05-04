@@ -3,7 +3,7 @@ ARG ALPINE_VERSION=3.17
 
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} as deps
 # Installing libvips-dev for sharp Compatibility
-RUN apk add --no-cache tzdata build-base gcc autoconf automake zlib-dev libpng-dev nasm bash vips-dev && \
+RUN apk add --no-cache tzdata bash && \
     corepack enable
 ENV TZ=Europe/Brussels
 
@@ -31,7 +31,7 @@ RUN NODE_ENV=production yarn build
 
 FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} as runner
 RUN apk update --no-cache && \
-    apk add --no-cache vips-dev && \
+    apk add --no-cache bash && \
     corepack enable
 
 WORKDIR /app
