@@ -32,10 +32,10 @@
   "devDependencies": {
     "@belgattitude/eslint-config-bases": "1.30.0",
     "@types/fs-extra": "11.0.1",
-    "@types/node": "18.16.3",
+    "@types/node": "20.1.0",
     "cross-env": "7.0.3",
     "dotenv-flow-cli": "1.0.0",
-    "eslint": "8.39.0",
+    "eslint": "8.40.0",
     "fs-extra": "11.1.1",
     "openapi-typescript": "6.2.4",
     "picocolors": "1.0.0",
@@ -44,7 +44,7 @@
     "tsup": "6.7.0",
     "typescript": "5.0.4",
     "turbo": "1.9.3",
-    "vite": "4.3.4",
+    "vite": "4.3.5",
     "vite-tsconfig-paths": "4.2.0",
     "vitest": "0.31.0"
   }
