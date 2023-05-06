@@ -70,6 +70,7 @@ runs:
     - name: ♻️ Restore node_modules
       if: inputs.cache-node-modules == 'true'
       id: yarn-nm-cache
+      shell: bash
       uses: actions/cache@v3
       working-directory: ${{ inputs.cwd }}
       with:
@@ -79,6 +80,7 @@ runs:
     - name: ♻️ Restore yarn install state
       if: inputs.cache-install-state == 'true' && inputs.cache-node-modules == 'true'
       id: yarn-install-state-cache
+      shell: bash
       uses: actions/cache@v3
       working-directory: ${{ inputs.cwd }}
       with:
