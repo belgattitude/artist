@@ -11,7 +11,7 @@
 #          enable-corepack: false # (default)                                          #
 #          cache-install-state: false # (default)                                      #
 #          cache-node-modules: false # (default)                                       #
-#          cwd: ${{ github.workspace }} # (default = '.')                              #
+#          cwd: ${{ github.workspace/apps/strapi }} # (default = '.')                  #
 #                                                                                      #
 # Reference:                                                                           #
 #   - latest: https://gist.github.com/belgattitude/042f9caf10d029badbde6cf9d43e400a    #
@@ -55,7 +55,7 @@ runs:
         YARN_ENABLE_GLOBAL_CACHE: 'false'
       run: |
         echo "CACHE_FOLDER=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
-        echo "CURRENT_NODE_VERSION="node-$(node --version)" >> $GITHUB_OUTPUT
+        echo "CURRENT_NODE_VERSION="node-$(node --version)"" >> $GITHUB_OUTPUT
         echo "CURRENT_BRANCH=$(echo ${GITHUB_REF#refs/heads/} | sed -r 's,/,-,g')" >> $GITHUB_OUTPUT
 
     - name: ♻️ Restore yarn cache
