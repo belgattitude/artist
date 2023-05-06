@@ -70,21 +70,18 @@ runs:
     - name: ♻️ Restore node_modules
       if: inputs.cache-node-modules == 'true'
       id: yarn-nm-cache
-      shell: bash
       uses: actions/cache@v3
-      working-directory: ${{ inputs.cwd }}
       with:
-        path: '**/node_modules'
+        path: ${{ inputs.cwd }}/**/node_modules
         key: yarn-nm-cache-${{ runner.os }}-${{ steps.yarn-config.outputs.CURRENT_NODE_VERSION }}-${{ steps.yarn-config.outputs.CURRENT_BRANCH }}-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
 
     - name: ♻️ Restore yarn install state
       if: inputs.cache-install-state == 'true' && inputs.cache-node-modules == 'true'
       id: yarn-install-state-cache
-      shell: bash
       uses: actions/cache@v3
-      working-directory: ${{ inputs.cwd }}
+      working-directory:
       with:
-        path: .yarn/ci-cache
+        path: ${{ inputs.cwd }}.yarn/ci-cache
         key: yarn-install-state-cache-${{ runner.os }}-${{ steps.yarn-config.outputs.CURRENT_NODE_VERSION }}-${{ steps.yarn-config.outputs.CURRENT_BRANCH }}-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
 
     - name: 📥 Install dependencies
