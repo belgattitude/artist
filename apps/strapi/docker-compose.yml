@@ -1,4 +1,4 @@
-name: artist
+name: artist-strapi
 services:
   artist-strapi:
     container_name: artist-strapi
@@ -32,7 +32,10 @@ services:
       # to prevent platform/ownership issues between host and container
       #- artist-strapi-vlm-build:/app/build
       #- artist-strapi-vlm-cache:/app/.cache
-      - strapi-node-modules:/app/node_modules
+      # https://burnedikt.com/dockerized-node-development-and-mounting-node-volumes/
+      #- temp-node-modules-install:/app/node_modules
+      - /app/node_modules
+
     ports:
       - '1338:1337'
     networks:
@@ -75,27 +78,35 @@ services:
     platform: linux/amd64 #for platform error on Apple M1 chips
     restart: unless-stopped
     env_file: ./.env
-    image: postgres:15.1-alpine3.17
+    image: postgres:15.3-alpine3.18
     environment:
       POSTGRES_USER: ${DATABASE_USERNAME:-strapi}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-strapi}
       POSTGRES_DB: ${DATABASE_NAME:-artist-strapi}
+      POSTGRES_INITDB_ARGS: '--locale-provider=icu --icu-locale=en-US'
     volumes:
       - strapi-vlm-postgresql-data:/var/lib/postgresql/data/
     ports:
       - '5432:5432'
     networks:
       - cloud-net
-    depends_on:
-      - artist-strapi
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          "sh -c 'pg_isready -U ${DATABASE_USERNAME:-strapi} -d ${DATABASE_NAME:-artist-strapi}'",
+        ]
+      interval: 2s
+      timeout: 5s
+      retries: 5
 
 volumes:
+  temp-node-modules-install:
+    labels:
+      type: 'removable'
   strapi-vlm-postgresql-data:
     labels:
       type: 'db-data'
-  strapi-node-modules:
-    labels:
-      type: 'removable'
   caddy-data:
     labels:
       type: 'webserver'
