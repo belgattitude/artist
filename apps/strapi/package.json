@@ -23,10 +23,10 @@
     "@strapi/plugin-i18n": "4.10.5",
     "@strapi/plugin-users-permissions": "4.10.5",
     "@strapi/strapi": "4.10.5",
-    "better-sqlite3": "8.3.0"
+    "better-sqlite3": "8.4.0"
   },
   "devDependencies": {
-    "@belgattitude/eslint-config-bases": "1.30.0",
+    "@belgattitude/eslint-config-bases": "1.31.0",
     "rimraf": "5.0.1",
     "util": "0.12.5"
   },
