@@ -30,20 +30,20 @@
     "server-only": "0.0.1"
   },
   "devDependencies": {
-    "@belgattitude/eslint-config-bases": "1.31.0",
+    "@belgattitude/eslint-config-bases": "1.32.0",
     "@types/fs-extra": "11.0.1",
     "@types/node": "20.2.3",
     "cross-env": "7.0.3",
     "dotenv-flow-cli": "1.0.0",
     "eslint": "8.41.0",
     "fs-extra": "11.1.1",
-    "openapi-typescript": "6.2.4",
+    "openapi-typescript": "6.2.5",
     "picocolors": "1.0.0",
     "prettier": "2.8.8",
     "rimraf": "5.0.1",
     "tsup": "6.7.0",
     "typescript": "5.0.4",
-    "turbo": "1.9.8",
+    "turbo": "1.9.9",
     "vite": "4.3.8",
     "vite-tsconfig-paths": "4.2.0",
     "vitest": "0.31.1"

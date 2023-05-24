@@ -374,7 +374,7 @@ export interface paths {
     /** Confirm user email */
     get: {
       parameters: {
-        query: {
+        query?: {
           /** @description confirmation token received by email */
           confirmation?: string;
         };
@@ -2103,7 +2103,7 @@ export interface operations {
 
   "get/diaries": {
     parameters: {
-      query: {
+      query?: {
         /** @description Sort by attributes ascending (asc) or descending (desc) */
         sort?: string;
         /** @description Return page/pageSize (default: true) */
@@ -2352,7 +2352,7 @@ export interface operations {
   };
   "get/projects": {
     parameters: {
-      query: {
+      query?: {
         /** @description Sort by attributes ascending (asc) or descending (desc) */
         sort?: string;
         /** @description Return page/pageSize (default: true) */
@@ -2601,7 +2601,7 @@ export interface operations {
   };
   "get/rehearsals": {
     parameters: {
-      query: {
+      query?: {
         /** @description Sort by attributes ascending (asc) or descending (desc) */
         sort?: string;
         /** @description Return page/pageSize (default: true) */
@@ -2850,7 +2850,7 @@ export interface operations {
   };
   "get/words": {
     parameters: {
-      query: {
+      query?: {
         /** @description Sort by attributes ascending (asc) or descending (desc) */
         sort?: string;
         /** @description Return page/pageSize (default: true) */
