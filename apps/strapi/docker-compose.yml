@@ -101,9 +101,6 @@ services:
       retries: 5
 
 volumes:
-  temp-node-modules-install:
-    labels:
-      type: 'removable'
   strapi-vlm-postgresql-data:
     labels:
       type: 'db-data'
