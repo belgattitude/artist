@@ -134,9 +134,16 @@ let nextConfig = {
   // output: 'standalone',
 
   experimental: {
+    /*
+    turbo: {
+      loaders: {
+        '.svg': ['@svgr/webpack'],
+      },
+    },
+    */
     appDir: true,
     // https://beta.nextjs.org/docs/configuring/typescript#statically-typed-links
-    typedRoutes: true,
+    // typedRoutes: true,
     mdxRs: true,
     // https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
     // outputFileTracingRoot: workspaceRoot,
@@ -191,16 +198,57 @@ let nextConfig = {
 
   productionBrowserSourceMaps: NEXTJS_PROD_SOURCE_MAPS,
 
+  modularizeImports: {
+    lodash: {
+      transform: 'lodash/{{member}}',
+      preventFullImport: true,
+    },
+
+    /* if needed
+    '@mui/material': {
+      transform: '@mui/material/{{member}}',
+    },
+    '@mui/icons-material': {
+      transform: '@mui/icons-material/{{member}}',
+    },
+    '@mui/styles': {
+      transform: '@mui/styles/{{member}}',
+    },
+    "@mui/lab": {
+      transform: "@mui/lab/{{member}}"
+     }
+     */
+  },
+
   compiler: {
-    // reactRemoveProperties: true,
-    // removeConsole: false,
+    ...(process.env.NODE_ENV === 'production'
+      ? {
+          removeConsole: {
+            exclude: ['error', 'warning'],
+          },
+          reactRemoveProperties: {
+            properties: ['^data-testid$'],
+          },
+        }
+      : {}),
   },
 };
 
-if (process.env.ANALYZE === 'true') {
-  nextConfig = withBundleAnalyzer({
-    enabled: true,
-  })(nextConfig);
-}
+const withPlugins = () => {
+  /**
+   * @type {Array<(config: import('next').NextConfig) => import('next').NextConfig>}
+   */
+  const plugins = [
+    ...(process.env.ANALYZE === 'true'
+      ? [
+          withBundleAnalyzer({
+            enabled: true,
+          }),
+        ]
+      : []),
+    withMDX,
+  ];
+  return plugins.reduce((acc, next) => next(acc), nextConfig);
+};
 
-export default withMDX(nextConfig);
+export default withPlugins;
