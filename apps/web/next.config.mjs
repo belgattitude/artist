@@ -199,12 +199,11 @@ let nextConfig = {
   productionBrowserSourceMaps: NEXTJS_PROD_SOURCE_MAPS,
 
   modularizeImports: {
+    /* if needed
     lodash: {
       transform: 'lodash/{{member}}',
       preventFullImport: true,
     },
-
-    /* if needed
     '@mui/material': {
       transform: '@mui/material/{{member}}',
     },
