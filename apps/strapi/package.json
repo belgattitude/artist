@@ -30,7 +30,7 @@
     "rimraf": "5.0.1",
     "util": "0.12.5"
   },
-  "packageManager": "yarn@4.0.0-rc.44",
+  "packageManager": "yarn@4.0.0-rc.45",
   "engines": {
     "node": ">=18.12",
     "yarn": ">=3.2.1"
