@@ -26,11 +26,11 @@
     "better-sqlite3": "8.4.0"
   },
   "devDependencies": {
-    "@belgattitude/eslint-config-bases": "1.35.0",
+    "@belgattitude/eslint-config-bases": "1.35.1",
     "rimraf": "5.0.1",
     "util": "0.12.5"
   },
-  "packageManager": "yarn@4.0.0-rc.47",
+  "packageManager": "yarn@4.0.0-rc.48",
   "engines": {
     "node": ">=18.12",
     "yarn": ">=3.2.1"
