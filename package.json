@@ -37,7 +37,7 @@
     "cross-env": "7.0.3"
   },
   "resolutions?": {
-    "eslint-plugin-react-hooks": "Nextjs 13.4.9 has a dependency on eslint-plugin-react-hooks 5-canary"
+    "eslint-plugin-react-hooks": "https://github.com/vercel/next.js/issues/52365"
   },
   "resolutions": {
     "eslint-plugin-react-hooks": "4.6.0"
