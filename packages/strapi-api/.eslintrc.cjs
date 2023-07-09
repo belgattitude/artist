@@ -25,18 +25,4 @@ module.exports = {
     '@belgattitude/eslint-config-bases/prettier-plugin',
   ],
   rules: {},
-  overrides: [
-    {
-      files: ['src/generated/**/*.ts'],
-      rules: {
-        'prettier/prettier': 'off',
-        '@typescript-eslint/naming-convention': 'off',
-        'import/export': 'off',
-        'import/order': 'off',
-        '@typescript-eslint/ban-types': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
-        '@typescript-eslint/consistent-type-imports': 'off',
-      },
-    },
-  ],
 };

@@ -67,14 +67,14 @@ export const ClientComponent2: FC = () => {
       <div
         aria-label={text}
         style={{ perspective: '1000px' }}
-        className={'max-w-[300px] overflow-hidden will-change-transform'}
+        className={'max-w-[600px] overflow-hidden will-change-transform'}
       >
         {text.split(' ').map((word, index) => {
           return (
             <motion.span
               key={index}
               className={
-                'ml-5 inline-block overflow-hidden font-family-elika-gorika text-4xl font-normal text-fuchsia-500'
+                'ml-5 inline-block overflow-hidden font-family-elika-gorika text-7xl font-normal text-fuchsia-500'
               }
               initial="hidden"
               whileInView="visible"
@@ -84,7 +84,7 @@ export const ClientComponent2: FC = () => {
                 staggerChildren: 0.15,
                 delayChildren: 0.05,
               }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
             >
               {word.split('').map((character, index) => {
                 return (

@@ -15,6 +15,7 @@ export const MainFooter: FC<Props> = (props) => {
     <footer className={twMerge('', className)}>
       <div className={'flex flex-row items-stretch justify-center gap-5'}>
         <div className={''}>
+          {/*
           {interactions.map((interaction) => {
             const { title, slug, link } = interaction;
             return (
@@ -23,6 +24,7 @@ export const MainFooter: FC<Props> = (props) => {
               </li>
             );
           })}
+          */}
         </div>
         <div className={''}></div>
       </div>

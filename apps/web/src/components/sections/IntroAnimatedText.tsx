@@ -8,6 +8,10 @@ import { useLayoutEffect, useRef } from 'react';
 import { SplitText } from '@/components/text/SplitText';
 import styles from './IntroAnimatedText.module.scss';
 
+type Props = {
+  text: string;
+};
+
 export const IntroAnimatedText: FC = () => {
   const app = useRef<HTMLDivElement>(null);
 

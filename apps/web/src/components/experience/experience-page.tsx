@@ -1,8 +1,9 @@
 'use client';
 
-import type { FC } from 'react';
+import type { FC, ReactElement } from 'react';
 import { useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { ClientComponent2 } from '@/components/ClientComponent2';
 import type { ExperienceSection } from '@/components/experience/experience-overlay';
 import { ExperienceOverlay } from '@/components/experience/experience-overlay';
 import { ThreeVideoCanvas } from '@/components/experience/ThreeVideoCanvas';
@@ -12,6 +13,7 @@ export type Experience = {
   slug: string;
   title: string;
   description: string;
+  headerText?: string | ReactElement;
   background: {
     type: 'video';
     className?: string;
@@ -53,6 +55,16 @@ export const ExperiencePage: FC<Props> = (props) => {
         }}
       />
       <div className={'flex flex-col'}>
+        {experience.headerText !== undefined ? (
+          <div
+            className={
+              'ml-5 mt-[35px] inline-block overflow-hidden font-family-elika-gorika text-7xl font-normal tracking-tight text-white'
+            }
+          >
+            {experience.headerText}
+          </div>
+        ) : null}
+
         <ExperienceOverlay
           sections={experience.sections}
           ref={overlay.current}

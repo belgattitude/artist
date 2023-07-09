@@ -250,9 +250,39 @@ const rozCanon: Experience = {
   ],
 };
 
+const rozMariaNeus: Experience = {
+  slug: 'roz-maria-neus',
+  title: 'Roz Maria Neus - Residency One',
+  description: 'Work in progress',
+  headerText: (
+    <p>I'm looking to be in a state that is part of what I'm touching.</p>
+  ),
+  background: {
+    type: 'video',
+    loop: true,
+    playbackRate: 0.3,
+    className: 'hue-rotate-[150deg]',
+    // poster: `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.1.webp`,
+    src: `${mediaUrl}/roz-maria-neus/roz-maria-neus-residency-nature.mp4#t=119,132`,
+  },
+  sections: [
+    {
+      title: 'One in nature',
+      description: `
+         Gaze wide open. The wind blows softly, entering the skin. Whatever is encountered is now
+         part of the body. The body is now part of the environment. 
+         `,
+      video: {
+        src: `${mediaUrl}/roz-maria-neus/roz-maria-neus-residency-nature.mp4#t=70-100`,
+        // cover: `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.1.webp`,
+      },
+    },
+  ],
+};
+
 export const fetchExperience = async (slug: string): Promise<Experience> => {
   const experience =
-    [mrG29, softDeath, rozCanon, typhenInterstices].filter(
+    [mrG29, softDeath, rozCanon, typhenInterstices, rozMariaNeus].filter(
       (experience) => experience.slug === slug
     )?.[0] ?? null;
   if (!experience) {
