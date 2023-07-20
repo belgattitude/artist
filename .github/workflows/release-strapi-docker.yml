@@ -66,5 +66,5 @@ jobs:
 
       - name: Debug size
         run: |
-          docker save ${{ env.IMAGE }}:${{ steps.meta.outputs.version }} | gzip > ${{ env.IMAGE }}@${{ steps.meta.outputs.version }}.tar.gz
-          ls -lah ${{ env.IMAGE }}@${{ steps.meta.outputs.version }}.tar.gz
+          docker save ${{ env.IMAGE }}:${{ steps.meta.outputs.version }} | gzip > ./${{ env.IMAGE }}-${{ steps.meta.outputs.version }}.tar.gz
+          ls -lah ./${{ env.IMAGE }}-${{ steps.meta.outputs.version }}.tar.gz
