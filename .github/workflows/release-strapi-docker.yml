@@ -63,3 +63,8 @@ jobs:
       - name: Inspect
         run: |
           docker image inspect ${{ env.IMAGE }}:${{ steps.meta.outputs.version }}
+
+      - name: Debug size
+        run: |
+          docker save ${{ env.IMAGE }}:${{ steps.meta.outputs.version }} | gzip > ${{ env.IMAGE }}@${{ steps.meta.outputs.version }}.tar.gz
+          ls -lah ${{ env.IMAGE }}@${{ steps.meta.outputs.version }}.tar.gz
