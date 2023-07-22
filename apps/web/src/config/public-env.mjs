@@ -1,7 +1,7 @@
 // @ts-check
 
-import { z } from 'zod';
 import { isParsableDsn } from '@soluble/dsn-parser';
+import { z } from 'zod';
 
 const publicEnvSchema = z.object({
   APP_CACHE_DSN: z.union([

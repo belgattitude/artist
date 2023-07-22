@@ -6,9 +6,12 @@ import { fileURLToPath } from 'node:url';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 import nextMdx from '@next/mdx';
 import { createSecureHeaders } from 'next-secure-headers';
-import { getValidatedServerEnv } from './src/config/validated-server-env.mjs';
 
-const serverEnv = getValidatedServerEnv();
+import { buildEnv } from './src/config/build-env.config.mjs';
+import { getServerRuntimeEnv } from './src/config/server-runtime-env.config.mjs';
+import { publicEnv } from './src/config/public-env.config.mjs';
+
+const serverRuntimeEnv = getServerRuntimeEnv();
 
 const workspaceRoot = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -21,54 +24,45 @@ const withMDX = nextMdx({
 });
 
 const isProd = process.env.NODE_ENV === 'production';
-const enableCSP = true;
 
 const trueEnv = ['true', '1', 'yes'];
-const NEXTJS_IGNORE_TYPECHECK = trueEnv.includes(
-  process.env?.NEXTJS_IGNORE_TYPECHECK ?? 'false'
-);
-const NEXTJS_IGNORE_LINT = trueEnv.includes(
-  process.env?.NEXTJS_IGNORE_LINT ?? 'false'
-);
-const NEXTJS_PROD_SOURCE_MAPS = trueEnv.includes(
-  process.env?.NEXTJS_PROD_SOURCE_MAPS ?? 'true'
-);
 
-const strapiUrl = serverEnv.NEXT_PUBLIC_STRAPI_API_URL;
+const strapiUrl = publicEnv.NEXT_PUBLIC_STRAPI_API_URL;
 const { hostname: strapiHostname } = new URL(strapiUrl);
 
 // @link https://github.com/jagaapple/next-secure-headers
 const secureHeaders = createSecureHeaders({
   contentSecurityPolicy: {
-    directives: enableCSP
-      ? {
-          defaultSrc: "'self'",
-          // 'unsafe-inline' for emotion... possible to add a hash too
-          styleSrc: ["'self'", "'unsafe-inline'"],
-          // 'unsafe-inline' for react-markdown
-          scriptSrc: ["'self'", "'unsafe-eval'", "'unsafe-inline'"],
-          scriptSrcElem: [
-            "'self'",
-            "'unsafe-eval'",
-            "'unsafe-inline'",
-            'blob:', // for threejs to work
-          ],
-          frameSrc: ["'self'"],
-          connectSrc: [
-            "'self'",
-            'https://vitals.vercel-insights.com',
-            'https://media.failwell.be',
-            'https://b-artist.failwell.be',
-            'https://fonts.gstatic.com',
-            strapiUrl,
-          ],
-          imgSrc: ["'self'", 'https:', 'http:', 'data:'],
-          mediaSrc: ["'self'", 'https:', 'http:'],
-          workerSrc: ['blob:'],
-        }
-      : {},
+    directives:
+      buildEnv.NEXT_BUILD_ENV_CSP === true
+        ? {
+            defaultSrc: "'self'",
+            // 'unsafe-inline' for emotion... possible to add a hash too
+            styleSrc: ["'self'", "'unsafe-inline'"],
+            // 'unsafe-inline' for react-markdown
+            scriptSrc: ["'self'", "'unsafe-eval'", "'unsafe-inline'"],
+            scriptSrcElem: [
+              "'self'",
+              "'unsafe-eval'",
+              "'unsafe-inline'",
+              'blob:', // for threejs to work
+            ],
+            frameSrc: ["'self'"],
+            connectSrc: [
+              "'self'",
+              'https://vitals.vercel-insights.com',
+              'https://media.failwell.be',
+              'https://b-artist.failwell.be',
+              'https://fonts.gstatic.com',
+              strapiUrl,
+            ],
+            imgSrc: ["'self'", 'https:', 'http:', 'data:'],
+            mediaSrc: ["'self'", 'https:', 'http:'],
+            workerSrc: ['blob:'],
+          }
+        : {},
   },
-  ...(enableCSP
+  ...(buildEnv.NEXT_BUILD_ENV_CSP === true
     ? {
         forceHTTPSRedirect: [
           true,
@@ -96,7 +90,7 @@ let nextConfig = {
       ]
     : [],
 
-  eslint: { ignoreDuringBuilds: NEXTJS_IGNORE_LINT },
+  eslint: { ignoreDuringBuilds: buildEnv.NEXT_BUILD_ENV_LINT === false },
 
   images: {
     // Reduce the number of possibles (no real-need)
@@ -169,7 +163,7 @@ let nextConfig = {
   },
 
   typescript: {
-    ignoreBuildErrors: NEXTJS_IGNORE_TYPECHECK,
+    ignoreBuildErrors: buildEnv.NEXT_BUILD_ENV_TYPECHECK === false,
   },
 
   webpack: (config, { webpack, isServer }) => {
@@ -196,7 +190,7 @@ let nextConfig = {
     return config;
   },
 
-  productionBrowserSourceMaps: NEXTJS_PROD_SOURCE_MAPS,
+  productionBrowserSourceMaps: buildEnv.NEXT_BUILD_ENV_SOURCEMAPS === true,
 
   modularizeImports: {
     /* if needed
