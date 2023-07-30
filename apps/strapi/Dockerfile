@@ -19,13 +19,17 @@ ENV YARN_ENABLE_MIRROR false
 ENV YARN_COMPRESSION_LEVEL 0
 ENV YARN_CHECKSUM_BEHAVIOR ignore
 
-RUN yarn install --immutable --inline-builds
+#RUN yarn install --inline-builds
+
+RUN --mount=type=cache,target=/root/.yarn3-cache,id=yarn3-cache \
+    YARN_CACHE_FOLDER=/root/.yarn3-cache \
+    yarn install --inline-builds
 
 #############################################################
 # Stage 2 - Build from installation in deps stage           #
 #############################################################
 
-FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} as builder
+FROM deps as builder
 RUN corepack enable
 
 ARG DATABASE_FILENAME
