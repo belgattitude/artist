@@ -11,7 +11,7 @@
  * See in the future how it evolves
  */
 
-import { isParsableDsn } from '@soluble/dsn-parser';
+import { isParsableDsn } from '@httpx/dsn-parser';
 import { z } from 'zod';
 import { exitOrThrowError, zConvertTruthyStrToBool } from './utils.mjs';
 

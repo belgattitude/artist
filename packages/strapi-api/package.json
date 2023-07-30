@@ -35,7 +35,7 @@
     "@types/node": "20.4.5",
     "cross-env": "7.0.3",
     "dotenv-flow-cli": "1.0.0",
-    "eslint": "8.45.0",
+    "eslint": "8.46.0",
     "fs-extra": "11.1.1",
     "openapi-typescript": "6.3.9",
     "picocolors": "1.0.0",
