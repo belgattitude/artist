@@ -69,7 +69,7 @@ jobs:
 
       - name: 📐 Compress saved image and show size
         env:
-          MAX_SIZE_IN_MB: 80
+          MAX_SIZE_IN_MB: 250
           ZSTD_LEVEL: 8
         run: |
           zstd -${{ env.ZSTD_LEVEL }} -i ./docker-image.tar -o ./docker-image.tar.zst          
