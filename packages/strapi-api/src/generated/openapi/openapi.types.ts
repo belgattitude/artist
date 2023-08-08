@@ -233,7 +233,7 @@ export interface paths {
         };
       };
       responses: {
-        /** @description Successfull registration */
+        /** @description Successful registration */
         200: {
           content: {
             "application/json": components["schemas"]["Users-Permissions-UserRegistration"];

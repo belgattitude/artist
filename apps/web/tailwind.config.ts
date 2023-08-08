@@ -1,9 +1,8 @@
-// @ts-check
-const defaultTheme = require('tailwindcss/defaultTheme');
+import type { Config } from 'tailwindcss';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ['./src/**/*.tsx', './src/**/*.ts'],
+const tailwindConfig: Config = {
+  content: ['./src/**/*.tsx'],
   theme: {
     screens: {
       ...defaultTheme.screens,
@@ -70,3 +69,5 @@ module.exports = {
     // require('@tailwindcss/forms'),
   ],
 };
+
+export default tailwindConfig;

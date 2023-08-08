@@ -32,19 +32,19 @@
   "devDependencies": {
     "@belgattitude/eslint-config-bases": "1.39.0",
     "@types/fs-extra": "11.0.1",
-    "@types/node": "20.4.5",
+    "@types/node": "20.4.9",
     "cross-env": "7.0.3",
     "dotenv-flow-cli": "1.0.0",
     "eslint": "8.46.0",
     "fs-extra": "11.1.1",
-    "openapi-typescript": "6.3.9",
+    "openapi-typescript": "6.4.2",
     "picocolors": "1.0.0",
-    "prettier": "3.0.0",
+    "prettier": "3.0.1",
     "rimraf": "5.0.1",
-    "tsup": "7.1.0",
+    "tsup": "7.2.0",
     "typescript": "5.1.6",
-    "vite": "4.4.7",
+    "vite": "4.4.9",
     "vite-tsconfig-paths": "4.2.0",
-    "vitest": "0.33.0"
+    "vitest": "0.34.1"
   }
 }
