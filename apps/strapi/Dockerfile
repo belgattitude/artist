@@ -1,4 +1,4 @@
-ARG NODE_VERSION=18.16
+ARG NODE_VERSION=18.17
 ARG ALPINE_VERSION=3.18
 
 #############################################################
@@ -13,11 +13,11 @@ WORKDIR /app
 COPY --link ./package.json ./yarn.lock ./.yarnrc.yml ./
 
 # Optimizations for yarn install
-ENV YARN_ENABLE_GLOBAL_CACHE false
-ENV YARN_CACHE_FOLDER /var/cache/yarn-artist-strapi
-ENV YARN_ENABLE_MIRROR false
-ENV YARN_COMPRESSION_LEVEL 0
-ENV YARN_CHECKSUM_BEHAVIOR ignore
+ENV YARN_ENABLE_GLOBAL_CACHE=false
+ENV YARN_CACHE_FOLDER=/var/cache/yarn-artist-strapi
+ENV YARN_ENABLE_MIRROR=false
+ENV YARN_COMPRESSION_LEVEL=0
+ENV YARN_CHECKSUM_BEHAVIOR=ignore
 
 #RUN yarn install --inline-builds
 
@@ -33,7 +33,8 @@ FROM deps as builder
 RUN corepack enable
 
 ARG DATABASE_FILENAME
-ENV DATABASE_FILENAME ${DATABASE_FILENAME}
+
+ENV DATABASE_FILENAME=${DATABASE_FILENAME}
 
 WORKDIR /app
 
@@ -41,7 +42,6 @@ COPY --link . .
 COPY --from=deps --link /app/node_modules ./node_modules
 
 RUN NODE_ENV=production yarn build
-
 
 #############################################################
 # Stage 3 - Run final / make runnable image ready           #
