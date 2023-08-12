@@ -164,7 +164,9 @@ export interface paths {
       };
       responses: {
         /** @description Redirect response */
-        301: never;
+        301: {
+          content: never;
+        };
         /** @description Error */
         default: {
           content: {
@@ -381,7 +383,9 @@ export interface paths {
       };
       responses: {
         /** @description Redirects to the configure email confirmation redirect url */
-        301: never;
+        301: {
+          content: never;
+        };
         /** @description Error */
         default: {
           content: {
