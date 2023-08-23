@@ -91,8 +91,8 @@ importers:
         specifier: 0.4.0
         version: 0.4.0(@types/node@20.5.3)(next@13.4.19)(react-dom@18.2.0)(react@18.2.0)(typescript@5.1.6)
       '@react-three/drei':
-        specifier: 9.80.5
-        version: 9.80.5(@react-three/fiber@8.13.7)(@types/three@0.155.1)(react-dom@18.2.0)(react@18.2.0)(three@0.155.0)
+        specifier: 9.80.6
+        version: 9.80.6(@react-three/fiber@8.13.7)(@types/three@0.155.1)(react-dom@18.2.0)(react@18.2.0)(three@0.155.0)
       '@react-three/fiber':
         specifier: 8.13.7
         version: 8.13.7(react-dom@18.2.0)(react@18.2.0)(three@0.155.0)
@@ -266,8 +266,8 @@ importers:
         specifier: 8.1.0
         version: 8.1.0
       '@tailwindcss/forms':
-        specifier: 0.5.4
-        version: 0.5.4(tailwindcss@3.3.3)
+        specifier: 0.5.5
+        version: 0.5.5(tailwindcss@3.3.3)
       '@tailwindcss/typography':
         specifier: 0.5.9
         version: 0.5.9(tailwindcss@3.3.3)
@@ -4449,8 +4449,8 @@ packages:
     resolution: {integrity: sha512-POu8Mk0hIU3lRXB3bGIGe4VHIwwDsQyoD1F394OK7STTiX9w4dG3cTLljjYswkQN+hDSHRrj4O36kuVa7KPU8Q==}
     dev: false
 
-  /@react-three/drei@9.80.5(@react-three/fiber@8.13.7)(@types/three@0.155.1)(react-dom@18.2.0)(react@18.2.0)(three@0.155.0):
-    resolution: {integrity: sha512-NxtQW28UII2GKo/5Q4WiQZC+59MErPJx1xS/tbVDDG2QLsaQDlhW7kbywOGeHdEBq+lv9IAPnLSu7lIUDh3s5Q==}
+  /@react-three/drei@9.80.6(@react-three/fiber@8.13.7)(@types/three@0.155.1)(react-dom@18.2.0)(react@18.2.0)(three@0.155.0):
+    resolution: {integrity: sha512-t+rAg6dpBSmWXlMKYKkz25vBtlKjgLsZuOQqlt1hXqUHzhr69SJMCXcMb8kkguK8cVTn4URln7Wc4dDMkCYRXg==}
     peerDependencies:
       '@react-three/fiber': '>=8.0'
       react: '>=18.0'
@@ -6065,8 +6065,8 @@ packages:
     dependencies:
       tslib: 2.6.1
 
-  /@tailwindcss/forms@0.5.4(tailwindcss@3.3.3):
-    resolution: {integrity: sha512-YAm12D3R7/9Mh4jFbYSMnsd6jG++8KxogWgqs7hbdo/86aWjjlIEvL7+QYdVELmAI0InXTpZqFIg5e7aDVWI2Q==}
+  /@tailwindcss/forms@0.5.5(tailwindcss@3.3.3):
+    resolution: {integrity: sha512-03sXK1DcPt44GZ0Yg6AcAfQln89IKdbE79g2OwoKqBm1ukaadLO2AH3EiB3mXHeQnxa3tzm7eE0x7INXSjbuug==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1'
     dependencies:

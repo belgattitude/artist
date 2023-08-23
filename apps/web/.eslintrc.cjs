@@ -51,6 +51,8 @@ module.exports = {
       rules: {
         'import/no-named-as-default': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/array-type': 'off',
+        '@typescript-eslint/consistent-indexed-object-style': 'off',
         '@typescript-eslint/naming-convention': 'off',
         '@typescript-eslint/consistent-type-imports': 'off',
         'prettier/prettier': 'off',

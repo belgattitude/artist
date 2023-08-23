@@ -2053,17 +2053,17 @@ export interface components {
       user?: components["schemas"]["Users-Permissions-User"];
     };
     "Users-Permissions-PermissionsTree": {
-      [key: string]: ({
+      [key: string]: {
         /** @description every controller of the api */
         controllers?: {
-          [key: string]: ({
+          [key: string]: {
             [key: string]: {
               enabled?: boolean;
               policy?: string;
-            } | undefined;
-          }) | undefined;
+            };
+          };
         };
-      }) | undefined;
+      };
     };
   };
   responses: never;
@@ -2100,6 +2100,8 @@ export interface components {
   headers: never;
   pathItems: never;
 }
+
+export type $defs = Record<string, never>;
 
 export type external = Record<string, never>;
 
