@@ -1,9 +1,7 @@
 'use client';
 
-import type { Variants } from 'framer-motion';
-import { motion } from 'framer-motion';
-import type { FC } from 'react';
-import { useRef } from 'react';
+import { motion, type Variants } from 'framer-motion';
+import { useRef, type FC } from 'react';
 import { SplitText } from '@/components/text/SplitText';
 
 export const ClientComponent2: FC = () => {

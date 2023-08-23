@@ -26,7 +26,6 @@
     "better-sqlite3": "8.5.0"
   },
   "devDependencies": {
-    "@belgattitude/eslint-config-bases": "1.39.0",
     "rimraf": "5.0.1",
     "util": "0.12.5"
   },

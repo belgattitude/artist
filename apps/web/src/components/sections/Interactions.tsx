@@ -1,8 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import type { FC } from 'react';
-import React, { Fragment } from 'react';
+import { Fragment, type FC } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { VideoCard } from '@/components/video/VideoCard';
 import type { InteractionData } from '@/data/interactions';
@@ -15,6 +14,7 @@ export type InteractionsProps = {
 
 export const Interactions: FC<InteractionsProps> = (props) => {
   const { title, items, className = '' } = props;
+  // eslint-disable-next-line @typescript-eslint/unbound-method
   const { push } = useRouter();
 
   const commonVideoCls = 'aspect-16/10';

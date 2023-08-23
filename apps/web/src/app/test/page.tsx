@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import type { FC } from 'react';
-import React from 'react';
 import { IntroAnimatedText } from '@/components/sections/IntroAnimatedText';
 
 export const metadata: Metadata = {};

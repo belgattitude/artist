@@ -5,8 +5,7 @@ import { useQuery } from 'urql';
 import { fullWordFragment, searchWords } from '@/api/graphql/words.gql';
 import { VideoPlayer } from '@/components/player/VideoPlayer';
 import { getStrapiURL } from '@/config/strapi.config';
-import type { FragmentType } from '@/gql/fragment-masking';
-import { useFragment } from '@/gql/fragment-masking';
+import { useFragment, type FragmentType } from '@/gql/fragment-masking';
 
 type WordCardProps = {
   word: FragmentType<typeof fullWordFragment>;
@@ -53,12 +52,11 @@ export const WordList: FC = () => {
 
   return (
     <div className={'font-family-elika-gorika'}>
-      {data.words &&
-        data.words.data.map((word) => {
-          return (
-            word.attributes && <WordCard key={word.id} word={word.attributes} />
-          );
-        })}
+      {data.words?.data.map((word) => {
+        return (
+          word.attributes && <WordCard key={word.id} word={word.attributes} />
+        );
+      })}
     </div>
   );
 };

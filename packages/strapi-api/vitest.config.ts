@@ -6,12 +6,12 @@ const testFiles = ['./src/**/*.test.{js,ts}', './test/**/*.test.{js,ts}'];
 export default defineConfig({
   plugins: [tsconfigPaths()],
   esbuild: {
-    target: ['node14'],
+    target: ['node16'],
   },
   test: {
     globals: true,
     environment: 'node',
-    passWithNoTests: false,
+    passWithNoTests: true,
     setupFiles: './test/_setup/setupVitest.ts',
     cache: {
       dir: '../../.cache/vitest/api',

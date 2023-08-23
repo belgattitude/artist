@@ -4,9 +4,11 @@ const {
 
 module.exports = {
   root: true,
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: 'tsconfig.json',
+    extraFileExtensions: ['.mdx'],
   },
   settings: {
     'mdx/code-blocks': true,
@@ -23,7 +25,7 @@ module.exports = {
     '@belgattitude/eslint-config-bases/storybook',
     'next/core-web-vitals',
     // after next plugins to avoid parser errors
-    '@belgattitude/eslint-config-bases/mdx',
+    // '@belgattitude/eslint-config-bases/mdx',
     // Apply prettier and disable incompatible rules
     '@belgattitude/eslint-config-bases/prettier-plugin',
   ],
@@ -45,7 +47,9 @@ module.exports = {
     },
     {
       files: ['src/gql/**/*.ts'],
+      extends: ['plugin:@typescript-eslint/disable-type-checked'],
       rules: {
+        'import/no-named-as-default': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/naming-convention': 'off',
         '@typescript-eslint/consistent-type-imports': 'off',

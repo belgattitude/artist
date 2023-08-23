@@ -286,7 +286,7 @@ export const fetchExperience = async (slug: string): Promise<Experience> => {
       (experience) => experience.slug === slug
     )?.[0] ?? null;
   if (!experience) {
-    throw new HttpNotFound(`Can't find experience '${slug}'`);
+    throw new HttpNotFound(`Experience ${slug} not found`);
   }
-  return experience;
+  return Promise.resolve(experience);
 };

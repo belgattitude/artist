@@ -1,6 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
+    "strict": true,
+    "strictNullChecks": true,
     "baseUrl": "./src",
     "module": "ESNext",
     "moduleResolution": "node",
@@ -14,6 +16,13 @@
     "paths": {},
     "types": ["vitest/globals"]
   },
-  "exclude": ["**/node_modules", "**/.*/", "./dist", "./coverage"],
-  "include": ["**/*.ts", "**/*.js", "**/.cjs", "**/*.mjs", "**/*.json"]
+  "exclude": ["**/node_modules", "**/.*/*", "./dist", "./coverage"],
+  "include": [
+    ".eslintrc.*",
+    "**/*.ts",
+    "**/*.js",
+    "**/.cjs",
+    "**/*.mjs",
+    "**/*.json"
+  ]
 }

@@ -1,5 +1,10 @@
-import type { FC, MutableRefObject, ReactElement } from 'react';
-import React, { forwardRef, Fragment } from 'react';
+import {
+  forwardRef,
+  Fragment,
+  type FC,
+  type MutableRefObject,
+  type ReactElement,
+} from 'react';
 import { VideoPlayer } from '@/components/player/VideoPlayer';
 import styles from './experience-overlay.module.scss';
 

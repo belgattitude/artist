@@ -1,7 +1,6 @@
 'use client';
 
-import type { FC } from 'react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, type FC } from 'react';
 import { useDeepCompareEffect, useInViewRef } from 'rooks';
 import { twMerge } from 'tailwind-merge';
 import { getVideoUrlTimeRange } from '@/lib/url/getVideoUrlTimeRange';
@@ -35,6 +34,7 @@ const defaultPlaybackStrategy: Required<PlaybackStrategy> = {
   inViewport: true,
 };
 
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 const logError = (msg: string, e?: Error | DOMException | unknown) => {
   if (process.env.NODE_ENV === 'development') {
     const errorMsg = e instanceof Error ? [e.name, e.message].join(': ') : '';

@@ -1,15 +1,6 @@
-import type { NormalizedOptions } from 'ky';
 import { KyFactory } from '@/lib/factory/ky.factory';
 
-export const ky = new KyFactory({
-  onAuthFailure: (
-    _request: Request,
-    _options: NormalizedOptions,
-    _response: Response
-  ) => {
-    console.log('todo');
-  },
-}).create({
+export const ky = new KyFactory({}).create({
   timeout: 10000,
   retry: {
     limit: 1,

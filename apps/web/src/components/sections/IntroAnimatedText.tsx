@@ -3,14 +3,9 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import dynamic from 'next/dynamic';
-import type { FC } from 'react';
-import { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef, type FC } from 'react';
 import { SplitText } from '@/components/text/SplitText';
 import styles from './IntroAnimatedText.module.scss';
-
-type Props = {
-  text: string;
-};
 
 export const IntroAnimatedText: FC = () => {
   const app = useRef<HTMLDivElement>(null);

@@ -2,7 +2,6 @@
 
 import type { Metadata } from 'next';
 import type { FC, PropsWithChildren } from 'react';
-import React from 'react';
 import { twMerge } from 'tailwind-merge';
 import { ExperiencePage } from '@/components/experience/experience-page';
 import { fetchExperience } from '@/data/experiences';

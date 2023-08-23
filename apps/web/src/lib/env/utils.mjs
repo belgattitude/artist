@@ -46,6 +46,7 @@ export const printValidatedEnv = (section, zodSafeParseSuccess) => {
   if (isRunningInNode && !isTestEnv) {
     const prefix = pc.cyan('- info'.padEnd(7));
     console.info(prefix.concat(`${section} validation successful:`));
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     for (const [key, value] of Object.entries(zodSafeParseSuccess.data)) {
       console.info(prefix.concat(`${key}=${value}`));
     }

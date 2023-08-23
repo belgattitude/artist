@@ -6,7 +6,7 @@ import { fetchExperience } from '@/data/experiences';
 
 type Props = {
   params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Record<string, string | string[] | undefined>;
 };
 
 export const generateMetadata = async (
