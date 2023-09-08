@@ -2,12 +2,10 @@
 
 import { useRef, type FC, type ReactElement } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { ClientComponent2 } from '@/components/ClientComponent2';
 import {
   ExperienceOverlay,
   type ExperienceSection,
 } from '@/components/experience/experience-overlay';
-import { ThreeVideoCanvas } from '@/components/experience/ThreeVideoCanvas';
 import { VideoBackground } from '@/components/video/VideoBackground';
 
 export type Experience = {

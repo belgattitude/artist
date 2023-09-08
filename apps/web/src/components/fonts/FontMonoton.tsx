@@ -1,15 +1,13 @@
-import {
-  Monoton,
-  Space_Grotesk,
-  Rubik_80s_Fade,
-  Abyssinica_SIL,
-  Anek_Latin,
-  Rubik_Dirt,
-  Big_Shoulders_Stencil_Display,
-  Big_Shoulders_Stencil_Text,
-  Tourney,
-  Hanken_Grotesk,
-} from 'next/font/google';
+//   Monoton,
+//   Space_Grotesk,
+//   Rubik_80s_Fade,
+//   Abyssinica_SIL,
+//   Anek_Latin,
+//   Rubik_Dirt,
+//   Big_Shoulders_Stencil_Display,
+//   Big_Shoulders_Stencil_Text,
+//   Tourney,
+import { Hanken_Grotesk } from 'next/font/google';
 import type { FC, PropsWithChildren } from 'react';
 
 /*
