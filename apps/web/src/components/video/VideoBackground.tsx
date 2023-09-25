@@ -137,6 +137,7 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
         ref={videoRef}
         // loop={loop}
         muted={muted}
+        disablePictureInPicture={true}
         src={src}
         poster={poster}
         preload={preload}

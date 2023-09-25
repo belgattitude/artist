@@ -43,7 +43,7 @@ services:
 
   artist-caddy:
     container_name: artist-caddy
-    image: caddy:2.6-alpine
+    image: caddy:2.7-alpine
     profiles:
       - donotstart
     depends_on:

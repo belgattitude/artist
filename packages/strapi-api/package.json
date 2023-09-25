@@ -30,21 +30,21 @@
     "server-only": "0.0.1"
   },
   "devDependencies": {
-    "@belgattitude/eslint-config-bases": "2.5.0",
-    "@types/fs-extra": "11.0.1",
-    "@types/node": "20.5.9",
+    "@belgattitude/eslint-config-bases": "2.6.0",
+    "@types/fs-extra": "11.0.2",
+    "@types/node": "20.6.5",
     "cross-env": "7.0.3",
     "dotenv-flow-cli": "1.0.0",
-    "eslint": "8.48.0",
+    "eslint": "8.50.0",
     "fs-extra": "11.1.1",
-    "openapi-typescript": "6.5.5",
+    "openapi-typescript": "6.6.2",
     "picocolors": "1.0.0",
     "prettier": "3.0.3",
     "rimraf": "5.0.1",
     "tsup": "7.2.0",
     "typescript": "5.2.2",
     "vite": "4.4.9",
-    "vite-tsconfig-paths": "4.2.0",
-    "vitest": "0.34.3"
+    "vite-tsconfig-paths": "4.2.1",
+    "vitest": "0.34.5"
   }
 }
