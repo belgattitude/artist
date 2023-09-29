@@ -32,7 +32,7 @@
   "devDependencies": {
     "@belgattitude/eslint-config-bases": "2.6.0",
     "@types/fs-extra": "11.0.2",
-    "@types/node": "20.7.0",
+    "@types/node": "20.7.1",
     "cross-env": "7.0.3",
     "dotenv-flow-cli": "1.0.0",
     "eslint": "8.50.0",
@@ -45,6 +45,6 @@
     "typescript": "5.2.2",
     "vite": "4.4.9",
     "vite-tsconfig-paths": "4.2.1",
-    "vitest": "0.34.5"
+    "vitest": "0.34.6"
   }
 }
