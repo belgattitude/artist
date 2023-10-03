@@ -1,1 +1,4 @@
-videosToConvert/*
+mp4Vids/*
+!mp4Vids/*.sh
+movVids/*
+!movVids/*.sh

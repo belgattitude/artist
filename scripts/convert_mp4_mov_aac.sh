@@ -1,5 +1,5 @@
 set -e
-origdir="./original"
+origdir="./mp4Vids"
 shopt -s extglob nullglob
 
 if [ ! -d "$origdir" ];
