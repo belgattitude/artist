@@ -280,11 +280,46 @@ const rozMariaNeus: Experience = {
   ],
 };
 
+const researchAlexOne: Experience = {
+  slug: 'research-alex-one',
+  title: 'Research Alex',
+  description: 'Work in progress',
+  headerText: (
+    <p>I'm looking to be in a state that is part of what I'm touching.</p>
+  ),
+  background: {
+    type: 'video',
+    loop: true,
+    playbackRate: 0.5,
+    className: 'hue-rotate-[30deg]',
+    // poster: `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.1.webp`,
+    src: `${mediaUrl}/alex/alex-experiment-one.m4v#t=67,120`,
+  },
+  sections: [
+    {
+      title: 'One in nature',
+      description: `
+         Gaze wide open. The wind blows softly, entering the skin. Whatever is encountered is now
+         part of the body. The body is now part of the environment. 
+         `,
+      video: {
+        src: `${mediaUrl}/alex/alex-experiment-one.m4v`,
+        // cover: `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.1.webp`,
+      },
+    },
+  ],
+};
+
 export const fetchExperience = async (slug: string): Promise<Experience> => {
   const experience =
-    [mrG29, softDeath, rozCanon, typhenInterstices, rozMariaNeus].filter(
-      (experience) => experience.slug === slug
-    )?.[0] ?? null;
+    [
+      mrG29,
+      softDeath,
+      rozCanon,
+      typhenInterstices,
+      rozMariaNeus,
+      researchAlexOne,
+    ].filter((experience) => experience.slug === slug)?.[0] ?? null;
   if (!experience) {
     throw new HttpNotFound(`Experience ${slug} not found`);
   }

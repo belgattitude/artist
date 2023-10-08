@@ -30,12 +30,12 @@
     "server-only": "0.0.1"
   },
   "devDependencies": {
-    "@belgattitude/eslint-config-bases": "2.6.0",
+    "@belgattitude/eslint-config-bases": "2.7.0",
     "@types/fs-extra": "11.0.2",
-    "@types/node": "20.8.2",
+    "@types/node": "20.8.3",
     "cross-env": "7.0.3",
     "dotenv-flow-cli": "1.0.0",
-    "eslint": "8.50.0",
+    "eslint": "8.51.0",
     "fs-extra": "11.1.1",
     "openapi-typescript": "6.7.0",
     "picocolors": "1.0.0",
