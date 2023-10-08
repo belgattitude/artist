@@ -290,10 +290,10 @@ const researchAlexOne: Experience = {
   background: {
     type: 'video',
     loop: true,
-    playbackRate: 0.5,
-    className: 'hue-rotate-[30deg]',
+    playbackRate: 0.9,
+    className: 'hue-rotate-[100deg]',
     // poster: `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.1.webp`,
-    src: `${mediaUrl}/alex/alex-experiment-one.m4v#t=67,120`,
+    src: `${mediaUrl}/alex/alex-experiment-one.m4v#t=67,180`,
   },
   sections: [
     {
