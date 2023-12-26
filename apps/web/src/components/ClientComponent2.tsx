@@ -17,6 +17,7 @@ export const ClientComponent2: FC = () => {
   //   margin: '0px 100px -50px 0px',
   // });
 
+  // eslint-disable-next-line unicorn/consistent-function-scoping
   const getCharAnimVariants = (): Variants => {
     return {
       hidden: {

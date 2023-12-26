@@ -9,6 +9,8 @@ exports
 *.cache
 dist
 .strapi-updater.json
+.strapi
+types/generated
 
 
 ############################

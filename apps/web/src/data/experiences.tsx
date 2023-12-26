@@ -291,7 +291,7 @@ const researchAlexOne: Experience = {
     type: 'video',
     loop: true,
     playbackRate: 0.9,
-    className: 'hue-rotate-[100deg]',
+    className: 'brigthness-50',
     // poster: `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.1.webp`,
     src: `${mediaUrl}/alex/alex-experiment-one.m4v#t=67,180`,
   },
@@ -319,9 +319,9 @@ export const fetchExperience = async (slug: string): Promise<Experience> => {
       typhenInterstices,
       rozMariaNeus,
       researchAlexOne,
-    ].filter((experience) => experience.slug === slug)?.[0] ?? null;
+    ].find((experience) => experience.slug === slug) ?? null;
   if (!experience) {
     throw new HttpNotFound(`Experience ${slug} not found`);
   }
-  return Promise.resolve(experience);
+  return experience;
 };

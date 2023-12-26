@@ -79,9 +79,9 @@ export const ExperienceOverlay = forwardRef<
               <div className={[styles.dot, 'p-[15px] md:p-[45px]'].join(' ')}>
                 <h1 className={''}>{title}</h1>
                 <div className={'mb-[35px]'}>{description}</div>
-                {images !== undefined ? (
+                {images === undefined ? null : (
                   <Images images={images} lazy={idx > 1} />
-                ) : null}
+                )}
                 {video && (
                   <div className={'aspect-16/9 bg-black'}>
                     <VideoPlayer

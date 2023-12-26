@@ -1,7 +1,7 @@
 import { KyFactory } from '@/lib/factory/ky.factory';
 
 export const ky = new KyFactory({}).create({
-  timeout: 10000,
+  timeout: 10_000,
   retry: {
     limit: 1,
     statusCodes: [408, 413, 429, 500, 502, 503, 504],

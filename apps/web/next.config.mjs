@@ -3,7 +3,6 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import withBundleAnalyzer from '@next/bundle-analyzer';
 import nextMdx from '@next/mdx';
 import { createSecureHeaders } from 'next-secure-headers';
 
@@ -24,8 +23,6 @@ const withMDX = nextMdx({
 });
 
 const isProd = process.env.NODE_ENV === 'production';
-
-const trueEnv = ['true', '1', 'yes'];
 
 const strapiUrl = publicEnv.NEXT_PUBLIC_STRAPI_API_URL;
 const { hostname: strapiHostname } = new URL(strapiUrl);
@@ -168,25 +165,26 @@ let nextConfig = {
   },
 
   webpack: (config, { webpack, isServer }) => {
-    config.module.rules.push({
-      test: /\.svg$/,
-      issuer: /\.(js|ts)x?$/,
-      use: [
-        {
-          loader: '@svgr/webpack',
-          // https://react-svgr.com/docs/webpack/#passing-options
-          options: {
-            svgo: isProd,
+    config.module.rules.push(
+      {
+        test: /\.svg$/,
+        issuer: /\.(js|ts)x?$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            // https://react-svgr.com/docs/webpack/#passing-options
+            options: {
+              svgo: isProd,
+            },
           },
-        },
-      ],
-    });
-
-    config.module.rules.push({
-      test: /\.(glsl|vs|fs|vert|frag)$/,
-      exclude: /node_modules/,
-      use: ['raw-loader', 'glslify-loader'],
-    });
+        ],
+      },
+      {
+        test: /\.(glsl|vs|fs|vert|frag)$/,
+        exclude: /node_modules/,
+        use: ['raw-loader', 'glslify-loader'],
+      }
+    );
 
     return config;
   },
@@ -228,21 +226,17 @@ let nextConfig = {
   },
 };
 
-const withPlugins = () => {
-  /**
-   * @type {Array<(config: import('next').NextConfig) => import('next').NextConfig>}
-   */
-  const plugins = [
-    ...(process.env.ANALYZE === 'true'
-      ? [
-          withBundleAnalyzer({
-            enabled: true,
-          }),
-        ]
-      : []),
-    withMDX,
-  ];
-  return plugins.reduce((acc, next) => next(acc), nextConfig);
-};
+if (process.env.ANALYZE === 'true') {
+  try {
+    const withBundleAnalyzer = await import('@next/bundle-analyzer').then(
+      (mod) => mod.default
+    );
+    nextConfig = withBundleAnalyzer({
+      enabled: true,
+    })(nextConfig);
+  } catch {
+    // Do nothing, @next/bundle-analyzer is probably purged in prod or not installed
+  }
+}
 
-export default withPlugins;
+export default withMDX(nextConfig);

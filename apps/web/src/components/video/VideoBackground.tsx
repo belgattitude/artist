@@ -45,7 +45,7 @@ const logError = (msg: string, e?: Error | DOMException | unknown) => {
 export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
   const {
     src,
-    playbackRate = 1.0,
+    playbackRate = 1,
     className,
     playbackStrategy,
     muted = true,
@@ -60,30 +60,24 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
 
   const strategy: PlaybackStrategy = {
     ...defaultPlaybackStrategy,
-    ...(playbackStrategy ?? {}),
+    ...playbackStrategy,
   };
 
   useEffect(() => {
     const domVideo = videoRef.current;
     const handleTimeUpdate = (_event: Event) => {
       const domVideo = videoRef.current;
-      if (domVideo) {
-        if (end && domVideo.currentTime >= end - 0.3) {
-          domVideo.currentTime = start;
-          if (!domVideo.paused) {
-            domVideo.play().catch((e) => {
-              logError("Couldn't loop and call play", e);
-            });
-          }
+      if (domVideo && end && domVideo.currentTime >= end - 0.3) {
+        domVideo.currentTime = start;
+        if (!domVideo.paused) {
+          domVideo.play().catch((e) => {
+            logError("Couldn't loop and call play", e);
+          });
         }
       }
     };
 
-    if (!domVideo) {
-      console.log(
-        'Error: videoRef is unknown, did you conditionally rendered the video tag ?'
-      );
-    } else {
+    if (domVideo) {
       domVideo.playbackRate = playbackRate;
 
       if (loop && end) {
@@ -92,19 +86,25 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
       return () => {
         domVideo.removeEventListener('timeupdate', handleTimeUpdate);
       };
+    } else {
+      console.log(
+        'Error: videoRef is unknown, did you conditionally rendered the video tag ?'
+      );
     }
   }, [playbackRate, start, end, loop]);
 
   const [viewInRef] = useInViewRef((entries) => {
-    if (strategy.type == 'autoplay' && strategy.inViewport) {
-      if (videoRef.current) {
-        if (entries?.[0].isIntersecting) {
-          videoRef.current.play().catch((e) => {
-            logError("Couldn't trigger play() while intersecting", e);
-          });
-        } else {
-          videoRef.current.pause();
-        }
+    if (
+      strategy.type == 'autoplay' &&
+      strategy.inViewport &&
+      videoRef.current
+    ) {
+      if (entries?.[0].isIntersecting) {
+        videoRef.current.play().catch((e) => {
+          logError("Couldn't trigger play() while intersecting", e);
+        });
+      } else {
+        videoRef.current.pause();
       }
     }
   });

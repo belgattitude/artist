@@ -2,6 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useState, type ReactNode } from 'react';
+import { queryClientConfig } from '@/config/query-client.config';
 
 export function ReactQueryProvider({
   children,
@@ -9,13 +10,7 @@ export function ReactQueryProvider({
   children: ReactNode;
 }): JSX.Element {
   const [queryClient] = useState((): QueryClient => {
-    return new QueryClient({
-      defaultOptions: {
-        queries: {
-          refetchOnWindowFocus: false,
-        },
-      },
-    });
+    return new QueryClient(queryClientConfig);
   });
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>

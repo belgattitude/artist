@@ -1,5 +1,4 @@
-import type { FC } from 'react';
-import type { CSSProperties } from 'theme-ui';
+import type { CSSProperties, FC } from 'react';
 type Props = {
   children: string;
   className?: string;

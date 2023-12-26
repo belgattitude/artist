@@ -12,6 +12,7 @@ input BooleanFilterInput {
   lt: Boolean
   lte: Boolean
   ne: Boolean
+  nei: Boolean
   not: BooleanFilterInput
   notContains: Boolean
   notContainsi: Boolean
@@ -20,6 +21,95 @@ input BooleanFilterInput {
   null: Boolean
   or: [Boolean]
   startsWith: Boolean
+}
+
+type ContentReleasesRelease {
+  actions(filters: ContentReleasesReleaseActionFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ContentReleasesReleaseActionRelationResponseCollection
+  createdAt: DateTime
+  name: String!
+  releasedAt: DateTime
+  updatedAt: DateTime
+}
+
+type ContentReleasesReleaseAction {
+  contentType: String!
+  createdAt: DateTime
+  entry: GenericMorph
+  release: ContentReleasesReleaseEntityResponse
+  type: ENUM_CONTENTRELEASESRELEASEACTION_TYPE!
+  updatedAt: DateTime
+}
+
+type ContentReleasesReleaseActionEntity {
+  attributes: ContentReleasesReleaseAction
+  id: ID
+}
+
+type ContentReleasesReleaseActionEntityResponse {
+  data: ContentReleasesReleaseActionEntity
+}
+
+type ContentReleasesReleaseActionEntityResponseCollection {
+  data: [ContentReleasesReleaseActionEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input ContentReleasesReleaseActionFiltersInput {
+  and: [ContentReleasesReleaseActionFiltersInput]
+  contentType: StringFilterInput
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  not: ContentReleasesReleaseActionFiltersInput
+  or: [ContentReleasesReleaseActionFiltersInput]
+  release: ContentReleasesReleaseFiltersInput
+  type: StringFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input ContentReleasesReleaseActionInput {
+  contentType: String
+  release: ID
+  type: ENUM_CONTENTRELEASESRELEASEACTION_TYPE
+}
+
+type ContentReleasesReleaseActionRelationResponseCollection {
+  data: [ContentReleasesReleaseActionEntity!]!
+}
+
+type ContentReleasesReleaseEntity {
+  attributes: ContentReleasesRelease
+  id: ID
+}
+
+type ContentReleasesReleaseEntityResponse {
+  data: ContentReleasesReleaseEntity
+}
+
+type ContentReleasesReleaseEntityResponseCollection {
+  data: [ContentReleasesReleaseEntity!]!
+  meta: ResponseCollectionMeta!
+}
+
+input ContentReleasesReleaseFiltersInput {
+  actions: ContentReleasesReleaseActionFiltersInput
+  and: [ContentReleasesReleaseFiltersInput]
+  createdAt: DateTimeFilterInput
+  id: IDFilterInput
+  name: StringFilterInput
+  not: ContentReleasesReleaseFiltersInput
+  or: [ContentReleasesReleaseFiltersInput]
+  releasedAt: DateTimeFilterInput
+  updatedAt: DateTimeFilterInput
+}
+
+input ContentReleasesReleaseInput {
+  actions: [ID]
+  name: String
+  releasedAt: DateTime
+}
+
+type ContentReleasesReleaseRelationResponseCollection {
+  data: [ContentReleasesReleaseEntity!]!
 }
 
 """
@@ -41,6 +131,7 @@ input DateFilterInput {
   lt: Date
   lte: Date
   ne: Date
+  nei: Date
   not: DateFilterInput
   notContains: Date
   notContainsi: Date
@@ -70,6 +161,7 @@ input DateTimeFilterInput {
   lt: DateTime
   lte: DateTime
   ne: DateTime
+  nei: DateTime
   not: DateTimeFilterInput
   notContains: DateTime
   notContainsi: DateTime
@@ -127,6 +219,11 @@ type DiaryRelationResponseCollection {
   data: [DiaryEntity!]!
 }
 
+enum ENUM_CONTENTRELEASESRELEASEACTION_TYPE {
+  publish
+  unpublish
+}
+
 type Error {
   code: String!
   message: String
@@ -152,6 +249,7 @@ input FloatFilterInput {
   lt: Float
   lte: Float
   ne: Float
+  nei: Float
   not: FloatFilterInput
   notContains: Float
   notContainsi: Float
@@ -162,7 +260,7 @@ input FloatFilterInput {
   startsWith: Float
 }
 
-union GenericMorph = Diary | I18NLocale | Project | Rehearsal | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | Word
+union GenericMorph = ContentReleasesRelease | ContentReleasesReleaseAction | Diary | I18NLocale | Project | Rehearsal | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | Word
 
 type I18NLocale {
   code: String
@@ -222,6 +320,7 @@ input IDFilterInput {
   lt: ID
   lte: ID
   ne: ID
+  nei: ID
   not: IDFilterInput
   notContains: ID
   notContainsi: ID
@@ -246,6 +345,7 @@ input IntFilterInput {
   lt: Int
   lte: Int
   ne: Int
+  nei: Int
   not: IntFilterInput
   notContains: Int
   notContainsi: Int
@@ -275,6 +375,7 @@ input JSONFilterInput {
   lt: JSON
   lte: JSON
   ne: JSON
+  nei: JSON
   not: JSONFilterInput
   notContains: JSON
   notContainsi: JSON
@@ -304,6 +405,7 @@ input LongFilterInput {
   lt: Long
   lte: Long
   ne: Long
+  nei: Long
   not: LongFilterInput
   notContains: Long
   notContainsi: Long
@@ -317,6 +419,8 @@ input LongFilterInput {
 type Mutation {
   """Change user password. Confirm with the current password."""
   changePassword(currentPassword: String!, password: String!, passwordConfirmation: String!): UsersPermissionsLoginPayload
+  createContentReleasesRelease(data: ContentReleasesReleaseInput!): ContentReleasesReleaseEntityResponse
+  createContentReleasesReleaseAction(data: ContentReleasesReleaseActionInput!): ContentReleasesReleaseActionEntityResponse
   createDiary(data: DiaryInput!): DiaryEntityResponse
   createProject(data: ProjectInput!): ProjectEntityResponse
   createRehearsal(data: RehearsalInput!): RehearsalEntityResponse
@@ -330,6 +434,8 @@ type Mutation {
   createUsersPermissionsUser(data: UsersPermissionsUserInput!): UsersPermissionsUserEntityResponse!
   createWord(data: WordInput!, locale: I18NLocaleCode): WordEntityResponse
   createWordLocalization(data: WordInput, id: ID, locale: I18NLocaleCode): WordEntityResponse
+  deleteContentReleasesRelease(id: ID!): ContentReleasesReleaseEntityResponse
+  deleteContentReleasesReleaseAction(id: ID!): ContentReleasesReleaseActionEntityResponse
   deleteDiary(id: ID!): DiaryEntityResponse
   deleteProject(id: ID!): ProjectEntityResponse
   deleteRehearsal(id: ID!): RehearsalEntityResponse
@@ -359,6 +465,8 @@ type Mutation {
   Reset user password. Confirm with a code (resetToken from forgotPassword)
   """
   resetPassword(code: String!, password: String!, passwordConfirmation: String!): UsersPermissionsLoginPayload
+  updateContentReleasesRelease(data: ContentReleasesReleaseInput!, id: ID!): ContentReleasesReleaseEntityResponse
+  updateContentReleasesReleaseAction(data: ContentReleasesReleaseActionInput!, id: ID!): ContentReleasesReleaseActionEntityResponse
   updateDiary(data: DiaryInput!, id: ID!): DiaryEntityResponse
   updateFileInfo(id: ID!, info: FileInfoInput): UploadFileEntityResponse!
   updateProject(data: ProjectInput!, id: ID!): ProjectEntityResponse
@@ -436,6 +544,10 @@ enum PublicationState {
 }
 
 type Query {
+  contentReleasesRelease(id: ID): ContentReleasesReleaseEntityResponse
+  contentReleasesReleaseAction(id: ID): ContentReleasesReleaseActionEntityResponse
+  contentReleasesReleaseActions(filters: ContentReleasesReleaseActionFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ContentReleasesReleaseActionEntityResponseCollection
+  contentReleasesReleases(filters: ContentReleasesReleaseFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ContentReleasesReleaseEntityResponseCollection
   diaries(filters: DiaryFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): DiaryEntityResponseCollection
   diary(id: ID): DiaryEntityResponse
   i18NLocale(id: ID): I18NLocaleEntityResponse
@@ -522,6 +634,7 @@ input StringFilterInput {
   lt: String
   lte: String
   ne: String
+  nei: String
   not: StringFilterInput
   notContains: String
   notContainsi: String
@@ -549,6 +662,7 @@ input TimeFilterInput {
   lt: Time
   lte: Time
   ne: Time
+  nei: Time
   not: TimeFilterInput
   notContains: Time
   notContainsi: Time
@@ -902,10 +1016,10 @@ type Word {
   definition: String
   locale: String
   localizations(filters: WordFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): WordRelationResponseCollection
-  name: String
+  name: String!
   publishedAt: DateTime
   rehearsals(filters: RehearsalFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): RehearsalRelationResponseCollection
-  slug: String
+  slug: String!
   updatedAt: DateTime
   video: UploadFileEntityResponse
 }

@@ -4,14 +4,16 @@ import { useAspect, useTexture, useVideoTexture } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { Suspense, type FC } from 'react';
 
-const Scene: FC<{ imgUrl: string; videoUrl: string }> = (props) => {
+const Scene: FC<{ imgUrl?: string; videoUrl: string }> = (props) => {
   // const size = useAspect(1800, 1000);
   const { videoUrl, imgUrl } = props;
   const size = useAspect(1800, 1000);
   return (
     <mesh scale={size}>
       <planeGeometry />
-      <Suspense fallback={<FallbackMaterial url={imgUrl} />}>
+      <Suspense
+        fallback={imgUrl ? <FallbackMaterial url={imgUrl} /> : undefined}
+      >
         <VideoMaterial url={videoUrl} />
       </Suspense>
     </mesh>
@@ -31,7 +33,7 @@ function FallbackMaterial({ url }: { url: string }) {
   return <meshBasicMaterial map={texture} toneMapped={false} />;
 }
 
-export const ThreeVideoCanvas: FC<{ imgUrl: string; videoUrl: string }> = (
+export const ThreeVideoCanvas: FC<{ imgUrl?: string; videoUrl: string }> = (
   props
 ) => {
   const { videoUrl, imgUrl } = props;

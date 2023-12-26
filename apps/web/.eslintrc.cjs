@@ -7,19 +7,25 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     tsconfigRootDir: __dirname,
-    project: 'tsconfig.json',
+    // project: 'tsconfig.json',
+    project: true,
+
     // extraFileExtensions: ['.mdx'],
   },
-  /*
   settings: {
-    'mdx/code-blocks': true,
-    // optional, if you want to disable language mapper, set it to `false`
-    // if you want to override the default language mapper inside, you can provide your own
-    'mdx/language-mapper': {},
-  }, */
-  ignorePatterns: [...getDefaultIgnorePatterns()],
+    'import/resolver': {
+      typescript: true,
+      node: true,
+    },
+  },
+  ignorePatterns: [
+    ...getDefaultIgnorePatterns(),
+    'src/gql/**/*',
+    'src/generated/**/*',
+  ],
   extends: [
     '@belgattitude/eslint-config-bases/typescript',
+    '@belgattitude/eslint-config-bases/regexp',
     '@belgattitude/eslint-config-bases/react',
     '@belgattitude/eslint-config-bases/react-query',
     '@belgattitude/eslint-config-bases/tailwind',
@@ -37,6 +43,7 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
     '@typescript-eslint/naming-convention': 'off',
+    'unicorn/consistent-destructuring': 'off',
   },
   overrides: [
     {
@@ -47,16 +54,10 @@ module.exports = {
       },
     },
     {
-      files: ['src/gql/**/*.ts'],
-      extends: ['plugin:@typescript-eslint/disable-type-checked'],
+      files: ['next.config.mjs', 'src/lib/env/*.mjs'],
       rules: {
-        'import/no-named-as-default': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
-        '@typescript-eslint/array-type': 'off',
-        '@typescript-eslint/consistent-indexed-object-style': 'off',
-        '@typescript-eslint/naming-convention': 'off',
-        '@typescript-eslint/consistent-type-imports': 'off',
-        'prettier/prettier': 'off',
+        '@typescript-eslint/ban-ts-comment': 'off',
+        'import/order': 'off',
       },
     },
   ],

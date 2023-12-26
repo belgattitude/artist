@@ -1,5 +1,7 @@
 module.exports = {
   plugins: {
+    // '@pandacss/dev/postcss': {},
+
     // ** NESTING works but support in IDE is minimal **
     // ** for module.css... let's keep scss           **
 

@@ -21,6 +21,7 @@ const getValidatePublicEnv = () => {
         Object.keys(parsedEnv.error.flatten().fieldErrors).join(',')
       );
       console.error(JSON.stringify(parsedEnv.error.format(), null, 2));
+      // eslint-disable-next-line unicorn/no-process-exit
       process.exit(1);
     } else {
       throw new Error(

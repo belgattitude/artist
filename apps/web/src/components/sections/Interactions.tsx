@@ -41,16 +41,16 @@ export const Interactions: FC<InteractionsProps> = (props) => {
                   );
                 });
           const text = [`${data.authors.join(' / ')}`, data.year]
-            .filter((v) => v)
+            .filter(Boolean)
             .join(' Ⓒ ');
           const range = [previewVideo.start, previewVideo.end]
-            .filter((v) => v)
+            .filter(Boolean)
             .join(',');
 
           const videoSrc =
-            previewVideo.src !== ''
-              ? `${previewVideo.src}#t=${range}`
-              : previewVideo.src;
+            previewVideo.src === ''
+              ? previewVideo.src
+              : `${previewVideo.src}#t=${range}`;
           return (
             <VideoCard
               handleClick={() => {
