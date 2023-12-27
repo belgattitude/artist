@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { VideoBackground } from './VideoBackground';
 
 const meta: Meta<typeof VideoBackground> = {

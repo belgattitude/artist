@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { FC } from 'react';
+
 import { Interactions } from '@/components/sections/Interactions';
 import { DynamicIntroAnimatedText } from '@/components/sections/IntroAnimatedText';
 import { getInteractionData } from '@/data/interactions';

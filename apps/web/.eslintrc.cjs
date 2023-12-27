@@ -25,6 +25,7 @@ module.exports = {
   ],
   extends: [
     '@belgattitude/eslint-config-bases/typescript',
+    '@belgattitude/eslint-config-bases/simple-import-sort',
     '@belgattitude/eslint-config-bases/regexp',
     '@belgattitude/eslint-config-bases/react',
     '@belgattitude/eslint-config-bases/react-query',

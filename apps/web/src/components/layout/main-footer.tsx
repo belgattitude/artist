@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import { twMerge } from 'tailwind-merge';
+
 import { getInteractionData } from '@/data/interactions';
 
 type Props = {

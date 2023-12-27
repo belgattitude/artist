@@ -13,6 +13,7 @@
 
 import { isParsableDsn } from '@httpx/dsn-parser';
 import { z } from 'zod';
+
 import { exitOrThrowError, zConvertTruthyStrToBool } from './utils.mjs';
 
 const dsnSchema = z.custom((dsn) => isParsableDsn(dsn), 'Invalid DSN format.');

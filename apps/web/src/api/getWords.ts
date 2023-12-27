@@ -1,4 +1,5 @@
 import type { components, paths } from 'artist-strapi-api';
+
 import { ky } from '@/config/ky';
 import { getStrapiURL } from '@/config/strapi.config';
 

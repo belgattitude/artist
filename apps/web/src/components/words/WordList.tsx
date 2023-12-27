@@ -2,10 +2,11 @@
 
 import type { FC } from 'react';
 import { useQuery } from 'urql';
+
 import { fullWordFragment, searchWords } from '@/api/graphql/words.gql';
 import { VideoPlayer } from '@/components/player/VideoPlayer';
 import { getStrapiURL } from '@/config/strapi.config';
-import { useFragment, type FragmentType } from '@/gql/fragment-masking';
+import { type FragmentType, useFragment } from '@/gql/fragment-masking';
 
 type WordCardProps = {
   word: FragmentType<typeof fullWordFragment>;

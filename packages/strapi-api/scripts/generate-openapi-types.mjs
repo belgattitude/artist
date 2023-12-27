@@ -1,5 +1,4 @@
 import fs from 'fs-extra';
-
 import openapiTS from 'openapi-typescript';
 import pc from 'picocolors';
 // import  from "dotenv-flow"
@@ -16,8 +15,10 @@ try {
   fs.writeFileSync(target, output, { encoding: 'utf8' });
 } catch (e) {
   console.error(`${pc.red('Error')} ${e.message}`);
+  // eslint-disable-next-line unicorn/no-process-exit
   process.exit(1);
 }
 
 console.info(`${pc.green('Success')} Updated ${target}`);
+// eslint-disable-next-line unicorn/no-process-exit
 process.exit(0);

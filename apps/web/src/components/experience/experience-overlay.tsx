@@ -1,11 +1,13 @@
 import {
+  type FC,
   forwardRef,
   Fragment,
-  type FC,
   type MutableRefObject,
   type ReactElement,
 } from 'react';
+
 import { VideoPlayer } from '@/components/player/VideoPlayer';
+
 import styles from './experience-overlay.module.scss';
 
 export type ExperienceSection = {

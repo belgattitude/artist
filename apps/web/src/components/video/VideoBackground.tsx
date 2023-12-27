@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useRef, type FC } from 'react';
+import { type FC, useEffect, useRef } from 'react';
 import { useDeepCompareEffect, useInViewRef } from 'rooks';
 import { twMerge } from 'tailwind-merge';
+
 import { getVideoUrlTimeRange } from '@/lib/url/getVideoUrlTimeRange';
 
 export type PlaybackStrategy =

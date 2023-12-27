@@ -1,6 +1,6 @@
 'use client';
 
-import { OrbitControls, useAspect, Text } from '@react-three/drei';
+import { OrbitControls, Text, useAspect } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { useEffect, useState } from 'react';
 

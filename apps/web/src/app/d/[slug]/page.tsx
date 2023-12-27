@@ -1,6 +1,7 @@
 // https://codesandbox.io/s/camera-scroll-tu24h?file=/src/App.js:623-670
 
 import type { Metadata, ResolvingMetadata } from 'next';
+
 import { ExperiencePage } from '@/components/experience/experience-page';
 import { fetchExperience } from '@/data/experiences';
 

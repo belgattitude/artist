@@ -21,6 +21,7 @@ module.exports = {
   ignorePatterns: [...getDefaultIgnorePatterns(), '**/generated/**'],
   extends: [
     '@belgattitude/eslint-config-bases/typescript',
+    '@belgattitude/eslint-config-bases/simple-import-sort',
     '@belgattitude/eslint-config-bases/jest',
     // Apply prettier and disable incompatible rules
     '@belgattitude/eslint-config-bases/prettier-plugin',

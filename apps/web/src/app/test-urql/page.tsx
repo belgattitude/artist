@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import type { FC } from 'react';
+
 import { WordList } from '@/components/words/WordList';
+
 export const metadata: Metadata = {};
 
 const HomePage: FC = () => {

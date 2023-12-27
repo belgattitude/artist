@@ -1,8 +1,9 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Fragment, type FC } from 'react';
+import { type FC, Fragment } from 'react';
 import { twMerge } from 'tailwind-merge';
+
 import { VideoCard } from '@/components/video/VideoCard';
 import type { InteractionData } from '@/data/interactions';
 

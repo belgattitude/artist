@@ -1,6 +1,8 @@
 import '@/styles/globals.css';
+
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+
 import { fontElikaGorika } from '@/components/fonts/FontElikaGorika';
 import { fontInter } from '@/components/fonts/FontInter';
 import { MainLayout } from '@/components/layout/main-layout';

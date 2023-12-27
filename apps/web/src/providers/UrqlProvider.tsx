@@ -1,13 +1,14 @@
 'use client';
 
-import { useState, type ReactNode } from 'react';
+import { type ReactNode, useState } from 'react';
 import {
-  createClient,
-  Provider,
-  dedupExchange,
   cacheExchange,
+  createClient,
+  dedupExchange,
   fetchExchange,
+  Provider,
 } from 'urql';
+
 import { getStrapiURL } from '@/config/strapi.config';
 
 type UrqlClient = ReturnType<typeof createClient>;

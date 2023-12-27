@@ -3,8 +3,10 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import dynamic from 'next/dynamic';
-import { useLayoutEffect, useRef, type FC } from 'react';
+import { type FC, useLayoutEffect, useRef } from 'react';
+
 import { SplitText } from '@/components/text/SplitText';
+
 import styles from './IntroAnimatedText.module.scss';
 
 export const IntroAnimatedText: FC = () => {

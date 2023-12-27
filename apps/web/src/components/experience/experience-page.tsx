@@ -1,7 +1,8 @@
 'use client';
 
-import { useRef, type FC, type ReactElement } from 'react';
+import { type FC, type ReactElement, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
+
 import {
   ExperienceOverlay,
   type ExperienceSection,

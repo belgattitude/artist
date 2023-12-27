@@ -1,7 +1,9 @@
 import { Analytics } from '@vercel/analytics/react';
-import type { ReactNode } from 'react';
-import { siteConfig } from '@/config/site.config';
 import type { Viewport } from 'next';
+import type { ReactNode } from 'react';
+
+import { siteConfig } from '@/config/site.config';
+
 import { ReactQueryProvider } from '../providers/ReactQueryProvider';
 
 export const metadata = siteConfig.layoutDefaults.metadata;

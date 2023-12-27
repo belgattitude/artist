@@ -1,12 +1,13 @@
 'use client';
 
 import clsx from 'clsx';
-import { useState, type FC, type ReactNode } from 'react';
+import { type FC, type ReactNode, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
+
 import {
+  type PlaybackStrategy,
   VideoBackground,
   type VideoBackgroundProps,
-  type PlaybackStrategy,
 } from '@/components/video/VideoBackground';
 
 export type VideoCardProps = {

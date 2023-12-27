@@ -1,8 +1,9 @@
 'use client';
 
-import { useScroll, motion, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import type { FC } from 'react';
 import { twMerge } from 'tailwind-merge';
+
 import { VideoBackground } from '@/components/video/VideoBackground';
 import { siteConfig } from '@/config/site.config';
 

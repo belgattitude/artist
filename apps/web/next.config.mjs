@@ -7,8 +7,8 @@ import nextMdx from '@next/mdx';
 import { createSecureHeaders } from 'next-secure-headers';
 
 import { buildEnv } from './src/config/build-env.config.mjs';
-import { getServerRuntimeEnv } from './src/config/server-runtime-env.config.mjs';
 import { publicEnv } from './src/config/public-env.config.mjs';
+import { getServerRuntimeEnv } from './src/config/server-runtime-env.config.mjs';
 
 const serverRuntimeEnv = getServerRuntimeEnv();
 

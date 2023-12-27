@@ -1,4 +1,5 @@
 import type { CSSProperties, FC } from 'react';
+
 type Props = {
   children: string;
   className?: string;

@@ -2,7 +2,7 @@
 
 import { useAspect, useTexture, useVideoTexture } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import { Suspense, type FC } from 'react';
+import { type FC, Suspense } from 'react';
 
 const Scene: FC<{ imgUrl?: string; videoUrl: string }> = (props) => {
   // const size = useAspect(1800, 1000);
