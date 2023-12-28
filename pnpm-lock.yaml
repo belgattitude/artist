@@ -60,6 +60,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@httpx/assert':
+        specifier: 0.2.0
+        version: 0.2.0
       '@httpx/dsn-parser':
         specifier: 1.6.3
         version: 1.6.3
@@ -85,8 +88,8 @@ importers:
         specifier: 0.13.11
         version: 0.13.11
       '@studio-freight/lenis':
-        specifier: 1.0.29
-        version: 1.0.29
+        specifier: 1.0.33
+        version: 1.0.33
       '@studio-freight/react-lenis':
         specifier: 0.0.38
         version: 0.0.38(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)
@@ -237,7 +240,7 @@ importers:
         version: 7.6.6(@types/react-dom@18.2.18)(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/nextjs':
         specifier: 7.6.6
-        version: 7.6.6(next@14.0.4)(react-dom@18.2.0)(react@18.2.0)(sass@1.69.5)(type-fest@4.8.3)(typescript@5.3.3)(webpack@5.89.0)
+        version: 7.6.6(next@14.0.4)(react-dom@18.2.0)(react@18.2.0)(sass@1.69.5)(type-fest@4.9.0)(typescript@5.3.3)(webpack@5.89.0)
       '@storybook/react':
         specifier: 7.6.6
         version: 7.6.6(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
@@ -308,8 +311,8 @@ importers:
         specifier: 8.4.32
         version: 8.4.32
       postcss-loader:
-        specifier: 7.3.3
-        version: 7.3.3(postcss@8.4.32)(typescript@5.3.3)(webpack@5.89.0)
+        specifier: 7.3.4
+        version: 7.3.4(postcss@8.4.32)(typescript@5.3.3)(webpack@5.89.0)
       postcss-nesting:
         specifier: 12.0.2
         version: 12.0.2(postcss@8.4.32)
@@ -341,8 +344,8 @@ importers:
         specifier: 1.11.2
         version: 1.11.2
       type-fest:
-        specifier: 4.8.3
-        version: 4.8.3
+        specifier: 4.9.0
+        version: 4.9.0
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -3661,6 +3664,11 @@ packages:
     dependencies:
       graphql: 16.8.1
 
+  /@httpx/assert@0.2.0:
+    resolution: {integrity: sha512-Orz1MnTocRW4rqOxA3tCwfnvwyn1pAPOFzWp0gh+o2X0c83mi/+cImR3I8ekQ16E10sda+rRbhP+RFIwU4be3g==}
+    engines: {node: '>=18'}
+    dev: false
+
   /@httpx/dsn-parser@1.6.3:
     resolution: {integrity: sha512-eMVn3S52q9CPqUZsCF5SGBisjlTfrJcHL2UE5PQTZoZs0tEeNXh2zzd2isa8x2N1Wf4AA9dh644Dad1acuHXaQ==}
     engines: {node: '>=16'}
@@ -4434,7 +4442,7 @@ packages:
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     dev: true
 
-  /@pmmmwh/react-refresh-webpack-plugin@0.5.11(react-refresh@0.14.0)(type-fest@4.8.3)(webpack@5.89.0):
+  /@pmmmwh/react-refresh-webpack-plugin@0.5.11(react-refresh@0.14.0)(type-fest@4.9.0)(webpack@5.89.0):
     resolution: {integrity: sha512-7j/6vdTym0+qZ6u4XbSAxrWBGYSdCfTzySkj7WAFgDLmSyWlOrWvpyzxlFh5jtw9dn0oL/jtW+06XfFiisN3JQ==}
     engines: {node: '>= 10.13'}
     peerDependencies:
@@ -4470,7 +4478,7 @@ packages:
       react-refresh: 0.14.0
       schema-utils: 3.3.0
       source-map: 0.7.4
-      type-fest: 4.8.3
+      type-fest: 4.9.0
       webpack: 5.89.0
     dev: true
 
@@ -5908,7 +5916,7 @@ packages:
     resolution: {integrity: sha512-dBAnEL4HfxxJmv7LdEYUoZlQbWj9APZNIbOaq0tgF8XkxiIbzqvgB0jhL/9UOrysSDbQWBiCRTu2wOVxedGfmw==}
     dev: true
 
-  /@storybook/nextjs@7.6.6(next@14.0.4)(react-dom@18.2.0)(react@18.2.0)(sass@1.69.5)(type-fest@4.8.3)(typescript@5.3.3)(webpack@5.89.0):
+  /@storybook/nextjs@7.6.6(next@14.0.4)(react-dom@18.2.0)(react@18.2.0)(sass@1.69.5)(type-fest@4.9.0)(typescript@5.3.3)(webpack@5.89.0):
     resolution: {integrity: sha512-evSTvIvrcuDJCFtiEgr4VVCW28JHY8Cz+8O9QR9Mytj+hRd2DaO67xtBRuKYtqSWsyrV9UpnteiKnuiUgiqGtw==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
@@ -5944,7 +5952,7 @@ packages:
       '@storybook/core-common': 7.6.6
       '@storybook/core-events': 7.6.6
       '@storybook/node-logger': 7.6.6
-      '@storybook/preset-react-webpack': 7.6.6(@babel/core@7.23.6)(react-dom@18.2.0)(react@18.2.0)(type-fest@4.8.3)(typescript@5.3.3)
+      '@storybook/preset-react-webpack': 7.6.6(@babel/core@7.23.6)(react-dom@18.2.0)(react@18.2.0)(type-fest@4.9.0)(typescript@5.3.3)
       '@storybook/preview-api': 7.6.6
       '@storybook/react': 7.6.6(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
       '@types/node': 18.16.3
@@ -5957,7 +5965,7 @@ packages:
       node-polyfill-webpack-plugin: 2.0.1(webpack@5.89.0)
       pnp-webpack-plugin: 1.7.0(typescript@5.3.3)
       postcss: 8.4.32
-      postcss-loader: 7.3.3(postcss@8.4.32)(typescript@5.3.3)(webpack@5.89.0)
+      postcss-loader: 7.3.4(postcss@8.4.32)(typescript@5.3.3)(webpack@5.89.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       resolve-url-loader: 5.0.0
@@ -6000,7 +6008,7 @@ packages:
     resolution: {integrity: sha512-jamn7QNTJPZiu22nu25LqfSTJohugFhCu4b48yqP+pdMdkQ3qVd3NdDYhBlgkH/Btar+kppiJP1gRtoiJF761w==}
     dev: true
 
-  /@storybook/preset-react-webpack@7.6.6(@babel/core@7.23.6)(react-dom@18.2.0)(react@18.2.0)(type-fest@4.8.3)(typescript@5.3.3):
+  /@storybook/preset-react-webpack@7.6.6(@babel/core@7.23.6)(react-dom@18.2.0)(react@18.2.0)(type-fest@4.9.0)(typescript@5.3.3):
     resolution: {integrity: sha512-spOEPePPiKJQIVFARVUPfJ3cT8mBWFMlb3iS54MO4IW55aQRPWw1HQYt7uZ3NwZVT49Npwn4D1x81rWMu9ikPg==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
@@ -6017,7 +6025,7 @@ packages:
       '@babel/core': 7.23.6
       '@babel/preset-flow': 7.23.3(@babel/core@7.23.6)
       '@babel/preset-react': 7.23.3(@babel/core@7.23.6)
-      '@pmmmwh/react-refresh-webpack-plugin': 0.5.11(react-refresh@0.14.0)(type-fest@4.8.3)(webpack@5.89.0)
+      '@pmmmwh/react-refresh-webpack-plugin': 0.5.11(react-refresh@0.14.0)(type-fest@4.9.0)(webpack@5.89.0)
       '@storybook/core-webpack': 7.6.6
       '@storybook/docs-tools': 7.6.6
       '@storybook/node-logger': 7.6.6
@@ -6206,8 +6214,8 @@ packages:
       - immer
     dev: false
 
-  /@studio-freight/lenis@1.0.29:
-    resolution: {integrity: sha512-z/qS8ato5m2wlxQREYj5iALcxMrhhm06vEiLqYzLI+3HmpPzPscmJ8cXNiay4bj692vOot2hyTA3WP++AQVoKA==}
+  /@studio-freight/lenis@1.0.33:
+    resolution: {integrity: sha512-Pfoimwwsf8oVuneQg3KoigUDlo1S+rE+m2Tz7b+zMNAEi0UAhox+PG/ksLHa8ktQhlsuWODeQFCl8VHBxqOtfw==}
     dev: false
 
   /@studio-freight/react-lenis@0.0.38(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0):
@@ -6217,7 +6225,7 @@ packages:
       react-dom: ^18.2.0
     dependencies:
       '@studio-freight/hamo': 0.6.24(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)
-      '@studio-freight/lenis': 1.0.29
+      '@studio-freight/lenis': 1.0.33
       clsx: 2.0.0
       prop-types: 15.8.1
       react: 18.2.0
@@ -14970,8 +14978,8 @@ packages:
       yaml: 2.3.4
     dev: true
 
-  /postcss-loader@7.3.3(postcss@8.4.32)(typescript@5.3.3)(webpack@5.89.0):
-    resolution: {integrity: sha512-YgO/yhtevGO/vJePCQmTxiaEwER94LABZN0ZMT4A0vsak9TpO+RvKRs7EmJ8peIlB9xfXCsS7M8LjqncsUZ5HA==}
+  /postcss-loader@7.3.4(postcss@8.4.32)(typescript@5.3.3)(webpack@5.89.0):
+    resolution: {integrity: sha512-iW5WTTBSC5BfsBJ9daFMPVrLT36MrNiC6fqOZTTaHjBNX6Pfd5p+hSBqe/fEeNd7pc13QiAyGt7VdGMw4eRC4A==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
       postcss: ^7.0.0 || ^8.0.1
@@ -17748,8 +17756,8 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /type-fest@4.8.3:
-    resolution: {integrity: sha512-//BaTm14Q/gHBn09xlnKNqfI8t6bmdzx2DXYfPBNofN0WUybCEUDcbCWcTa0oF09lzLjZgPphXAsvRiMK0V6Bw==}
+  /type-fest@4.9.0:
+    resolution: {integrity: sha512-KS/6lh/ynPGiHD/LnAobrEFq3Ad4pBzOlJ1wAnJx9N4EYoqFhMfLIBjUT2UEx4wg5ZE+cC1ob6DCSpppVo+rtg==}
     engines: {node: '>=16'}
     dev: true
 
