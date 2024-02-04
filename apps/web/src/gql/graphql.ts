@@ -76,6 +76,7 @@ export type ContentReleasesReleaseAction = {
   contentType: Scalars['String']['output'];
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   entry?: Maybe<GenericMorph>;
+  locale?: Maybe<Scalars['String']['output']>;
   release?: Maybe<ContentReleasesReleaseEntityResponse>;
   type: Enum_Contentreleasesreleaseaction_Type;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
@@ -103,6 +104,7 @@ export type ContentReleasesReleaseActionFiltersInput = {
   contentType?: InputMaybe<StringFilterInput>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
   id?: InputMaybe<IdFilterInput>;
+  locale?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<ContentReleasesReleaseActionFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ContentReleasesReleaseActionFiltersInput>>>;
   release?: InputMaybe<ContentReleasesReleaseFiltersInput>;
@@ -112,6 +114,7 @@ export type ContentReleasesReleaseActionFiltersInput = {
 
 export type ContentReleasesReleaseActionInput = {
   contentType?: InputMaybe<Scalars['String']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
   release?: InputMaybe<Scalars['ID']['input']>;
   type?: InputMaybe<Enum_Contentreleasesreleaseaction_Type>;
 };

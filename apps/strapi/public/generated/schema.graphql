@@ -39,6 +39,7 @@ type ContentReleasesReleaseAction {
   contentType: String!
   createdAt: DateTime
   entry: GenericMorph
+  locale: String
   release: ContentReleasesReleaseEntityResponse
   type: ENUM_CONTENTRELEASESRELEASEACTION_TYPE!
   updatedAt: DateTime
@@ -63,6 +64,7 @@ input ContentReleasesReleaseActionFiltersInput {
   contentType: StringFilterInput
   createdAt: DateTimeFilterInput
   id: IDFilterInput
+  locale: StringFilterInput
   not: ContentReleasesReleaseActionFiltersInput
   or: [ContentReleasesReleaseActionFiltersInput]
   release: ContentReleasesReleaseFiltersInput
@@ -72,6 +74,7 @@ input ContentReleasesReleaseActionFiltersInput {
 
 input ContentReleasesReleaseActionInput {
   contentType: String
+  locale: String
   release: ID
   type: ENUM_CONTENTRELEASESRELEASEACTION_TYPE
 }
