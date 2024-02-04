@@ -44,9 +44,7 @@ export default function InMidFallPage() {
             <div>
               <b>Statement #1:</b> Experiences an abandonment of control in the
               form of a catch and fall. It’s also a way to reflect to what
-              matters when we’re looking at what drives love and care. We might
-              be naked, we might just dance what we love to dance, we might
-              invite friends on stage to feel stronger
+              matters when we’re looking at what drives love and care.
               <img
                 className="mt-5"
                 src={'https://media.failwell.be/alex/sel/alex-1.png'}
