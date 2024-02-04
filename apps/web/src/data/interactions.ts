@@ -115,11 +115,28 @@ export const interactionsData: InteractionData[] = [
     previewVideo: {
       start: 8,
       end: 10,
-      src: `${mediaUrl}/mr/garage29/garage29-1.mp4#t=8,10`,
+      src: `${mediaUrl}/mr/garage29/garage29-1.mp4`,
       playbackRate: 0.6,
       className: '',
     },
   },
+  {
+    slug: 'alex-experiment-one',
+    type: 'training-material',
+    title: 'Explorations',
+    category: ['performance'],
+    authors: ['Alex'],
+    shortText: ['Look for what you notice', 'but no one else see'],
+    link: '/d/',
+    previewVideo: {
+      start: 8,
+      end: 120,
+      src: `${mediaUrl}/alex/alex-experiment-one.m4v`,
+      playbackRate: 0.3,
+      className: '',
+    },
+  },
+  // https://media.failwell.be/alex/alex-experiment-one.m4v
 ];
 
 type Filters = {

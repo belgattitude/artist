@@ -52,6 +52,7 @@ export const Interactions: FC<InteractionsProps> = (props) => {
             previewVideo.src === ''
               ? previewVideo.src
               : `${previewVideo.src}#t=${range}`;
+
           return (
             <VideoCard
               handleClick={() => {

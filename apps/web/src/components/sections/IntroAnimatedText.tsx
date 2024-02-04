@@ -9,8 +9,16 @@ import { SplitText } from '@/components/text/SplitText';
 
 import styles from './IntroAnimatedText.module.scss';
 
-export const IntroAnimatedText: FC = () => {
+type Props = {
+  title1: string;
+  title2: string;
+  long: string;
+};
+
+export const IntroAnimatedText: FC<Props> = (props) => {
   const app = useRef<HTMLDivElement>(null);
+
+  const { title1, title2, long } = props;
 
   const test = useRef<HTMLDivElement>(null);
   const test2 = useRef<HTMLDivElement>(null);
@@ -125,7 +133,7 @@ export const IntroAnimatedText: FC = () => {
           className={'m-5 mx-auto flex max-w-[600px] flex-col p-5'}
         >
           <div className={'content text-6xl md:text-8xl'}>
-            <SplitText>Beauty Remains</SplitText>
+            <SplitText>{title1}</SplitText>
           </div>
         </div>
 
@@ -136,7 +144,7 @@ export const IntroAnimatedText: FC = () => {
           }
         >
           <div className={'content'}>
-            <SplitText>Stubborn</SplitText>
+            <SplitText>{title2}</SplitText>
           </div>
         </div>
 
@@ -147,14 +155,7 @@ export const IntroAnimatedText: FC = () => {
           }
         >
           <div className={'relative text-5xl md:text-7xl '}>
-            <SplitText>
-              Standing in the center of a circle. Long waves hearing a sound
-              that breathe across the space. Now lying outside far against the
-              walls. Hands handing hopes Wishing musical scores By swiftly
-              crossing lines of thoughts. Cause at the very present instant has
-              gone distant memories. They've let space to the extinction of
-              will.
-            </SplitText>
+            <SplitText>{long ?? ''}</SplitText>
           </div>
         </div>
       </div>
