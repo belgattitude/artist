@@ -19,11 +19,15 @@ export default function InMidFallPage() {
     <div>
       <div className={'flex w-full flex-row'}>
         {/* left sidebar */}
-        <div className={'flex max-w-[500px] flex-col bg-fuchsia-400'}>
+        <div
+          className={
+            'flex max-w-[500px] flex-col bg-gradient-to-tr from-fuchsia-400 to-fuchsia-300'
+          }
+        >
           {/* title top */}
           <div
             className={
-              'p-[150px] font-family-elika-gorika text-5xl text-fuchsia-100'
+              'p-[150px] font-family-elika-gorika text-5xl text-fuchsia-50'
             }
           >
             In mid fall
@@ -50,24 +54,30 @@ export default function InMidFallPage() {
             </div>
             <div>
               <b>Statement #2:</b> To give, to be, to face, to let go, to give
-              up, to stand, to try.
+              up, to stand, to try inside and outside.
               <div
                 className={clsx(
-                  'mt-5 border-white',
+                  'mt-5 h-[120px] border-white',
                   'relative flex grow flex-col pt-[20px] drop-shadow'
                 )}
               >
                 <VideoBackground
                   src={
-                    'https://media.failwell.be/alex/alex-experiment-one.m4v#t=17,28'
+                    'https://media.failwell.be/alex/alex-experiment-one.m4v#t=117,118'
                   }
                   playbackRate={0.6}
                   playing={true}
-                  loop={true}
-                  className={' '}
-                  // playbackStrategy={}
+                  loop={false}
+                  className={'contrast-75 saturate-0'}
+                  playbackStrategy={{
+                    type: 'playOnMouseOver',
+                  }}
                 />
               </div>
+            </div>
+            <div>
+              <b>In mid fall collective:</b> Sébastien Vanvelthem - Alexandra
+              Morette - Ezra Fieremans and friends.
             </div>
 
             <div className={'border-[10px] border-white p-5'}>
@@ -78,7 +88,9 @@ export default function InMidFallPage() {
               >
                 Attempt #1
               </div>
-              <div className={'mt-5 text-xl'}>Soon to become</div>
+              <div className={'mt-5 text-xl'}>
+                Soon to be, but actually not started
+              </div>
             </div>
           </div>
         </div>
