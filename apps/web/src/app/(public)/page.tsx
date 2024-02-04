@@ -20,6 +20,7 @@ const HomePage: FC = () => {
         />
       </div>
       <DynamicIntroAnimatedText
+        className={'mt-[150px] font-family-elika-gorika text-fuchsia-500'}
         title1={'Beauty remains'}
         title2={'Stubborn'}
         long={`

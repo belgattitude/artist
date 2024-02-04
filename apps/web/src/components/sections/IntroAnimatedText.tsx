@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic';
 import { type FC, useLayoutEffect, useRef } from 'react';
 
 import { SplitText } from '@/components/text/SplitText';
+import { cn } from '@/components/utils';
 
 import styles from './IntroAnimatedText.module.scss';
 
@@ -13,12 +14,13 @@ type Props = {
   title1: string;
   title2: string;
   long: string;
+  className?: string;
 };
 
 export const IntroAnimatedText: FC<Props> = (props) => {
   const app = useRef<HTMLDivElement>(null);
 
-  const { title1, title2, long } = props;
+  const { title1, title2, long, className } = props;
 
   const test = useRef<HTMLDivElement>(null);
   const test2 = useRef<HTMLDivElement>(null);
@@ -123,10 +125,7 @@ export const IntroAnimatedText: FC<Props> = (props) => {
   }, []);
 
   return (
-    <div
-      ref={app}
-      className={'mt-[150px] font-family-elika-gorika text-fuchsia-500'}
-    >
+    <div ref={app} className={cn('', className)}>
       <div className={`${styles.ctn} w-100 flex flex-col`}>
         <div
           ref={test}
@@ -151,7 +150,7 @@ export const IntroAnimatedText: FC<Props> = (props) => {
         <div
           ref={test3}
           className={
-            'container mx-auto mt-[90px] flex max-w-[700px] flex-col p-5 text-2xl'
+            'container mx-auto flex max-w-[700px] flex-col p-5 text-2xl'
           }
         >
           <div className={'relative text-5xl md:text-7xl '}>
