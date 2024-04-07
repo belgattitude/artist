@@ -60,7 +60,7 @@ export const AlexCtn: FC = () => {
     <>
       <div className={''}>
         <div className={'min-w-[800px] border-8 text-black'}>..........</div>
-        <div className={'flex h-[100vh] w-full flex-col'}>
+        <div className={'flex h-screen w-full flex-col'}>
           {/*
           <motion.div
             initial={{}}

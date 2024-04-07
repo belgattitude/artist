@@ -830,6 +830,7 @@ export interface components {
                           id?: number;
                           attributes?: {
                             action?: string;
+                            actionParameters?: unknown;
                             subject?: string;
                             properties?: unknown;
                             conditions?: unknown;
@@ -971,6 +972,7 @@ export interface components {
                           id?: number;
                           attributes?: {
                             action?: string;
+                            actionParameters?: unknown;
                             subject?: string;
                             properties?: unknown;
                             conditions?: unknown;
@@ -1195,6 +1197,7 @@ export interface components {
                                                       id?: number;
                                                       attributes?: {
                                                         action?: string;
+                                                        actionParameters?: unknown;
                                                         subject?: string;
                                                         properties?: unknown;
                                                         conditions?: unknown;
@@ -1623,6 +1626,7 @@ export interface components {
                                               id?: number;
                                               attributes?: {
                                                 action?: string;
+                                                actionParameters?: unknown;
                                                 subject?: string;
                                                 properties?: unknown;
                                                 conditions?: unknown;
@@ -1977,7 +1981,7 @@ export interface components {
         };
       };
       localizations?: {
-        data?: components["schemas"]["Word"][];
+        data?: components["schemas"]["WordListResponseDataItemLocalized"][];
       };
       locale?: string;
     };

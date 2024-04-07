@@ -1,13 +1,7 @@
 'use client';
 
 import { type ReactNode, useState } from 'react';
-import {
-  cacheExchange,
-  createClient,
-  dedupExchange,
-  fetchExchange,
-  Provider,
-} from 'urql';
+import { cacheExchange, createClient, fetchExchange, Provider } from 'urql';
 
 import { getStrapiURL } from '@/config/strapi.config';
 
@@ -22,8 +16,8 @@ export function UrqlProvider({
     return createClient({
       url: getStrapiURL('/graphql'),
       // disabled suspense: buggy as of nextjs 13.3.1, infinite requests, need to understand why ?
-      suspense: false,
-      exchanges: [dedupExchange, cacheExchange, fetchExchange],
+      // suspense: false,
+      exchanges: [cacheExchange, fetchExchange],
       fetchOptions: () => {
         // const token = getToken();;
         return {

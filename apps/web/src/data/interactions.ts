@@ -153,7 +153,7 @@ export const getInteractionData = (filters?: Filters) => {
       if (filters.slug && filters.slug === data.slug) {
         return true;
       }
-      if (filters.slugs && filters.slugs.includes(data.slug)) {
+      if (filters.slugs?.includes(data.slug)) {
         return true;
       }
       return false;

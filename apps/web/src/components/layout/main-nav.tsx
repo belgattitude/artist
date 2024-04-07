@@ -27,9 +27,9 @@ export const MainNav: FC<Props> = (props) => {
     >
       <nav>
         {isSideBarOpen ? (
-          <CloseIcon className={'h-6 w-6'} onClick={toggleSideBar} />
+          <CloseIcon className={'size-6'} onClick={toggleSideBar} />
         ) : (
-          <BurgerIcon className={'h-32 w-32'} onClick={toggleSideBar} />
+          <BurgerIcon className={'size-32'} onClick={toggleSideBar} />
         )}
 
         <MainSidebar mainLinks={mainNavLinks} />

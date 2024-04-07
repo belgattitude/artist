@@ -49,115 +49,6 @@ export type IBooleanFilterInput = {
   startsWith?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type IContentReleasesRelease = {
-  __typename?: 'ContentReleasesRelease';
-  actions?: Maybe<IContentReleasesReleaseActionRelationResponseCollection>;
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  name: Scalars['String']['output'];
-  releasedAt?: Maybe<Scalars['DateTime']['output']>;
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
-};
-
-
-export type IContentReleasesReleaseActionsArgs = {
-  filters?: InputMaybe<IContentReleasesReleaseActionFiltersInput>;
-  pagination?: InputMaybe<IPaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type IContentReleasesReleaseAction = {
-  __typename?: 'ContentReleasesReleaseAction';
-  contentType: Scalars['String']['output'];
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  entry?: Maybe<IGenericMorph>;
-  locale?: Maybe<Scalars['String']['output']>;
-  release?: Maybe<IContentReleasesReleaseEntityResponse>;
-  type: Enum_Contentreleasesreleaseaction_Type;
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
-};
-
-export type IContentReleasesReleaseActionEntity = {
-  __typename?: 'ContentReleasesReleaseActionEntity';
-  attributes?: Maybe<IContentReleasesReleaseAction>;
-  id?: Maybe<Scalars['ID']['output']>;
-};
-
-export type IContentReleasesReleaseActionEntityResponse = {
-  __typename?: 'ContentReleasesReleaseActionEntityResponse';
-  data?: Maybe<IContentReleasesReleaseActionEntity>;
-};
-
-export type IContentReleasesReleaseActionEntityResponseCollection = {
-  __typename?: 'ContentReleasesReleaseActionEntityResponseCollection';
-  data: Array<IContentReleasesReleaseActionEntity>;
-  meta: IResponseCollectionMeta;
-};
-
-export type IContentReleasesReleaseActionFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<IContentReleasesReleaseActionFiltersInput>>>;
-  contentType?: InputMaybe<IStringFilterInput>;
-  createdAt?: InputMaybe<IDateTimeFilterInput>;
-  id?: InputMaybe<IIdFilterInput>;
-  locale?: InputMaybe<IStringFilterInput>;
-  not?: InputMaybe<IContentReleasesReleaseActionFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<IContentReleasesReleaseActionFiltersInput>>>;
-  release?: InputMaybe<IContentReleasesReleaseFiltersInput>;
-  type?: InputMaybe<IStringFilterInput>;
-  updatedAt?: InputMaybe<IDateTimeFilterInput>;
-};
-
-export type IContentReleasesReleaseActionInput = {
-  contentType?: InputMaybe<Scalars['String']['input']>;
-  locale?: InputMaybe<Scalars['String']['input']>;
-  release?: InputMaybe<Scalars['ID']['input']>;
-  type?: InputMaybe<Enum_Contentreleasesreleaseaction_Type>;
-};
-
-export type IContentReleasesReleaseActionRelationResponseCollection = {
-  __typename?: 'ContentReleasesReleaseActionRelationResponseCollection';
-  data: Array<IContentReleasesReleaseActionEntity>;
-};
-
-export type IContentReleasesReleaseEntity = {
-  __typename?: 'ContentReleasesReleaseEntity';
-  attributes?: Maybe<IContentReleasesRelease>;
-  id?: Maybe<Scalars['ID']['output']>;
-};
-
-export type IContentReleasesReleaseEntityResponse = {
-  __typename?: 'ContentReleasesReleaseEntityResponse';
-  data?: Maybe<IContentReleasesReleaseEntity>;
-};
-
-export type IContentReleasesReleaseEntityResponseCollection = {
-  __typename?: 'ContentReleasesReleaseEntityResponseCollection';
-  data: Array<IContentReleasesReleaseEntity>;
-  meta: IResponseCollectionMeta;
-};
-
-export type IContentReleasesReleaseFiltersInput = {
-  actions?: InputMaybe<IContentReleasesReleaseActionFiltersInput>;
-  and?: InputMaybe<Array<InputMaybe<IContentReleasesReleaseFiltersInput>>>;
-  createdAt?: InputMaybe<IDateTimeFilterInput>;
-  id?: InputMaybe<IIdFilterInput>;
-  name?: InputMaybe<IStringFilterInput>;
-  not?: InputMaybe<IContentReleasesReleaseFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<IContentReleasesReleaseFiltersInput>>>;
-  releasedAt?: InputMaybe<IDateTimeFilterInput>;
-  updatedAt?: InputMaybe<IDateTimeFilterInput>;
-};
-
-export type IContentReleasesReleaseInput = {
-  actions?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  releasedAt?: InputMaybe<Scalars['DateTime']['input']>;
-};
-
-export type IContentReleasesReleaseRelationResponseCollection = {
-  __typename?: 'ContentReleasesReleaseRelationResponseCollection';
-  data: Array<IContentReleasesReleaseEntity>;
-};
-
 export type IDateFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
@@ -260,11 +151,6 @@ export type IDiaryRelationResponseCollection = {
   data: Array<IDiaryEntity>;
 };
 
-export enum Enum_Contentreleasesreleaseaction_Type {
-  Publish = 'publish',
-  Unpublish = 'unpublish'
-}
-
 export type IError = {
   __typename?: 'Error';
   code: Scalars['String']['output'];
@@ -302,7 +188,7 @@ export type IFloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IGenericMorph = IContentReleasesRelease | IContentReleasesReleaseAction | IDiary | II18NLocale | IProject | IRehearsal | IUploadFile | IUploadFolder | IUsersPermissionsPermission | IUsersPermissionsRole | IUsersPermissionsUser | IWord;
+export type IGenericMorph = IDiary | II18NLocale | IProject | IRehearsal | IUploadFile | IUploadFolder | IUsersPermissionsPermission | IUsersPermissionsRole | IUsersPermissionsUser | IWord;
 
 export type II18NLocale = {
   __typename?: 'I18NLocale';
@@ -453,8 +339,6 @@ export type ILongFilterInput = {
 export type IMutation = {
   __typename?: 'Mutation';
   changePassword?: Maybe<IUsersPermissionsLoginPayload>;
-  createContentReleasesRelease?: Maybe<IContentReleasesReleaseEntityResponse>;
-  createContentReleasesReleaseAction?: Maybe<IContentReleasesReleaseActionEntityResponse>;
   createDiary?: Maybe<IDiaryEntityResponse>;
   createProject?: Maybe<IProjectEntityResponse>;
   createRehearsal?: Maybe<IRehearsalEntityResponse>;
@@ -464,8 +348,6 @@ export type IMutation = {
   createUsersPermissionsUser: IUsersPermissionsUserEntityResponse;
   createWord?: Maybe<IWordEntityResponse>;
   createWordLocalization?: Maybe<IWordEntityResponse>;
-  deleteContentReleasesRelease?: Maybe<IContentReleasesReleaseEntityResponse>;
-  deleteContentReleasesReleaseAction?: Maybe<IContentReleasesReleaseActionEntityResponse>;
   deleteDiary?: Maybe<IDiaryEntityResponse>;
   deleteProject?: Maybe<IProjectEntityResponse>;
   deleteRehearsal?: Maybe<IRehearsalEntityResponse>;
@@ -481,8 +363,6 @@ export type IMutation = {
   register: IUsersPermissionsLoginPayload;
   removeFile?: Maybe<IUploadFileEntityResponse>;
   resetPassword?: Maybe<IUsersPermissionsLoginPayload>;
-  updateContentReleasesRelease?: Maybe<IContentReleasesReleaseEntityResponse>;
-  updateContentReleasesReleaseAction?: Maybe<IContentReleasesReleaseActionEntityResponse>;
   updateDiary?: Maybe<IDiaryEntityResponse>;
   updateFileInfo: IUploadFileEntityResponse;
   updateProject?: Maybe<IProjectEntityResponse>;
@@ -500,16 +380,6 @@ export type IMutationChangePasswordArgs = {
   currentPassword: Scalars['String']['input'];
   password: Scalars['String']['input'];
   passwordConfirmation: Scalars['String']['input'];
-};
-
-
-export type IMutationCreateContentReleasesReleaseArgs = {
-  data: IContentReleasesReleaseInput;
-};
-
-
-export type IMutationCreateContentReleasesReleaseActionArgs = {
-  data: IContentReleasesReleaseActionInput;
 };
 
 
@@ -558,16 +428,6 @@ export type IMutationCreateWordLocalizationArgs = {
   data?: InputMaybe<IWordInput>;
   id?: InputMaybe<Scalars['ID']['input']>;
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
-};
-
-
-export type IMutationDeleteContentReleasesReleaseArgs = {
-  id: Scalars['ID']['input'];
-};
-
-
-export type IMutationDeleteContentReleasesReleaseActionArgs = {
-  id: Scalars['ID']['input'];
 };
 
 
@@ -649,18 +509,6 @@ export type IMutationResetPasswordArgs = {
   code: Scalars['String']['input'];
   password: Scalars['String']['input'];
   passwordConfirmation: Scalars['String']['input'];
-};
-
-
-export type IMutationUpdateContentReleasesReleaseArgs = {
-  data: IContentReleasesReleaseInput;
-  id: Scalars['ID']['input'];
-};
-
-
-export type IMutationUpdateContentReleasesReleaseActionArgs = {
-  data: IContentReleasesReleaseActionInput;
-  id: Scalars['ID']['input'];
 };
 
 
@@ -795,10 +643,6 @@ export enum PublicationState {
 
 export type IQuery = {
   __typename?: 'Query';
-  contentReleasesRelease?: Maybe<IContentReleasesReleaseEntityResponse>;
-  contentReleasesReleaseAction?: Maybe<IContentReleasesReleaseActionEntityResponse>;
-  contentReleasesReleaseActions?: Maybe<IContentReleasesReleaseActionEntityResponseCollection>;
-  contentReleasesReleases?: Maybe<IContentReleasesReleaseEntityResponseCollection>;
   diaries?: Maybe<IDiaryEntityResponseCollection>;
   diary?: Maybe<IDiaryEntityResponse>;
   i18NLocale?: Maybe<II18NLocaleEntityResponse>;
@@ -818,30 +662,6 @@ export type IQuery = {
   usersPermissionsUsers?: Maybe<IUsersPermissionsUserEntityResponseCollection>;
   word?: Maybe<IWordEntityResponse>;
   words?: Maybe<IWordEntityResponseCollection>;
-};
-
-
-export type IQueryContentReleasesReleaseArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-};
-
-
-export type IQueryContentReleasesReleaseActionArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-};
-
-
-export type IQueryContentReleasesReleaseActionsArgs = {
-  filters?: InputMaybe<IContentReleasesReleaseActionFiltersInput>;
-  pagination?: InputMaybe<IPaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-
-export type IQueryContentReleasesReleasesArgs = {
-  filters?: InputMaybe<IContentReleasesReleaseFiltersInput>;
-  pagination?: InputMaybe<IPaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
