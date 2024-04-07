@@ -27,98 +27,6 @@ input BooleanFilterInput {
   startsWith: Boolean
 }
 
-type ContentReleasesRelease {
-  actions(filters: ContentReleasesReleaseActionFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ContentReleasesReleaseActionRelationResponseCollection
-  createdAt: DateTime
-  name: String!
-  releasedAt: DateTime
-  updatedAt: DateTime
-}
-
-type ContentReleasesReleaseAction {
-  contentType: String!
-  createdAt: DateTime
-  entry: GenericMorph
-  locale: String
-  release: ContentReleasesReleaseEntityResponse
-  type: ENUM_CONTENTRELEASESRELEASEACTION_TYPE!
-  updatedAt: DateTime
-}
-
-type ContentReleasesReleaseActionEntity {
-  attributes: ContentReleasesReleaseAction
-  id: ID
-}
-
-type ContentReleasesReleaseActionEntityResponse {
-  data: ContentReleasesReleaseActionEntity
-}
-
-type ContentReleasesReleaseActionEntityResponseCollection {
-  data: [ContentReleasesReleaseActionEntity!]!
-  meta: ResponseCollectionMeta!
-}
-
-input ContentReleasesReleaseActionFiltersInput {
-  and: [ContentReleasesReleaseActionFiltersInput]
-  contentType: StringFilterInput
-  createdAt: DateTimeFilterInput
-  id: IDFilterInput
-  locale: StringFilterInput
-  not: ContentReleasesReleaseActionFiltersInput
-  or: [ContentReleasesReleaseActionFiltersInput]
-  release: ContentReleasesReleaseFiltersInput
-  type: StringFilterInput
-  updatedAt: DateTimeFilterInput
-}
-
-input ContentReleasesReleaseActionInput {
-  contentType: String
-  locale: String
-  release: ID
-  type: ENUM_CONTENTRELEASESRELEASEACTION_TYPE
-}
-
-type ContentReleasesReleaseActionRelationResponseCollection {
-  data: [ContentReleasesReleaseActionEntity!]!
-}
-
-type ContentReleasesReleaseEntity {
-  attributes: ContentReleasesRelease
-  id: ID
-}
-
-type ContentReleasesReleaseEntityResponse {
-  data: ContentReleasesReleaseEntity
-}
-
-type ContentReleasesReleaseEntityResponseCollection {
-  data: [ContentReleasesReleaseEntity!]!
-  meta: ResponseCollectionMeta!
-}
-
-input ContentReleasesReleaseFiltersInput {
-  actions: ContentReleasesReleaseActionFiltersInput
-  and: [ContentReleasesReleaseFiltersInput]
-  createdAt: DateTimeFilterInput
-  id: IDFilterInput
-  name: StringFilterInput
-  not: ContentReleasesReleaseFiltersInput
-  or: [ContentReleasesReleaseFiltersInput]
-  releasedAt: DateTimeFilterInput
-  updatedAt: DateTimeFilterInput
-}
-
-input ContentReleasesReleaseInput {
-  actions: [ID]
-  name: String
-  releasedAt: DateTime
-}
-
-type ContentReleasesReleaseRelationResponseCollection {
-  data: [ContentReleasesReleaseEntity!]!
-}
-
 """
 A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
 """
@@ -226,11 +134,6 @@ type DiaryRelationResponseCollection {
   data: [DiaryEntity!]!
 }
 
-enum ENUM_CONTENTRELEASESRELEASEACTION_TYPE {
-  publish
-  unpublish
-}
-
 type Error {
   code: String!
   message: String
@@ -267,7 +170,7 @@ input FloatFilterInput {
   startsWith: Float
 }
 
-union GenericMorph = ContentReleasesRelease | ContentReleasesReleaseAction | Diary | I18NLocale | Project | Rehearsal | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | Word
+union GenericMorph = Diary | I18NLocale | Project | Rehearsal | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | Word
 
 type I18NLocale {
   code: String
@@ -426,8 +329,6 @@ input LongFilterInput {
 type Mutation {
   """Change user password. Confirm with the current password."""
   changePassword(currentPassword: String!, password: String!, passwordConfirmation: String!): UsersPermissionsLoginPayload
-  createContentReleasesRelease(data: ContentReleasesReleaseInput!): ContentReleasesReleaseEntityResponse
-  createContentReleasesReleaseAction(data: ContentReleasesReleaseActionInput!): ContentReleasesReleaseActionEntityResponse
   createDiary(data: DiaryInput!): DiaryEntityResponse
   createProject(data: ProjectInput!): ProjectEntityResponse
   createRehearsal(data: RehearsalInput!): RehearsalEntityResponse
@@ -441,8 +342,6 @@ type Mutation {
   createUsersPermissionsUser(data: UsersPermissionsUserInput!): UsersPermissionsUserEntityResponse!
   createWord(data: WordInput!, locale: I18NLocaleCode): WordEntityResponse
   createWordLocalization(data: WordInput, id: ID, locale: I18NLocaleCode): WordEntityResponse
-  deleteContentReleasesRelease(id: ID!): ContentReleasesReleaseEntityResponse
-  deleteContentReleasesReleaseAction(id: ID!): ContentReleasesReleaseActionEntityResponse
   deleteDiary(id: ID!): DiaryEntityResponse
   deleteProject(id: ID!): ProjectEntityResponse
   deleteRehearsal(id: ID!): RehearsalEntityResponse
@@ -472,8 +371,6 @@ type Mutation {
   Reset user password. Confirm with a code (resetToken from forgotPassword)
   """
   resetPassword(code: String!, password: String!, passwordConfirmation: String!): UsersPermissionsLoginPayload
-  updateContentReleasesRelease(data: ContentReleasesReleaseInput!, id: ID!): ContentReleasesReleaseEntityResponse
-  updateContentReleasesReleaseAction(data: ContentReleasesReleaseActionInput!, id: ID!): ContentReleasesReleaseActionEntityResponse
   updateDiary(data: DiaryInput!, id: ID!): DiaryEntityResponse
   updateFileInfo(id: ID!, info: FileInfoInput): UploadFileEntityResponse!
   updateProject(data: ProjectInput!, id: ID!): ProjectEntityResponse
@@ -551,10 +448,6 @@ enum PublicationState {
 }
 
 type Query {
-  contentReleasesRelease(id: ID): ContentReleasesReleaseEntityResponse
-  contentReleasesReleaseAction(id: ID): ContentReleasesReleaseActionEntityResponse
-  contentReleasesReleaseActions(filters: ContentReleasesReleaseActionFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ContentReleasesReleaseActionEntityResponseCollection
-  contentReleasesReleases(filters: ContentReleasesReleaseFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ContentReleasesReleaseEntityResponseCollection
   diaries(filters: DiaryFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): DiaryEntityResponseCollection
   diary(id: ID): DiaryEntityResponse
   i18NLocale(id: ID): I18NLocaleEntityResponse

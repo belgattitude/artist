@@ -10376,17 +10376,13 @@ snapshots:
 
   '@csstools/postcss-cascade-layers@4.0.4(postcss@8.4.35)':
     dependencies:
-      '@csstools/selector-specificity': 3.0.3(postcss-selector-parser@6.0.15)
+      '@csstools/selector-specificity': 3.0.3(postcss-selector-parser@6.0.16)
       postcss: 8.4.35
-      postcss-selector-parser: 6.0.15
+      postcss-selector-parser: 6.0.16
 
   '@csstools/selector-resolve-nested@1.1.0(postcss-selector-parser@6.0.16)':
     dependencies:
       postcss-selector-parser: 6.0.16
-
-  '@csstools/selector-specificity@3.0.3(postcss-selector-parser@6.0.15)':
-    dependencies:
-      postcss-selector-parser: 6.0.15
 
   '@csstools/selector-specificity@3.0.3(postcss-selector-parser@6.0.16)':
     dependencies:
@@ -13046,7 +13042,7 @@ snapshots:
       '@vue/compiler-ssr': 3.4.19
       '@vue/shared': 3.4.19
       estree-walker: 2.0.2
-      magic-string: 0.30.8
+      magic-string: 0.30.9
       postcss: 8.4.38
       source-map-js: 1.2.0
 
@@ -17988,12 +17984,12 @@ snapshots:
       caniuse-api: 3.0.0
       cssnano-utils: 4.0.2(postcss@8.4.35)
       postcss: 8.4.35
-      postcss-selector-parser: 6.0.15
+      postcss-selector-parser: 6.0.16
 
   postcss-minify-selectors@6.0.2(postcss@8.4.35):
     dependencies:
       postcss: 8.4.35
-      postcss-selector-parser: 6.0.15
+      postcss-selector-parser: 6.0.16
 
   postcss-modules-extract-imports@3.1.0(postcss@8.4.38):
     dependencies:
