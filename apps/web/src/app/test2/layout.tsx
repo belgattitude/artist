@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <MainLayout hideMainNav={true}>
             <div
               className={
-                'flex h-full w-full bg-black font-family-inter text-[#fefefe]'
+                'flex size-full bg-black font-family-inter text-[#fefefe]'
               }
             >
               {children}
