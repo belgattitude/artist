@@ -4,7 +4,6 @@
  */
 
 // Workaround for https://github.com/eslint/eslint/issues/3458
-// eslint-disable-next-line import/no-unassigned-import
 require('@belgattitude/eslint-config-bases/patch/modern-module-resolution');
 
 const {
@@ -22,6 +21,8 @@ module.exports = {
   extends: [
     '@belgattitude/eslint-config-bases/typescript',
     '@belgattitude/eslint-config-bases/simple-import-sort',
+    '@belgattitude/eslint-config-bases/import-x',
+
     '@belgattitude/eslint-config-bases/jest',
     // Apply prettier and disable incompatible rules
     '@belgattitude/eslint-config-bases/prettier-plugin',
