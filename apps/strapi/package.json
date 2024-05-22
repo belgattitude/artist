@@ -18,21 +18,21 @@
     "docker:build": "docker compose build"
   },
   "dependencies": {
-    "@strapi/plugin-documentation": "4.24.0",
-    "@strapi/plugin-graphql": "4.24.0",
-    "@strapi/plugin-i18n": "4.24.0",
-    "@strapi/plugin-users-permissions": "4.24.0",
-    "@strapi/strapi": "4.24.0",
-    "better-sqlite3": "9.6.0",
+    "@strapi/plugin-documentation": "4.24.3",
+    "@strapi/plugin-graphql": "4.24.3",
+    "@strapi/plugin-i18n": "4.24.3",
+    "@strapi/plugin-users-permissions": "4.24.3",
+    "@strapi/strapi": "4.24.3",
+    "better-sqlite3": "10.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^5.3.4",
     "styled-components": "^5.3.11"
   },
   "devDependencies": {
-    "rimraf": "5.0.5"
+    "rimraf": "5.0.7"
   },
-  "packageManager": "yarn@4.1.1",
+  "packageManager": "yarn@4.2.2",
   "engines": {
     "node": ">=18.18",
     "yarn": ">=4.0.2"
