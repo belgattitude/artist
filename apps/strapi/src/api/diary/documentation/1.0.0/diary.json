@@ -63,9 +63,7 @@
           }
         }
       },
-      "tags": [
-        "Diary"
-      ],
+      "tags": ["Diary"],
       "parameters": [
         {
           "name": "sort",
@@ -154,7 +152,8 @@
           "deprecated": false,
           "required": false,
           "schema": {
-            "type": "object"
+            "type": "object",
+            "additionalProperties": true
           },
           "style": "deepObject"
         },
@@ -234,9 +233,7 @@
           }
         }
       },
-      "tags": [
-        "Diary"
-      ],
+      "tags": ["Diary"],
       "parameters": [],
       "operationId": "post/diaries",
       "requestBody": {
@@ -315,9 +312,7 @@
           }
         }
       },
-      "tags": [
-        "Diary"
-      ],
+      "tags": ["Diary"],
       "parameters": [
         {
           "name": "id",
@@ -395,9 +390,7 @@
           }
         }
       },
-      "tags": [
-        "Diary"
-      ],
+      "tags": ["Diary"],
       "parameters": [
         {
           "name": "id",
@@ -486,9 +479,7 @@
           }
         }
       },
-      "tags": [
-        "Diary"
-      ],
+      "tags": ["Diary"],
       "parameters": [
         {
           "name": "id",

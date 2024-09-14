@@ -24,28 +24,32 @@
     "test-unit": "vitest run",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "clean": "rimraf ./dist ./tsconfig.tsbuildinfo ./node_modules/.cache",
-    "codegen": "dotenv-flow -- node ./scripts/generate-openapi-types.mjs"
+    "codegen": "dotenv-flow -- tsx ./scripts/generate-openapi-types.ts"
   },
   "dependencies": {
     "server-only": "0.0.1"
   },
   "devDependencies": {
-    "@belgattitude/eslint-config-bases": "5.9.0",
+    "@belgattitude/eslint-config-bases": "6.0.0-canary.11",
+    "@typescript-eslint/eslint-plugin": "8.5.0",
+    "@typescript-eslint/typescript-estree": "8.5.0",
     "@types/fs-extra": "11.0.4",
-    "@types/node": "20.12.12",
+    "@types/node": "22.5.5",
     "cross-env": "7.0.3",
     "dotenv-flow-cli": "1.1.1",
+    "esbuild": "0.23.1",
     "eslint": "8.57.0",
-    "fs-extra": "11.2.0",
-    "openapi-typescript": "6.7.6",
-    "picocolors": "1.0.1",
-    "prettier": "3.2.5",
-    "rimraf": "5.0.7",
-    "rollup": "4.18.0",
-    "tsup": "8.0.2",
-    "typescript": "5.4.5",
-    "vite": "5.2.11",
-    "vite-tsconfig-paths": "4.3.2",
-    "vitest": "1.6.0"
+    "openapi-typescript": "7.4.0",
+    "picocolors": "1.1.0",
+    "prettier": "3.3.3",
+    "rimraf": "6.0.1",
+    "rollup": "4.21.3",
+    "tsup": "8.2.4",
+    "tsx": "4.19.1",
+    "typescript": "5.6.2",
+    "valibot": "0.41.0",
+    "vite": "5.4.5",
+    "vite-tsconfig-paths": "5.0.1",
+    "vitest": "2.1.1"
   }
 }

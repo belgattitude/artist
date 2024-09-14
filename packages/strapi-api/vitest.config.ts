@@ -4,41 +4,47 @@ import { defineConfig } from 'vitest/config';
 const testFiles = ['./src/**/*.test.{js,ts}', './test/**/*.test.{js,ts}'];
 
 export default defineConfig({
-  plugins: [tsconfigPaths()],
   esbuild: {
-    target: ['node16'],
+    target: ['node18'],
   },
+  plugins: [tsconfigPaths()],
+  cacheDir: '../../.cache/vite/api',
   test: {
-    globals: true,
-    environment: 'node',
-    passWithNoTests: true,
-    setupFiles: './test/_setup/setupVitest.ts',
-    cache: {
-      dir: '../../.cache/vitest/api',
-    },
-    coverage: {
-      provider: 'istanbul',
-      reporter: ['text', 'json', 'clover'],
-      all: true,
-      include: ['src/**/*.{js,jsx,ts,tsx}'],
-    },
-    deps: {
-      /*
-      experimentalOptimizer: {
-        enabled: false,
-      }, */
-    },
-    include: testFiles,
-    // To mimic Jest behaviour regarding mocks.
     // @link https://vitest.dev/config/#clearmocks
     clearMocks: true,
-    mockReset: true,
-    restoreMocks: true,
+    coverage: {
+      all: true,
+      include: ['src/**/*.{js,jsx,ts,tsx}'],
+      provider: 'istanbul',
+      reporter: ['text', 'json', 'clover'],
+    },
+    typecheck: {
+      enabled: false,
+    },
+    pool: 'forks',
+    poolOptions: {
+      vmThreads: {
+        // useAtomics: true,
+      },
+      threads: {
+        // minThreads: 1,
+        // maxThreads: 16,
+        useAtomics: true, // perf+
+        isolate: false, // perf+++
+      },
+    },
+    environment: 'node',
     exclude: [
       '**/node_modules/**',
       'dist/**',
       '**/coverage/**',
       '**/.{idea,git,cache,output,temp}/**',
     ],
+    globals: true,
+    include: testFiles,
+    // To mimic Jest behaviour regarding mocks.
+    mockReset: true,
+    passWithNoTests: false,
+    restoreMocks: true,
   },
 });
