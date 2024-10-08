@@ -11,21 +11,24 @@ const {
 } = require('@belgattitude/eslint-config-bases/helpers');
 
 module.exports = {
-  root: true,
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    tsconfigRootDir: __dirname,
-    project: 'tsconfig.json',
-  },
-  ignorePatterns: [...getDefaultIgnorePatterns(), '**/generated/**'],
   extends: [
     '@belgattitude/eslint-config-bases/typescript',
     '@belgattitude/eslint-config-bases/simple-import-sort',
     '@belgattitude/eslint-config-bases/import-x',
-
+    '@belgattitude/eslint-config-bases/sonar',
+    '@belgattitude/eslint-config-bases/regexp',
     '@belgattitude/eslint-config-bases/jest',
+    '@belgattitude/eslint-config-bases/performance',
+
     // Apply prettier and disable incompatible rules
     '@belgattitude/eslint-config-bases/prettier-plugin',
   ],
+  ignorePatterns: [...getDefaultIgnorePatterns(), '**/generated/**'],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    projectService: true,
+    tsconfigRootDir: __dirname,
+  },
+  root: true,
   rules: {},
 };

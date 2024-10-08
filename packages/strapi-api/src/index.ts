@@ -1,1 +1,1 @@
-export * from './generated/openapi/openapi.types';
+export type * from './generated/openapi/openapi.types';

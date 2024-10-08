@@ -13,16 +13,19 @@
     "allowSyntheticDefaultImports": true,
     "noEmit": false,
     "incremental": true,
+    "allowJs": true,
     "resolveJsonModule": true,
     "paths": {},
     "types": ["vitest/globals"]
   },
-  "exclude": ["**/node_modules", "**/.*/*", "./dist", "./coverage"],
+  "exclude": ["**/node_modules", "**/.*/*", "dist", "coverage"],
   "include": [
-    ".eslintrc.*",
+    ".eslintrc.cjs",
     "**/*.ts",
+    "**/*.tsx",
     "**/*.js",
-    "**/.cjs",
+    "**/*.jsx",
+    "**/*.cjs",
     "**/*.mjs",
     "**/*.json"
   ]
