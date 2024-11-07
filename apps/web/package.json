@@ -4,7 +4,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prepare-disabled": "panda codegen",
     "dev": "next dev",
     "dev-no-tls": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 next dev",
     "build": "next build",
@@ -17,8 +16,7 @@
     "clean": "rimraf ./.next ./out ./coverage ./tsconfig.tsbuildinfo ./node_modules/.cache",
     "codegen-graphql-schema": "dotenv-flow -- pnpm graphql-codegen --config codegen.schema-ast.ts",
     "codegen-graphql": "dotenv-flow -- pnpm graphql-codegen --config codegen.ts",
-    "codegen-panda": "panda codegen",
-    "codegen": "run-s codegen-graphql-schema codegen-graphql codegen-panda",
+    "codegen": "run-s codegen-graphql-schema codegen-graphql",
     "bundle-analyze": "cross-env ANALYZE=true NEXTJS_IGNORE_TYPECHECK=1 NEXTJS_IGNORE_LINT=1 next build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -83,7 +81,6 @@
     "@graphql-codegen/typescript-urql": "4.0.0",
     "@graphql-typed-document-node/core": "3.2.0",
     "@next/bundle-analyzer": "14.2.15",
-    "@pandacss/dev": "0.46.1",
     "@storybook/addon-essentials": "8.3.5",
     "@storybook/addon-interactions": "8.3.5",
     "@storybook/addon-links": "8.3.5",

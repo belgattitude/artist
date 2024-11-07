@@ -127,22 +127,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/words/{id}/localizations": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post: operations["post/words/{id}/localizations"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
     "/upload": {
         parameters: {
             query?: never;
@@ -2057,10 +2041,6 @@ export interface components {
                                 attributes?: Record<string, never>;
                             };
                         };
-                        localizations?: {
-                            data?: unknown[];
-                        };
-                        locale?: string;
                     };
                 }[];
             };
@@ -2091,17 +2071,6 @@ export interface components {
             data?: components["schemas"]["RehearsalResponseDataObject"];
             meta?: Record<string, never>;
         };
-        WordLocalizationRequest: {
-            name: string;
-            slug: string;
-            definition?: string;
-            /** @example string or id */
-            cover?: number | string;
-            /** @example string or id */
-            video?: number | string;
-            rehearsals?: (number | string)[];
-            locale: string;
-        };
         WordRequest: {
             data: {
                 name: string;
@@ -2112,30 +2081,6 @@ export interface components {
                 /** @example string or id */
                 video?: number | string;
                 rehearsals?: (number | string)[];
-                locale?: string;
-            };
-        };
-        WordResponseDataObjectLocalized: {
-            id?: number;
-            attributes?: components["schemas"]["Word"];
-        };
-        WordLocalizationResponse: {
-            data?: components["schemas"]["WordResponseDataObjectLocalized"];
-            meta?: Record<string, never>;
-        };
-        WordListResponseDataItemLocalized: {
-            id?: number;
-            attributes?: components["schemas"]["Word"];
-        };
-        WordLocalizationListResponse: {
-            data?: components["schemas"]["WordListResponseDataItemLocalized"][];
-            meta?: {
-                pagination?: {
-                    page?: number;
-                    pageSize?: number;
-                    pageCount?: number;
-                    total?: number;
-                };
             };
         };
         WordListResponseDataItem: {
@@ -2574,10 +2519,6 @@ export interface components {
                                             attributes?: Record<string, never>;
                                         };
                                     };
-                                    localizations?: {
-                                        data?: unknown[];
-                                    };
-                                    locale?: string;
                                 };
                             }[];
                         };
@@ -2620,10 +2561,6 @@ export interface components {
                     attributes?: Record<string, never>;
                 };
             };
-            localizations?: {
-                data?: components["schemas"]["WordListResponseDataItemLocalized"][];
-            };
-            locale?: string;
         };
         WordResponseDataObject: {
             id?: number;
@@ -4143,77 +4080,6 @@ export interface operations {
                 };
                 content: {
                     "application/json": number;
-                };
-            };
-            /** @description Bad Request */
-            400: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-            /** @description Unauthorized */
-            401: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-            /** @description Forbidden */
-            403: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-            /** @description Not Found */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-            /** @description Internal Server Error */
-            500: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Error"];
-                };
-            };
-        };
-    };
-    "post/words/{id}/localizations": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["WordLocalizationRequest"];
-            };
-        };
-        responses: {
-            /** @description OK */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["WordLocalizationResponse"];
                 };
             };
             /** @description Bad Request */

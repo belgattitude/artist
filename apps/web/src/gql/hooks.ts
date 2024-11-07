@@ -2,26 +2,38 @@ import gql from 'graphql-tag';
 import * as Urql from 'urql';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
-export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
+export type MakeEmpty<
+  T extends { [key: string]: unknown },
+  K extends keyof T,
+> = { [_ in K]?: never };
+export type Incremental<T> =
+  | T
+  | {
+      [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never;
+    };
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string; output: string; }
-  String: { input: string; output: string; }
-  Boolean: { input: boolean; output: boolean; }
-  Int: { input: number; output: number; }
-  Float: { input: number; output: number; }
-  Date: { input: unknown; output: unknown; }
-  DateTime: { input: unknown; output: unknown; }
-  I18NLocaleCode: { input: unknown; output: unknown; }
-  JSON: { input: unknown; output: unknown; }
-  Long: { input: unknown; output: unknown; }
-  Time: { input: unknown; output: unknown; }
-  Upload: { input: unknown; output: unknown; }
+  ID: { input: string; output: string };
+  String: { input: string; output: string };
+  Boolean: { input: boolean; output: boolean };
+  Int: { input: number; output: number };
+  Float: { input: number; output: number };
+  Date: { input: unknown; output: unknown };
+  DateTime: { input: unknown; output: unknown };
+  JSON: { input: unknown; output: unknown };
+  Long: { input: unknown; output: unknown };
+  Time: { input: unknown; output: unknown };
+  Upload: { input: unknown; output: unknown };
 };
 
 export type IBooleanFilterInput = {
@@ -188,53 +200,16 @@ export type IFloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type IGenericMorph = IDiary | II18NLocale | IProject | IRehearsal | IUploadFile | IUploadFolder | IUsersPermissionsPermission | IUsersPermissionsRole | IUsersPermissionsUser | IWord;
-
-export type II18NLocale = {
-  __typename?: 'I18NLocale';
-  code?: Maybe<Scalars['String']['output']>;
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  name?: Maybe<Scalars['String']['output']>;
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
-};
-
-export type II18NLocaleEntity = {
-  __typename?: 'I18NLocaleEntity';
-  attributes?: Maybe<II18NLocale>;
-  id?: Maybe<Scalars['ID']['output']>;
-};
-
-export type II18NLocaleEntityResponse = {
-  __typename?: 'I18NLocaleEntityResponse';
-  data?: Maybe<II18NLocaleEntity>;
-};
-
-export type II18NLocaleEntityResponseCollection = {
-  __typename?: 'I18NLocaleEntityResponseCollection';
-  data: Array<II18NLocaleEntity>;
-  meta: IResponseCollectionMeta;
-};
-
-export type II18NLocaleFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<II18NLocaleFiltersInput>>>;
-  code?: InputMaybe<IStringFilterInput>;
-  createdAt?: InputMaybe<IDateTimeFilterInput>;
-  id?: InputMaybe<IIdFilterInput>;
-  name?: InputMaybe<IStringFilterInput>;
-  not?: InputMaybe<II18NLocaleFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<II18NLocaleFiltersInput>>>;
-  updatedAt?: InputMaybe<IDateTimeFilterInput>;
-};
-
-export type II18NLocaleInput = {
-  code?: InputMaybe<Scalars['String']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type II18NLocaleRelationResponseCollection = {
-  __typename?: 'I18NLocaleRelationResponseCollection';
-  data: Array<II18NLocaleEntity>;
-};
+export type IGenericMorph =
+  | IDiary
+  | IProject
+  | IRehearsal
+  | IUploadFile
+  | IUploadFolder
+  | IUsersPermissionsPermission
+  | IUsersPermissionsRole
+  | IUsersPermissionsUser
+  | IWord;
 
 export type IIdFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
@@ -347,7 +322,6 @@ export type IMutation = {
   createUsersPermissionsRole?: Maybe<IUsersPermissionsCreateRolePayload>;
   createUsersPermissionsUser: IUsersPermissionsUserEntityResponse;
   createWord?: Maybe<IWordEntityResponse>;
-  createWordLocalization?: Maybe<IWordEntityResponse>;
   deleteDiary?: Maybe<IDiaryEntityResponse>;
   deleteProject?: Maybe<IProjectEntityResponse>;
   deleteRehearsal?: Maybe<IRehearsalEntityResponse>;
@@ -375,117 +349,87 @@ export type IMutation = {
   upload: IUploadFileEntityResponse;
 };
 
-
 export type IMutationChangePasswordArgs = {
   currentPassword: Scalars['String']['input'];
   password: Scalars['String']['input'];
   passwordConfirmation: Scalars['String']['input'];
 };
 
-
 export type IMutationCreateDiaryArgs = {
   data: IDiaryInput;
 };
-
 
 export type IMutationCreateProjectArgs = {
   data: IProjectInput;
 };
 
-
 export type IMutationCreateRehearsalArgs = {
   data: IRehearsalInput;
 };
-
 
 export type IMutationCreateUploadFileArgs = {
   data: IUploadFileInput;
 };
 
-
 export type IMutationCreateUploadFolderArgs = {
   data: IUploadFolderInput;
 };
-
 
 export type IMutationCreateUsersPermissionsRoleArgs = {
   data: IUsersPermissionsRoleInput;
 };
 
-
 export type IMutationCreateUsersPermissionsUserArgs = {
   data: IUsersPermissionsUserInput;
 };
 
-
 export type IMutationCreateWordArgs = {
   data: IWordInput;
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
-
-
-export type IMutationCreateWordLocalizationArgs = {
-  data?: InputMaybe<IWordInput>;
-  id?: InputMaybe<Scalars['ID']['input']>;
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
-};
-
 
 export type IMutationDeleteDiaryArgs = {
   id: Scalars['ID']['input'];
 };
 
-
 export type IMutationDeleteProjectArgs = {
   id: Scalars['ID']['input'];
 };
-
 
 export type IMutationDeleteRehearsalArgs = {
   id: Scalars['ID']['input'];
 };
 
-
 export type IMutationDeleteUploadFileArgs = {
   id: Scalars['ID']['input'];
 };
-
 
 export type IMutationDeleteUploadFolderArgs = {
   id: Scalars['ID']['input'];
 };
 
-
 export type IMutationDeleteUsersPermissionsRoleArgs = {
   id: Scalars['ID']['input'];
 };
-
 
 export type IMutationDeleteUsersPermissionsUserArgs = {
   id: Scalars['ID']['input'];
 };
 
-
 export type IMutationDeleteWordArgs = {
   id: Scalars['ID']['input'];
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
-
 
 export type IMutationEmailConfirmationArgs = {
   confirmation: Scalars['String']['input'];
 };
 
-
 export type IMutationForgotPasswordArgs = {
   email: Scalars['String']['input'];
 };
 
-
 export type IMutationLoginArgs = {
   input: IUsersPermissionsLoginInput;
 };
-
 
 export type IMutationMultipleUploadArgs = {
   field?: InputMaybe<Scalars['String']['input']>;
@@ -494,16 +438,13 @@ export type IMutationMultipleUploadArgs = {
   refId?: InputMaybe<Scalars['ID']['input']>;
 };
 
-
 export type IMutationRegisterArgs = {
   input: IUsersPermissionsRegisterInput;
 };
 
-
 export type IMutationRemoveFileArgs = {
   id: Scalars['ID']['input'];
 };
-
 
 export type IMutationResetPasswordArgs = {
   code: Scalars['String']['input'];
@@ -511,61 +452,50 @@ export type IMutationResetPasswordArgs = {
   passwordConfirmation: Scalars['String']['input'];
 };
 
-
 export type IMutationUpdateDiaryArgs = {
   data: IDiaryInput;
   id: Scalars['ID']['input'];
 };
-
 
 export type IMutationUpdateFileInfoArgs = {
   id: Scalars['ID']['input'];
   info?: InputMaybe<IFileInfoInput>;
 };
 
-
 export type IMutationUpdateProjectArgs = {
   data: IProjectInput;
   id: Scalars['ID']['input'];
 };
-
 
 export type IMutationUpdateRehearsalArgs = {
   data: IRehearsalInput;
   id: Scalars['ID']['input'];
 };
 
-
 export type IMutationUpdateUploadFileArgs = {
   data: IUploadFileInput;
   id: Scalars['ID']['input'];
 };
-
 
 export type IMutationUpdateUploadFolderArgs = {
   data: IUploadFolderInput;
   id: Scalars['ID']['input'];
 };
 
-
 export type IMutationUpdateUsersPermissionsRoleArgs = {
   data: IUsersPermissionsRoleInput;
   id: Scalars['ID']['input'];
 };
-
 
 export type IMutationUpdateUsersPermissionsUserArgs = {
   data: IUsersPermissionsUserInput;
   id: Scalars['ID']['input'];
 };
 
-
 export type IMutationUpdateWordArgs = {
   data: IWordInput;
   id: Scalars['ID']['input'];
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
-
 
 export type IMutationUploadArgs = {
   field?: InputMaybe<Scalars['String']['input']>;
@@ -638,15 +568,13 @@ export type IProjectRelationResponseCollection = {
 
 export enum PublicationState {
   Live = 'LIVE',
-  Preview = 'PREVIEW'
+  Preview = 'PREVIEW',
 }
 
 export type IQuery = {
   __typename?: 'Query';
   diaries?: Maybe<IDiaryEntityResponseCollection>;
   diary?: Maybe<IDiaryEntityResponse>;
-  i18NLocale?: Maybe<II18NLocaleEntityResponse>;
-  i18NLocales?: Maybe<II18NLocaleEntityResponseCollection>;
   me?: Maybe<IUsersPermissionsMe>;
   project?: Maybe<IProjectEntityResponse>;
   projects?: Maybe<IProjectEntityResponseCollection>;
@@ -664,7 +592,6 @@ export type IQuery = {
   words?: Maybe<IWordEntityResponseCollection>;
 };
 
-
 export type IQueryDiariesArgs = {
   filters?: InputMaybe<IDiaryFiltersInput>;
   pagination?: InputMaybe<IPaginationArg>;
@@ -672,28 +599,13 @@ export type IQueryDiariesArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-
 export type IQueryDiaryArgs = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
 
-
-export type IQueryI18NLocaleArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-};
-
-
-export type IQueryI18NLocalesArgs = {
-  filters?: InputMaybe<II18NLocaleFiltersInput>;
-  pagination?: InputMaybe<IPaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-
 export type IQueryProjectArgs = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
-
 
 export type IQueryProjectsArgs = {
   filters?: InputMaybe<IProjectFiltersInput>;
@@ -701,11 +613,9 @@ export type IQueryProjectsArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-
 export type IQueryRehearsalArgs = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
-
 
 export type IQueryRehearsalsArgs = {
   filters?: InputMaybe<IRehearsalFiltersInput>;
@@ -714,11 +624,9 @@ export type IQueryRehearsalsArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-
 export type IQueryUploadFileArgs = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
-
 
 export type IQueryUploadFilesArgs = {
   filters?: InputMaybe<IUploadFileFiltersInput>;
@@ -726,11 +634,9 @@ export type IQueryUploadFilesArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-
 export type IQueryUploadFolderArgs = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
-
 
 export type IQueryUploadFoldersArgs = {
   filters?: InputMaybe<IUploadFolderFiltersInput>;
@@ -738,11 +644,9 @@ export type IQueryUploadFoldersArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-
 export type IQueryUsersPermissionsRoleArgs = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
-
 
 export type IQueryUsersPermissionsRolesArgs = {
   filters?: InputMaybe<IUsersPermissionsRoleFiltersInput>;
@@ -750,11 +654,9 @@ export type IQueryUsersPermissionsRolesArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-
 export type IQueryUsersPermissionsUserArgs = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
-
 
 export type IQueryUsersPermissionsUsersArgs = {
   filters?: InputMaybe<IUsersPermissionsUserFiltersInput>;
@@ -762,16 +664,12 @@ export type IQueryUsersPermissionsUsersArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-
 export type IQueryWordArgs = {
   id?: InputMaybe<Scalars['ID']['input']>;
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
-
 
 export type IQueryWordsArgs = {
   filters?: InputMaybe<IWordFiltersInput>;
-  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
   pagination?: InputMaybe<IPaginationArg>;
   publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -786,7 +684,6 @@ export type IRehearsal = {
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
   words?: Maybe<IWordRelationResponseCollection>;
 };
-
 
 export type IRehearsalWordsArgs = {
   filters?: InputMaybe<IWordFiltersInput>;
@@ -991,13 +888,11 @@ export type IUploadFolder = {
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
-
 export type IUploadFolderChildrenArgs = {
   filters?: InputMaybe<IUploadFolderFiltersInput>;
   pagination?: InputMaybe<IPaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
-
 
 export type IUploadFolderFilesArgs = {
   filters?: InputMaybe<IUploadFileFiltersInput>;
@@ -1159,13 +1054,11 @@ export type IUsersPermissionsRole = {
   users?: Maybe<IUsersPermissionsUserRelationResponseCollection>;
 };
 
-
 export type IUsersPermissionsRolePermissionsArgs = {
   filters?: InputMaybe<IUsersPermissionsPermissionFiltersInput>;
   pagination?: InputMaybe<IPaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
-
 
 export type IUsersPermissionsRoleUsersArgs = {
   filters?: InputMaybe<IUsersPermissionsUserFiltersInput>;
@@ -1291,8 +1184,6 @@ export type IWord = {
   cover?: Maybe<IUploadFileEntityResponse>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   definition?: Maybe<Scalars['String']['output']>;
-  locale?: Maybe<Scalars['String']['output']>;
-  localizations?: Maybe<IWordRelationResponseCollection>;
   name: Scalars['String']['output'];
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   rehearsals?: Maybe<IRehearsalRelationResponseCollection>;
@@ -1300,15 +1191,6 @@ export type IWord = {
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
   video?: Maybe<IUploadFileEntityResponse>;
 };
-
-
-export type IWordLocalizationsArgs = {
-  filters?: InputMaybe<IWordFiltersInput>;
-  pagination?: InputMaybe<IPaginationArg>;
-  publicationState?: InputMaybe<PublicationState>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
 
 export type IWordRehearsalsArgs = {
   filters?: InputMaybe<IRehearsalFiltersInput>;
@@ -1339,8 +1221,6 @@ export type IWordFiltersInput = {
   createdAt?: InputMaybe<IDateTimeFilterInput>;
   definition?: InputMaybe<IStringFilterInput>;
   id?: InputMaybe<IIdFilterInput>;
-  locale?: InputMaybe<IStringFilterInput>;
-  localizations?: InputMaybe<IWordFiltersInput>;
   name?: InputMaybe<IStringFilterInput>;
   not?: InputMaybe<IWordFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<IWordFiltersInput>>>;
@@ -1365,57 +1245,131 @@ export type IWordRelationResponseCollection = {
   data: Array<IWordEntity>;
 };
 
-export type IFullWordFragmentFragment = { __typename?: 'Word', name: string, slug: string, definition?: string | null, cover?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null, mime: string } | null } | null } | null, video?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, mime: string } | null } | null } | null };
+export type IFullWordFragmentFragment = {
+  __typename?: 'Word';
+  name: string;
+  slug: string;
+  definition?: string | null;
+  cover?: {
+    __typename?: 'UploadFileEntityResponse';
+    data?: {
+      __typename?: 'UploadFileEntity';
+      attributes?: {
+        __typename?: 'UploadFile';
+        url: string;
+        alternativeText?: string | null;
+        mime: string;
+      } | null;
+    } | null;
+  } | null;
+  video?: {
+    __typename?: 'UploadFileEntityResponse';
+    data?: {
+      __typename?: 'UploadFileEntity';
+      attributes?: {
+        __typename?: 'UploadFile';
+        url: string;
+        mime: string;
+      } | null;
+    } | null;
+  } | null;
+};
 
 export type ISearchWordsQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']['input']>;
   publicationState?: InputMaybe<PublicationState>;
 }>;
 
-
-export type ISearchWordsQuery = { __typename?: 'Query', words?: { __typename?: 'WordEntityResponseCollection', data: Array<{ __typename?: 'WordEntity', id?: string | null, attributes?: { __typename?: 'Word', name: string, slug: string, definition?: string | null, cover?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, alternativeText?: string | null, mime: string } | null } | null } | null, video?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string, mime: string } | null } | null } | null } | null }> } | null };
+export type ISearchWordsQuery = {
+  __typename?: 'Query';
+  words?: {
+    __typename?: 'WordEntityResponseCollection';
+    data: Array<{
+      __typename?: 'WordEntity';
+      id?: string | null;
+      attributes?: {
+        __typename?: 'Word';
+        name: string;
+        slug: string;
+        definition?: string | null;
+        cover?: {
+          __typename?: 'UploadFileEntityResponse';
+          data?: {
+            __typename?: 'UploadFileEntity';
+            attributes?: {
+              __typename?: 'UploadFile';
+              url: string;
+              alternativeText?: string | null;
+              mime: string;
+            } | null;
+          } | null;
+        } | null;
+        video?: {
+          __typename?: 'UploadFileEntityResponse';
+          data?: {
+            __typename?: 'UploadFileEntity';
+            attributes?: {
+              __typename?: 'UploadFile';
+              url: string;
+              mime: string;
+            } | null;
+          } | null;
+        } | null;
+      } | null;
+    }>;
+  } | null;
+};
 
 export const FullWordFragmentFragmentDoc = gql`
-    fragment FullWordFragment on Word {
-  name
-  slug
-  definition
-  cover {
-    data {
-      attributes {
-        url
-        alternativeText
-        mime
+  fragment FullWordFragment on Word {
+    name
+    slug
+    definition
+    cover {
+      data {
+        attributes {
+          url
+          alternativeText
+          mime
+        }
+      }
+    }
+    video {
+      data {
+        attributes {
+          url
+          mime
+        }
       }
     }
   }
-  video {
-    data {
-      attributes {
-        url
-        mime
-      }
-    }
-  }
-}
-    `;
+`;
 export const SearchWordsDocument = gql`
-    query searchWords($limit: Int = 100, $publicationState: PublicationState = LIVE) {
-  words(
-    sort: ["name:ASC", "publishedAt:ASC"]
-    pagination: {page: 1, pageSize: $limit}
-    publicationState: $publicationState
+  query searchWords(
+    $limit: Int = 100
+    $publicationState: PublicationState = LIVE
   ) {
-    data {
-      id
-      attributes {
-        ...FullWordFragment
+    words(
+      sort: ["name:ASC", "publishedAt:ASC"]
+      pagination: { page: 1, pageSize: $limit }
+      publicationState: $publicationState
+    ) {
+      data {
+        id
+        attributes {
+          ...FullWordFragment
+        }
       }
     }
   }
-}
-    ${FullWordFragmentFragmentDoc}`;
+  ${FullWordFragmentFragmentDoc}
+`;
 
-export function useSearchWordsQuery(options?: Omit<Urql.UseQueryArgs<ISearchWordsQueryVariables>, 'query'>) {
-  return Urql.useQuery<ISearchWordsQuery, ISearchWordsQueryVariables>({ query: SearchWordsDocument, ...options });
-};
+export function useSearchWordsQuery(
+  options?: Omit<Urql.UseQueryArgs<ISearchWordsQueryVariables>, 'query'>
+) {
+  return Urql.useQuery<ISearchWordsQuery, ISearchWordsQueryVariables>({
+    query: SearchWordsDocument,
+    ...options,
+  });
+}
