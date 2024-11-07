@@ -3,7 +3,6 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import nextMdx from '@next/mdx';
 import { createSecureHeaders } from 'next-secure-headers';
 
 import { buildEnv } from './src/config/build-env.config.mjs';
@@ -17,10 +16,6 @@ const workspaceRoot = path.resolve(
   '..',
   '..'
 );
-
-const withMDX = nextMdx({
-  extension: /\.mdx?$/,
-});
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -73,7 +68,7 @@ const secureHeaders = createSecureHeaders({
 /** @type {import('next').NextConfig} */
 let nextConfig = {
   reactStrictMode: true,
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
 
   httpAgentOptions: {
     keepAlive: true,
