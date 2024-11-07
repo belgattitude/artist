@@ -148,32 +148,6 @@ let nextConfig = {
     ignoreBuildErrors: buildEnv.NEXT_BUILD_ENV_TYPECHECK === false,
   },
 
-  webpack: (config, { webpack, isServer }) => {
-    config.module.rules.push(
-      {
-        test: /\.svg$/,
-        issuer: /\.(js|ts)x?$/,
-        use: [
-          {
-            loader: '@svgr/webpack',
-            // https://react-svgr.com/docs/webpack/#passing-options
-            options: {
-              svgo: isProd,
-            },
-          },
-        ],
-      }
-      /*
-      {
-        test: /\.(glsl|vs|fs|vert|frag)$/,
-        exclude: /node_modules/,
-        use: ['raw-loader', 'glslify-loader'],
-      } */
-    );
-
-    return config;
-  },
-
   productionBrowserSourceMaps: buildEnv.NEXT_BUILD_ENV_SOURCEMAPS === true,
 
   compiler: {

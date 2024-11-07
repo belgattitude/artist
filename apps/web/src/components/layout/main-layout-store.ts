@@ -13,6 +13,6 @@ export const useMainLayoutStore = create<MainLayoutState>((set) => ({
   isSidebarOpen: false,
   toggleSidebar: () =>
     set((state) => ({ isSidebarOpen: !state.isSidebarOpen })),
-  closeSidebar: () => set((state) => ({ isSidebarOpen: false })),
-  openSidebar: () => set((state) => ({ isSidebarOpen: true })),
+  closeSidebar: () => set((_state) => ({ isSidebarOpen: false })),
+  openSidebar: () => set((_state) => ({ isSidebarOpen: true })),
 }));
