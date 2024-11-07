@@ -29,7 +29,7 @@
     "@httpx/dsn-parser": "1.8.5",
     "@httpx/exception": "3.0.11",
     "@httpx/json-api": "0.5.24",
-    "@next/mdx": "14.2.17",
+    "@next/mdx": "15.0.3",
     "@react-three/drei": "9.115.0",
     "@react-three/fiber": "8.17.10",
     "@soluble/cache-interop": "0.12.8",
@@ -49,11 +49,11 @@
     "gsap": "3.12.5",
     "ioredis": "5.4.1",
     "ky": "1.7.2",
-    "next": "14.2.17",
+    "next": "15.0.3",
     "next-secure-headers": "2.2.0",
     "picocolors": "1.1.1",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106",
     "react-markdown": "9.0.1",
     "react-player": "2.16.0",
     "remark": "15.0.1",
@@ -80,7 +80,7 @@
     "@graphql-codegen/typescript": "4.1.1",
     "@graphql-codegen/typescript-urql": "4.0.0",
     "@graphql-typed-document-node/core": "3.2.0",
-    "@next/bundle-analyzer": "14.2.17",
+    "@next/bundle-analyzer": "15.0.3",
     "@storybook/addon-essentials": "8.4.2",
     "@storybook/addon-interactions": "8.4.2",
     "@storybook/addon-links": "8.4.2",
@@ -94,8 +94,8 @@
     "@types/d": "1.0.4",
     "@types/mdx": "2.0.13",
     "@types/node": "22.9.0",
-    "@types/react": "18.3.12",
-    "@types/react-dom": "18.3.1",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "@types/three": "0.169.0",
     "autoprefixer": "10.4.20",
     "cross-env": "7.0.3",
@@ -128,5 +128,11 @@
     "vitest": "2.1.4",
     "webpack": "5.96.1",
     "webpack-merge": "6.0.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "npm:types-react@19.0.0-rc.1",
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+    }
   }
 }

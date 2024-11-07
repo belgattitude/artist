@@ -1,7 +1,7 @@
 'use client';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { type ReactNode, useState } from 'react';
+import { type JSX, type ReactNode, useState } from 'react';
 
 import { queryClientConfig } from '@/config/query-client.config';
 

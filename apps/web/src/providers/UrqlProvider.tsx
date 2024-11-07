@@ -1,6 +1,6 @@
 'use client';
 
-import { type ReactNode, useState } from 'react';
+import { type JSX, type ReactNode, useState } from 'react';
 import { cacheExchange, createClient, fetchExchange, Provider } from 'urql';
 
 import { getStrapiURL } from '@/config/strapi.config';
