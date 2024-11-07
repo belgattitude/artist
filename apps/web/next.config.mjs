@@ -127,16 +127,6 @@ let nextConfig = {
   // output: 'standalone',
 
   experimental: {
-    /*
-    turbo: {
-      loaders: {
-        '.svg': ['@svgr/webpack'],
-      },
-    },
-    */
-    // https://beta.nextjs.org/docs/configuring/typescript#statically-typed-links
-    // typedRoutes: true,
-    mdxRs: true,
     // https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
     // outputFileTracingRoot: workspaceRoot,
     // Caution if using pnpm you might also need to consider that things are hoisted
@@ -178,39 +168,19 @@ let nextConfig = {
             },
           },
         ],
-      },
+      }
+      /*
       {
         test: /\.(glsl|vs|fs|vert|frag)$/,
         exclude: /node_modules/,
         use: ['raw-loader', 'glslify-loader'],
-      }
+      } */
     );
 
     return config;
   },
 
   productionBrowserSourceMaps: buildEnv.NEXT_BUILD_ENV_SOURCEMAPS === true,
-
-  modularizeImports: {
-    /* if needed
-    lodash: {
-      transform: 'lodash/{{member}}',
-      preventFullImport: true,
-    },
-    '@mui/material': {
-      transform: '@mui/material/{{member}}',
-    },
-    '@mui/icons-material': {
-      transform: '@mui/icons-material/{{member}}',
-    },
-    '@mui/styles': {
-      transform: '@mui/styles/{{member}}',
-    },
-    "@mui/lab": {
-      transform: "@mui/lab/{{member}}"
-     }
-     */
-  },
 
   compiler: {
     ...(process.env.NODE_ENV === 'production'
@@ -239,4 +209,4 @@ if (process.env.ANALYZE === 'true') {
   }
 }
 
-export default withMDX(nextConfig);
+export default nextConfig;
