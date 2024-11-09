@@ -22,6 +22,8 @@ export const MainNav: FC<Props> = (props) => {
     useShallow((state) => state.isSidebarOpen)
   );
 
+  return <></>;
+
   return (
     <div
       className={cn(
@@ -31,9 +33,15 @@ export const MainNav: FC<Props> = (props) => {
     >
       <nav>
         {isSideBarOpen ? (
-          <IconMenu className={'size-6'} onClick={toggleSideBar} />
+          <IconMenu
+            className={'size-6'}
+            // onClick={toggleSideBar}
+          />
         ) : (
-          <IconMenu className={'size-32'} onClick={toggleSideBar} />
+          <IconMenu
+            className={'size-32'}
+            // onClick={toggleSideBar}
+          />
         )}
 
         <MainSidebar mainLinks={mainNavLinks} />
