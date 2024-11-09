@@ -7,7 +7,7 @@ import {
   ExperienceOverlay,
   type ExperienceSection,
 } from '@/components/experience/experience-overlay';
-import { ThreeVideoCanvas } from '@/components/experience/ThreeVideoCanvas';
+// import { ThreeVideoCanvas } from '@/components/experience/ThreeVideoCanvas';
 import { VideoBackground } from '@/components/video/VideoBackground';
 
 export type Experience = {
@@ -37,31 +37,22 @@ export const ExperiencePage: FC<Props> = (props) => {
   // const caption = useRef<HTMLSpanElement>();
   const scroll = useRef<number>(0);
 
-  const useThreeJs = true;
-
   return (
     <>
-      {useThreeJs ? (
-        <ThreeVideoCanvas
-          videoUrl={background.src}
-          imgUrl={background.poster}
-        />
-      ) : (
-        <VideoBackground
-          src={background.src}
-          className={twMerge(
-            'fixed h-full w-full object-cover',
-            background.className
-          )}
-          playbackRate={background.playbackRate}
-          loop={background.loop}
-          poster={background.poster}
-          playbackStrategy={{
-            type: 'autoplay',
-            inViewport: false,
-          }}
-        />
-      )}
+      <VideoBackground
+        src={background.src}
+        className={twMerge(
+          'fixed h-full w-full object-cover',
+          background.className
+        )}
+        playbackRate={background.playbackRate}
+        loop={background.loop}
+        poster={background.poster}
+        playbackStrategy={{
+          type: 'autoplay',
+          inViewport: false,
+        }}
+      />
       <div className={'flex flex-col'}>
         {experience.headerText === undefined ? null : (
           <div
