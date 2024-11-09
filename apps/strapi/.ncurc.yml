@@ -3,4 +3,14 @@
 # @link https://github.com/raineorshine/npm-check-updates
 
 # Add here exclusions on packages if any
-reject: ['styled-components', 'react-router-dom', 'eslint']
+reject:
+  [
+    'styled-components',
+    'react-router-dom',
+    'eslint',
+
+    '@strapi/plugin-documentation',
+    '@strapi/plugin-graphql',
+    '@strapi/plugin-users-permissions',
+    '@strapi/strapi',
+  ]

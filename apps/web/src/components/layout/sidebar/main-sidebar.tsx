@@ -3,6 +3,7 @@
 import { clsx } from 'clsx';
 import Link from 'next/link';
 import type { FC } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 
 import { useMainLayoutStore } from '@/components/layout/main-layout-store';
 import type { SiteConfig } from '@/config/site.config';
@@ -14,10 +15,10 @@ type Props = {
 export const MainSidebar: FC<Props> = (props) => {
   const { mainLinks } = props;
   const { isSidebarOpen, closeSidebar } = useMainLayoutStore(
-    ({ isSidebarOpen, closeSidebar }) => ({
+    useShallow(({ isSidebarOpen, closeSidebar }) => ({
       isSidebarOpen,
       closeSidebar,
-    })
+    }))
   );
 
   return (

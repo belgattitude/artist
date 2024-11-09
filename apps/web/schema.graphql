@@ -166,51 +166,7 @@ input FloatFilterInput {
   startsWith: Float
 }
 
-union GenericMorph = Diary | I18NLocale | Project | Rehearsal | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | Word
-
-type I18NLocale {
-  code: String
-  createdAt: DateTime
-  name: String
-  updatedAt: DateTime
-}
-
-"""A string used to identify an i18n locale"""
-scalar I18NLocaleCode
-
-type I18NLocaleEntity {
-  attributes: I18NLocale
-  id: ID
-}
-
-type I18NLocaleEntityResponse {
-  data: I18NLocaleEntity
-}
-
-type I18NLocaleEntityResponseCollection {
-  data: [I18NLocaleEntity!]!
-  meta: ResponseCollectionMeta!
-}
-
-input I18NLocaleFiltersInput {
-  and: [I18NLocaleFiltersInput]
-  code: StringFilterInput
-  createdAt: DateTimeFilterInput
-  id: IDFilterInput
-  name: StringFilterInput
-  not: I18NLocaleFiltersInput
-  or: [I18NLocaleFiltersInput]
-  updatedAt: DateTimeFilterInput
-}
-
-input I18NLocaleInput {
-  code: String
-  name: String
-}
-
-type I18NLocaleRelationResponseCollection {
-  data: [I18NLocaleEntity!]!
-}
+union GenericMorph = Diary | Project | Rehearsal | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser | Word
 
 input IDFilterInput {
   and: [ID]
@@ -336,8 +292,7 @@ type Mutation {
 
   """Create a new user"""
   createUsersPermissionsUser(data: UsersPermissionsUserInput!): UsersPermissionsUserEntityResponse!
-  createWord(data: WordInput!, locale: I18NLocaleCode): WordEntityResponse
-  createWordLocalization(data: WordInput, id: ID, locale: I18NLocaleCode): WordEntityResponse
+  createWord(data: WordInput!): WordEntityResponse
   deleteDiary(id: ID!): DiaryEntityResponse
   deleteProject(id: ID!): ProjectEntityResponse
   deleteRehearsal(id: ID!): RehearsalEntityResponse
@@ -349,7 +304,7 @@ type Mutation {
 
   """Delete an existing user"""
   deleteUsersPermissionsUser(id: ID!): UsersPermissionsUserEntityResponse!
-  deleteWord(id: ID!, locale: I18NLocaleCode): WordEntityResponse
+  deleteWord(id: ID!): WordEntityResponse
 
   """Confirm an email users email address"""
   emailConfirmation(confirmation: String!): UsersPermissionsLoginPayload
@@ -379,7 +334,7 @@ type Mutation {
 
   """Update an existing user"""
   updateUsersPermissionsUser(data: UsersPermissionsUserInput!, id: ID!): UsersPermissionsUserEntityResponse!
-  updateWord(data: WordInput!, id: ID!, locale: I18NLocaleCode): WordEntityResponse
+  updateWord(data: WordInput!, id: ID!): WordEntityResponse
   upload(field: String, file: Upload!, info: FileInfoInput, ref: String, refId: ID): UploadFileEntityResponse!
 }
 
@@ -446,8 +401,6 @@ enum PublicationState {
 type Query {
   diaries(filters: DiaryFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): DiaryEntityResponseCollection
   diary(id: ID): DiaryEntityResponse
-  i18NLocale(id: ID): I18NLocaleEntityResponse
-  i18NLocales(filters: I18NLocaleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): I18NLocaleEntityResponseCollection
   me: UsersPermissionsMe
   project(id: ID): ProjectEntityResponse
   projects(filters: ProjectFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): ProjectEntityResponseCollection
@@ -461,8 +414,8 @@ type Query {
   usersPermissionsRoles(filters: UsersPermissionsRoleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsRoleEntityResponseCollection
   usersPermissionsUser(id: ID): UsersPermissionsUserEntityResponse
   usersPermissionsUsers(filters: UsersPermissionsUserFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): UsersPermissionsUserEntityResponseCollection
-  word(id: ID, locale: I18NLocaleCode): WordEntityResponse
-  words(filters: WordFiltersInput, locale: I18NLocaleCode, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): WordEntityResponseCollection
+  word(id: ID): WordEntityResponse
+  words(filters: WordFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): WordEntityResponseCollection
 }
 
 type Rehearsal {
@@ -910,8 +863,6 @@ type Word {
   cover: UploadFileEntityResponse
   createdAt: DateTime
   definition: String
-  locale: String
-  localizations(filters: WordFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): WordRelationResponseCollection
   name: String!
   publishedAt: DateTime
   rehearsals(filters: RehearsalFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): RehearsalRelationResponseCollection
@@ -939,8 +890,6 @@ input WordFiltersInput {
   createdAt: DateTimeFilterInput
   definition: StringFilterInput
   id: IDFilterInput
-  locale: StringFilterInput
-  localizations: WordFiltersInput
   name: StringFilterInput
   not: WordFiltersInput
   or: [WordFiltersInput]

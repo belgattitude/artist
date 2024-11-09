@@ -3,7 +3,6 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import nextMdx from '@next/mdx';
 import { createSecureHeaders } from 'next-secure-headers';
 
 import { buildEnv } from './src/config/build-env.config.mjs';
@@ -17,10 +16,6 @@ const workspaceRoot = path.resolve(
   '..',
   '..'
 );
-
-const withMDX = nextMdx({
-  extension: /\.mdx?$/,
-});
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -73,8 +68,7 @@ const secureHeaders = createSecureHeaders({
 /** @type {import('next').NextConfig} */
 let nextConfig = {
   reactStrictMode: true,
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
-  swcMinify: true,
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
 
   httpAgentOptions: {
     keepAlive: true,
@@ -127,16 +121,6 @@ let nextConfig = {
   // output: 'standalone',
 
   experimental: {
-    /*
-    turbo: {
-      loaders: {
-        '.svg': ['@svgr/webpack'],
-      },
-    },
-    */
-    // https://beta.nextjs.org/docs/configuring/typescript#statically-typed-links
-    // typedRoutes: true,
-    mdxRs: true,
     // https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
     // outputFileTracingRoot: workspaceRoot,
     // Caution if using pnpm you might also need to consider that things are hoisted
@@ -164,53 +148,7 @@ let nextConfig = {
     ignoreBuildErrors: buildEnv.NEXT_BUILD_ENV_TYPECHECK === false,
   },
 
-  webpack: (config, { webpack, isServer }) => {
-    config.module.rules.push(
-      {
-        test: /\.svg$/,
-        issuer: /\.(js|ts)x?$/,
-        use: [
-          {
-            loader: '@svgr/webpack',
-            // https://react-svgr.com/docs/webpack/#passing-options
-            options: {
-              svgo: isProd,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(glsl|vs|fs|vert|frag)$/,
-        exclude: /node_modules/,
-        use: ['raw-loader', 'glslify-loader'],
-      }
-    );
-
-    return config;
-  },
-
   productionBrowserSourceMaps: buildEnv.NEXT_BUILD_ENV_SOURCEMAPS === true,
-
-  modularizeImports: {
-    /* if needed
-    lodash: {
-      transform: 'lodash/{{member}}',
-      preventFullImport: true,
-    },
-    '@mui/material': {
-      transform: '@mui/material/{{member}}',
-    },
-    '@mui/icons-material': {
-      transform: '@mui/icons-material/{{member}}',
-    },
-    '@mui/styles': {
-      transform: '@mui/styles/{{member}}',
-    },
-    "@mui/lab": {
-      transform: "@mui/lab/{{member}}"
-     }
-     */
-  },
 
   compiler: {
     ...(process.env.NODE_ENV === 'production'
@@ -239,4 +177,4 @@ if (process.env.ANALYZE === 'true') {
   }
 }
 
-export default withMDX(nextConfig);
+export default nextConfig;
