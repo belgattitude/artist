@@ -17,7 +17,7 @@ export default function AlexPage() {
   ] as const;
 
   const background = {
-    url: 'https://media.reflective-resonance.be/alex/alex-utopia-lab-web-rf25.mp4#t=98,102.5',
+    url: 'https://media.reflective-resonance.be/alex/alex-utopia-lab-web-rf25.mp4#t=92,102.5',
     // className: 'contrast-100 brightness-150 hue-rotate-180',
     className: 'contrast-100 brightness-150 grayscale',
   };
@@ -31,7 +31,7 @@ export default function AlexPage() {
           background.className
         )}
         playbackRate={0.4}
-        loop={false}
+        loop={true}
         // poster={background.poster}
         playbackStrategy={{
           type: 'autoplay',
