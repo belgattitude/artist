@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, type Variants } from 'framer-motion';
+import { motion, type Variants } from 'motion/react';
 import { type FC, useRef } from 'react';
 
 import { SplitText } from '@/components/text/SplitText';
