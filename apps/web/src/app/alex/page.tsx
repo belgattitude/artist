@@ -20,7 +20,7 @@ export default function AlexPage() {
         <div className={'flex items-center justify-center gap-5'}>
           <div
             className={
-              'mt-[100px] p-5 text-3xl font-extralight text-gray-300 mix-blend-difference lg:text-9xl'
+              'mt-[100px] p-5 text-4xl font-extralight text-gray-300 mix-blend-difference lg:text-9xl'
             }
           >
             <div className={''}>Exploring r(e)lations</div>
@@ -30,6 +30,13 @@ export default function AlexPage() {
           </div>
         </div>
         <AlexVideos />
+        <div className={'p-10 text-lg mix-blend-difference'}>
+          The world soul. That ineffable presence rippling beneath the surface
+          of reality, beckoning us to remember what we’ve always known but
+          somehow forgot: that we’re not separate from the cosmic dance, but
+          participants in it—dancers and dance, observer and observed,
+          simultaneously.
+        </div>
       </div>
     </div>
   );

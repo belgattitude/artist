@@ -30,14 +30,6 @@ export default function EmbrosStudyGroupPage() {
           </div>
         </div>
 
-        <div className={'p-5 text-lg mix-blend-difference'}>
-          The world soul. That ineffable presence rippling beneath the surface
-          of reality, beckoning us to remember what we’ve always known but
-          somehow forgot: that we’re not separate from the cosmic dance, but
-          participants in it—dancers and dance, observer and observed,
-          simultaneously.
-        </div>
-
         <EmbrosStudyGroupVideos />
       </div>
     </div>
