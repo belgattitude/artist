@@ -20,7 +20,7 @@ export default function AlexPage() {
         <div className={'flex items-center justify-center gap-5'}>
           <div
             className={
-              'mt-[100px] text-3xl font-extralight text-gray-300 mix-blend-difference lg:text-9xl'
+              'mt-[100px] p-5 text-3xl font-extralight text-gray-300 mix-blend-difference lg:text-9xl'
             }
           >
             <div className={''}>Exploring r(e)lations</div>
