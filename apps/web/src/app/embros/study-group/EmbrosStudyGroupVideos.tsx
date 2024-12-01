@@ -48,7 +48,7 @@ export const EmbrosStudyGroupVideos: FC = () => {
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
-        className={'p-5 font-sans text-2xl'}
+        className={'py-5 font-sans text-2xl'}
       >
         #Videos
       </motion.div>

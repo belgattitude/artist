@@ -25,7 +25,7 @@ export default function AlexPage() {
           >
             <div className={''}>Exploring r(e)lations</div>
             <div className={'text-2xl'}>
-              between a camera and an improvided dance
+              between a camera and an improvised dance
             </div>
           </div>
         </div>

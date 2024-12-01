@@ -10,7 +10,7 @@ export const EmbrosBgVideo: FC = () => {
   const baseUrl = `https://${embrosConfig.bunnyPullZone}.b-cdn.net`;
   const videoId = 'a7387a34-740c-4345-8962-85f28e59fe8d';
   const background = {
-    url: `${baseUrl}/${videoId}/play_720p.mp4#t=17,40`,
+    url: `${baseUrl}/${videoId}/play_720p.mp4#t=34`,
     className: '',
     // className:
     //  'contrast-100 scale-110 brightness-150 grayscale translate-y-[-10px]',
@@ -19,7 +19,7 @@ export const EmbrosBgVideo: FC = () => {
     <VideoBackground
       src={background.url}
       className={cn(
-        'fixed h-full w-full object-cover brightness-200 contrast-100 scale-50',
+        'fixed h-full w-full object-cover invert grayscale brightness-200 contrast-100',
         background.className
       )}
       playbackRate={0.4}
