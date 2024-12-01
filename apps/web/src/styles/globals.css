@@ -19,6 +19,6 @@
 
 .alex-noisy-bg {
   background: url(/images/textures/noise.png),
-    radial-gradient(at top, #74f932 0%, #ddd 100%);
+    radial-gradient(at top, #f98532 0%, #3c2b2b 100%);
   background-size: 250px, 100%;
 }

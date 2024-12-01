@@ -16,7 +16,7 @@ type Props = {
 const defaultProps = {
   autoplay: false,
   muted: false,
-  preload: 'auto',
+  preload: 'metadata',
 } as const satisfies Partial<Props>;
 
 export const HlsVideoPlayer = (props: Props) => {
@@ -33,8 +33,8 @@ export const HlsVideoPlayer = (props: Props) => {
     <HlsVideo
       src={src}
       className={cn('', className)}
-      controls
-      crossOrigin=""
+      controls={true}
+      crossOrigin="anonymous"
       playsInline={true}
       autoPlay={autoplay}
       muted={muted}
