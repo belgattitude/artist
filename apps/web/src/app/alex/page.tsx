@@ -12,7 +12,7 @@ export default function AlexPage() {
           cn('w-full', 'p-5 opacity-60', 'alex-noisy-bg')
         }
       >
-        <span className={'text-2xl'}>Improvised body narratives</span>
+        <span className={'text-2xl'}>Improvised narratives</span>
         <span className={'pl-2 text-sm italic'}>with Alexandra Morette</span>
       </div>
       <AlexBgVideo />
@@ -25,7 +25,7 @@ export default function AlexPage() {
           >
             <div className={''}>Exploring r(e)lations</div>
             <div className={'text-2xl'}>
-              between a camera and an improvised dance
+              between a camera and an improvised dance.
             </div>
           </div>
         </div>
