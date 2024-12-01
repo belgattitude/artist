@@ -3,14 +3,15 @@ import type { FC } from 'react';
 import { cn } from '@/components/utils';
 import { VideoBackground } from '@/components/video/VideoBackground';
 
-import { embrosConfig } from './embros.config';
+import { alexConfig } from './alex.config';
 
-export const EmbrosBgVideo: FC = () => {
+export const AlexBgVideo: FC = () => {
   // https://{pull_zone_url}.b-cdn.net/{video_id}/play_720p.mp4
-  const baseUrl = `https://${embrosConfig.bunnyPullZone}.b-cdn.net`;
-  const videoId = 'a7387a34-740c-4345-8962-85f28e59fe8d';
+  const baseUrl = `https://${alexConfig.bunnyPullZone}.b-cdn.net`;
+  // const videoId = '47dbb738-f83f-4b2c-b0f5-0b474429b639';
+  const videoId = '7e1601bf-55a3-4f7b-9f23-77282555edd1';
   const background = {
-    url: `${baseUrl}/${videoId}/play_720p.mp4#t=17,40`,
+    url: `${baseUrl}/${videoId}/play_720p.mp4#t=50,101.2`,
     className: '',
     // className:
     //  'contrast-100 scale-110 brightness-150 grayscale translate-y-[-10px]',
@@ -19,11 +20,11 @@ export const EmbrosBgVideo: FC = () => {
     <VideoBackground
       src={background.url}
       className={cn(
-        'fixed h-full w-full object-cover brightness-200 contrast-100 scale-50',
+        'fixed h-full w-full object-cover brightness-150 contrast-150 grayscale',
         background.className
       )}
-      playbackRate={0.4}
-      loop={true}
+      playbackRate={1}
+      loop={false}
       poster={'/images/textures/noise.png'}
       playbackStrategy={{
         type: 'autoplay',

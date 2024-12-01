@@ -11,7 +11,7 @@ export default function EmbrosStudyGroupPage() {
           // 'm-2 mt-[600px] grid bg-black/70 p-4 md:m-5 md:mt-10 md:p-10'
           cn(
             'w-full',
-            'p-5 text-2xl opacity-90 font-family-elika-gorika',
+            'p-5 text-2xl opacity-90 font-[--font-family-staatliches]',
             'alex-noisy-bg'
           )
         }
@@ -23,13 +23,13 @@ export default function EmbrosStudyGroupPage() {
         <div className={'flex items-center justify-center gap-5'}>
           <div
             className={
-              'mt-[100px] text-3xl font-[--font-family-staatliches] text-gray-300 lg:text-9xl'
+              'mt-[100px] text-3xl font-[--font-family-staatliches] mix-blend-difference lg:text-9xl'
             }
           >
             What says stories
           </div>
         </div>
-        <div className={'p-5'}>
+        <div className={'p-5 '}>
           Ah, the Weltseele. The world soul. That ineffable presence rippling
           beneath the surface of reality, beckoning us to remember what we’ve
           always known but somehow forgot: that we’re not separate from the
