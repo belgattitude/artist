@@ -22,6 +22,11 @@ const getAlexBunnyVideos = (): BunnyVideo[] => {
       date: '26/11/2024',
       videoId: 'a7387a34-740c-4345-8962-85f28e59fe8d',
     },
+    {
+      title: 'Embros study group - Leo',
+      date: '26/11/2024',
+      videoId: '6072a517-a5c9-4fcc-b1c2-4e1eea835183',
+    },
   ].map((video) => {
     const { videoId, title, date } = video;
     return {
@@ -39,12 +44,7 @@ const getAlexBunnyVideos = (): BunnyVideo[] => {
 export const EmbrosStudyGroupVideos: FC = () => {
   const bunnyVideos = getAlexBunnyVideos();
   return (
-    <div
-      className={
-        // 'm-2 mt-[600px] grid bg-black/70 p-4 md:m-5 md:mt-10 md:p-10'
-        cn('mt-[30vh] w-full rounded-t-xl', 'p-5', 'alex-noisy-bg')
-      }
-    >
+    <div>
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}

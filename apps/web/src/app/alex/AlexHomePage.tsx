@@ -48,9 +48,10 @@ export const AlexHomePage: FC = () => {
               },
             }}
             animate={{
-              rotateX: 360,
+              rotateX: 0,
               animationDelay: '1s',
               x: 0,
+              scaleX: 1,
               opacity: 1,
               /*
               transition: {
@@ -60,7 +61,7 @@ export const AlexHomePage: FC = () => {
             }}
             transition={{
               type: 'spring',
-              visualDuration: 20,
+              visualDuration: 3,
               bounce: 0.25,
             }}
             /*
@@ -84,7 +85,7 @@ export const AlexHomePage: FC = () => {
               zoom: 10,
               opacity: 1,
             }} */
-            initial={{ opacity: 40 }}
+            initial={{ opacity: 40, rotateX: 180, scaleX: 0.1 }}
           >
             The world soul. That ineffable presence rippling beneath the surface
             of reality, beckoning us to remember what we’ve always known but
