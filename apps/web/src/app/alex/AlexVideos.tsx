@@ -17,33 +17,35 @@ const getAlexBunnyVideos = (): BunnyVideo[] => {
   const bunnyBase = 'https://vz-c4fe36bb-faa.b-cdn.net';
   return [
     {
-      title: 'Alex Athens - Utopia lab - Training',
+      title: 'Athens - Utopia lab - Training',
       videoId: '7e1601bf-55a3-4f7b-9f23-77282555edd1',
+    },
+    {
+      title: 'Athens Museum - Take 1',
+      videoId: 'd45cc24d-e26e-4cfe-a05a-0e54c3573b16',
+    },
+    {
+      title: 'Athens Museum - Take 2',
+      videoId: '47dbb738-f83f-4b2c-b0f5-0b474429b639',
+    },
+    {
+      title: 'Athens Olympic stadium',
+      videoId: '0d1b066d-f7d1-4fdc-ae33-1e652f817a54',
+    },
+    {
+      title: 'Rolling Grass - La Hulpe',
+      videoId: 'a7e2dd38-dc1a-49e2-9e44-59ae613c1863',
     },
     {
       title: 'Love is Louder - Bozaar',
       videoId: 'c5012175-52d3-42f2-85a6-05fcee6384a8',
     },
-
     {
-      title: 'Alex Athens Museum - Take 1',
-      videoId: 'd45cc24d-e26e-4cfe-a05a-0e54c3573b16',
-    },
-    {
-      title: 'Alex Athens Museum - Take 2',
-      videoId: '47dbb738-f83f-4b2c-b0f5-0b474429b639',
-    },
-    {
-      title: 'Alex Training - La Hulpe',
-      videoId: 'a7e2dd38-dc1a-49e2-9e44-59ae613c1863',
-    },
-
-    {
-      title: 'Alex Solo Normandie',
+      title: 'Solo Normandie',
       videoId: '71fb077c-921a-4eca-8faa-019db69b2ddd',
     },
     {
-      title: 'Alex Anomalies',
+      title: 'Anomalies',
       videoId: '1b9a0f13-7e16-450e-875a-93871f6272d0',
     },
   ].map((video) => {
@@ -78,19 +80,24 @@ export const AlexVideos: FC = () => {
       <div className={'grid grid-cols-1 gap-10 md:grid-cols-4'}>
         {bunnyVideos.map((video) => {
           return (
-            <div
-              key={video.url}
-              className={'flex aspect-16/9 bg-black shadow-2xl drop-shadow-2xl'}
-            >
-              <HlsVideoPlayer
-                className={cn(
-                  'rounded brightness-150 contrast-125 saturate-[10%]',
-                  'hover:saturate-100 hover:contrast-100 hover:brightness-100'
-                )}
-                preload={'none'}
-                src={video.url}
-                poster={video.poster}
-              />
+            <div key={video.url} className={'flex flex-col gap-2'}>
+              <div>{video.title}</div>
+              <div
+                key={video.url}
+                className={
+                  'flex aspect-16/9 bg-black shadow-2xl drop-shadow-2xl'
+                }
+              >
+                <HlsVideoPlayer
+                  className={cn(
+                    'rounded brightness-150 contrast-125 saturate-[10%]',
+                    'hover:saturate-100 hover:contrast-100 hover:brightness-100'
+                  )}
+                  preload={'none'}
+                  src={video.url}
+                  poster={video.poster}
+                />
+              </div>
             </div>
           );
         })}
