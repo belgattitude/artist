@@ -19,6 +19,16 @@ const getAlexBunnyVideos = (): BunnyVideo[] => {
   return [
     {
       title: 'Embros study group - Cyrielle',
+      date: '04/12/2024',
+      videoId: 'b57e4eb9-9edf-4c37-91e6-80ccc13ce494',
+    },
+    {
+      title: 'Embros study group - Chrisas',
+      date: '04/12/2024',
+      videoId: 'ccfb2d11-758c-4733-aaa6-038ab2f8bf24',
+    },
+    {
+      title: 'Embros study group - Cyrielle',
       date: '26/11/2024',
       videoId: 'a7387a34-740c-4345-8962-85f28e59fe8d',
     },
