@@ -28,12 +28,10 @@ export default function EmbrosStudyGroupPage() {
           >
             <div className={''}>
               <span>Unfolding</span>
-              <span className={'text-lg'}>landscapes</span>
+              <span className={'text-clip text-sm'}>narratives</span>
             </div>
-            <div className={'mt-3 text-sm'}>
-              Inclusive / collective steps - Crossing artistic disciplines -
-              Bringing the movement as a source for inclusion. Observing the
-              world while it changes.
+            <div className={'mt-2 text-3xl'}>
+              Exploring relation(s) to dance, movement, and the body.
             </div>
           </div>
         </div>
