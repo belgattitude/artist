@@ -67,6 +67,14 @@ const getAlexBunnyVideos = (): BunnyVideo[] => {
       title: 'Joji - Alex James - Take 4',
       videoId: '8a8c8d41-1751-4ae3-9714-a9d733b02bda',
     },
+    {
+      title: 'Joji - Alex James - Take 5',
+      videoId: '54fcebf2-5ea8-4f06-99e1-d68908c6e611',
+    },
+    {
+      title: 'Joji - Alex James Take  6',
+      videoId: 'fa151ef2-9b65-4376-8681-012d6adca2c6',
+    },
   ].map((video) => {
     const { videoId, title } = video;
     // const bunnyBase = 'https://vz-c4fe36bb-faa.b-cdn.net';

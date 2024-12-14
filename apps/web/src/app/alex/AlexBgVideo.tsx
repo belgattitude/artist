@@ -24,7 +24,7 @@ export const AlexBgVideo: FC = () => {
         background.className
       )}
       playbackRate={1}
-      loop={false}
+      loop={true}
       poster={'/images/textures/noise.png'}
       playbackStrategy={{
         type: 'autoplay',
