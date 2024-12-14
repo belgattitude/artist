@@ -8,7 +8,10 @@ import { cn } from '@/components/utils';
 
 type BunnyVideo = {
   title: string;
-  url: string;
+  url: {
+    m3u8: string;
+    mp4: string;
+  };
   poster: string;
   preview: string;
 };
@@ -48,15 +51,35 @@ const getAlexBunnyVideos = (): BunnyVideo[] => {
       title: 'Anomalies',
       videoId: '1b9a0f13-7e16-450e-875a-93871f6272d0',
     },
+    {
+      title: 'Joji - Alex James - Take 1',
+      videoId: 'e1c4043d-1613-4e6d-a3fa-7820f627c52f',
+    },
+    {
+      title: 'Joji - Alex James - Take 2',
+      videoId: '3235e167-8a29-4009-8e65-459a3fce24ff',
+    },
+    {
+      title: 'Joji - Alex James - Take 3',
+      videoId: '5572c6a7-94bf-40a3-a6ab-d825c17495c6',
+    },
+    {
+      title: 'Joji - Alex James - Take 4',
+      videoId: '8a8c8d41-1751-4ae3-9714-a9d733b02bda',
+    },
   ].map((video) => {
     const { videoId, title } = video;
+    // const bunnyBase = 'https://vz-c4fe36bb-faa.b-cdn.net';
     return {
       title,
       preview: `${bunnyBase}/${videoId}/preview.webp`,
       poster: `${bunnyBase}/${videoId}/thumbnail.jpg`,
       // poster:
       // 'https://vz-c4fe36bb-faa.b-cdn.net/8fafe09c-5d96-42f7-b0b1-911499006be6/thumbnail_9006419f.jpg',
-      url: `${bunnyBase}/${videoId}/playlist.m3u8`,
+      url: {
+        m3u8: `${bunnyBase}/${videoId}/playlist.m3u8`,
+        mp4: `${bunnyBase}/${videoId}/play_720p.mp4`,
+      },
     };
   });
 };
@@ -80,10 +103,10 @@ export const AlexVideos: FC = () => {
       <div className={'grid grid-cols-1 gap-10 md:grid-cols-4'}>
         {bunnyVideos.map((video) => {
           return (
-            <div key={video.url} className={'flex flex-col gap-2'}>
+            <div key={video.url.m3u8} className={'flex flex-col gap-2'}>
               <div>{video.title}</div>
               <div
-                key={video.url}
+                key={video.url.m3u8}
                 className={
                   'flex aspect-16/9 bg-black shadow-2xl drop-shadow-2xl'
                 }
@@ -94,7 +117,7 @@ export const AlexVideos: FC = () => {
                     'hover:saturate-100 hover:contrast-100 hover:brightness-100'
                   )}
                   preload={'none'}
-                  src={video.url}
+                  src={video.url.m3u8}
                   poster={video.poster}
                 />
               </div>
