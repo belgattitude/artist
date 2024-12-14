@@ -52,28 +52,32 @@ const getAlexBunnyVideos = (): BunnyVideo[] => {
       videoId: '1b9a0f13-7e16-450e-875a-93871f6272d0',
     },
     {
-      title: 'Joji - Alex James - Take 1',
+      title: 'Joji - Alex James Seb - Take 1',
       videoId: 'e1c4043d-1613-4e6d-a3fa-7820f627c52f',
     },
     {
-      title: 'Joji - Alex James - Take 2',
+      title: 'Joji - Alex James Seb - Take 2',
       videoId: '3235e167-8a29-4009-8e65-459a3fce24ff',
     },
     {
-      title: 'Joji - Alex James - Take 3',
+      title: 'Joji - Alex James Seb - Take 3',
       videoId: '5572c6a7-94bf-40a3-a6ab-d825c17495c6',
     },
     {
-      title: 'Joji - Alex James - Take 4',
+      title: 'Joji - Alex James Seb - Take 4',
       videoId: '8a8c8d41-1751-4ae3-9714-a9d733b02bda',
     },
     {
-      title: 'Joji - Alex James - Take 5',
+      title: 'Joji - Alex James Seb - Take 5',
       videoId: '54fcebf2-5ea8-4f06-99e1-d68908c6e611',
     },
     {
-      title: 'Joji - Alex James Take  6',
+      title: 'Joji - Alex James Seb Take  6',
       videoId: 'fa151ef2-9b65-4376-8681-012d6adca2c6',
+    },
+    {
+      title: 'Joji - Alex Seb - Take 1',
+      videoId: 'a6c709ea-316b-450c-9ee5-ca538743d382',
     },
   ].map((video) => {
     const { videoId, title } = video;
