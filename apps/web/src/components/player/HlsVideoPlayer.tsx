@@ -36,7 +36,7 @@ export const HlsVideoPlayer = (props: Props) => {
       controls={true}
       crossOrigin="anonymous"
       playsInline={true}
-      autoPlay={autoplay}
+      autoplay={autoplay}
       muted={muted}
       preload={preload}
       suppressHydrationWarning={true}
