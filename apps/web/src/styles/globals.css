@@ -17,8 +17,26 @@
   }
 }
 
-.alex-noisy-bg {
+.alex-noisy-bg2 {
   background: url(/images/textures/noise.png),
     radial-gradient(at top, #f98532 0%, #3c2b2b 100%);
   background-size: 250px, 100%;
+}
+
+.alex-noisy-bg {
+  position: relative;
+}
+
+.alex-noisy-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  background: url(/images/textures/noise.png),
+    radial-gradient(at top, #f98532 0%, #3c2b2b 100%);
+  background-size: 250px, 100%;
+  z-index: -1;
 }

@@ -25,11 +25,14 @@ export const AlexHomePage: FC = () => {
         <div className={'flex items-center justify-center gap-5'}>
           <div
             className={
-              'mt-[100px] p-5 text-4xl font-extralight text-gray-300 mix-blend-difference lg:text-9xl'
+              'mt-[100px] p-5 text-4xl font-extralight text-gray-100 mix-blend-exclusion lg:text-9xl'
             }
           >
-            <div className={''}>Exploring r(e)lations</div>
-            <div className={'text-2xl'}>
+            <div className={''}>
+              <div>Exploring</div>
+              <div>r(e)lations</div>
+            </div>
+            <div className={'text-xl'}>
               between a camera and an improvised dance.
             </div>
           </div>
@@ -85,13 +88,15 @@ export const AlexHomePage: FC = () => {
               zoom: 10,
               opacity: 1,
             }} */
-            initial={{ opacity: 40, rotateX: 180, scaleX: 0.1 }}
+            // initial={{ opacity: 40, rotateX: 180, scaleX: 0.1 }}
           >
+            {/*
             The world soul. That ineffable presence rippling beneath the surface
             of reality, beckoning us to remember what we’ve always known but
             somehow forgot: that we’re not separate from the cosmic dance, but
             participants in it—dancers and dance, observer and observed,
             simultaneously.
+            */}
           </motion.div>
         </div>
 

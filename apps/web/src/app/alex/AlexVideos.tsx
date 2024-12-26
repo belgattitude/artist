@@ -20,8 +20,16 @@ const getAlexBunnyVideos = (): BunnyVideo[] => {
   const bunnyBase = 'https://vz-c4fe36bb-faa.b-cdn.net';
   return [
     {
+      title: 'Amorgos - From sea to earth - Soft edit',
+      videoId: '04bd39d0-13da-4f47-b47b-8191b88d68ab',
+    },
+    {
       title: 'Athens - Utopia lab - Training',
       videoId: '7e1601bf-55a3-4f7b-9f23-77282555edd1',
+    },
+    {
+      title: 'Joji - Impro - Wim Mertens',
+      videoId: 'ac478d99-8b26-44fd-bdd1-b05914a40eb7',
     },
     {
       title: 'Athens Museum - Take 1',
@@ -102,7 +110,7 @@ export const AlexVideos: FC = () => {
     <div
       className={
         // 'm-2 mt-[600px] grid bg-black/70 p-4 md:m-5 md:mt-10 md:p-10'
-        cn('mt-[30vh] w-full rounded-t-xl', 'p-5', 'alex-noisy-bg')
+        cn('mt-[10vh] lg:mt-[30vh] w-full rounded-t-xl', 'p-5', 'alex-noisy-bg')
       }
     >
       <motion.div
@@ -112,7 +120,7 @@ export const AlexVideos: FC = () => {
       >
         #Videos
       </motion.div>
-      <div className={'grid grid-cols-1 gap-10 md:grid-cols-4'}>
+      <div className={'grid grid-cols-1 gap-10 md:grid-cols-3'}>
         {bunnyVideos.map((video) => {
           return (
             <div key={video.url.m3u8} className={'flex flex-col gap-2'}>
