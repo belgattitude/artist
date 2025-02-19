@@ -43,10 +43,10 @@
     "rimraf": "6.0.1",
     "rollup": "4.34.8",
     "tsup": "8.3.6",
-    "tsx": "4.19.2",
+    "tsx": "4.19.3",
     "typescript": "5.7.3",
     "valibot": "1.0.0-rc.1",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "3.0.5"
+    "vitest": "3.0.6"
   }
 }
