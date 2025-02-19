@@ -27,7 +27,10 @@ jobs:
           node-version: 22.x
 
       - name: ⚙️ Enable Corepack
-        run: corepack enable
+        run:
+          # till https://github.com/pnpm/pnpm/issues/9029#issuecomment-2629866277 is resolved
+          - npm i -g corepack@latest
+          - corepack enable
 
       - name: 👬🏽 Check for duplicate dependencies in lock file
         run: pnpm dedupe --check
