@@ -5,11 +5,8 @@ import { fileURLToPath } from 'node:url';
 
 import { createSecureHeaders } from 'next-secure-headers';
 
-import { buildEnv } from './src/config/build-env.config.mjs';
-import { publicEnv } from './src/config/public-env.config.mjs';
-import { getServerRuntimeEnv } from './src/config/server-runtime-env.config.mjs';
-
-const serverRuntimeEnv = getServerRuntimeEnv();
+import { buildEnv } from './src/env/build.env.mjs';
+import { clientEnv } from './src/env/client.env.mjs';
 
 const workspaceRoot = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -19,14 +16,15 @@ const workspaceRoot = path.resolve(
 
 const isProd = process.env.NODE_ENV === 'production';
 
-const strapiUrl = publicEnv.NEXT_PUBLIC_STRAPI_API_URL;
+const strapiUrl = clientEnv.NEXT_PUBLIC_STRAPI_API_URL;
 const { hostname: strapiHostname } = new URL(strapiUrl);
 
 // @link https://github.com/jagaapple/next-secure-headers
+
 const secureHeaders = createSecureHeaders({
   contentSecurityPolicy: {
     directives:
-      buildEnv.NEXT_BUILD_ENV_CSP === true
+      buildEnv.NEXT_BUILD_ENV_CSP === 'true'
         ? {
             defaultSrc: "'self'",
             // 'unsafe-inline' for emotion... possible to add a hash too
@@ -54,7 +52,7 @@ const secureHeaders = createSecureHeaders({
           }
         : {},
   },
-  ...(buildEnv.NEXT_BUILD_ENV_CSP === true
+  ...(buildEnv.NEXT_BUILD_ENV_CSP === 'true'
     ? {
         forceHTTPSRedirect: [
           true,
@@ -81,7 +79,7 @@ let nextConfig = {
       ]
     : [],
 
-  eslint: { ignoreDuringBuilds: buildEnv.NEXT_BUILD_ENV_LINT === false },
+  eslint: { ignoreDuringBuilds: buildEnv.NEXT_BUILD_IGNORE_ESLINT === 'true' },
 
   images: {
     // Reduce the number of possibles (no real-need)
@@ -150,10 +148,11 @@ let nextConfig = {
   },
 
   typescript: {
-    ignoreBuildErrors: buildEnv.NEXT_BUILD_ENV_TYPECHECK === false,
+    ignoreBuildErrors: buildEnv.NEXT_BUILD_IGNORE_TYPECHECK === 'true',
   },
 
-  productionBrowserSourceMaps: buildEnv.NEXT_BUILD_ENV_SOURCEMAPS === true,
+  productionBrowserSourceMaps:
+    buildEnv.NEXT_BUILD_PRODUCTION_SOURCEMAPS === 'true',
 
   compiler: {
     ...(process.env.NODE_ENV === 'production'
