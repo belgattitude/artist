@@ -1,12 +1,18 @@
 'use client';
 import { motion } from 'motion/react';
+import type { FC } from 'react';
 
 import { cn } from '@/components/utils';
+import type { BunnyStreamVideo } from '@/lib/bunny/bunny-api-videos';
 
 import { EmbrosBgVideo } from './EmbrosBgVideo';
-import { EmbrosStudyGroupVideos } from './EmbrosStudyGroupVideos';
+import { PerfGroupVideoList } from './PerfGroupVideoList';
 
-export default function EmbrosStudyGroupPage() {
+type Props = {
+  videos: BunnyStreamVideo[];
+};
+
+export const EmbrosPerfGroupPage: FC<Props> = (props) => {
   return (
     <div className={'w-full'}>
       <div
@@ -16,7 +22,7 @@ export default function EmbrosStudyGroupPage() {
         }
       >
         <span className={'text-2xl'}>Performance study group</span>
-        <span className={'pl-2 text-sm italic'}>@Christos Sta Maria</span>
+        <span className={'pl-2 text-sm italic'}>@collective</span>
       </div>
       <EmbrosBgVideo />
       <div className={'flex flex-col'}>
@@ -95,17 +101,13 @@ export default function EmbrosStudyGroupPage() {
               }} */
               initial={{ opacity: 40, rotateX: 180, scaleX: 0.1 }}
             >
-              The world soul. That ineffable presence rippling beneath the
-              surface of reality, beckoning us to remember what we’ve always
-              known but somehow forgot: that we’re not separate from the cosmic
-              dance, but participants in it—dancers and dance, observer and
-              observed, simultaneously.
+              Philip glass
             </motion.div>
           </div>
 
-          <EmbrosStudyGroupVideos />
+          <PerfGroupVideoList videos={props.videos} />
         </div>
       </div>
     </div>
   );
-}
+};

@@ -22,6 +22,7 @@
       "@/components/*": ["./components/*"],
       "@/config/*": ["./config/*"],
       "@/data/*": ["./data/*"],
+      "@/env/*": ["./env/*"],
       "@/features/*": ["./features/*"],
       "@/gql/*": ["./gql/*"],
       "@/layout/*": ["./layout/*"],
