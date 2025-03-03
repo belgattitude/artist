@@ -2,7 +2,6 @@ import ky from 'ky';
 
 import type { BunnyStreamConfig } from '@/config/bunny.config';
 import { bunnyStreamServerConfig } from '@/config/bunny.server.config';
-import { serverEnv } from '@/env/server.env.mjs';
 import type { BunnyListVideosResponse } from '@/lib/bunny/bunny-api.types';
 
 export type BunnyStreamVideo = {
@@ -27,10 +26,6 @@ export type BunnyStreamVideo = {
 export class BunnyApiVideos {
   #config: BunnyStreamConfig;
   constructor(config: BunnyStreamConfig) {
-    const accessKey = serverEnv.BUNNY_STREAM_ACCESS_KEY;
-    if (accessKey === undefined) {
-      throw new Error('BUNNY_STREAM_ACCESS_KEY is not set');
-    }
     this.#config = config;
   }
   getVideoList = async (params: {
