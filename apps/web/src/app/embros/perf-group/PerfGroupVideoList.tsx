@@ -35,7 +35,7 @@ export const PerfGroupVideoList: FC<{ videos: BunnyStreamVideo[] }> = (
                   poster={video.poster}
                 />
               </div>
-              <div className={'gap-5'}>
+              <div className={'flex flex-row gap-5'}>
                 <div>
                   <a
                     href={video.url.mp4}
@@ -46,12 +46,7 @@ export const PerfGroupVideoList: FC<{ videos: BunnyStreamVideo[] }> = (
                   </a>
                 </div>
                 <div>
-                  <a
-                    href={
-                      'https://iframe.mediadelivery.net/play/345450/ae9c1ba0-88b5-4359-b12f-6baefd57b352'
-                    }
-                    target={'_blank'}
-                  >
+                  <a href={video.url.direct} target={'_blank'}>
                     Direct link
                   </a>
                 </div>

@@ -11,6 +11,7 @@ export type BunnyStreamVideo = {
   url: {
     m3u8: string;
     mp4: string;
+    direct: string;
   };
   date: string;
   poster: string;
@@ -60,6 +61,7 @@ export class BunnyApiVideos {
         url: {
           m3u8: `${baseUrl}/${item.guid}/playlist.m3u8`,
           mp4: `${baseUrl}/${item.guid}/play_720p.mp4`,
+          direct: `https://iframe.mediadelivery.net/play/${videoLibraryId}/${item.guid}`,
         },
         size: {
           width: item.width,
