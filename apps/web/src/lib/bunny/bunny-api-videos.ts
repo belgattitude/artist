@@ -1,7 +1,9 @@
 import ky from 'ky';
 
-import type { BunnyStreamConfig } from '@/config/bunny.config';
-import { bunnyStreamServerConfig } from '@/config/bunny.server.config';
+import {
+  type BunnyStreamConfig,
+  bunnyStreamConfig,
+} from '@/config/bunny.config';
 import type { BunnyListVideosResponse } from '@/lib/bunny/bunny-api.types';
 
 export type BunnyStreamVideo = {
@@ -38,7 +40,7 @@ export class BunnyApiVideos {
       method: 'GET',
       headers: {
         accept: 'application/json',
-        AccessKey: bunnyStreamServerConfig.embros.getAccessKey(),
+        AccessKey: bunnyStreamConfig.embros.getAccessKey(),
       },
     };
 

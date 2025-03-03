@@ -4,7 +4,7 @@ import * as v from 'valibot';
 
 export const serverEnv = createEnv({
   server: {
-    BUNNY_STREAM_ACCESS_KEY: v.optional(v.pipe(v.string(), v.minLength(10))),
+    BUNNY_STREAM_ACCESS_KEY: v.optional(v.pipe(v.string())),
   },
   // If you're using Next.js < 13.4.4, you'll need to specify the runtimeEnv manually
   // runtimeEnv: {
