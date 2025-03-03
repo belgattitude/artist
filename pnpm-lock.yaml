@@ -87,6 +87,9 @@ importers:
       '@httpx/stable-hash':
         specifier: 0.2.0
         version: 0.2.0
+      '@hyperjump/browser':
+        specifier: 1.2.0
+        version: 1.2.0
       '@react-spring/three':
         specifier: 9.7.5
         version: 9.7.5(@react-three/fiber@9.0.4(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(three@0.174.0))(react@19.0.0)(three@0.174.0)
@@ -98,7 +101,7 @@ importers:
         version: 9.0.4(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(three@0.174.0)
       '@scalar/hono-api-reference':
         specifier: 0.5.178
-        version: 0.5.178(change-case@5.4.4)(hono@4.7.2)(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2)))(typescript@5.8.2)
+        version: 0.5.178(@hyperjump/browser@1.2.0)(change-case@5.4.4)(hono@4.7.2)(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2)))(typescript@5.8.2)
       '@shadergradient/react':
         specifier: 2.0.22
         version: 2.0.22(react@19.0.0)
@@ -1979,6 +1982,10 @@ packages:
   '@humanwhocodes/object-schema@2.0.3':
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
     deprecated: Use @eslint/object-schema instead
+
+  '@hyperjump/browser@1.2.0':
+    resolution: {integrity: sha512-xv7u4Ddbhnd9a4yi8V0bNYQrimL0SuBW2T+l4eSEKedxhIBVqxuZ6Vulm6+rPtcvg79LyhWxH4fB/J056qaSMQ==}
+    engines: {node: '>=18.0.0'}
 
   '@hyperjump/json-pointer@1.1.0':
     resolution: {integrity: sha512-tFCKxMKDKK3VEdtUA3EBOS9GmSOS4mbrTjh9v3RnK10BphDMOb6+bxTh++/ae1AyfHyWb6R54O/iaoAtPMZPCg==}
@@ -6494,6 +6501,10 @@ packages:
   media-tracks@0.3.3:
     resolution: {integrity: sha512-9P2FuUHnZZ3iji+2RQk7Zkh5AmZTnOG5fODACnjhCVveX1McY3jmCRHofIEI+yTBqplz7LXy48c7fQ3Uigp88w==}
 
+  media-typer@0.3.0:
+    resolution: {integrity: sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==}
+    engines: {node: '>= 0.6'}
+
   memfs@3.5.3:
     resolution: {integrity: sha512-UERzLsxzllchadvbPs5aolHh65ISpKpM+ccLbOJ8/vvpBKmAWf+la7dXFy7Mr0ySHbdHrFv5kGFCUHHe6GFEmw==}
     engines: {node: '>= 4.0.0'}
@@ -8537,6 +8548,10 @@ packages:
   type-fest@4.36.0:
     resolution: {integrity: sha512-3T/PUdKTCnkUmhQU6FFJEHsLwadsRegktX3TNHk+2JJB9HlA8gp1/VXblXVDI93kSnXF2rdPx0GMbHtJIV2LPg==}
     engines: {node: '>=16'}
+
+  type-is@1.6.18:
+    resolution: {integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==}
+    engines: {node: '>= 0.6'}
 
   typed-array-buffer@1.0.3:
     resolution: {integrity: sha512-nAYYwfY3qnzX30IkA6AQZjVbtK6duGontcQm1WSG1MD94YLqK0515GNApXkoxKOWMusVssAHWLh9SeaoefYFGw==}
@@ -11081,10 +11096,19 @@ snapshots:
 
   '@humanwhocodes/object-schema@2.0.3': {}
 
+  '@hyperjump/browser@1.2.0':
+    dependencies:
+      '@hyperjump/json-pointer': 1.1.0
+      '@hyperjump/uri': 1.3.1
+      content-type: 1.0.5
+      just-curry-it: 5.3.0
+      type-is: 1.6.18
+
   '@hyperjump/json-pointer@1.1.0': {}
 
-  '@hyperjump/json-schema@1.11.0':
+  '@hyperjump/json-schema@1.11.0(@hyperjump/browser@1.2.0)':
     dependencies:
+      '@hyperjump/browser': 1.2.0
       '@hyperjump/json-pointer': 1.1.0
       '@hyperjump/pact': 1.3.0
       '@hyperjump/uri': 1.3.1
@@ -11655,19 +11679,19 @@ snapshots:
 
   '@rushstack/eslint-patch@1.10.5': {}
 
-  '@scalar/api-client@2.2.54(change-case@5.4.4)(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2)))(typescript@5.8.2)':
+  '@scalar/api-client@2.2.54(@hyperjump/browser@1.2.0)(change-case@5.4.4)(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2)))(typescript@5.8.2)':
     dependencies:
       '@headlessui/tailwindcss': 0.2.2(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2)))
       '@headlessui/vue': 1.7.23(vue@3.5.13(typescript@5.8.2))
       '@scalar/components': 0.13.27(typescript@5.8.2)
       '@scalar/draggable': 0.1.11(typescript@5.8.2)
       '@scalar/icons': 0.1.3(typescript@5.8.2)
-      '@scalar/import': 0.2.29
-      '@scalar/oas-utils': 0.2.109
+      '@scalar/import': 0.2.29(@hyperjump/browser@1.2.0)
+      '@scalar/oas-utils': 0.2.109(@hyperjump/browser@1.2.0)
       '@scalar/object-utils': 1.1.13
       '@scalar/openapi-parser': 0.10.9
       '@scalar/openapi-types': 0.1.9
-      '@scalar/postman-to-openapi': 0.1.32
+      '@scalar/postman-to-openapi': 0.1.32(@hyperjump/browser@1.2.0)
       '@scalar/snippetz': 0.2.15
       '@scalar/themes': 0.9.70
       '@scalar/types': 0.0.36
@@ -11706,14 +11730,14 @@ snapshots:
       - typescript
       - universal-cookie
 
-  '@scalar/api-reference@1.25.125(change-case@5.4.4)(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2)))(typescript@5.8.2)':
+  '@scalar/api-reference@1.25.125(@hyperjump/browser@1.2.0)(change-case@5.4.4)(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2)))(typescript@5.8.2)':
     dependencies:
       '@floating-ui/vue': 1.1.6(vue@3.5.13(typescript@5.8.2))
       '@headlessui/vue': 1.7.23(vue@3.5.13(typescript@5.8.2))
-      '@scalar/api-client': 2.2.54(change-case@5.4.4)(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2)))(typescript@5.8.2)
+      '@scalar/api-client': 2.2.54(@hyperjump/browser@1.2.0)(change-case@5.4.4)(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2)))(typescript@5.8.2)
       '@scalar/code-highlight': 0.0.23
       '@scalar/components': 0.13.27(typescript@5.8.2)
-      '@scalar/oas-utils': 0.2.109
+      '@scalar/oas-utils': 0.2.109(@hyperjump/browser@1.2.0)
       '@scalar/openapi-parser': 0.10.9
       '@scalar/openapi-types': 0.1.9
       '@scalar/snippetz': 0.2.15
@@ -11793,9 +11817,9 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@scalar/hono-api-reference@0.5.178(change-case@5.4.4)(hono@4.7.2)(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2)))(typescript@5.8.2)':
+  '@scalar/hono-api-reference@0.5.178(@hyperjump/browser@1.2.0)(change-case@5.4.4)(hono@4.7.2)(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2)))(typescript@5.8.2)':
     dependencies:
-      '@scalar/api-reference': 1.25.125(change-case@5.4.4)(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2)))(typescript@5.8.2)
+      '@scalar/api-reference': 1.25.125(@hyperjump/browser@1.2.0)(change-case@5.4.4)(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.13.8)(typescript@5.8.2)))(typescript@5.8.2)
       '@scalar/types': 0.0.36
       hono: 4.7.2
     transitivePeerDependencies:
@@ -11821,17 +11845,17 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@scalar/import@0.2.29':
+  '@scalar/import@0.2.29(@hyperjump/browser@1.2.0)':
     dependencies:
-      '@scalar/oas-utils': 0.2.109
+      '@scalar/oas-utils': 0.2.109(@hyperjump/browser@1.2.0)
       '@scalar/openapi-parser': 0.10.9
       yaml: 2.7.0
     transitivePeerDependencies:
       - '@hyperjump/browser'
 
-  '@scalar/oas-utils@0.2.109':
+  '@scalar/oas-utils@0.2.109(@hyperjump/browser@1.2.0)':
     dependencies:
-      '@hyperjump/json-schema': 1.11.0
+      '@hyperjump/json-schema': 1.11.0(@hyperjump/browser@1.2.0)
       '@scalar/object-utils': 1.1.13
       '@scalar/openapi-types': 0.1.9
       '@scalar/themes': 0.9.70
@@ -11861,9 +11885,9 @@ snapshots:
 
   '@scalar/openapi-types@0.1.9': {}
 
-  '@scalar/postman-to-openapi@0.1.32':
+  '@scalar/postman-to-openapi@0.1.32(@hyperjump/browser@1.2.0)':
     dependencies:
-      '@scalar/oas-utils': 0.2.109
+      '@scalar/oas-utils': 0.2.109(@hyperjump/browser@1.2.0)
       '@scalar/openapi-types': 0.1.9
     transitivePeerDependencies:
       - '@hyperjump/browser'
@@ -16535,6 +16559,8 @@ snapshots:
 
   media-tracks@0.3.3: {}
 
+  media-typer@0.3.0: {}
+
   memfs@3.5.3:
     dependencies:
       fs-monkey: 1.0.6
@@ -18914,6 +18940,11 @@ snapshots:
   type-fest@3.13.1: {}
 
   type-fest@4.36.0: {}
+
+  type-is@1.6.18:
+    dependencies:
+      media-typer: 0.3.0
+      mime-types: 2.1.35
 
   typed-array-buffer@1.0.3:
     dependencies:
