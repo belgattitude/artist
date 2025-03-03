@@ -17,8 +17,8 @@ export const bunnyStreamConfig = {
     videoLibraryId: 345_450,
     getAccessKey: () => {
       return typeof window === 'undefined'
-        ? ''
-        : (serverEnv.BUNNY_STREAM_ACCESS_KEY ?? '');
+        ? (serverEnv.BUNNY_STREAM_ACCESS_KEY ?? '')
+        : '';
     },
   },
 } as const satisfies Record<string, BunnyStreamConfig>;
