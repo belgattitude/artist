@@ -25,21 +25,36 @@ export const PerfGroupVideoList: FC<{ videos: BunnyStreamVideo[] }> = (
               >
                 <HlsVideoPlayer
                   className={cn(
-                    'rounded brightness-150 contrast-125 saturate-[10%]',
-                    'hover:saturate-100 hover:contrast-100 hover:brightness-100'
+                    'rounded'
+                    // brightness-150 contrast-125 saturate-[10%]'
+                    // 'hover:saturate-100 hover:contrast-100 hover:brightness-100'
                   )}
                   preload={'none'}
                   src={video.url.m3u8}
                   poster={video.poster}
                 />
               </div>
-              <a
-                href={video.url.mp4}
-                // target={'_blank'}
-                download
-              >
-                Download
-              </a>
+              <div className={'gap-5'}>
+                <div>
+                  <a
+                    href={video.url.mp4}
+                    // target={'_blank'}
+                    download
+                  >
+                    Download
+                  </a>
+                </div>
+                <div>
+                  <a
+                    href={
+                      'https://iframe.mediadelivery.net/play/345450/ae9c1ba0-88b5-4359-b12f-6baefd57b352'
+                    }
+                    target={'_blank'}
+                  >
+                    Direct link
+                  </a>
+                </div>
+              </div>
             </div>
           );
         })}

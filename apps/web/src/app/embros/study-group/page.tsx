@@ -1,20 +1,14 @@
 'use client';
 import { motion } from 'motion/react';
-import type { FC } from 'react';
 
 import { cn } from '@/components/utils';
-import type { BunnyStreamVideo } from '@/lib/bunny/bunny-api-videos';
 
 import { EmbrosBgVideo } from './EmbrosBgVideo';
-import { PerfGroupVideoList } from './PerfGroupVideoList';
+import { EmbrosStudyGroupVideos } from './EmbrosStudyGroupVideos';
 
-type Props = {
-  videos: BunnyStreamVideo[];
-};
-
-export const EmbrosPerfGroupPage: FC<Props> = (props) => {
+export default function EmbrosStudyGroupPage() {
   return (
-    <div className={'w-full bg-black'}>
+    <div className={'w-full'}>
       <div
         className={
           // 'm-2 mt-[600px] grid bg-black/70 p-4 md:m-5 md:mt-10 md:p-10'
@@ -22,7 +16,7 @@ export const EmbrosPerfGroupPage: FC<Props> = (props) => {
         }
       >
         <span className={'text-2xl'}>Performance study group</span>
-        <span className={'pl-2 text-sm italic'}>@collective</span>
+        <span className={'pl-2 text-sm italic'}>@Christos Sta Maria</span>
       </div>
       <EmbrosBgVideo />
       <div className={'flex flex-col'}>
@@ -101,13 +95,17 @@ export const EmbrosPerfGroupPage: FC<Props> = (props) => {
               }} */
               initial={{ opacity: 40, rotateX: 180, scaleX: 0.1 }}
             >
-              Philip glass
+              The world soul. That ineffable presence rippling beneath the
+              surface of reality, beckoning us to remember what we’ve always
+              known but somehow forgot: that we’re not separate from the cosmic
+              dance, but participants in it—dancers and dance, observer and
+              observed, simultaneously.
             </motion.div>
           </div>
 
-          <PerfGroupVideoList videos={props.videos} />
+          <EmbrosStudyGroupVideos />
         </div>
       </div>
     </div>
   );
-};
+}
