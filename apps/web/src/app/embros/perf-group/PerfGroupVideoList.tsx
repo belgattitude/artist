@@ -19,9 +19,7 @@ export const PerfGroupVideoList: FC<{ videos: BunnyStreamVideo[] }> = (
               <div>{video.title}</div>
               <div
                 key={video.url.m3u8}
-                className={
-                  'flex aspect-16/9 bg-black shadow-2xl drop-shadow-2xl'
-                }
+                className={'flex bg-black shadow-2xl drop-shadow-2xl'}
               >
                 <HlsVideoPlayer
                   key={video.url.m3u8}
