@@ -24,6 +24,7 @@ export const PerfGroupVideoList: FC<{ videos: BunnyStreamVideo[] }> = (
                 }
               >
                 <HlsVideoPlayer
+                  key={video.url.m3u8}
                   className={cn(
                     'rounded'
                     // brightness-150 contrast-125 saturate-[10%]'

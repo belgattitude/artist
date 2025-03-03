@@ -3,6 +3,8 @@ import { BunnyApiVideos } from '@/lib/bunny/bunny-api-videos';
 
 import { EmbrosPerfGroupPage } from './PerfGroupVideoPage';
 
+export const dynamic = 'force-dynamic';
+
 export default async function EmbrosPerfGroupRoute() {
   const api = new BunnyApiVideos(bunnyStreamConfig.embros);
   const videos = await api.getVideoList({
