@@ -29,10 +29,10 @@
   "dependencies": {},
   "devDependencies": {
     "@belgattitude/eslint-config-bases": "6.25.0",
-    "@typescript-eslint/eslint-plugin": "8.25.0",
-    "@typescript-eslint/typescript-estree": "8.25.0",
+    "@typescript-eslint/eslint-plugin": "8.26.0",
+    "@typescript-eslint/typescript-estree": "8.26.0",
     "@types/fs-extra": "11.0.4",
-    "@types/node": "22.13.8",
+    "@types/node": "22.13.9",
     "cross-env": "7.0.3",
     "dotenv-flow-cli": "1.1.1",
     "esbuild": "0.25.0",

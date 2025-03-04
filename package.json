@@ -43,7 +43,7 @@
     "@belgattitude/eslint-config-bases": "6.25.0",
     "@commitlint/cli": "19.7.1",
     "@commitlint/config-conventional": "19.7.1",
-    "@types/node": "22.13.8",
+    "@types/node": "22.13.9",
     "eslint": "8.57.1",
     "husky": "9.1.7",
     "is-ci": "4.1.0",

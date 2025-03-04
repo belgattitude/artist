@@ -16,6 +16,7 @@ export type BunnyStreamVideo = {
   };
   date: string;
   poster: string;
+  duration: number;
   preview: string;
   videoLibraryId: number;
   collectionId: string;
@@ -53,6 +54,7 @@ export class BunnyApiVideos {
         videoLibraryId: item.videoLibraryId,
         collectionId: item.collectionId,
         date: item.dateUploaded,
+        duration: item.length,
         preview: `${baseUrl}/${item.guid}/preview.webp`,
         poster: `${baseUrl}/${item.guid}/${item.thumbnailFileName}`,
         url: {

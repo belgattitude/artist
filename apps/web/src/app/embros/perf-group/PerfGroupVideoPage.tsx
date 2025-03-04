@@ -41,13 +41,7 @@ export const EmbrosPerfGroupPage: FC<Props> = (props) => {
             </div>
           </div>
         </div>
-        <div
-          className={cn(
-            'mt-[20vh] w-full rounded-t-xl',
-            'p-5',
-            'alex-noisy-bg'
-          )}
-        >
+        <div className={cn('mt-[20vh] w-full rounded-t-xl', 'p-5', 'bg-black')}>
           <div className={'text-clip p-10 text-lg mix-blend-difference'}>
             <motion.div
               whileInView={{
