@@ -11,4 +11,5 @@ export const buildEnv = createEnv({
     NEXT_BUILD_ENV_CSP: v.picklist(['true', 'false']),
   },
   experimental__runtimeEnv: process.env,
+  emptyStringAsUndefined: true,
 });

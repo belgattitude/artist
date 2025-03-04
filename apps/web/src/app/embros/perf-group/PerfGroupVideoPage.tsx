@@ -33,8 +33,8 @@ export const EmbrosPerfGroupPage: FC<Props> = (props) => {
             }
           >
             <div className={''}>
-              <span>Unfolding</span>
-              <span className={'text-clip text-sm'}>narratives</span>
+              <span>House</span>
+              <span className={'text-clip text-sm'}>out of balance</span>
             </div>
             <div className={'mt-2 text-3xl'}>
               Exploring relation(s) to dance, movement, and the body.

@@ -20,4 +20,5 @@ export const clientEnv = createEnv({
       process.env.NEXT_PUBLIC_REACT_QUERY_DEVTOOLS_ENABLED,
     NEXT_PUBLIC_STRAPI_API_URL: process.env.NEXT_PUBLIC_STRAPI_API_URL,
   },
+  emptyStringAsUndefined: true,
 });
