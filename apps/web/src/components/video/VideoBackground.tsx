@@ -1,11 +1,11 @@
 'use client';
 
 import { type FC, useEffect, useRef } from 'react';
-import { useDeepCompareEffect } from 'use-deep-compare';
+import { useInView } from 'react-intersection-observer';
 import { twMerge } from 'tailwind-merge';
+import { useDeepCompareEffect } from 'use-deep-compare';
 
 import { getVideoUrlTimeRange } from '@/lib/url/getVideoUrlTimeRange';
-import { useInView } from 'react-intersection-observer';
 export type PlaybackStrategy =
   | {
       type: 'autoplay';

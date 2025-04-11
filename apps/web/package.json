@@ -86,7 +86,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.26.10",
-    "@belgattitude/eslint-config-bases": "6.33.0",
+    "@belgattitude/eslint-config-bases": "6.34.0",
     "@emotion/babel-preset-css-prop": "11.12.0",
     "@graphql-codegen/cli": "5.0.5",
     "@graphql-codegen/client-preset": "4.8.0",
