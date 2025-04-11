@@ -1,7 +1,7 @@
 'use client';
 
 import { type FC, useEffect, useRef } from 'react';
-import { useDeepCompareEffect, useInViewRef } from 'rooks';
+import { useDeepCompareEffect } from 'use-deep-compare';
 import { twMerge } from 'tailwind-merge';
 
 import { getVideoUrlTimeRange } from '@/lib/url/getVideoUrlTimeRange';

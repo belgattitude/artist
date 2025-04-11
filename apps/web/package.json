@@ -79,6 +79,7 @@
     "three": "0.175.0",
     "three-stdlib": "2.35.15",
     "urql": "4.2.2",
+    "use-deep-compare": "1.3.0",
     "valibot": "1.0.0",
     "zod": "3.24.2",
     "zustand": "5.0.3"
