@@ -1,11 +1,11 @@
 'use client';
 
 import { type FC, useEffect, useRef } from 'react';
-import { useDeepCompareEffect, useInViewRef } from 'rooks';
+import { useInView } from 'react-intersection-observer';
 import { twMerge } from 'tailwind-merge';
+import { useDeepCompareEffect } from 'use-deep-compare';
 
 import { getVideoUrlTimeRange } from '@/lib/url/getVideoUrlTimeRange';
-
 export type PlaybackStrategy =
   | {
       type: 'autoplay';
@@ -94,20 +94,28 @@ export const VideoBackground: FC<VideoBackgroundProps> = (props) => {
     }
   }, [playbackRate, start, end, loop]);
 
-  const [viewInRef] = useInViewRef((entries) => {
-    if (
-      strategy.type == 'autoplay' &&
-      strategy.inViewport &&
-      videoRef.current
-    ) {
-      if (entries?.[0].isIntersecting) {
-        videoRef.current.play().catch((e) => {
-          logError("Couldn't trigger play() while intersecting", e);
-        });
-      } else {
-        videoRef.current.pause();
+  const {
+    ref: viewInRef,
+    inView,
+    entry,
+  } = useInView({
+    /* Optional options */
+    threshold: 0,
+    onChange: (inView, entry) => {
+      if (
+        strategy.type == 'autoplay' &&
+        strategy.inViewport &&
+        videoRef.current
+      ) {
+        if (inView) {
+          videoRef.current.play().catch((e) => {
+            logError("Couldn't trigger play() while intersecting", e);
+          });
+        } else {
+          videoRef.current.pause();
+        }
       }
-    }
+    },
   });
 
   useDeepCompareEffect(() => {
