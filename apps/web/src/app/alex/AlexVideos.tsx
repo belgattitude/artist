@@ -28,10 +28,9 @@ const getAlexBunnyVideos = (): BunnyVideo[] => {
       title: 'Athens - Utopia lab - Training',
       videoId: '7e1601bf-55a3-4f7b-9f23-77282555edd1',
     },
-
     {
       title: 'Solo Normandie 3rd part',
-      videoId: '',
+      videoId: 'd03ff76a-1c8f-4caf-ac0f-f0fcfbe58a77',
     },
     {
       title: 'Joji - Impro - Wim Mertens',
