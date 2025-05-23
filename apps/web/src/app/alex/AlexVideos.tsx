@@ -20,10 +20,6 @@ const getAlexBunnyVideos = (): BunnyVideo[] => {
   const bunnyBase = 'https://vz-c4fe36bb-faa.b-cdn.net';
   return [
     {
-      title: 'Athens - Impro - Olympics stadium',
-      videoId: '9776a5b4-af9c-4d23-a6f5-a167a0579854',
-    },
-    {
       title: 'Amorgos - From sea to earth - Soft edit',
       videoId: '04bd39d0-13da-4f47-b47b-8191b88d68ab',
     },
@@ -91,6 +87,10 @@ const getAlexBunnyVideos = (): BunnyVideo[] => {
       title: 'Joji - Alex Seb - Take 1',
       videoId: 'a6c709ea-316b-450c-9ee5-ca538743d382',
     },
+    {
+      title: 'Athens - Impro - Olympics stadium',
+      videoId: '9776a5b4-af9c-4d23-a6f5-a167a0579854',
+    },
   ].map((video) => {
     const { videoId, title } = video;
     // const bunnyBase = 'https://vz-c4fe36bb-faa.b-cdn.net';
@@ -136,14 +136,27 @@ export const AlexVideos: FC = () => {
                 }
               >
                 <HlsVideoPlayer
+                  /*
                   className={cn(
                     'rounded brightness-150 contrast-125 saturate-[10%]',
                     'hover:saturate-100 hover:contrast-100 hover:brightness-100'
                   )}
+                  */
                   preload={'none'}
                   src={video.url.m3u8}
                   poster={video.poster}
                 />
+              </div>
+              <div className={'flex flex-row gap-5'}>
+                <div>
+                  <a
+                    href={video.url.mp4}
+                    target={'_blank'}
+                    className={'p-1 text-white hover:bg-white hover:text-black'}
+                  >
+                    Direct link
+                  </a>
+                </div>
               </div>
             </div>
           );
