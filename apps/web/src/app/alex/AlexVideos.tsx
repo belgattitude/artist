@@ -29,6 +29,10 @@ const getAlexBunnyVideos = (): BunnyVideo[] => {
       videoId: '7e1601bf-55a3-4f7b-9f23-77282555edd1',
     },
     {
+      title: 'Solo Normandie 3rd part (reframed)',
+      videoId: '30d4cda9-219d-47d8-9221-d75e2413ee26',
+    },
+    {
       title: 'Solo Normandie 3rd part',
       videoId: 'd03ff76a-1c8f-4caf-ac0f-f0fcfbe58a77',
     },
