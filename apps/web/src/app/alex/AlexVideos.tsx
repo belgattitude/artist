@@ -145,6 +145,13 @@ export const AlexVideos: FC = () => {
                   poster={video.poster}
                 />
               </div>
+              <div className={'flex flex-row gap-5'}>
+                <div>
+                  <a href={video.url.mp4} target={'_blank'}>
+                    Direct link
+                  </a>
+                </div>
+              </div>
             </div>
           );
         })}
