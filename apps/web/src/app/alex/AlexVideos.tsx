@@ -136,10 +136,12 @@ export const AlexVideos: FC = () => {
                 }
               >
                 <HlsVideoPlayer
+                  /*
                   className={cn(
                     'rounded brightness-150 contrast-125 saturate-[10%]',
                     'hover:saturate-100 hover:contrast-100 hover:brightness-100'
                   )}
+                  */
                   preload={'none'}
                   src={video.url.m3u8}
                   poster={video.poster}
@@ -147,7 +149,11 @@ export const AlexVideos: FC = () => {
               </div>
               <div className={'flex flex-row gap-5'}>
                 <div>
-                  <a href={video.url.mp4} target={'_blank'}>
+                  <a
+                    href={video.url.mp4}
+                    target={'_blank'}
+                    className={'p-1 text-white hover:bg-white hover:text-black'}
+                  >
                     Direct link
                   </a>
                 </div>
