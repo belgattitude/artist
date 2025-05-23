@@ -14,6 +14,7 @@ type BunnyVideo = {
   };
   poster: string;
   preview: string;
+  directLink: string;
 };
 
 const getAlexBunnyVideos = (): BunnyVideo[] => {
@@ -26,6 +27,11 @@ const getAlexBunnyVideos = (): BunnyVideo[] => {
     {
       title: 'Athens - Utopia lab - Training',
       videoId: '7e1601bf-55a3-4f7b-9f23-77282555edd1',
+    },
+
+    {
+      title: 'Solo Normandie 3rd part',
+      videoId: '',
     },
     {
       title: 'Joji - Impro - Wim Mertens',
@@ -91,6 +97,10 @@ const getAlexBunnyVideos = (): BunnyVideo[] => {
       title: 'Athens - Impro - Olympics stadium',
       videoId: '9776a5b4-af9c-4d23-a6f5-a167a0579854',
     },
+    {
+      title: 'Tic-Tac solo with Lucas Condro',
+      videoId: '2b7c089e-7bca-441c-8f9f-bbb74a28aaea',
+    },
   ].map((video) => {
     const { videoId, title } = video;
     // const bunnyBase = 'https://vz-c4fe36bb-faa.b-cdn.net';
@@ -104,6 +114,7 @@ const getAlexBunnyVideos = (): BunnyVideo[] => {
         m3u8: `${bunnyBase}/${videoId}/playlist.m3u8`,
         mp4: `${bunnyBase}/${videoId}/play_720p.mp4`,
       },
+      directLink: `https://iframe.mediadelivery.net/play/344861/${videoId}`,
     };
   });
 };
@@ -132,7 +143,7 @@ export const AlexVideos: FC = () => {
               <div
                 key={video.url.m3u8}
                 className={
-                  'flex aspect-16/9 bg-black shadow-2xl drop-shadow-2xl'
+                  'flex aspect-16/9 max-h-[350px] justify-center bg-black shadow-2xl drop-shadow-2xl'
                 }
               >
                 <HlsVideoPlayer
@@ -155,6 +166,11 @@ export const AlexVideos: FC = () => {
                     className={'p-1 text-white hover:bg-white hover:text-black'}
                   >
                     Direct link
+                  </a>
+                </div>
+                <div>
+                  <a href={video.directLink} target={'_blank'}>
+                    Iframe
                   </a>
                 </div>
               </div>
