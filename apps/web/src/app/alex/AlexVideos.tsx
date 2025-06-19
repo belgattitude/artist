@@ -144,7 +144,6 @@ export const AlexVideos: FC = () => {
             <div key={video.url.m3u8} className={'flex flex-col gap-2'}>
               <div>{video.title}</div>
               <div
-                key={video.url.m3u8}
                 className={
                   'flex aspect-16/9 max-h-[350px] justify-center bg-black shadow-2xl drop-shadow-2xl'
                 }
@@ -156,6 +155,7 @@ export const AlexVideos: FC = () => {
                     'hover:saturate-100 hover:contrast-100 hover:brightness-100'
                   )}
                   */
+                  key={video.url.m3u8}
                   preload={'none'}
                   src={video.url.m3u8}
                   poster={video.poster}
