@@ -1,7 +1,7 @@
 // @ts-check
 
 import pc from 'picocolors';
-import { z } from 'zod';
+import { z } from 'zod/v3';
 
 const isRunningInNode = process !== undefined;
 const isTestEnv = process.env.NODE_ENV === 'test';
@@ -18,7 +18,7 @@ export const zConvertTruthyStrToBool = z.preprocess(
 );
 
 /**
- * @type {(zodSafeParseError: import('zod').SafeParseError<unknown>) => never}
+ * @type {(zodSafeParseError: import('zod/v3').SafeParseError<unknown>) => never}
  */
 export const exitOrThrowError = (zodSafeParseError) => {
   if (isRunningInNode && !isTestEnv) {
@@ -41,7 +41,7 @@ export const exitOrThrowError = (zodSafeParseError) => {
 };
 
 /**
- * @type {(section: 'Build env(s)' | 'Server env(s)', zodSafeParseSuccess: import('zod').SafeParseSuccess<any>) => void}
+ * @type {(section: 'Build env(s)' | 'Server env(s)', zodSafeParseSuccess: import('zod/v3').SafeParseSuccess<any>) => void}
  */
 export const printValidatedEnv = (section, zodSafeParseSuccess) => {
   if (isRunningInNode && !isTestEnv) {
