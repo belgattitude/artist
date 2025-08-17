@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from 'zod/v3';
 
 import { getValidatedBuildEnv } from '../getValidatedBuildEnv.mjs';
 import { zConvertTruthyStrToBool } from '../utils.mjs';
@@ -35,7 +35,7 @@ describe('getBuildEnv', () => {
       env: injectedEnv,
     });
     expect(
-      (buildEnv as unknown as typeof injectedEnv).NEXT_BUILD_ENV_OUTPUT
+      (buildEnv as typeof injectedEnv).NEXT_BUILD_ENV_OUTPUT
     ).toStrictEqual('classic');
   });
 
@@ -54,7 +54,7 @@ describe('getBuildEnv', () => {
         env: injectedEnv,
       });
       expect(
-        (buildEnv as unknown as typeof injectedEnv).NEXT_BUILD_ENV_LINT
+        (buildEnv as typeof injectedEnv).NEXT_BUILD_ENV_LINT
       ).toStrictEqual(expected);
     });
   });

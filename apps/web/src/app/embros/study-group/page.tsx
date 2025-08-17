@@ -50,9 +50,9 @@ export default function EmbrosStudyGroupPage() {
                   duration: 0.1,
                   delay: 1,
                   ease: 'easeInOut',
-                  zoom: 10,
-                  scale: 2,
-                  opacity: 1,
+                  // zoom: 10,
+                  // scale: 2,
+                  // opacity: 1,
                 },
               }}
               animate={{

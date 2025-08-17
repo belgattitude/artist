@@ -12,7 +12,7 @@ import { exitOrThrowError, printValidatedEnv } from './utils.mjs';
  * multiple deployments (previews, staging...) to give a clear indication a build parameters
  * used (or debug).
  *
- * @template { import('zod').ZodSchema } T
+ * @template { import('zod/v3').ZodSchema } T
  * @param { T } zodSchema
  * @param {{ displayConsole?: boolean, env?: Record<string, string | undefined> }} options
  * @returns { import('zod').infer<T> }

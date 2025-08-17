@@ -262,7 +262,7 @@ const rozMariaNeus: Experience = {
     type: 'video',
     loop: true,
     playbackRate: 0.3,
-    className: 'hue-rotate-[150deg]',
+    className: 'hue-rotate-150',
     // poster: `${mediaUrl}/typhen/interstices/interstices-typhen_1.1.1.webp`,
     src: `${mediaUrl}/roz-maria-neus/roz-maria-neus-residency-nature.mp4#t=119,132`,
   },

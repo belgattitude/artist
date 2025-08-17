@@ -12,7 +12,7 @@
  */
 
 import { isParsableDsn } from '@httpx/dsn-parser';
-import { z } from 'zod';
+import { z } from 'zod/v3';
 
 import { exitOrThrowError, zConvertTruthyStrToBool } from './utils.mjs';
 
@@ -46,10 +46,10 @@ export const serverRuntimeEnvSchema = z.object({
  * multiple deployments (previews, staging...) to give a clear indication a build parameters
  * used (or debug).
  *
- * @template { import('zod').ZodSchema } T
+ * @template { import('zod/v3').ZodSchema } T
  * @param { T } zodSchema
  * @param {{ env?: Record<string, string | undefined> }} options
- * @returns { import('zod').infer<T> }
+ * @returns { import('zod/v3').infer<T> }
  */
 export const getValidatedServerRuntimeEnv = (zodSchema, options = {}) => {
   const { env = process.env } = options ?? {};

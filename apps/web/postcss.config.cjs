@@ -11,7 +11,6 @@ module.exports = {
     // 'postcss-import': {},
     // 'tailwindcss/nesting': 'postcss-nesting',
 
-    tailwindcss: {},
-    autoprefixer: {},
+    '@tailwindcss/postcss': {},
   },
 };

@@ -89,19 +89,13 @@ export const ExperienceOverlay = forwardRef<
                 {video && (
                   <div className={'aspect-16/9 bg-black'}>
                     <VideoPlayer
-                      url={video.src}
+                      src={video.src}
                       muted={false}
                       loop={false}
                       light={false}
                       playbackRate={1}
                       controls={true}
-                      config={{
-                        file: {
-                          attributes: {
-                            poster: video.cover,
-                          },
-                        },
-                      }}
+                      poster={video.cover}
                       width={'100%'}
                       style={{ width: '100%' }}
                       height={'100%'}

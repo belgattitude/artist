@@ -120,7 +120,7 @@ export const EmbrosStudyGroupVideos: FC = () => {
                     >
                       <HlsVideoPlayer
                         className={cn(
-                          'rounded brightness-150 contrast-125 saturate-[10%]',
+                          'rounded-sm brightness-150 contrast-125 saturate-10',
                           'hover:saturate-100 hover:contrast-100 hover:brightness-100'
                         )}
                         preload={'none'}

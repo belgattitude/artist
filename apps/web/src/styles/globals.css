@@ -1,8 +1,75 @@
-@import './reset.css';
+@import './reset.css' layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  --font-*: initial;
+  --font-sans:
+    var(--font-family-text-primary), ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-family-inter:
+    var(--font-family-inter), ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-family-monoton:
+    var(--font-family-monoton), ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-family-elika-gorika:
+    var(--font-family-elika-gorika), ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-text-primary:
+    var(--font-family-inter), ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-brand:
+    var(--font-family-brand), ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-title:
+    var(--font-family-inter), ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --aspect-4\/3: 4 / 3;
+  --aspect-16\/9: 16 / 9;
+
+  --color-bright-red: hsl(12, 88%, 59);
+
+  --color-custom-brown: rgb(193, 160, 132);
+
+  --color-brand-color-50: hsl(150, 27%, 92%);
+  --color-brand-color-100: hsl(150, 27%, 88%);
+  --color-brand-color-200: hsl(150, 27%, 85%);
+  --color-brand-color-300: hsl(150, 27%, 82%);
+  --color-brand-color-400: hsl(150, 27%, 78%);
+  --color-brand-color-500: hsl(150, 27%, 74%);
+  --color-brand-color-600: hsl(150, 27%, 71%);
+  --color-brand-color-700: hsl(150, 27%, 67%);
+  --color-brand-color-800: hsl(150, 27%, 62%);
+  --color-brand-color-900: hsl(150, 27%, 45%);
+  --color-brand-color: hsl(150, 27%, 78%);
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 /* for pandacss */
 /* @layer reset, base, tokens, recipes, utilities; */
@@ -18,7 +85,8 @@
 }
 
 .alex-noisy-bg2 {
-  background: url(/images/textures/noise.png),
+  background:
+    url(/images/textures/noise.png),
     radial-gradient(at top, #f98532 0%, #3c2b2b 100%);
   background-size: 250px, 100%;
 }
@@ -35,7 +103,8 @@
   width: 100%;
   height: 100%;
   opacity: 0.2;
-  background: url(/images/textures/noise.png),
+  background:
+    url(/images/textures/noise.png),
     radial-gradient(at top, #f98532 0%, #3c2b2b 100%);
   background-size: 250px, 100%;
   z-index: -1;

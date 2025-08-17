@@ -29,7 +29,7 @@ const WordCard: FC<WordCardProps> = (props) => {
       {video && (
         <div className={'aspect-16/9 w-full'}>
           <VideoPlayer
-            url={getStrapiURL(video)}
+            src={getStrapiURL(video)}
             controls={true}
             width={'100%'}
           />
