@@ -21,7 +21,7 @@ export default function InMidFallPage() {
         {/* left sidebar */}
         <div
           className={
-            'flex max-w-[500px] flex-col bg-gradient-to-tr from-fuchsia-400 to-fuchsia-300'
+            'flex max-w-[500px] flex-col bg-linear-to-tr from-fuchsia-400 to-fuchsia-300'
           }
         >
           {/* title top */}
@@ -56,7 +56,7 @@ export default function InMidFallPage() {
               <div
                 className={clsx(
                   'mt-5 h-[120px] border-white',
-                  'relative flex grow flex-col pt-[20px] drop-shadow'
+                  'relative flex grow flex-col pt-[20px] drop-shadow-sm'
                 )}
               >
                 <VideoBackground
@@ -78,10 +78,10 @@ export default function InMidFallPage() {
               Morette - Ezra Fieremans and friends.
             </div>
 
-            <div className={'border-[10px] border-white p-5'}>
+            <div className={'border-10 border-white p-5'}>
               <div
                 className={
-                  'translate-x-0.5 translate-y-0.5 bg-gradient-to-tr from-amber-200 to-blue-500 p-2 font-family-elika-gorika text-3xl'
+                  'translate-x-0.5 translate-y-0.5 bg-linear-to-tr from-amber-200 to-blue-500 p-2 font-family-elika-gorika text-3xl'
                 }
               >
                 Attempt #1
@@ -116,7 +116,7 @@ export default function InMidFallPage() {
               playbackRate={1}
               playing={false}
               loop={false}
-              className={'z-10 rotate-180 blur-sm hue-rotate-180 saturate-0'}
+              className={'z-10 rotate-180 blur-xs hue-rotate-180 saturate-0'}
               playbackStrategy={{
                 type: 'playOnMouseOver',
                 // something: '',

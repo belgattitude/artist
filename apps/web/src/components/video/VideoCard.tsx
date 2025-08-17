@@ -36,7 +36,7 @@ export const VideoCard: FC<VideoCardProps> = (props) => {
   return (
     <div
       className={twMerge(
-        'relative flex flex-col flex-grow drop-shadow pt-[20px]',
+        'relative aspect-auto flex flex-col grow drop-shadow-sm pt-[20px]',
         className
       )}
       onMouseOver={(event) => {

@@ -148,7 +148,7 @@ export const ClientComponent2: FC = () => {
         >
           <div
             className={
-              'relative font-family-elika-gorika text-7xl drop-shadow '
+              'relative font-family-elika-gorika text-7xl drop-shadow-sm '
             }
           >
             <SplitText>

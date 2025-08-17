@@ -56,7 +56,7 @@ const Poem = () => {
 const Letter: FC<PropsWithChildren> = ({ children }) => (
   <span
     className={
-      'mx-3 rounded border border-white p-2 text-5xl text-white opacity-100'
+      'mx-3 rounded-sm border border-white p-2 text-5xl text-white opacity-100'
     }
   >
     {children}
