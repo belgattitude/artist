@@ -55,6 +55,12 @@ module.exports = {
       },
     },
     {
+      files: ['next-env.d.ts'],
+      rules: {
+        '@typescript-eslint/triple-slash-reference': 'off',
+      },
+    },
+    {
       files: ['next.config.mjs', 'src/lib/env/*.mjs'],
       rules: {
         '@typescript-eslint/ban-ts-comment': 'off',

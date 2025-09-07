@@ -1,7 +1,7 @@
+import { vValidator } from '@hono/valibot-validator';
 import { Hono } from 'hono';
 import { handle } from 'hono/vercel';
 import { describeRoute } from 'hono-openapi';
-import { validator as vValidator } from 'hono-openapi/valibot';
 import * as v from 'valibot';
 
 import { bunnyStreamConfig } from '@/config/bunny.config';
