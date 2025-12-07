@@ -25,6 +25,7 @@ const VideoMaterial: FC<{ url: string }> = ({ url }) => {
     autoplay: true,
     playbackRate: 0.4,
   });
+  // eslint-disable-next-line react/no-unknown-property
   return <meshBasicMaterial map={texture} toneMapped={false} />;
 };
 

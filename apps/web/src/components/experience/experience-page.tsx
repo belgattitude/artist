@@ -33,7 +33,7 @@ type Props = {
 export const ExperiencePage: FC<Props> = (props) => {
   const { experience } = props;
   const { background } = experience;
-  const overlay = useRef(undefined);
+  const overlayRef = useRef(undefined);
   // const caption = useRef<HTMLSpanElement>();
   const scroll = useRef<number>(0);
 
@@ -66,7 +66,7 @@ export const ExperiencePage: FC<Props> = (props) => {
 
         <ExperienceOverlay
           sections={experience.sections}
-          ref={overlay.current}
+          ref={overlayRef.current}
           scroll={scroll}
         />
       </div>

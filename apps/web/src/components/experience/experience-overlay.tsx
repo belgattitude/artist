@@ -33,6 +33,7 @@ const Images: FC<{ images: string[] | string; lazy?: boolean }> = (props) => {
   if (images.length === 1) {
     return (
       <img
+        alt={''}
         loading={lazy ? 'lazy' : undefined}
         src={images[0]}
         style={{ width: '100%', marginTop: '15px' }}
