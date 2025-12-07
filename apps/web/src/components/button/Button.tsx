@@ -1,7 +1,7 @@
 'use client';
 
 import { clsx } from 'clsx';
-import { type ButtonHTMLAttributes, forwardRef } from 'react';
+import type { ButtonHTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -9,12 +9,14 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: string;
 };
 
-export const Button = forwardRef<
-  HTMLButtonElement, // | HTMLAnchorElement,
-  ButtonProps
->(
+export const Button = // | HTMLAnchorElement,
   /** prefer named function to not have to set the displayName */
-  function Button(props, ref) {
+  function Button({
+    ref,
+    ...props
+  }: ButtonProps & {
+    ref: React.RefObject<HTMLButtonElement>;
+  }) {
     const { size = 'normal', className = '', children, ...restProps } = props;
 
     return (
@@ -36,5 +38,4 @@ export const Button = forwardRef<
         {children}
       </button>
     );
-  }
-);
+  };

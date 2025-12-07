@@ -2,7 +2,6 @@
 
 import {
   type FC,
-  forwardRef,
   Fragment,
   type MutableRefObject,
   type ReactElement,
@@ -60,10 +59,12 @@ const Images: FC<{ images: string[] | string; lazy?: boolean }> = (props) => {
   );
 };
 
-export const ExperienceOverlay = forwardRef<
-  HTMLDivElement,
-  ExperienceOverlayProps
->(function Experience(props, ref) {
+export const ExperienceOverlay = function Experience({
+  ref,
+  ...props
+}: ExperienceOverlayProps & {
+  ref: React.RefObject<HTMLDivElement>;
+}) {
   const { sections, scroll } = props;
   return (
     <div
@@ -110,4 +111,4 @@ export const ExperienceOverlay = forwardRef<
       })}
     </div>
   );
-});
+};
