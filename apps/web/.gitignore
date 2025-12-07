@@ -2,6 +2,8 @@
 
 src/generated/styled-system
 
+next-env.d.ts
+
 # dependencies
 /node_modules
 /.pnp
