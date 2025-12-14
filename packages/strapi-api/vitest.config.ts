@@ -5,33 +5,20 @@ const testFiles = ['./src/**/*.test.{js,ts}', './test/**/*.test.{js,ts}'];
 
 export default defineConfig({
   esbuild: {
-    target: ['node18'],
+    target: ['node22'],
   },
   plugins: [tsconfigPaths()],
-  cacheDir: '../../.cache/vite/api',
+  cacheDir: '../../.cache/vite/strapi-api',
   test: {
     // @link https://vitest.dev/config/#clearmocks
     clearMocks: true,
     coverage: {
-      all: true,
       include: ['src/**/*.{js,jsx,ts,tsx}'],
       provider: 'istanbul',
       reporter: ['text', 'json', 'clover'],
     },
     typecheck: {
       enabled: false,
-    },
-    pool: 'forks',
-    poolOptions: {
-      vmThreads: {
-        // useAtomics: true,
-      },
-      threads: {
-        // minThreads: 1,
-        // maxThreads: 16,
-        useAtomics: true, // perf+
-        isolate: false, // perf+++
-      },
     },
     environment: 'node',
     exclude: [

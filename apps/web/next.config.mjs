@@ -79,8 +79,6 @@ let nextConfig = {
       ]
     : [],
 
-  eslint: { ignoreDuringBuilds: buildEnv.NEXT_BUILD_IGNORE_ESLINT === 'true' },
-
   images: {
     // Reduce the number of possibles (no real-need)
     deviceSizes: [750, 828, 1080, 1200], // default: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],

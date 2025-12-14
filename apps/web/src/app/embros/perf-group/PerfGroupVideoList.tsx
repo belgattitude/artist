@@ -51,7 +51,7 @@ export const PerfGroupVideoList: FC<{ videos: BunnyStreamVideo[] }> = (
                   </a>
                 </div>
                 <div>
-                  <a href={video.url.direct} target={'_blank'}>
+                  <a href={video.url.direct} target={'_blank'} rel="noreferrer">
                     Direct link
                   </a>
                 </div>
