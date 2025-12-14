@@ -30,7 +30,6 @@ module.exports = {
     '@belgattitude/eslint-config-bases/regexp',
     '@belgattitude/eslint-config-bases/react',
     '@belgattitude/eslint-config-bases/react-query',
-    '@belgattitude/eslint-config-bases/storybook',
     // after next plugins to avoid parser errors
     // '@belgattitude/eslint-config-bases/mdx',
     // Apply prettier and disable incompatible rules
