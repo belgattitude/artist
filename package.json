@@ -59,5 +59,11 @@
     "node": ">=20.1.0",
     "pnpm": ">=9.1.2"
   },
-  "packageManager": "pnpm@9.15.1"
+  "packageManager": "pnpm@9.15.1",
+  "pnpm": {
+    "overrides": {
+      "use-sync-external-store": "^1.6.0",
+      "quansync": "^1.0.0"
+    }
+  }
 }
