@@ -167,12 +167,13 @@ export const AlexVideos: FC = () => {
                     href={video.url.mp4}
                     target={'_blank'}
                     className={'p-1 text-white hover:bg-white hover:text-black'}
+                    rel="noreferrer"
                   >
                     Direct link
                   </a>
                 </div>
                 <div>
-                  <a href={video.directLink} target={'_blank'}>
+                  <a href={video.directLink} target={'_blank'} rel="noreferrer">
                     Iframe
                   </a>
                 </div>

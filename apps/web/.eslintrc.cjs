@@ -31,15 +31,22 @@ module.exports = {
     '@belgattitude/eslint-config-bases/react',
     '@belgattitude/eslint-config-bases/react-query',
     '@belgattitude/eslint-config-bases/storybook',
-    'next/core-web-vitals',
     // after next plugins to avoid parser errors
     // '@belgattitude/eslint-config-bases/mdx',
     // Apply prettier and disable incompatible rules
     '@belgattitude/eslint-config-bases/prettier-plugin',
   ],
   rules: {
+    // These have to be enabled asap
+    'react-hooks/refs': 'warn',
+    'react-hooks/immutability': 'warn',
+
+    // Threejs related
+    'react/no-unknown-property': 'warn',
+
     'jsx-a11y/mouse-events-have-key-events': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
+    'jsx-a11y/alt-text': 'off',
     'jsx-a11y/media-has-caption': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
