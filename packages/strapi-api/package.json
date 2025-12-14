@@ -28,7 +28,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@belgattitude/eslint-config-bases": "8.7.1",
+    "@belgattitude/eslint-config-bases": "8.8.0",
     "@typescript-eslint/eslint-plugin": "8.49.0",
     "@typescript-eslint/typescript-estree": "8.49.0",
     "@types/fs-extra": "11.0.4",

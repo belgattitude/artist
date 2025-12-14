@@ -16,10 +16,7 @@
     "clean": "rimraf ./.next ./out ./coverage ./tsconfig.tsbuildinfo ./node_modules/.cache",
     "codegen-graphql-schema": "dotenv-flow -- pnpm graphql-codegen --config codegen.schema-ast.ts",
     "codegen-graphql": "dotenv-flow -- pnpm graphql-codegen --config codegen.ts",
-    "codegen": "run-s codegen-graphql-schema codegen-graphql",
-    "bundle-analyze": "cross-env ANALYZE=true NEXTJS_IGNORE_TYPECHECK=1 next build",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "codegen": "run-s codegen-graphql-schema codegen-graphql"
   },
   "browserslist": [
     "chrome 90"
@@ -93,7 +90,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.28.5",
-    "@belgattitude/eslint-config-bases": "8.7.1",
+    "@belgattitude/eslint-config-bases": "8.8.0",
     "@emotion/babel-preset-css-prop": "11.12.0",
     "@graphql-codegen/cli": "6.1.0",
     "@graphql-codegen/client-preset": "5.2.1",
@@ -101,12 +98,6 @@
     "@graphql-codegen/typescript-urql": "4.0.1",
     "@graphql-typed-document-node/core": "3.2.0",
     "@next/bundle-analyzer": "16.0.10",
-    "@storybook/addon-essentials": "8.6.14",
-    "@storybook/addon-interactions": "8.6.14",
-    "@storybook/addon-links": "10.1.8",
-    "@storybook/blocks": "8.6.14",
-    "@storybook/nextjs": "10.1.8",
-    "@storybook/react": "10.1.8",
     "@svgr/webpack": "8.1.0",
     "@tailwindcss/forms": "0.5.10",
     "@tailwindcss/postcss": "4.1.18",
@@ -124,7 +115,6 @@
     "css-loader": "7.1.2",
     "dotenv-flow-cli": "1.1.1",
     "eslint": "8.57.1",
-    "eslint-config-next": "16.0.10",
     "eslint-plugin-mdx": "3.6.2",
     "glslify": "7.1.1",
     "glslify-loader": "2.0.0",
@@ -136,7 +126,6 @@
     "raw-loader": "4.0.2",
     "rimraf": "6.1.2",
     "sass": "1.96.0",
-    "storybook": "10.1.8",
     "style-loader": "4.0.0",
     "tailwindcss": "4.1.18",
     "ts-node": "10.9.2",
