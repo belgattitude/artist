@@ -143,6 +143,12 @@ let nextConfig = {
 
     // @link {https://nextjs.org/blog/next-11-1#es-modules-support|Blog 11.1.0}
     esmExternals: true,
+
+    useLightningcss: true,
+    lightningCssFeatures: {
+      include: ['light-dark', 'oklab-colors'],
+      exclude: ['nesting'],
+    },
   },
 
   typescript: {
