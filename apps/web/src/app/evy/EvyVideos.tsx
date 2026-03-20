@@ -19,7 +19,7 @@ type BunnyVideo = {
   directLink: string;
 };
 
-const getAlexBunnyVideos = (): BunnyVideo[] => {
+const getEvyBunnyVideos = (): BunnyVideo[] => {
   const bunnyBase = `https://${evyConfig.bunnyPullZone}.b-cdn.net`;
   return [
     {
@@ -51,7 +51,7 @@ const getAlexBunnyVideos = (): BunnyVideo[] => {
 };
 
 export const EvyVideos: FC = () => {
-  const bunnyVideos = getAlexBunnyVideos();
+  const bunnyVideos = getEvyBunnyVideos();
   return (
     <div
       className={

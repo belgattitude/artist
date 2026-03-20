@@ -18,14 +18,14 @@ export const EvyHomePage: FC = () => {
         }
       >
         <span className={'text-2xl'}>Instant narratives</span>
-        <span className={'pl-2 text-sm italic'}>with Alexandra Morette</span>
+        <span className={'pl-2 text-sm italic'}>with Evy</span>
       </div>
       <EvyBgVideo />
       <div className={'flex flex-col'}>
         <div className={'flex items-center justify-center gap-5'}>
           <div
             className={
-              'mt-[100px] p-5 text-4xl font-extralight text-gray-100 mix-blend-exclusion lg:text-9xl'
+              'mt-25 p-5 text-4xl font-extralight text-gray-100 mix-blend-exclusion lg:text-9xl'
             }
           >
             <div className={''}>
@@ -33,7 +33,7 @@ export const EvyHomePage: FC = () => {
               <div>r(e)lations</div>
             </div>
             <div className={'text-xl'}>
-              between a camera and an improvised dance.
+              between body and states during a therapy session.
             </div>
           </div>
         </div>
