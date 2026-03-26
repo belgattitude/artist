@@ -31,7 +31,7 @@ const getEvyBunnyVideos = (): BunnyVideo[] => {
     },
     {
       title: 'Practice 1 - Ananda studio  - part 2',
-      videoId: 'd5aa7c3c-b7be-4b9e-b989-759518fc9020',
+      videoId: '6319e312-cf7e-4af5-a621-5ae6c4abc09d',
       filmedBy: 'Kat',
       period: 'March 2026',
       location: 'Ananda studio - Petralona',
