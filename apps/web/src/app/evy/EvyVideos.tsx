@@ -22,17 +22,17 @@ type BunnyVideo = {
 const getEvyBunnyVideos = (): BunnyVideo[] => {
   const bunnyBase = `https://${evyConfig.bunnyPullZone}.b-cdn.net`;
   return [
-    /* {
-      title: 'Practice 1 - Ananda studio  - part 2',
-      videoId: 'd5aa7c3c-b7be-4b9e-b989-759518fc9020',
-      filmedBy: 'Kat',
-      period: 'March 2026',
-      location: 'Ananda studio - Petralona',
-    }, */
     {
       title: 'Practice 1 - Ananda studio - part 5',
       videoId: 'd5aa7c3c-b7be-4b9e-b989-759518fc9020',
       filmedBy: 'Sébastien Vanvelthem',
+      period: 'March 2026',
+      location: 'Ananda studio - Petralona',
+    },
+    {
+      title: 'Practice 1 - Ananda studio  - part 2',
+      videoId: 'd5aa7c3c-b7be-4b9e-b989-759518fc9020',
+      filmedBy: 'Kat',
       period: 'March 2026',
       location: 'Ananda studio - Petralona',
     },
